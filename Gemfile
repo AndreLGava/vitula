@@ -88,9 +88,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Code quality
-  gem 'rubocop', '~> 0.39.0', require: false
-
   # Specs instead of unit test
   gem 'rspec-rails'
 
