@@ -10,6 +10,15 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+#validates with jquery validate
+gem "jquery-validation-rails"
+
+#Jquery mask
+gem 'jquery-mask-plugin', '~> 0.1.0'
+
+#datepicker bootstrap
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
+
 # A lot interface components
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
