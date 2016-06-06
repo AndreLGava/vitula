@@ -16,6 +16,9 @@ gem "jquery-validation-rails"
 #Jquery mask
 gem 'jquery-mask-plugin', '~> 0.1.0'
 
+#customizable alert js
+gem 'alertify-rails'
+
 #datepicker bootstrap
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 
@@ -99,6 +102,18 @@ group :development, :test do
 
   # Matchers for specs
   gem 'shoulda-matchers'
+end
+
+group :quality do
+  #security
+  gem 'brakeman', '~> 3.3', '>= 3.3.1'
+  
+  #code quality and style
+  gem 'rubocop', '~> 0.40.0'
+  
+  #report of quality and complexity
+  gem 'rubycritic', '~> 2.9', '>= 2.9.1'
+  
 end
 
 group :development do
