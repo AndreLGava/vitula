@@ -16,3 +16,6 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import 'alertify/core';
+@import 'alertify/themes/bootstrap3'; // Chose one theme of default, bootstrap and bootstrap3
