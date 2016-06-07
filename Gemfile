@@ -17,7 +17,7 @@ gem "jquery-validation-rails"
 gem 'jquery-mask-plugin', '~> 0.1.0'
 
 #customizable alert js
-gem 'alertify-rails'
+gem 'alertifyjs-rails'
 
 #datepicker bootstrap
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'

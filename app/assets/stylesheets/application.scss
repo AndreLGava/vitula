@@ -17,6 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import 'alertify.core';
-@import 'alertify.default';
+ @import "alertify";
+ @import "alertify/default";
+ @import "alertify/bootstrap";
 
