@@ -1,0 +1,23 @@
+<%= link_to "New Module", new_module_path %>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<table class="table table-responsive table-striped">
+			<tr>
+				<td width="10%">Code</td>
+				<td width="30%">Name</td>
+				<td>Description</td>
+				<td width="10%">Edit</td>
+				<td width="10%">Delete</td>
+			</tr>
+			<% @modules.each do |mod| %>
+				<tr>
+					<td><%= mod.code %></td>
+					<td><%= mod.name %></td>
+					<td><%= mod.description %></td>
+					<td><%= link_to "", edit_module_path(mod), class: "fa fa-pen" %></td>
+					<td><%= link_to "", mod, method: :delete, class: "fa fa-trash" %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
