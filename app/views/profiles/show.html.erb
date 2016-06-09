@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-sm btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
