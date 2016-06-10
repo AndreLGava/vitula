@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :profiles
-  resources :modules
+  resources :modulos
+  resources :funcionalities
 
 end
