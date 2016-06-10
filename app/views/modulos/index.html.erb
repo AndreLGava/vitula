@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h3>Listing Modulos</h3>
+<%= link_to 'New Modulo', new_modulo_path, class: "btn btn-info pull-right" %>
 
-<h1>Listing Modulos</h1>
-
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,9 +15,9 @@
       <tr>
         <td><%= modulo.name %></td>
         <td><%= modulo.description %></td>
-        <td><%= link_to 'Show', modulo %></td>
-        <td><%= link_to 'Edit', edit_modulo_path(modulo) %></td>
-        <td><%= link_to 'Destroy', modulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', modulo, class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_modulo_path(modulo), class: "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', modulo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,3 @@
 
 <br>
 
-<%= link_to 'New Modulo', new_modulo_path %>
