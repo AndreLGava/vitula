@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h3>Listing Permissions</h3>
+<%= link_to 'New Permission', new_permission_path, class: "btn btn-info pull-right" %>
 
-<h1>Listing Permissions</h1>
-
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Create</th>
@@ -24,8 +23,8 @@
         <td><%= permission.update %></td>
         <td><%= permission.delete %></td>
         <td><%= permission.print %></td>
-        <td><%= permission.modulo %></td>
-        <td><%= permission.functionality %></td>
+        <td><%= permission.modulo.name %></td>
+        <td><%= permission.functionality.name %></td>
         <td><%= link_to 'Show', permission %></td>
         <td><%= link_to 'Edit', edit_permission_path(permission) %></td>
         <td><%= link_to 'Destroy', permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,6 +33,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Permission', new_permission_path %>

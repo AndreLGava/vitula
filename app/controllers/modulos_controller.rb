@@ -28,7 +28,7 @@ class ModulosController < ApplicationController
 
     respond_to do |format|
       if @modulo.save
-        format.html { redirect_to @modulo, notice: 'Modulo was successfully created.' }
+        format.html { redirect_to modulos_path, notice: 'Modulo was successfully created.' }
         format.json { render :show, status: :created, location: @modulo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ModulosController < ApplicationController
   def update
     respond_to do |format|
       if @modulo.update(modulo_params)
-        format.html { redirect_to @modulo, notice: 'Modulo was successfully updated.' }
+        format.html { redirect_to modulos_path, notice: 'Modulo was successfully updated.' }
         format.json { render :show, status: :ok, location: @modulo }
       else
         format.html { render :edit }

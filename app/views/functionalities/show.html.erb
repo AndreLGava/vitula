@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @functionality.name %>
@@ -12,8 +10,8 @@
 
 <p>
   <strong>Modulo:</strong>
-  <%= @functionality.modulo %>
+  <%= @functionality.modulo.name %>
 </p>
 
-<%= link_to 'Edit', edit_functionality_path(@functionality) %> |
-<%= link_to 'Back', functionalities_path %>
+<%= link_to 'Edit', edit_functionality_path(@functionality), class: "btn btn-sm btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>

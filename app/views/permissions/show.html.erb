@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Create:</strong>
   <%= @permission.create %>
@@ -27,13 +25,13 @@
 
 <p>
   <strong>Modulo:</strong>
-  <%= @permission.modulo %>
+  <%= @permission.modulo.name %>
 </p>
 
 <p>
   <strong>Functionality:</strong>
-  <%= @permission.functionality %>
+  <%= @permission.functionality.name %>
 </p>
 
-<%= link_to 'Edit', edit_permission_path(@permission) %> |
-<%= link_to 'Back', permissions_path %>
+<%= link_to 'Edit', edit_permission_path(@permission), class: "btn btn-sm btn-default" %>
+<%= link_to 'Back', permissions_path, class: "btn btn-sm btn-default" %>

@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h3>Listing Functionalities</h3>
+<%= link_to 'New Functionality', new_functionality_path, class: "btn btn-info pull-right" %>
 
-<h1>Listing Functionalities</h1>
-
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,15 +16,13 @@
       <tr>
         <td><%= functionality.name %></td>
         <td><%= functionality.description %></td>
-        <td><%= functionality.modulo %></td>
-        <td><%= link_to 'Show', functionality %></td>
-        <td><%= link_to 'Edit', edit_functionality_path(functionality) %></td>
-        <td><%= link_to 'Destroy', functionality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= functionality.modulo.name %></td>
+        <td><%= link_to 'Show', functionality, class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_functionality_path(functionality), class: "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', functionality, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Functionality', new_functionality_path %>
