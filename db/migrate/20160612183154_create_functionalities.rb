@@ -1,6 +1,6 @@
-class CreateFuncionalities < ActiveRecord::Migration
+class CreateFunctionalities < ActiveRecord::Migration
   def change
-    create_table :funcionalities do |t|
+    create_table :functionalities do |t|
       t.string :name
       t.string :description
       t.references :modulo, index: true, foreign_key: true

@@ -1,0 +1,17 @@
+<%= simple_form_for(@permission) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :create %>
+    <%= f.input :read %>
+    <%= f.input :update %>
+    <%= f.input :delete %>
+    <%= f.input :print %>
+    <%= f.association :modulo %>
+    <%= f.association :functionality %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

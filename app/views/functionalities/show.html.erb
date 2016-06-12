@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @functionality.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @functionality.description %>
+</p>
+
+<p>
+  <strong>Modulo:</strong>
+  <%= @functionality.modulo %>
+</p>
+
+<%= link_to 'Edit', edit_functionality_path(@functionality) %> |
+<%= link_to 'Back', functionalities_path %>

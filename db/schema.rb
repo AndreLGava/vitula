@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610005540) do
+ActiveRecord::Schema.define(version: 20160612183154) do
 
-  create_table "funcionalities", force: :cascade do |t|
+  create_table "functionalities", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "modulo_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160610005540) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "funcionalities", ["modulo_id"], name: "index_funcionalities_on_modulo_id"
+  add_index "functionalities", ["modulo_id"], name: "index_functionalities_on_modulo_id"
 
   create_table "modulos", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20160610005540) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "permissions", force: :cascade do |t|
+    t.boolean  "create"
+    t.boolean  "read"
+    t.boolean  "update"
+    t.boolean  "delete"
+    t.boolean  "print"
+    t.integer  "modulo_id"
+    t.integer  "functionality_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "permissions", ["functionality_id"], name: "index_permissions_on_functionality_id"
+  add_index "permissions", ["modulo_id"], name: "index_permissions_on_modulo_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
