@@ -13,6 +13,9 @@ gem 'sass-rails', '~> 5.0'
 #validates with jquery validate
 gem "jquery-validation-rails"
 
+#Dual list (select) bootstrap based
+gem 'bootstrap-duallistbox-rails', '~> 3.0', '>= 3.0.2'
+
 #Jquery mask
 gem 'jquery-mask-plugin', '~> 0.1.0'
 
