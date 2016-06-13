@@ -28,7 +28,7 @@ class PermissionsController < ApplicationController
 
     respond_to do |format|
       if @permission.save
-        format.html { redirect_to @permission, notice: 'Permission was successfully created.' }
+        format.html { redirect_to permissions_path, notice: 'Permission was successfully created.' }
         format.json { render :show, status: :created, location: @permission }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PermissionsController < ApplicationController
   def update
     respond_to do |format|
       if @permission.update(permission_params)
-        format.html { redirect_to @permission, notice: 'Permission was successfully updated.' }
+        format.html { redirect_to permissions_path, notice: 'Permission was successfully updated.' }
         format.json { render :show, status: :ok, location: @permission }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class PermissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def permission_params
-      params.require(:permission).permit(:create, :read, :update, :delete, :print, :modulo_id, :functionality_id)
+      params.require(:permission).permit(:criar, :ler, :atualizar, :deletar, :imprimir, :profile_id, :functionality_id)
     end
 end

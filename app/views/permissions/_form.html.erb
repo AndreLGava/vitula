@@ -2,16 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :create %>
-    <%= f.input :read %>
-    <%= f.input :update %>
-    <%= f.input :delete %>
-    <%= f.input :print %>
-    <%= f.association :modulo %>
+    <%= f.association :profile %>
     <%= f.association :functionality %>
+    <%= f.input :criar %>
+    <%= f.input :ler %>
+    <%= f.input :atualizar %>
+    <%= f.input :deletar %>
+    <%= f.input :imprimir %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
 <% end %>

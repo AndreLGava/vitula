@@ -8,7 +8,7 @@ RSpec.describe "permissions/edit", type: :view do
       :update => false,
       :delete => false,
       :print => false,
-      :modulo => nil,
+      :profile => nil,
       :functionality => nil
     ))
   end
@@ -28,7 +28,7 @@ RSpec.describe "permissions/edit", type: :view do
 
       assert_select "input#permission_print[name=?]", "permission[print]"
 
-      assert_select "input#permission_modulo_id[name=?]", "permission[modulo_id]"
+      assert_select "input#permission_profile_id[name=?]", "permission[profile_id]"
 
       assert_select "input#permission_functionality_id[name=?]", "permission[functionality_id]"
     end

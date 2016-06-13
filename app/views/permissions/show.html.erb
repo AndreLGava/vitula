@@ -1,31 +1,31 @@
 <p>
   <strong>Create:</strong>
-  <%= @permission.create %>
+  <%= @permission.criar %>
 </p>
 
 <p>
   <strong>Read:</strong>
-  <%= @permission.read %>
+  <%= @permission.ler %>
 </p>
 
 <p>
   <strong>Update:</strong>
-  <%= @permission.update %>
+  <%= @permission.atualizar %>
 </p>
 
 <p>
   <strong>Delete:</strong>
-  <%= @permission.delete %>
+  <%= @permission.deletar %>
 </p>
 
 <p>
   <strong>Print:</strong>
-  <%= @permission.print %>
+  <%= @permission.imprimir %>
 </p>
 
 <p>
-  <strong>Modulo:</strong>
-  <%= @permission.modulo.name %>
+  <strong>Profile:</strong>
+  <%= @permission.profile.name %>
 </p>
 
 <p>
@@ -34,4 +34,4 @@
 </p>
 
 <%= link_to 'Edit', edit_permission_path(@permission), class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', permissions_path, class: "btn btn-sm btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>

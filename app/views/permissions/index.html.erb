@@ -4,13 +4,13 @@
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
+      <th>Profile</th>
+      <th>Functionality</th>
       <th>Create</th>
       <th>Read</th>
       <th>Update</th>
       <th>Delete</th>
       <th>Print</th>
-      <th>Modulo</th>
-      <th>Functionality</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,16 +18,16 @@
   <tbody>
     <% @permissions.each do |permission| %>
       <tr>
-        <td><%= permission.create %></td>
-        <td><%= permission.read %></td>
-        <td><%= permission.update %></td>
-        <td><%= permission.delete %></td>
-        <td><%= permission.print %></td>
-        <td><%= permission.modulo.name %></td>
+        <td><%= permission.profile.name %></td>
         <td><%= permission.functionality.name %></td>
-        <td><%= link_to 'Show', permission %></td>
-        <td><%= link_to 'Edit', edit_permission_path(permission) %></td>
-        <td><%= link_to 'Destroy', permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= permission.criar %></td>
+        <td><%= permission.ler %></td>
+        <td><%= permission.atualizar %></td>
+        <td><%= permission.deletar %></td>
+        <td><%= permission.imprimir %></td>
+        <td><%= link_to 'Show', permission, class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_permission_path(permission), class: "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Destroy', permission, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>

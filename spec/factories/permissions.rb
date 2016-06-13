@@ -5,7 +5,7 @@ FactoryGirl.define do
     update false
     delete false
     print false
-    modulo nil
+    profile nil
     functionality nil
   end
 end

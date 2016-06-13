@@ -9,7 +9,7 @@ RSpec.describe "permissions/index", type: :view do
         :update => false,
         :delete => false,
         :print => false,
-        :modulo => nil,
+        :profile => nil,
         :functionality => nil
       ),
       Permission.create!(
@@ -18,7 +18,7 @@ RSpec.describe "permissions/index", type: :view do
         :update => false,
         :delete => false,
         :print => false,
-        :modulo => nil,
+        :profile => nil,
         :functionality => nil
       )
     ])
