@@ -1,17 +1,17 @@
 <p>
-  <strong>Name:</strong>
+  <strong><%= Functionality.human_attribute_name(:name)%></strong>
   <%= @functionality.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Functionality.human_attribute_name(:description)%></strong>
   <%= @functionality.description %>
 </p>
 
 <p>
-  <strong>Modulo:</strong>
+  <strong><%= Functionality.human_attribute_name(:modulo)%></strong>
   <%= @functionality.modulo.name %>
 </p>
 
-<%= link_to 'Edit', edit_functionality_path(@functionality), class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.edit'), edit_functionality_path(@functionality), class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>

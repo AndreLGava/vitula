@@ -28,7 +28,7 @@ class FunctionalitiesController < ApplicationController
 
     respond_to do |format|
       if @functionality.save
-        format.html { redirect_to functionalities_path, notice: 'Functionality was successfully created.' }
+        format.html { redirect_to functionalities_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @functionality }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FunctionalitiesController < ApplicationController
   def update
     respond_to do |format|
       if @functionality.update(functionality_params)
-        format.html { redirect_to functionalities_path, notice: 'Functionality was successfully updated.' }
+        format.html { redirect_to functionalities_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @functionality }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FunctionalitiesController < ApplicationController
   def destroy
     @functionality.destroy
     respond_to do |format|
-      format.html { redirect_to functionalities_url, notice: 'Functionality was successfully destroyed.' }
+      format.html { redirect_to functionalities_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end

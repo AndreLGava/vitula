@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      funtionality: Funcionalidade
+    attributes:
+      funtionality:
+        funtionality: Funcionalidade
+        name: Nome
+        description: Descrição

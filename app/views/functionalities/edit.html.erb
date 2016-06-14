@@ -1,6 +1,6 @@
-<h3>Editing Functionality</h3>
+<h3><%= t('functionalities.edit.edit')%></h3>
 
 <%= render 'form' %>
 <br>
-<%= link_to 'Show', @functionality, class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.show'), @functionality, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>

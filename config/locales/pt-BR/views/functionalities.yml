@@ -1,0 +1,10 @@
+pt-BR:
+  functionalities:
+    index:
+      functionality: Funcionalidade
+    new:
+      new: Nova functionalidade
+    edit:
+      edit: Alterando functionalidade
+    show:
+      modulo: Functionalidade
