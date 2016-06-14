@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      modulo: Módulo
+    attributes:
+      modulo:
+        modulo: Módulo
+        name: Nome
+        description: Descrição

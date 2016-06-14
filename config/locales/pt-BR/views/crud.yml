@@ -1,0 +1,13 @@
+pt-BR:
+  crud:
+    save: Salvar
+    informations: Informações gerais
+    saved: Salvo com sucesso.
+    show: Mostrar
+    edit: Editar
+    delete: Excluir
+    destroyed: Removido com sucesso.
+    not_destroyed: Falha ao remover o registro.
+    new: Novo registro
+    destroy_confirmation: Tem certeza que deseja remover?
+    back: Voltar
