@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      profile: Perfil
+    attributes:
+      profile:
+        profile: Perfil
+        name: Nome
+        description: Descrição

@@ -1,0 +1,10 @@
+pt-BR:
+  permissions:
+    index:
+      permissions: Permissões
+    new:
+      new: Nova permissão
+    edit:
+      edit: Alterando permissão
+    show:
+      modulo: Permissão

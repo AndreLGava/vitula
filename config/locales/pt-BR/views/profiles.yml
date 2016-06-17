@@ -1,0 +1,10 @@
+pt-BR:
+  profiles:
+    index:
+      profiles: Perfis
+    new:
+      new: Novo perfil
+    edit:
+      edit: Alterando perfil
+    show:
+      profile: Perfil

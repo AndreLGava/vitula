@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      permission: Permissão
+    attributes:
+      permission:
+        permission: Permissão
+        profile: Perfil
+        functionality: Funcionalidade
+        criar: Criar
+        ler: ler
+        atualizar: Atualizar
+        deletar: Excluir
+        imprimir: Imprimir

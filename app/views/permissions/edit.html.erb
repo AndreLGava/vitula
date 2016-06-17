@@ -1,6 +1,7 @@
-<h1>Editing Permission</h1>
+<h3><%= t('permissions.edit.edit')%></h3>
 
 <%= render 'form' %>
 <br>
-<%= link_to 'Show', @permission, class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', permissions_path, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.show'), @permission, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>
+

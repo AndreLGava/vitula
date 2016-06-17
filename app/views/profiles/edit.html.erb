@@ -1,6 +1,6 @@
-<h1>Editing Profile</h1>
+<h3><%= t('profiles.edit.edit')%></h3>
 
 <%= render 'form' %>
 <br>
-<%= link_to 'Show', @profile, class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.show'), @profile, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>

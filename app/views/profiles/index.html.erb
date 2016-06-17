@@ -1,11 +1,13 @@
-<h3>Listing Profiles</h3>
-<%= link_to 'New Profile', new_profile_path, class: "btn btn-info pull-right" %>
+<h3><%= Profile.human_attribute_name(:profile)%></h3>
+<%= link_to  new_profile_path, class: "btn btn-info pull-right" do %>
+  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
+<% end %>
 
-<table class=" table table-responsive table-striped">
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
+      <th><%= Profile.human_attribute_name(:name)%></th>
+      <th><%= Profile.human_attribute_name(:description)%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +17,22 @@
       <tr>
         <td><%= profile.name %></td>
         <td><%= profile.description %></td>
-        <td><%= link_to 'Show', profile, class: "btn btn-sm btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-sm btn-default" %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+        <td><%= link_to profile, class: "btn btn-sm btn-primary" do %>
+          <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+        <% end %>
+        </td>
+        <td><%= link_to edit_profile_path(profile), class: "btn btn-sm btn-default" do %>
+          <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+        <% end %>
+        </td>
+        <td><%= link_to profile,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
+          <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 <br>
 

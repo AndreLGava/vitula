@@ -1,12 +1,12 @@
 <p>
-  <strong>Name:</strong>
+  <strong><%= Profile.human_attribute_name(:name)%></strong>
   <%= @profile.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Profile.human_attribute_name(:description)%></strong>
   <%= @profile.description %>
 </p>
-
-<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
+<br>
+<%= link_to I18n.t('crud.edit'), edit_profile_path(@profile), class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>
