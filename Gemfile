@@ -54,6 +54,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # User management
 gem 'devise'
 
+#authorization
+gem 'cancan', '~> 1.6', '>= 1.6.10'
+
 # register everithig that users do
 gem 'paper_trail', '~> 5.1', '>= 5.1.1'
 
