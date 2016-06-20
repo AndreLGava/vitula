@@ -25,7 +25,7 @@ class ReproductionsController < ApplicationController
   # POST /reproductions.json
   def create
     @reproduction = Reproduction.new(reproduction_params)
-
+    binding.pry
     respond_to do |format|
       if @reproduction.save
         format.html { redirect_to @reproduction, notice: 'Reproduction was successfully created.' }

@@ -6,8 +6,8 @@ class CreateReproductions < ActiveRecord::Migration
       t.date :regress
       t.date :abortion
       t.date :parturition
-      t.references :animal, index: true, foreign_key: true
-      t.references :animal, index: true, foreign_key: true
+      t.references :animal, :father, index: true, foreign_key: true
+      t.references :animal, :mother, index: true, foreign_key: true
 
       t.timestamps null: false
     end

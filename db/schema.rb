@@ -62,11 +62,15 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.date     "abortion"
     t.date     "parturition"
     t.integer  "animal_id"
+    t.integer  "father_id"
+    t.integer  "mother_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id"
+  add_index "reproductions", ["father_id"], name: "index_reproductions_on_father_id"
+  add_index "reproductions", ["mother_id"], name: "index_reproductions_on_mother_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
