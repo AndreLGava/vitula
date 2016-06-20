@@ -25,7 +25,6 @@ class ReproductionsController < ApplicationController
   # POST /reproductions.json
   def create
     @reproduction = Reproduction.new(reproduction_params)
-    binding.pry
     respond_to do |format|
       if @reproduction.save
         format.html { redirect_to @reproduction, notice: 'Reproduction was successfully created.' }
@@ -69,6 +68,6 @@ class ReproductionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reproduction_params
-      params.require(:reproduction).permit(:heat, :insemination, :regress, :abortion, :parturition, :animal_id, :animal_id)
+      params.require(:reproduction).permit(:heat, :insemination, :regress, :abortion, :parturition, :mother_id, :father_id)
     end
 end
