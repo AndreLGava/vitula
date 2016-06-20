@@ -27,12 +27,12 @@
 
 <p>
   <strong>Animal:</strong>
-  <%= @reproduction.mother.name %>
+  <%= @reproduction.mother.name unless @reproduction.mother.nil?%>
 </p>
 
 <p>
   <strong>Animal:</strong>
-  <%= @reproduction.father.name %>
+  <%= @reproduction.father.name unless @reproduction.father.nil?%>
 </p>
 
 <%= link_to 'Edit', edit_reproduction_path(@reproduction) %> |
