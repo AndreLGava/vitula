@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609005044) do
+ActiveRecord::Schema.define(version: 20160620010332) do
+
+  create_table "animals", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "name"
+    t.string   "description"
+    t.date     "born"
+    t.boolean  "female"
+    t.string   "breed"
+    t.integer  "lot_id"
+    t.integer  "reproduction_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "animals", ["lot_id"], name: "index_animals_on_lot_id"
+  add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id"
+
+  create_table "lots", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "lots", ["property_id"], name: "index_lots_on_property_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +45,28 @@ ActiveRecord::Schema.define(version: 20160609005044) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.float    "long"
+    t.float    "lat"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "reproductions", force: :cascade do |t|
+    t.date     "heat"
+    t.date     "insemination"
+    t.date     "regress"
+    t.date     "abortion"
+    t.date     "parturition"
+    t.integer  "animal_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

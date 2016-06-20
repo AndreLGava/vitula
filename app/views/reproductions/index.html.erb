@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reproductions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Heat</th>
+      <th>Insemination</th>
+      <th>Regress</th>
+      <th>Abortion</th>
+      <th>Parturition</th>
+      <th>Animal</th>
+      <th>Animal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reproductions.each do |reproduction| %>
+      <tr>
+        <td><%= reproduction.heat %></td>
+        <td><%= reproduction.insemination %></td>
+        <td><%= reproduction.regress %></td>
+        <td><%= reproduction.abortion %></td>
+        <td><%= reproduction.parturition %></td>
+        <td><%= reproduction.animal %></td>
+        <td><%= reproduction.animal %></td>
+        <td><%= link_to 'Show', reproduction %></td>
+        <td><%= link_to 'Edit', edit_reproduction_path(reproduction) %></td>
+        <td><%= link_to 'Destroy', reproduction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reproduction', new_reproduction_path %>
