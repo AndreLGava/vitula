@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @lot.name %>
@@ -15,5 +13,5 @@
   <%= @lot.property %>
 </p>
 
-<%= link_to 'Edit', edit_lot_path(@lot) %> |
-<%= link_to 'Back', lots_path %>
+<%= link_to 'Edit', edit_lot_path(@lot), class: "btn btn-sm btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>

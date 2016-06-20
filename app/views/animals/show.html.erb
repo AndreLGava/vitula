@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Code:</strong>
   <%= @animal.code %>
@@ -40,5 +38,5 @@
   <%= @animal.reproduction %>
 </p>
 
-<%= link_to 'Edit', edit_animal_path(@animal) %> |
-<%= link_to 'Back', animals_path %>
+<%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
+<%= link_to 'Back', :back, class: "btn btn-default btn-sm" %>

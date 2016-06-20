@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h3>Listing Reproductions</h3>
+<%= link_to  new_reproduction_path, class: "btn btn-info pull-right" do %>
+  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
+<% end %>
 
-<h1>Listing Reproductions</h1>
-
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Heat</th>
@@ -26,14 +27,21 @@
         <td><%= reproduction.parturition %></td>
         <td><%= reproduction.mother.name unless reproduction.mother.nil? %></td>
         <td><%= reproduction.father.name unless reproduction.father.nil? %></td>
-        <td><%= link_to 'Show', reproduction %></td>
-        <td><%= link_to 'Edit', edit_reproduction_path(reproduction) %></td>
-        <td><%= link_to 'Destroy', reproduction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to reproduction, class: "btn btn-sm btn-primary" do %>
+          <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+        <% end %>
+        </td>
+        <td><%= link_to edit_reproduction_path(reproduction), class: "btn btn-sm btn-default" do %>
+          <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+        <% end %>
+        </td>
+        <td><%= link_to reproduction,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
+          <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Reproduction', new_reproduction_path %>

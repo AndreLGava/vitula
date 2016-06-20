@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Heat:</strong>
   <%= @reproduction.heat %>
@@ -35,5 +33,5 @@
   <%= @reproduction.father.name unless @reproduction.father.nil?%>
 </p>
 
-<%= link_to 'Edit', edit_reproduction_path(@reproduction) %> |
-<%= link_to 'Back', reproductions_path %>
+<%= link_to 'Edit', edit_reproduction_path(@reproduction), class: "btn btn-sm btn-default" %>
+<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>

@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h3>Listing Properties</h3>
+<%= link_to  new_property_path, class: "btn btn-info pull-right" do %>
+  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
+<% end %>
 
-<h1>Listing Properties</h1>
-
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,14 +21,21 @@
         <td><%= property.description %></td>
         <td><%= property.long %></td>
         <td><%= property.lat %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to property, class: "btn btn-sm btn-primary" do %>
+          <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+        <% end %>
+        </td>
+        <td><%= link_to edit_property_path(property), class: "btn btn-sm btn-default" do %>
+          <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+        <% end %>
+        </td>
+        <td><%= link_to property,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
+          <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Property', new_property_path %>

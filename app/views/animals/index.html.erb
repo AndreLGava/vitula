@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h3>Listing Animals</h3>
+<%= link_to  new_animal_path, class: "btn btn-info pull-right" do %>
+  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
+<% end %>
 
-<h1>Listing Animals</h1>
-
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Code</th>
@@ -28,14 +29,21 @@
         <td><%= animal.breed %></td>
         <td><%= animal.lot %></td>
         <td><%= animal.reproduction %></td>
-        <td><%= link_to 'Show', animal %></td>
-        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to animal, class: "btn btn-sm btn-primary" do %>
+          <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+        <% end %>
+        </td>
+        <td><%= link_to edit_animal_path(animal), class: "btn btn-sm btn-default" do %>
+          <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+        <% end %>
+        </td>
+        <td><%= link_to animal,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
+          <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Animal', new_animal_path %>

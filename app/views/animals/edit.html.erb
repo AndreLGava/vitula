@@ -1,6 +1,6 @@
-<h1>Editing Animal</h1>
+<h3>Editing Animal</h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @animal %> |
-<%= link_to 'Back', animals_path %>
+<%= link_to 'Show', @animal, class: 'btn btn-default btn-sm' %>
+<%= link_to 'Back', :back, class: 'btn btn-default btn-sm' %>
