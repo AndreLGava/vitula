@@ -110,13 +110,13 @@ end
 group :quality do
   #security
   gem 'brakeman', '~> 3.3', '>= 3.3.1'
-  
+
   #code quality and style
   gem 'rubocop', '~> 0.40.0'
-  
+
   #report of quality and complexity
   gem 'rubycritic', '~> 2.9', '>= 2.9.1'
-  
+
 end
 
 group :development do
@@ -133,4 +133,3 @@ group :development do
   gem 'pry'
 
 end
-

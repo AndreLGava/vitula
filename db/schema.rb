@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.string   "name"
     t.string   "description"
     t.date     "born"
+    t.date     "discard"
+    t.string   "reason_discard"
     t.boolean  "female"
     t.string   "breed"
     t.integer  "lot_id"

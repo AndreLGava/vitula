@@ -18,7 +18,7 @@
       <tr>
         <td><%= lot.name %></td>
         <td><%= lot.description %></td>
-        <td><%= lot.property %></td>
+        <td><%= lot.property.name %></td>
         <td><%= link_to lot, class: "btn btn-sm btn-primary" do %>
           <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
         <% end %>
