@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
-  before_action :set_reproduction
+  before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
   def index
     @animals = Animal.all
@@ -56,7 +56,8 @@ class AnimalsController < ApplicationController
     end
 
     def set_reproduction
-      @reproduction = Reproduction.all
+      Reproduction.all
+      #Reproduction.all.map{|i| {id: i.id, parturition: i.parturition, mother: i.mother.name, father: i.father.name}}
     end
 
     def animal_params

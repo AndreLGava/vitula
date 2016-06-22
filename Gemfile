@@ -81,6 +81,8 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 #manipulate image files
 gem 'papercrop', '~> 0.3.0'
 
+gem 'awesome_print', :require => 'ap'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

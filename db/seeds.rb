@@ -9,6 +9,9 @@
 
 # ruby enconding: utf-8
 
+puts "Generate Profiles"
+Profile.create(name: "Administrador", description: "Administrador geral do sistema")
+Profile.create(name: "Agricultor", description: "Produtor rural")
 
 puts "Generate Properties"
 Property.create(name: "Propriedade de teste", description: "Propriedade rural de produção leitera", long: 25.9422996, lat: -58.6004562)
@@ -32,5 +35,4 @@ Animal.create(code: 345552, name: "Pequena", description: "Vaca holandeza de gra
 Animal.create(code: 544546, name: "Laranja", description: "Vaca holandeza de grande porte", born: 2006-04-20, female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
 
 puts "Generates Reproduction"
-
 Reproduction.create( heat: 2016-05-22, father_id: 2, mother_id: 1)
