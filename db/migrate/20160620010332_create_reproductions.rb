@@ -5,6 +5,7 @@ class CreateReproductions < ActiveRecord::Migration
       t.date :insemination
       t.date :regress
       t.date :abortion
+      t.date :stop_breastfeeding
       t.date :parturition
       t.references :animal, :father, index: true, foreign_key: true
       t.references :animal, :mother, index: true, foreign_key: true

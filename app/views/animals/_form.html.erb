@@ -9,7 +9,9 @@
     <%= f.input :female %>
     <%= f.input :breed %>
     <%= f.association :lot %>
-    <%= f.association :reproduction %>
+    <%= f.association :reproduction, :collection => @reproduction, :label_method => :parturition, :value_method => :id %>
+    <%= f.input :discard %>
+    <%= f.input :reason_discard %>
   </div>
 
   <div class="form-actions">

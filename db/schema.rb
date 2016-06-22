@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.date     "insemination"
     t.date     "regress"
     t.date     "abortion"
+    t.date     "stop_breastfeeding"
     t.date     "parturition"
     t.integer  "animal_id"
     t.integer  "father_id"
     t.integer  "mother_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id"

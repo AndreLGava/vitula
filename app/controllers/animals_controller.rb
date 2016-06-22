@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_reproduction
 
   def index
     @animals = Animal.all
@@ -54,7 +55,11 @@ class AnimalsController < ApplicationController
       @animal = Animal.find(params[:id])
     end
 
+    def set_reproduction
+      @reproduction = Reproduction.all
+    end
+
     def animal_params
-      params.require(:animal).permit(:code, :name, :description, :born, :female, :breed, :lot_id, :reproduction_id)
+      params.require(:animal).permit(:code, :name, :description, :born, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard)
     end
 end

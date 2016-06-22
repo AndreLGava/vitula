@@ -38,5 +38,15 @@
   <%= @animal.reproduction %>
 </p>
 
+<p>
+  <strong>Discard:</strong>
+  <%= @animal.discard %>
+</p>
+
+<p>
+  <strong>Reason discard:</strong>
+  <%= @animal.reason_discard %>
+</p>
+
 <%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
 <%= link_to 'Back', :back, class: "btn btn-default btn-sm" %>

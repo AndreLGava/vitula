@@ -27,8 +27,8 @@
         <td><%= animal.born %></td>
         <td><%= animal.female %></td>
         <td><%= animal.breed %></td>
-        <td><%= animal.lot %></td>
-        <td><%= animal.reproduction %></td>
+        <td><%= animal.lot.name unless animal.lot.nil?  %></td>
+        <td><%= "#{animal.reproduction.parturition}" unless animal.reproduction.nil? %></td>
         <td><%= link_to animal, class: "btn btn-sm btn-primary" do %>
           <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
         <% end %>

@@ -11,6 +11,7 @@
       <th>Regress</th>
       <th>Abortion</th>
       <th>Parturition</th>
+      <th>Stop breastfeeding</th>
       <th>Animal</th>
       <th>Animal</th>
       <th colspan="3"></th>
@@ -25,6 +26,7 @@
         <td><%= reproduction.regress %></td>
         <td><%= reproduction.abortion %></td>
         <td><%= reproduction.parturition %></td>
+        <td><%= reproduction.stop_breastfeeding %></td>
         <td><%= reproduction.mother.name unless reproduction.mother.nil? %></td>
         <td><%= reproduction.father.name unless reproduction.father.nil? %></td>
         <td><%= link_to reproduction, class: "btn btn-sm btn-primary" do %>

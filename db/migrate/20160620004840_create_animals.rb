@@ -5,6 +5,8 @@ class CreateAnimals < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.date :born
+      t.date :discard
+      t.string :reason_discard
       t.boolean :female
       t.string :breed
       t.references :lot, index: true, foreign_key: true

@@ -10,13 +10,16 @@ class ReproductionsController < ApplicationController
 
   def new
     @reproduction = Reproduction.new
+    set_parents
   end
 
   def edit
+    set_parents
   end
 
   def create
     @reproduction = Reproduction.new(reproduction_params)
+
     respond_to do |format|
       if @reproduction.save
         format.html { redirect_to reproductions_path, notice: 'Reproduction was successfully created.' }
@@ -53,7 +56,12 @@ class ReproductionsController < ApplicationController
       @reproduction = Reproduction.find(params[:id])
     end
 
+    def set_parents
+      @mother = Animal.where('female' => true)
+      @father = Animal.where('female' => false)
+    end
+
     def reproduction_params
-      params.require(:reproduction).permit(:heat, :insemination, :regress, :abortion, :parturition, :mother_id, :father_id)
+      params.require(:reproduction).permit(:heat, :insemination, :regress, :abortion, :stop_breastfeeding, :parturition, :mother_id, :father_id)
     end
 end
