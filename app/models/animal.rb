@@ -4,4 +4,8 @@ class Animal < ActiveRecord::Base
 
   has_many :animals, foreign_key: "mother_id", class_name: "Animal"
   has_many :animals, foreign_key: "father_id", class_name: "Animal"
+
+  validates :code, presence: true
+  validates :name, presence: true
+  validates :breed, presence: true
 end
