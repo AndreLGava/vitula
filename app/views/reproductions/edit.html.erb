@@ -1,6 +1,6 @@
-<h3>Editing Reproduction</h3>
+<h3><%= t('reproductions.edit.edit')%></h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @reproduction, class:"btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class:"btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.show'), @reproduction, class:"btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class:"btn btn-sm btn-default" %>

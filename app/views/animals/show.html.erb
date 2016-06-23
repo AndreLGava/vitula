@@ -1,47 +1,52 @@
 <p>
-  <strong>Code:</strong>
+  <strong><%= Animal.human_attribute_name(:code)%></strong>
   <%= @animal.code %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Animal.human_attribute_name(:name)%></strong>
   <%= @animal.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Animal.human_attribute_name(:description)%></strong>
   <%= @animal.description %>
 </p>
 
 <p>
-  <strong>Female:</strong>
+  <strong><%= Animal.human_attribute_name(:female)%></strong>
   <%= @animal.female %>
 </p>
 
 <p>
-  <strong>Breed:</strong>
+  <strong><%= Animal.human_attribute_name(:breed)%></strong>
   <%= @animal.breed %>
 </p>
 
 <p>
-  <strong>Lot:</strong>
-  <%= @animal.lot %>
+  <strong><%= Animal.human_attribute_name(:lot)%></strong>
+  <%= @animal.lot.name unless @animal.lot.nil? %>
 </p>
 
 <p>
-  <strong>Reproduction:</strong>
-  <%= @animal.reproduction %>
+  <strong><%= Animal.human_attribute_name(:mother)%></strong>
+  <%= @animal.reproduction.mother.name unless @animal.reproduction.nil? %>
 </p>
 
 <p>
-  <strong>Discard:</strong>
+  <strong><%= Animal.human_attribute_name(:father)%></strong>
+  <%= @animal.reproduction.father.name unless @animal.reproduction.nil? %>
+</p>
+
+<p>
+  <strong><%= Animal.human_attribute_name(:discard)%></strong>
   <%= @animal.discard %>
 </p>
 
 <p>
-  <strong>Reason discard:</strong>
+  <strong><%= Animal.human_attribute_name(:reason_discard)%></strong>
   <%= @animal.reason_discard %>
 </p>
 
-<%= link_to 'Edit', edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
-<%= link_to 'Back', :back, class: "btn btn-default btn-sm" %>
+<%= link_to I18n.t('crud.edit'), edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>

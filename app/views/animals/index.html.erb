@@ -1,4 +1,4 @@
-<h3>Listing Animals</h3>
+<h3><%= Animal.human_attribute_name(:animal)%></h3>
 <%= link_to  new_animal_path, class: "btn btn-info pull-right" do %>
   <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
 <% end %>
@@ -6,13 +6,13 @@
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Female</th>
-      <th>Breed</th>
-      <th>Lot</th>
-      <th>Reproduction</th>
+      <th><%= Animal.human_attribute_name(:code)%></th>
+      <th><%= Animal.human_attribute_name(:name)%></th>
+      <th><%= Animal.human_attribute_name(:description)%></th>
+      <th><%= Animal.human_attribute_name(:female)%></th>
+      <th><%= Animal.human_attribute_name(:breed)%></th>
+      <th><%= Animal.human_attribute_name(:lot)%></th>
+      <th><%= Animal.human_attribute_name(:reproduction)%></th>
       <th colspan="3"></th>
     </tr>
   </thead>

@@ -1,0 +1,10 @@
+pt-BR:
+  animals:
+    index:
+      animals: Animais
+    new:
+      new: Novo Animal
+    edit:
+      edit: Alterando Animal
+    show:
+      animal: Animal

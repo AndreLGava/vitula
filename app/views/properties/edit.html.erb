@@ -1,6 +1,6 @@
-<h3>Editing Property</h3>
+<h3><%= t('properties.edit.edit')%></h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @property, class: "btn btn-default btn-sm" %>
-<%= link_to 'Back', :back, class: "btn btn-default btn-sm" %>
+<%= link_to I18n.t('crud.show'), @property, class: "btn btn-default btn-sm" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>

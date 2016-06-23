@@ -1,42 +1,42 @@
 <p>
-  <strong>Heat:</strong>
+  <strong><%= Reproduction.human_attribute_name(:heat)%></strong>
   <%= @reproduction.heat %>
 </p>
 
 <p>
-  <strong>Insemination:</strong>
+  <strong><%= Reproduction.human_attribute_name(:insemination)%></strong>
   <%= @reproduction.insemination %>
 </p>
 
 <p>
-  <strong>Regress:</strong>
+  <strong><%= Reproduction.human_attribute_name(:regress)%></strong>
   <%= @reproduction.regress %>
 </p>
 
 <p>
-  <strong>Abortion:</strong>
+  <strong><%= Reproduction.human_attribute_name(:abortion)%></strong>
   <%= @reproduction.abortion %>
 </p>
 
 <p>
-  <strong>Stop Breastfeeding:</strong>
+  <strong><%= Reproduction.human_attribute_name(:stop_breastfeeding)%></strong>
   <%= @reproduction.stop_breastfeeding %>
 </p>
 
 <p>
-  <strong>Parturition:</strong>
+  <strong><%= Reproduction.human_attribute_name(:parturition)%></strong>
   <%= @reproduction.parturition %>
 </p>
 
 <p>
-  <strong>Animal:</strong>
+  <strong><%= Reproduction.human_attribute_name(:mother )%></strong>
   <%= @reproduction.mother.name unless @reproduction.mother.nil?%>
 </p>
 
 <p>
-  <strong>Animal:</strong>
+  <strong><%= Reproduction.human_attribute_name(:father )%></strong>
   <%= @reproduction.father.name unless @reproduction.father.nil?%>
 </p>
 
-<%= link_to 'Edit', edit_reproduction_path(@reproduction), class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.edit'), edit_reproduction_path(@reproduction), class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>

@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      lot: Lote
+    attributes:
+      lot:
+        lot: Lote
+        name: Nome
+        description: Descrição
+        property: Propriedade

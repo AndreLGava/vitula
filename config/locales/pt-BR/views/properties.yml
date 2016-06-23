@@ -1,0 +1,10 @@
+pt-BR:
+  properties:
+    index:
+      properties: Propriedades
+    new:
+      new: Nova Propriedade
+    edit:
+      edit: Alterando Propriedade
+    show:
+      property: Propriedade

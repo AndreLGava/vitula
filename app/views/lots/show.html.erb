@@ -1,17 +1,17 @@
 <p>
-  <strong>Name:</strong>
+  <strong><%= Profile.human_attribute_name(:name)%></strong>
   <%= @lot.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Profile.human_attribute_name(:description)%></strong>
   <%= @lot.description %>
 </p>
 
 <p>
-  <strong>Property:</strong>
+  <strong><%= I18n.t('activerecord.attributes.lot.property') %></strong>
   <%= @lot.property.name %>
 </p>
 
-<%= link_to 'Edit', edit_lot_path(@lot), class: "btn btn-sm btn-default" %>
-<%= link_to 'Back', :back, class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.edit'), edit_lot_path(@lot), class: "btn btn-sm btn-default" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-sm btn-default" %>

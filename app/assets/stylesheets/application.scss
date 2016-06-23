@@ -16,11 +16,10 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
- @import "alertify";
- @import "alertify/default";
- @import "alertify/bootstrap";
- @import "font-awesome";
+@import "alertify";
+@import "alertify/default";
+@import "alertify/bootstrap";
+@import "font-awesome";
 
 
 
@@ -133,5 +132,3 @@ nav {
 	}
 	text-align: center;
 }
-
-

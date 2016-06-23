@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      animal: Animal
+    attributes:
+      animal:
+        animal: Animal
+        code: Código
+        name: Nome
+        description: Descrição
+        discard: Descarte/Morte/Venda
+        reason_discard: Motivo Descarte/Morte/Venda
+        female: Femea
+        mother: Mãe
+        father: Pai
+        breed: Raça
+        lot: Lote
+        reproduction: Mãe/Parto/Nascimento

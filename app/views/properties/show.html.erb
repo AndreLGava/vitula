@@ -1,22 +1,22 @@
 <p>
-  <strong>Name:</strong>
+  <strong><%= Profile.human_attribute_name(:name)%></strong>
   <%= @property.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= Profile.human_attribute_name(:description)%></strong>
   <%= @property.description %>
 </p>
 
 <p>
-  <strong>Long:</strong>
+  <strong><%= Profile.human_attribute_name(:long)%></strong>
   <%= @property.long %>
 </p>
 
 <p>
-  <strong>Lat:</strong>
+  <strong><%= Profile.human_attribute_name(:lat)%></strong>
   <%= @property.lat %>
 </p>
 
-<%= link_to 'Edit', edit_property_path(@property), class: "btn btn-default btn-sm" %>
-<%= link_to 'Back', :back, class: "btn btn-default btn-sm" %>
+<%= link_to I18n.t('crud.edit'), edit_property_path(@property), class: "btn btn-default btn-sm" %>
+<%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>

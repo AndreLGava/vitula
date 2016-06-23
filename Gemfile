@@ -24,6 +24,8 @@ gem 'alertifyjs-rails'
 
 #datepicker bootstrap
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
+# gem 'momentjs-rails', '>= 2.9.0'
+# gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # A lot interface components
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'

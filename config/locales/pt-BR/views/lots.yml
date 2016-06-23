@@ -1,0 +1,10 @@
+pt-BR:
+  lots:
+    index:
+      lots: Lotes
+    new:
+      new: Novo Lote
+    edit:
+      edit: Alterando Lote
+    show:
+      lot: Lote

@@ -10,7 +10,7 @@
     <%= f.association :lot %>
     <%# f.association :reproduction, :collection => @reproduction, :label_method => :parturition, :value_method => :id %>
     <%= f.association :reproduction, :label_method => :parturition, :value_method => :id %>
-    <%= f.input :discard, :include_blank => true %>
+    <%= f.input :discard, as: :date_picker, :include_blank => true  %>
     <%= f.input :reason_discard %>
   </div>
 

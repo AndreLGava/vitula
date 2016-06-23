@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      reproduction: Reprodução
+    attributes:
+      reproduction:
+        reproduction: Reprodução
+        heat: Cio
+        insemination: Inseminação
+        regress: Retorno
+        abortion: Aborto
+        stop_breastfeeding: Secagem/Interomper Lactação
+        parturition: Parto
+        father: Pai
+        mother: Mãe
