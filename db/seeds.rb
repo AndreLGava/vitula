@@ -14,8 +14,8 @@ Profile.create(name: "Administrador", description: "Administrador geral do siste
 Profile.create(name: "Agricultor", description: "Produtor rural")
 
 puts "Generate Properties"
-Property.create(name: "Propriedade de teste", description: "Propriedade rural de produção leitera", long: 25.9422996, lat: -58.6004562)
-Property.create(name: "Propriedade Gava", description: "Propriedade rural de produção leitera gava", long: 26.9422996, lat: -53.6004562)
+Property.create(name: "Propriedade de teste", description: "Propriedade rural de produção leitera", long: 25.9422996, lat: -58.6004562, user_id: 1)
+Property.create(name: "Propriedade Gava", description: "Propriedade rural de produção leitera gava", long: 26.9422996, lat: -53.6004562, user_id: 1)
 
 puts "Generate Lots"
 Lot.create(name: "Novilhos", description: "Novilhos Machos para abate", property_id: 1)

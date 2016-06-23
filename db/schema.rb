@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.integer  "code"
     t.string   "name"
     t.string   "description"
-    t.date     "born"
     t.date     "discard"
     t.string   "reason_discard"
     t.boolean  "female"
@@ -53,9 +52,12 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.string   "description"
     t.float    "long"
     t.float    "lat"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
 
   create_table "reproductions", force: :cascade do |t|
     t.date     "heat"

@@ -5,6 +5,7 @@ class CreateProperties < ActiveRecord::Migration
       t.string :description
       t.float :long
       t.float :lat
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
