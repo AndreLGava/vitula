@@ -13,5 +13,7 @@
       <%= f.submit t('.send_me_reset_password_instructions', :default => "Send me reset password instructions"), class: "btn btn-primary" %>
     <% end %>
   </div>
+  <div class="panel-footer">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
-<%= render "devise/shared/links" %>

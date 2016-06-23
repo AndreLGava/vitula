@@ -1,4 +1,5 @@
 class ReproductionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_reproduction, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -57,8 +58,8 @@ class ReproductionsController < ApplicationController
     end
 
     def set_parents
-      @mother = Animal.where('female' => true)
-      @father = Animal.where('female' => false)
+      @mother = Animal.where('female' => true, 'discard' => nil)
+      @father = Animal.where('female' => false, 'discard' => nil)
     end
 
     def reproduction_params

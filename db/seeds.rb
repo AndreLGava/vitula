@@ -27,12 +27,12 @@ Lot.create(name: "Vacas Leiteiras", description: "Vacas Leiteiras em produção"
 Lot.create(name: "Bezerros", description: "Animais de 0 até 9 meses de idade", property_id: 2)
 
 puts "Generate Animals"
-Animal.create(code: 156455, name: "Mimosa", description: "Vaca holandeza de grande porte", born: 2006-04-20, female: true, breed: "Holandesa", lot_id: 6)
-Animal.create(code: 156455, name: "Destructor", description: "Touro da propreidade", born: 2002-04-20, female: false, breed: "Holandesa")
-Animal.create(code: 158755, name: "Bilasa", description: "Vaca jersey de pequeno porte", born: 2008-04-20, female: true, breed: "Jersey", lot_id: 6, reproduction_id: 1)
-Animal.create(code: 155485, name: "Boneca", description: "Proveniente de propriedade externa, adquirida no passado", born: 2010-04-20, female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
-Animal.create(code: 345552, name: "Pequena", description: "Vaca holandeza de grande porte", born: 2006-04-20, female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
-Animal.create(code: 544546, name: "Laranja", description: "Vaca holandeza de grande porte", born: 2006-04-20, female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
+Animal.create(code: 156455, name: "Mimosa", description: "Vaca holandeza de grande porte", female: true, breed: "Holandesa", lot_id: 6)
+Animal.create(code: 156455, name: "Destructor", description: "Touro da propreidade", female: false, breed: "Holandesa")
+Animal.create(code: 158755, name: "Bilasa", description: "Vaca jersey de pequeno porte", female: true, breed: "Jersey", lot_id: 6, reproduction_id: 1)
+Animal.create(code: 155485, name: "Boneca", description: "Proveniente de propriedade externa, adquirida no passado", female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
+Animal.create(code: 345552, name: "Pequena", description: "Vaca holandeza de grande porte", female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
+Animal.create(code: 544546, name: "Laranja", description: "Vaca holandeza de grande porte", female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1)
 
 puts "Generates Reproduction"
 Reproduction.create( heat: 2016-05-22, father_id: 2, mother_id: 1)

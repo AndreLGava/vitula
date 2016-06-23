@@ -4,7 +4,6 @@ class CreateAnimals < ActiveRecord::Migration
       t.integer :code
       t.string :name
       t.string :description
-      t.date :born
       t.date :discard
       t.string :reason_discard
       t.boolean :female

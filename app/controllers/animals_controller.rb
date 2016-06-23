@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
@@ -61,6 +62,6 @@ class AnimalsController < ApplicationController
     end
 
     def animal_params
-      params.require(:animal).permit(:code, :name, :description, :born, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard)
+      params.require(:animal).permit(:code, :name, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard)
     end
 end

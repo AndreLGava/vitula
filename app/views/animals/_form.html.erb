@@ -5,12 +5,12 @@
     <%= f.input :code %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :born %>
     <%= f.input :female %>
     <%= f.input :breed %>
     <%= f.association :lot %>
-    <%= f.association :reproduction, :collection => @reproduction, :label_method => :parturition, :value_method => :id %>
-    <%= f.input :discard %>
+    <%# f.association :reproduction, :collection => @reproduction, :label_method => :parturition, :value_method => :id %>
+    <%= f.association :reproduction, :label_method => :parturition, :value_method => :id %>
+    <%= f.input :discard, :include_blank => true %>
     <%= f.input :reason_discard %>
   </div>
 
