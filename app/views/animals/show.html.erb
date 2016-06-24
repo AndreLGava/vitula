@@ -50,3 +50,6 @@
 
 <%= link_to I18n.t('crud.edit'), edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
 <%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>
+<% if @animal.discard.nil? && @animal.female == true %>
+  <%= link_to I18n.t('animals.show.reproduction'), new_reproduction_path(mother_id: @animal.id), class: "btn btn-default btn-sm" %>
+<% end %>

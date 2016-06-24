@@ -1,7 +1,4 @@
 <h3><%= Reproduction.human_attribute_name(:reproduction)%></h3>
-<%= link_to  new_reproduction_path, class: "btn btn-info pull-right" do %>
-  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
-<% end %>
 
 <table class="table table-responsive table-striped">
   <thead>
@@ -14,7 +11,7 @@
       <th><%= Reproduction.human_attribute_name(:parturition)%></th>
       <th><%= Reproduction.human_attribute_name(:mother)%></th>
       <th><%= Reproduction.human_attribute_name(:father)%></th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -35,10 +32,6 @@
         </td>
         <td><%= link_to edit_reproduction_path(reproduction), class: "btn btn-sm btn-default" do %>
           <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
-        <% end %>
-        </td>
-        <td><%= link_to reproduction,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
-          <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
         <% end %>
         </td>
       </tr>

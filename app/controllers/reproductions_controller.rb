@@ -12,6 +12,7 @@ class ReproductionsController < ApplicationController
   def new
     @reproduction = Reproduction.new
     set_parents
+    @mother = Array[Animal.find(params[:mother_id])]
   end
 
   def edit
@@ -58,7 +59,7 @@ class ReproductionsController < ApplicationController
     end
 
     def set_parents
-      @mother = Animal.where('female' => true, 'discard' => nil)
+      #@mother = Animal.where('female' => true, 'discard' => nil)
       @father = Animal.where('female' => false, 'discard' => nil)
     end
 
