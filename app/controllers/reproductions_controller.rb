@@ -1,6 +1,7 @@
 class ReproductionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_reproduction, only: [:show, :edit, :update, :destroy]
+  before_action :set_father, only: [:new, :edit, :update, :create]
 
   def index
     @reproductions = Reproduction.all
@@ -10,13 +11,12 @@ class ReproductionsController < ApplicationController
   end
 
   def new
-    @reproduction = Reproduction.new
-    set_parents
-    @mother = Array[Animal.find(params[:mother_id])]
+    @mother = Animal.find(params[:mother_id])
+    @reproduction = @mother.reproductions.new
+
   end
 
   def edit
-    set_parents
   end
 
   def create
@@ -58,7 +58,7 @@ class ReproductionsController < ApplicationController
       @reproduction = Reproduction.find(params[:id])
     end
 
-    def set_parents
+    def set_father
       #@mother = Animal.where('female' => true, 'discard' => nil)
       @father = Animal.where('female' => false, 'discard' => nil)
     end
