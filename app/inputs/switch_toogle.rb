@@ -13,7 +13,11 @@ class SwitchToogle < SimpleForm::Inputs::Base
   end
 
   def description_label(yes, no)
-    "<span class='switch-label' data-on='#{yes}' data-off='#{no}'></span>"
+    "<span class='switch-label' data-on='#{yes}' data-off='#{no}'></span>".html_safe
+  end
+
+  def button_handle
+    "<span class='switch-handle'></span>".html_safe
   end
 
   def switch_toogle
