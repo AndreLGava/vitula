@@ -21,7 +21,7 @@ class LotsController < ApplicationController
 
     respond_to do |format|
       if @lot.save
-        format.html { redirect_to lots_path, notice: 'Lot was successfully created.' }
+        format.html { redirect_to lots_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @lot }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class LotsController < ApplicationController
   def update
     respond_to do |format|
       if @lot.update(lot_params)
-        format.html { redirect_to lots_path, notice: 'Lot was successfully updated.' }
+        format.html { redirect_to lots_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @lot }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class LotsController < ApplicationController
   def destroy
     @lot.destroy
     respond_to do |format|
-      format.html { redirect_to lots_url, notice: 'Lot was successfully destroyed.' }
+      format.html { redirect_to lots_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end
