@@ -32,17 +32,17 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
 }
 .navbar{
-	background-color: #fff;
+	background-color: #f1f1f1;
 	border-radius: 0px;
 	-moz-border-radius:0px;
 	-o-border-radius:0px;
 }
 
 nav {
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
 	.navbar-brand {
 		a {
-			color: #BD1E23;
+			color: #e5e5e5;
 			font-weight: bold;
 			&:hover {
 				text-decoration: none;
@@ -57,7 +57,7 @@ nav {
   .box {
 	  margin: 10px;
 	  width: 350px;
-	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.22);
 	  border-radius: 7px;
 	  text-align: center;
 	  background: #fff;
