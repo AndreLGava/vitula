@@ -6,6 +6,7 @@
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
+      <th>Photo</th>
       <th><%= Animal.human_attribute_name(:code)%></th>
       <th><%= Animal.human_attribute_name(:name)%></th>
       <th><%= Animal.human_attribute_name(:description)%></th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @animals.each do |animal| %>
       <tr>
+        <td><%= image_tag animal.photo.url(:thumb) %></td>
         <td><%= animal.code %></td>
         <td><%= animal.name %></td>
         <td><%= animal.description %></td>

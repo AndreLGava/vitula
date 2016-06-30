@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630135043) do
+ActiveRecord::Schema.define(version: 20160630140154) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -23,8 +23,12 @@ ActiveRecord::Schema.define(version: 20160630135043) do
     t.string   "breed"
     t.integer  "lot_id"
     t.integer  "reproduction_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "animals", ["lot_id"], name: "index_animals_on_lot_id"
@@ -101,6 +105,10 @@ ActiveRecord::Schema.define(version: 20160630135043) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

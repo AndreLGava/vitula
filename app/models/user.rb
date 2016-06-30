@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   has_paper_trail
 
   def user_params
-		params.require(:user).permit(:name, :phone, :born, :cpf, :rg, :address, :city, :language)
+		params.require(:user).permit(:name, :avatar, :phone, :born, :cpf, :rg, :address, :city, :language)
 	end
 end

@@ -12,6 +12,11 @@
 </p>
 
 <p>
+  <strong>Photo</strong>
+  <%= image_tag @animal.photo.url(:medium) %>
+</p>
+
+<p>
   <strong><%= Animal.human_attribute_name(:name)%></strong>
   <%= @animal.name %>
 </p>

@@ -46,6 +46,7 @@
             <li>Mimosa deverá parir entre o dia 30/08 e 06/09</li>
           </ul>
         </li>
+        <li><%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
