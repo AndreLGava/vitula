@@ -31,6 +31,10 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def notification_menu
+    @notification_menu = Notification.where(read: nil, user_id: nil).last(5)
+  end
+
   private
     def set_notification
       @notification = Notification.find(params[:id])
