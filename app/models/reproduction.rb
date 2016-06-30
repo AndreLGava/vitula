@@ -1,4 +1,5 @@
 class Reproduction < ActiveRecord::Base
+  has_paper_trail
   belongs_to :father, class_name: "Animal"
   belongs_to :mother, class_name: "Animal"
 
