@@ -22,7 +22,13 @@
 @import "alertify/bootstrap";
 @import "font-awesome";
 
-
+.profile{
+	padding: 13px!important;
+	img{
+		width: 30px;
+		padding-right: 5px;
+	}
+}
 
 
 body {

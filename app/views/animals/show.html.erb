@@ -13,7 +13,7 @@
 
 <p>
   <strong><%= Animal.human_attribute_name(:photo)%></strong>
-  <%= image_tag @animal.photo.url(:medium) %>
+  <%= image_tag @animal.photo.url(:medium), class: "img-rounded" %>
 </p>
 
 <p>
