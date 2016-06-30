@@ -23,12 +23,24 @@ module Vitula
     #config.autoload_paths += Dir[ Rails.root.join('app', 'models', "concerns", '**/') ]
     #config.autoload_paths += Dir[ Rails.root.join('app', 'controllers', "concerns", '**/') ]
 
+
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => 'vitulasystem',
+      :password             => 'senha',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
+    }
+    config.action_mailer.raise_delivery_errors = true
+
     config.i18n.load_path += Dir[File.join(config.root, 'config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.available_locales = [:"pt-BR"]
     config.i18n.default_locale = :"pt-BR"
 
-
-    config.i18n.default_locale = 'pt-BR'
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true

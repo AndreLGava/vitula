@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   root to: "home#index"
@@ -7,4 +8,5 @@ Rails.application.routes.draw do
   resources :profiles
   resources :reproductions
   resources :animals
+  resources :notifications
 end
