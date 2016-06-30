@@ -17,6 +17,8 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require bootstrap-datepicker
+//= require jquery.jcrop
+//= require papercrop
 //= require alertify
 //= require alertify/confirm-modal
 //= require_tree .
