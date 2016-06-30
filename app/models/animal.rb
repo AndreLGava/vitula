@@ -11,7 +11,7 @@ class Animal < ActiveRecord::Base
   validates :name, presence: true
   validates :breed, presence: true
 
-  has_attached_file :photo, styles: { medium: "300x300>", thumb: "30x30>" }, default_url: "/images/:style/missing_animal.png"
+  has_attached_file :photo, styles: { medium: "300x300>", thumb: "30x30#" }, default_url: "/images/:style/missing_animal.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   crop_attached_file :photo
 

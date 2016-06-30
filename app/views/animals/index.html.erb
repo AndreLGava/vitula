@@ -21,7 +21,7 @@
   <tbody>
     <% @animals.each do |animal| %>
       <tr>
-        <td><%= image_tag animal.photo.url(:thumb) %></td>
+        <td><%= image_tag animal.photo.url(:thumb), class: "img-circle" %></td>
         <td><%= animal.code %></td>
         <td><%= animal.name %></td>
         <td><%= animal.description %></td>
