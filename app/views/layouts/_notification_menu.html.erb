@@ -1,0 +1,10 @@
+<% @notification_menu = Notification.where(read: nil, user_id: current_user.id).last(5) %>
+<% if @notification_menu.nil? == false %>
+  <ul class="dropdown-menu">
+    <% @notification_menu.each do |n| %>
+      <li> <%= link_to n.title, notification_path(n.id) %></li>
+    <% end %>
+    <li role="separator" class="divider"></li>
+    <li><%= link_to t('notifications.show.all'), notifications_path %></li>
+  </ul>
+<% end %>

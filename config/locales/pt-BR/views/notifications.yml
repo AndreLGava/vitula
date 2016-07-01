@@ -7,4 +7,5 @@ pt-BR:
     edit:
       edit: Alterando Notificação
     show:
-      animal: Notificação
+      notification: Notificação
+      all: Ver todas

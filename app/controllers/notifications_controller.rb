@@ -9,6 +9,12 @@ class NotificationsController < ApplicationController
     @notification = Notification.new
   end
 
+  def show
+    redirect_to notifications_url
+    #render nothing: true
+
+  end
+
   def create
     @notification = Notification.new(notification_params)
 
@@ -26,13 +32,13 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, I18n.t('crud.destroyed') }
+      format.html { redirect_to notifications_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end
 
   def notification_menu
-    @notification_menu = Notification.where(read: nil, user_id: nil).last(5)
+    @notification_menu = Notification.where(read: nil, user_id: current_user.id).last(5)
   end
 
   private
