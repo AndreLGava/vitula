@@ -1,18 +1,16 @@
 class NotificationsController < ApplicationController
-  before_action :set_notification, only: [:destroy]
+  before_action :set_notification, only: [:destroy, :show_notification]
+  before_action :read_notification, only: [:show_notification]
 
   def index
-    @notifications = Notification.where(user_id: current_user.id)
+    @notifications = Notification.where( user_id: current_user.id).order(created_at: :desc)
   end
 
   def new
     @notification = Notification.new
   end
 
-  def show
-    redirect_to notifications_url
-    #render nothing: true
-
+  def show_notification
   end
 
   def create
@@ -37,11 +35,11 @@ class NotificationsController < ApplicationController
     end
   end
 
-  def notification_menu
-    @notification_menu = Notification.where(read: nil, user_id: current_user.id).last(5)
-  end
-
   private
+    def read_notification
+      @notification.update_attributes(read: DateTime.now)
+    end
+
     def set_notification
       @notification = Notification.find(params[:id])
     end

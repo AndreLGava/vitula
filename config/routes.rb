@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :reproductions
   resources :animals
   resources :notifications
+
+  get 'show_notification' , to: 'notifications#show_notification', as: :show_notification
 end
