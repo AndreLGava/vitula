@@ -2,6 +2,7 @@ class NotificationsController < ApplicationController
   before_action :set_notification, only: [:destroy, :show_notification]
   before_action :read_notification, only: [:show_notification]
 
+
   def index
     @notifications = Notification.where( user_id: current_user.id).order(created_at: :desc).page params[:page]
   end

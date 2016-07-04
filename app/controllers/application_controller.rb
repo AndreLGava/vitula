@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_paper_trail_whodunnit
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :notification_count
+  before_action :notification_count, if: :user_signed_in?
+  before_action :notifications, if: :user_signed_in?
 
   def notification_count
-  #  @notification_count = Notification.where(read: nil, user_id: current_user.id).count
+    @notification_count = Notification.where(read: nil, user_id: current_user.id).count
+  end
+
+  def notifications
+    @notification_menu = Notification.where(user_id: current_user.id).order(created_at: :desc).first(5)
   end
 
   protected
