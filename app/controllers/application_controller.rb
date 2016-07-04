@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def notifications
-    @notification_menu = Notification.where(user_id: current_user.id).order(created_at: :desc).first(5)
+    @notification_menu = Notification.where(user_id: current_user.id).order(created_at: :desc).limit(5)
   end
 
   protected
