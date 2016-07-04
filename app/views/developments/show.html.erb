@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @development.weight %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @development.height %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @development.animal %>
+</p>
+
+<%= link_to 'Edit', edit_development_path(@development) %> |
+<%= link_to 'Back', developments_path %>

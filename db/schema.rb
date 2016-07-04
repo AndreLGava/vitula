@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630200028) do
+ActiveRecord::Schema.define(version: 20160704170727) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20160630200028) do
   add_index "animals", ["lot_id"], name: "index_animals_on_lot_id"
   add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id"
 
+  create_table "developments", force: :cascade do |t|
+    t.float    "weight"
+    t.float    "height"
+    t.integer  "animal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "developments", ["animal_id"], name: "index_developments_on_animal_id"
+
   create_table "lots", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -55,6 +65,17 @@ ActiveRecord::Schema.define(version: 20160630200028) do
   end
 
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+
+  create_table "productions", force: :cascade do |t|
+    t.float    "amount"
+    t.datetime "measurement"
+    t.text     "observation"
+    t.integer  "animal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "productions", ["animal_id"], name: "index_productions_on_animal_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"

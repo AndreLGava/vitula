@@ -1,0 +1,10 @@
+pt-BR:
+  productions:
+    index:
+      productions: Produções
+    new:
+      new: Nova Produção
+    edit:
+      edit: Alterando Produção
+    show:
+      lot: Produção

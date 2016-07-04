@@ -20,6 +20,14 @@
         <%= @animal.female %>
       </li>
       <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:weight)%></strong>
+        <%= @animal.development.weight.last %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:height)%></strong>
+        <%= @animal.development.height.last %>
+      </li>
+      <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:breed)%></strong>
         <%= @animal.breed %>
       </li>

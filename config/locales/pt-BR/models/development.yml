@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      development: Desenvolvimento
+    attributes:
+      development:
+        development: Desenvolvimento
+        weight: Peso
+        height: Altura
