@@ -1,5 +1,40 @@
 crumb :root do
-  link "Home", root_path
+  link "Vitula", root_path
+end
+
+crumb :animals do
+  link "Animals", animals_path
+end
+
+crumb :animal do |animal|
+  link animal.name, animal
+  parent :animals
+end
+
+crumb :properties do
+  link "Properties", properties_path
+end
+
+crumb :property do |property|
+  link property.name, property
+  parent :properties
+end
+
+crumb :lots do
+  link "Lots", lots_path
+end
+
+crumb :profiles do
+  link "Profiles", profiles_path
+end
+
+crumb :profile do |profile|
+  link profile.name, profile
+  parent :profiles
+end
+
+crumb :notifications do
+  link "Notifications", notifications_path
 end
 
 # crumb :projects do

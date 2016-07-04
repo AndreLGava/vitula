@@ -1,3 +1,4 @@
+<% breadcrumb :animals %>
 <h3><%= Animal.human_attribute_name(:animal)%></h3>
 <%= link_to  new_animal_path, class: "btn btn-info pull-right" do %>
   <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>

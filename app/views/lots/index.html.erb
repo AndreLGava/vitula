@@ -1,3 +1,4 @@
+<% breadcrumb :lots %>
 <h3><%= Lot.human_attribute_name(:lot)%></h3>
 <%= link_to  new_lot_path, class: "btn btn-info pull-right" do %>
   <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
