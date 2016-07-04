@@ -11,7 +11,7 @@ class AnimalsController < ApplicationController
   parturition = 274 #days +- 7 days [267 , 282] after last insemination
 
   def index
-    @animals = Animal.all
+    @animals = Animal.all.page params[:page]
   end
 
   def show

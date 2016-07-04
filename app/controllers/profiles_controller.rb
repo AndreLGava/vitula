@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.all.page params[:page]
   end
 
   def show

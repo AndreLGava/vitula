@@ -3,7 +3,7 @@ class LotsController < ApplicationController
   before_action :set_lot, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lots = Lot.all
+    @lots = Lot.all.page params[:page]
   end
 
   def show

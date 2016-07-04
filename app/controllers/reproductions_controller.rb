@@ -3,7 +3,7 @@ class ReproductionsController < ApplicationController
   before_action :set_reproduction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @reproductions = Reproduction.all
+    @reproductions = Reproduction.all.page params[:page]
   end
 
   def show
