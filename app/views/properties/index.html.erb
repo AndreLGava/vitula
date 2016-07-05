@@ -1,3 +1,4 @@
+<% breadcrumb :properties %>
 <h3><%= Property.human_attribute_name(:property)%></h3>
 <%= link_to  new_property_path, class: "btn btn-info pull-right" do %>
   <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
@@ -37,5 +38,5 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @properties %>
 <br>

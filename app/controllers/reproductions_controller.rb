@@ -4,15 +4,15 @@ class ReproductionsController < ApplicationController
   before_action :set_father, only: [:new, :edit, :update, :create]
 
   def index
-    @reproductions = Reproduction.all
+    @reproductions = Reproduction.all.page params[:page]
   end
 
   def show
   end
 
   def new
-    @mother = Animal.find(params[:mother_id])
-    @reproduction = @mother.reproductions.new
+    @mother = [Animal.find(params[:mother_id])]
+    @reproduction = Reproduction.new
 
   end
 
@@ -24,7 +24,7 @@ class ReproductionsController < ApplicationController
 
     respond_to do |format|
       if @reproduction.save
-        format.html { redirect_to reproductions_path, notice: 'Reproduction was successfully created.' }
+        format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @reproduction }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class ReproductionsController < ApplicationController
   def update
     respond_to do |format|
       if @reproduction.update(reproduction_params)
-        format.html { redirect_to reproductions_path, notice: 'Reproduction was successfully updated.' }
+        format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @reproduction }
       else
         format.html { render :edit }
@@ -48,7 +48,7 @@ class ReproductionsController < ApplicationController
   def destroy
     @reproduction.destroy
     respond_to do |format|
-      format.html { redirect_to reproductions_url, notice: 'Reproduction was successfully destroyed.' }
+      format.html { redirect_to reproductions_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end

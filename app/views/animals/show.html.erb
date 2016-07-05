@@ -1,55 +1,64 @@
-<p>
-  <strong><%= Animal.human_attribute_name(:code)%></strong>
-  <%= @animal.code %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:name)%></strong>
-  <%= @animal.name %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:description)%></strong>
-  <%= @animal.description %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:female)%></strong>
-  <%= @animal.female %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:breed)%></strong>
-  <%= @animal.breed %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:lot)%></strong>
-  <%= @animal.lot.name unless @animal.lot.nil? %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:mother)%></strong>
-  <%= @animal.reproduction.mother.name unless @animal.reproduction.nil? %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:father)%></strong>
-  <%= @animal.reproduction.father.name unless @animal.reproduction.nil? %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:discard)%></strong>
-  <%= @animal.discard %>
-</p>
-
-<p>
-  <strong><%= Animal.human_attribute_name(:reason_discard)%></strong>
-  <%= @animal.reason_discard %>
-</p>
-
-<%= link_to I18n.t('crud.edit'), edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
-<%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>
-<% if @animal.discard.nil? && @animal.female == true %>
-  <%= link_to I18n.t('animals.show.reproduction'), new_reproduction_path(mother_id: @animal.id), class: "btn btn-default btn-sm" %>
-<% end %>
+<% breadcrumb :animal, @animal %>
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item"><%= image_tag @animal.photo.url(:medium), class: "img-rounded" %></li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:code)%></strong>
+        <%= @animal.code %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:name)%></strong>
+        <%= @animal.name %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:description)%></strong>
+        <%= @animal.description %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:female)%></strong>
+        <%= @animal.female %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:breed)%></strong>
+        <%= @animal.breed %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:lot)%></strong>
+        <%= @animal.lot.name unless @animal.lot.nil? %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:mother)%></strong>
+        <%= @animal.reproduction.mother.name unless @animal.reproduction.nil? %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:father)%></strong>
+        <%= @animal.reproduction.father.name unless @animal.reproduction.nil? %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:discard)%></strong>
+        <%= @animal.discard %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:reason_discard)%></strong>
+        <%= @animal.reason_discard %>
+      </li>
+      <li class="list-group-item">
+        <%= link_to I18n.t('crud.edit'), edit_animal_path(@animal), class: "btn btn-default btn-sm" %>
+        <%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>
+        <% if @animal.discard.nil? && @animal.female == true %>
+          <%= link_to I18n.t('animals.show.reproduction'), new_reproduction_path(mother_id: @animal.id), class: "btn btn-default btn-sm" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">Produção</button>
+      <button type="button" class="btn btn-default">Doenças</button>
+      <button type="button" class="btn btn-default">Reproduções</button>
+      <button type="button" class="btn btn-default">Alimentação</button>
+      <button type="button" class="btn btn-default">Desenvolvimento</button>
+    </div>
+  </div>
+</div>

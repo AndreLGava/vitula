@@ -1,0 +1,11 @@
+pt-BR:
+  notifications:
+    index:
+      notifications: Notificações
+    new:
+      new: Nova Notificação
+    edit:
+      edit: Alterando Notificação
+    show:
+      notification: Notificação
+      all: Ver todas

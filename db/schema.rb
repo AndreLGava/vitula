@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620010332) do
+ActiveRecord::Schema.define(version: 20160704170727) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -23,12 +23,26 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.string   "breed"
     t.integer  "lot_id"
     t.integer  "reproduction_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "animals", ["lot_id"], name: "index_animals_on_lot_id"
   add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id"
+
+  create_table "developments", force: :cascade do |t|
+    t.float    "weight"
+    t.float    "height"
+    t.integer  "animal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "developments", ["animal_id"], name: "index_developments_on_animal_id"
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
@@ -39,6 +53,29 @@ ActiveRecord::Schema.define(version: 20160620010332) do
   end
 
   add_index "lots", ["property_id"], name: "index_lots_on_property_id"
+
+  create_table "notifications", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "read"
+    t.datetime "limit"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+
+  create_table "productions", force: :cascade do |t|
+    t.float    "amount"
+    t.datetime "measurement"
+    t.text     "observation"
+    t.integer  "animal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "productions", ["animal_id"], name: "index_productions_on_animal_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -101,9 +138,24 @@ ActiveRecord::Schema.define(version: 20160620010332) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",                     null: false
+    t.integer  "item_id",                       null: false
+    t.string   "event",                         null: false
+    t.string   "whodunnit"
+    t.text     "object",     limit: 1073741823
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end

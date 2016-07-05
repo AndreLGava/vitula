@@ -1,3 +1,4 @@
+<% breadcrumb :animals %>
 <h3><%= Animal.human_attribute_name(:animal)%></h3>
 <%= link_to  new_animal_path, class: "btn btn-info pull-right" do %>
   <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
@@ -6,6 +7,7 @@
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
+      <th><%= Animal.human_attribute_name(:photo)%></th>
       <th><%= Animal.human_attribute_name(:code)%></th>
       <th><%= Animal.human_attribute_name(:name)%></th>
       <th><%= Animal.human_attribute_name(:description)%></th>
@@ -20,6 +22,7 @@
   <tbody>
     <% @animals.each do |animal| %>
       <tr>
+        <td><%= image_tag animal.photo.url(:thumb), class: "img-circle" %></td>
         <td><%= animal.code %></td>
         <td><%= animal.name %></td>
         <td><%= animal.description %></td>
@@ -43,5 +46,5 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @animals %>
 <br>

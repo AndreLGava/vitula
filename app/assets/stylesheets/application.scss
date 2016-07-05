@@ -12,6 +12,7 @@
  *
  *= require devise_bootstrap_views
  *= require bootstrap-datepicker3
+ *= require jquery.jcrop
  */
 
 @import "bootstrap-sprockets";
@@ -20,9 +21,13 @@
 @import "alertify/default";
 @import "alertify/bootstrap";
 @import "font-awesome";
-
-
-
+.profile{
+	padding: 13px!important;
+	img{
+		width: 30px;
+		padding-right: 5px;
+	}
+}
 
 body {
 	background: #FFF;
@@ -32,17 +37,17 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
 }
 .navbar{
-	background-color: #fff;
+	background-color: #f1f1f1;
 	border-radius: 0px;
 	-moz-border-radius:0px;
 	-o-border-radius:0px;
 }
 
 nav {
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
 	.navbar-brand {
 		a {
-			color: #BD1E23;
+			color: #e5e5e5;
 			font-weight: bold;
 			&:hover {
 				text-decoration: none;
@@ -51,84 +56,63 @@ nav {
 	}
 }
 
-#pins {
-  margin: 0 auto;
-  width: 100%;
-  .box {
-	  margin: 10px;
-	  width: 350px;
-	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	  border-radius: 7px;
-	  text-align: center;
-	  background: #fff;
-	  img {
-	  	max-width: 100%;
-	  	height: auto;
-	  	border-top-left-radius: 7px;
-	  	border-top-right-radius: 7px;
-	  }
-	  h2 {
-	  	font-size: 22px;
-	  	margin: 0;
-	  	padding: 25px 10px;
-	  	a {
-				color: #474747;
-	  	}
-	  }
-	  .user {
-	  	font-size: 12px;
-	  	border-top: 1px solid #EAEAEA;
-			padding: 15px;
-			margin: 0;
-	  }
-	}
+.btn-outline {
+  background-color: transparent !important;
+  color: inherit;
+  transition: all .5s;
+}
+.btn-circle {
+  text-align: center;
+  border-radius: 10000px;
 }
 
-#edit_page {
-	.current_image {
-		img {
-			display: block;
-			margin: 20px 0;
-		}
-	}
+.btn-round-lg {
+  border-radius: 22.5px;
 }
 
-#pin_show {
-	.panel-heading {
-		padding: 0;
-	}
-	.pin_image {
-		img {
-			max-width: 100%;
-			width: 100%;
-			display: block;
-			margin: 0 auto;
-		}
-	}
-	.panel-body {
-		padding: 35px;
-		h1 {
-			margin: 0 0 10px 0;
-		}
-		.description {
-			color: #868686;
-			line-height: 1.75;
-			margin: 0;
-		}
-	}
-	.panel-footer {
-		padding: 20px 35px;
-		p {
-			margin: 0;
-		}
-		.user {
-			padding-top: 8px;
-		}
-		}
-	}
-.imagem{
-	& img{
-		border-radius: 7px;
-	}
-	text-align: center;
+.btn-round {
+  border-radius: 17px;
 }
+
+.btn-round-sm {
+  border-radius: 15px;
+}
+
+.btn-round-xs {
+  border-radius: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+$default: #eee;
+$danger: #d9534f;
+$warning: #f0ad4e;
+$success: #5cb85c;
+$primary: #337ab7;
+$info: #5bc0de;
+
+$colors: (default $default) (danger $danger) (warning $warning) (success $success) (info $info) (primary $primary);
+@each $name, $color in $colors{
+    .btn-#{$name}.btn-outline {
+      color: $color;
+      &:hover{
+        color: #fff;
+        background-color: $color!important;
+      }
+    }
+		.badge-#{$name}{
+			background: $color;
+			border: 1px solid darken($color, 7);
+			opacity: 0.8;
+		}
+  }
+
+	.badge-message{
+		margin-left: -10px;
+		padding: 1px 3px;
+		font-size: 9px;
+	}
+
+	.fa-menu{
+		font-size: 16px;
+	}

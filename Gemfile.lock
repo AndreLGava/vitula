@@ -115,6 +115,8 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gretel (3.0.8)
+      rails (>= 3.2.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jbuilder (2.5.0)
@@ -135,6 +137,9 @@ GEM
       railties (>= 3.2, < 5.0)
       thor (~> 0.14)
     json (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     loofah (2.0.3)
@@ -319,11 +324,13 @@ DEPENDENCIES
   enum_help
   factory_girl_rails
   font-awesome-rails
+  gretel
   jbuilder (~> 2.0)
   jquery-datatables-rails
   jquery-mask-plugin (~> 0.1.0)
   jquery-rails
   jquery-validation-rails
+  kaminari
   paper_trail (~> 5.1, >= 5.1.1)
   paperclip (~> 4.3, >= 4.3.6)
   papercrop (~> 0.3.0)

@@ -3,8 +3,15 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
+  first_heat = [15, 24] #moths after her birth
+  heat = [18, 24] #days after parturition or abortion
+  insemination = [6, 30] #hours to success
+  regress = heat #days after insemination or last heat
+  stop_breastfeeding = 214 #days after insemination 60 days before partturition
+  parturition = 274 #days +- 7 days [267 , 282] after last insemination
+
   def index
-    @animals = Animal.all
+    @animals = Animal.all.page params[:page]
   end
 
   def show
@@ -22,7 +29,7 @@ class AnimalsController < ApplicationController
 
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to animals_path, notice: 'Animal was successfully created.' }
+        format.html { redirect_to animals_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new }
@@ -34,7 +41,7 @@ class AnimalsController < ApplicationController
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        format.html { redirect_to animals_path, notice: 'Animal was successfully updated.' }
+        format.html { redirect_to animals_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @animal }
       else
         format.html { render :edit }
@@ -46,7 +53,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal.destroy
     respond_to do |format|
-      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
+      format.html { redirect_to animals_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end
@@ -62,6 +69,6 @@ class AnimalsController < ApplicationController
     end
 
     def animal_params
-      params.require(:animal).permit(:code, :name, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard)
+      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard)
     end
 end

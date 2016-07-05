@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      notification: Notificação
+    attributes:
+      notification:
+        title: Título
+        description: Descrição
+        read: Data Leitura
+        limit: Data Expiração
+        user: Usuário

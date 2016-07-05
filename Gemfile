@@ -65,6 +65,9 @@ gem 'paper_trail', '~> 5.1', '>= 5.1.1'
 # I18n + Better interface for bootstrap views
 gem 'devise-bootstrap-views'
 
+#Breadcrumbs
+gem "gretel"
+
 # Icons
 gem 'font-awesome-rails'
 
@@ -73,6 +76,9 @@ gem 'simple_form'
 
 # Grid filter sort pagination by js
 gem 'jquery-datatables-rails'
+
+#pagination
+gem 'kaminari'
 
 # i18n for enums
 gem 'enum_help'

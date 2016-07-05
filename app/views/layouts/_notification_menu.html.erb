@@ -1,0 +1,9 @@
+<% if @notification_menu.nil? == false %>
+  <ul class="dropdown-menu">
+    <% @notification_menu.each do |n| %>
+      <li><%= link_to n.title,  notifications_path %></li>
+    <% end %>
+    <li role="separator" class="divider"></li>
+    <li><%= link_to t('notifications.show.all'), notifications_path  %></li>
+  </ul>
+<% end %>
