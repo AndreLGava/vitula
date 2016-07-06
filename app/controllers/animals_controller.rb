@@ -71,6 +71,6 @@ class AnimalsController < ApplicationController
     end
 
     def animal_params
-      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :development_attributes => [:weight, :height], :production_attributes => [:amount, :measurement, :observation])
+      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :developments_attributes => [:weight, :height], :productions_attributes => [:amount, :measurement, :observation])
     end
 end

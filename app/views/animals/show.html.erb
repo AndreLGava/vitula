@@ -21,11 +21,11 @@
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:weight)%></strong>
-        <%= @animal.development.weight.last %>
+        <%= @animal.developments.last.weight unless @animal.developments.empty? %>
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:height)%></strong>
-        <%= @animal.development.height.last %>
+        <%= @animal.developments.last.height unless @animal.developments.empty? %>
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:breed)%></strong>
