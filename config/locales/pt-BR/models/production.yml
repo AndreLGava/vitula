@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      production: Produções
+    attributes:
+      production:
+        production: Produções
+        amount: Quantidade de leite produzido
+        measurement: Data e hora da medição
+        observation: Observação
+        animal: Animal

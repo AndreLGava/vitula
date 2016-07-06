@@ -19,6 +19,8 @@ class AnimalsController < ApplicationController
 
   def new
     @animal = Animal.new
+    @animal.productions.build
+    @animal.developments.build
   end
 
   def edit
@@ -69,6 +71,6 @@ class AnimalsController < ApplicationController
     end
 
     def animal_params
-      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard)
+      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :developments_attributes => [:weight, :height], :productions_attributes => [:amount, :measurement, :observation])
     end
 end

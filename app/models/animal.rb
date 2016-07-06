@@ -1,4 +1,5 @@
 class Animal < ActiveRecord::Base
+
   belongs_to :lot
   belongs_to :reproduction
 
@@ -6,6 +7,11 @@ class Animal < ActiveRecord::Base
   has_many :reproductions_as_mother, class_name: 'Reproduction',  foreign_key: 'mother_id'
 
   has_paper_trail
+
+  has_many :developments
+  has_many :productions
+
+  accepts_nested_attributes_for :developments, :productions, allow_destroy: true
 
   validates :code, presence: true
   validates :name, presence: true
