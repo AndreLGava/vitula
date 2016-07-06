@@ -1,4 +1,5 @@
 class Animal < ActiveRecord::Base
+
   belongs_to :lot
   belongs_to :reproduction
 
@@ -6,6 +7,11 @@ class Animal < ActiveRecord::Base
 
   has_many :animals, foreign_key: "mother_id", class_name: "Animal"
   has_many :animals, foreign_key: "father_id", class_name: "Animal"
+
+  has_many :developments
+  has_many :productions
+
+  accepts_nested_attributes_for :developments, :productions, allow_destroy: true
 
   validates :code, presence: true
   validates :name, presence: true

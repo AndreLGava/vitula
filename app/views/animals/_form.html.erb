@@ -9,6 +9,16 @@
     <%= f.input :female %>
     <%= f.input :breed %>
     <%= f.association :lot %>
+    <%= f.fields_for :developments do |fd| %>
+      <%= fd.input :weight %>
+      <%= fd.input :height %>
+    <% end %>
+    <%= f.fields_for :productions do |fp| %>
+      <%= fp.input :amount %>
+      <%= fp.input :measurement %>
+      <%= fp.input :observation %>
+    <% end %>
+
     <%# f.association :reproduction, :collection => @reproduction, :label_method => :parturition, :value_method => :id %>
     <%= f.association :reproduction, :label_method => :parturition, :value_method => :id %>
     <%= f.input :discard, as: :date_picker, :include_blank => true  %>

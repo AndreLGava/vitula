@@ -1,50 +1,51 @@
 <% breadcrumb :animals %>
 <h3><%= Animal.human_attribute_name(:animal)%></h3>
-<%= link_to  new_animal_path, class: "btn btn-info pull-right" do %>
-  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
-<% end %>
-
-<table class="table table-responsive table-striped">
-  <thead>
-    <tr>
-      <th><%= Animal.human_attribute_name(:photo)%></th>
-      <th><%= Animal.human_attribute_name(:code)%></th>
-      <th><%= Animal.human_attribute_name(:name)%></th>
-      <th><%= Animal.human_attribute_name(:description)%></th>
-      <th><%= Animal.human_attribute_name(:female)%></th>
-      <th><%= Animal.human_attribute_name(:breed)%></th>
-      <th><%= Animal.human_attribute_name(:lot)%></th>
-      <th><%= Animal.human_attribute_name(:reproduction)%></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @animals.each do |animal| %>
+  <%= link_to  new_animal_path, class: "btn btn-info" do %>
+    <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
+  <% end %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
       <tr>
-        <td><%= image_tag animal.photo.url(:thumb), class: "img-circle" %></td>
-        <td><%= animal.code %></td>
-        <td><%= animal.name %></td>
-        <td><%= animal.description %></td>
-        <td><%= animal.female %></td>
-        <td><%= animal.breed %></td>
-        <td><%= animal.lot.name unless animal.lot.nil?  %></td>
-        <td><%= "#{animal.reproduction.parturition}" unless animal.reproduction.nil? %></td>
-        <td><%= link_to animal, class: "btn btn-sm btn-primary" do %>
-          <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
-        <% end %>
-        </td>
-        <td><%= link_to edit_animal_path(animal), class: "btn btn-sm btn-default" do %>
-          <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
-        <% end %>
-        </td>
-        <td><%= link_to animal,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
-          <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
-        <% end %>
-        </td>
+        <th><%= Animal.human_attribute_name(:photo)%></th>
+        <th><%= Animal.human_attribute_name(:code)%></th>
+        <th><%= Animal.human_attribute_name(:name)%></th>
+        <th><%= Animal.human_attribute_name(:description)%></th>
+        <th><%= Animal.human_attribute_name(:female)%></th>
+        <th><%= Animal.human_attribute_name(:breed)%></th>
+        <th><%= Animal.human_attribute_name(:lot)%></th>
+        <th><%= Animal.human_attribute_name(:reproduction)%></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @animals.each do |animal| %>
+        <tr>
+          <td><%= image_tag animal.photo.url(:thumb), class: "img-circle" %></td>
+          <td><%= animal.code %></td>
+          <td><%= animal.name %></td>
+          <td><%= animal.description %></td>
+          <td><%= animal.female %></td>
+          <td><%= animal.breed %></td>
+          <td><%= animal.lot.name unless animal.lot.nil?  %></td>
+          <td><%= "#{animal.reproduction.parturition}" unless animal.reproduction.nil? %></td>
+          <td><%= link_to animal, class: "btn btn-sm btn-primary" do %>
+            <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+          <% end %>
+          </td>
+          <td><%= link_to edit_animal_path(animal), class: "btn btn-sm btn-default" do %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+          <% end %>
+          </td>
+          <td><%= link_to animal,  method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: "btn btn-sm btn-danger" do %>
+            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= paginate @animals %>
 <br>
