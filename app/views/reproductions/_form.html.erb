@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :mother, :collection => @mother, :label_method => :name, :value_method => :id, :include_blank => false, disabled: [true] %>
+    <%= f.association :mother, :include_blank => false, readonly: true %>
     <%= f.association :father, :collection => @father, :label_method => :name, :value_method => :id %>
     <%= f.input :heat, as: :date_picker, :include_blank => false %>
     <%= f.input :insemination, as: :date_picker, :include_blank => true %>
