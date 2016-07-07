@@ -11,8 +11,8 @@ class ReproductionsController < ApplicationController
   end
 
   def new
-    @mother = [Animal.find(params[:mother_id])]
-    @reproduction = Reproduction.new
+    @mother = Animal.find(params[:mother_id])
+    @reproduction = @mother.reproductions_as_mother.new
 
   end
 
