@@ -1,6 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+  before_action :sign_in_successfuly
+
+  def sign_in_successfuly
+    NotificationsController.me(title: 'Welcome to Vitula', description: 'Seja bem vindo ao sistema Vitula', limit: Time.now + 7.days, user_id: 1)
+  end
 
   # GET /resource/sign_up
   # def new

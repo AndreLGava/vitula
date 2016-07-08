@@ -14,18 +14,9 @@ class NotificationsController < ApplicationController
   def show_notification
   end
 
-  def create
+  def self.create(notification_params)
     @notification = Notification.new(notification_params)
-
-    respond_to do |format|
-      if @notification.save
-        format.html { redirect_to @notification, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :created, location: @notification }
-      else
-        format.html { render :new }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
-      end
-    end
+    @notification.save
   end
 
   def destroy
