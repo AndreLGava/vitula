@@ -1,17 +1,17 @@
 class Animal < ActiveRecord::Base
 
   belongs_to :lot
+  belongs_to :user
   belongs_to :reproduction
 
   has_many :reproductions_as_father, class_name: 'Reproduction',  foreign_key: 'father_id'
   has_many :reproductions_as_mother, class_name: 'Reproduction',  foreign_key: 'mother_id'
-
-  has_paper_trail
-
   has_many :developments
   has_many :productions
 
   accepts_nested_attributes_for :developments, :productions, allow_destroy: true
+
+  has_paper_trail
 
   validates :code, presence: true
   validates :name, presence: true

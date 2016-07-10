@@ -11,7 +11,7 @@ class AnimalsController < ApplicationController
   parturition = 274 #days +- 7 days [267 , 282] after last insemination
 
   def index
-    @animals = Animal.all.page params[:page]
+    @animals = Animal.select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where(user_id: current_user.id, discard: nil).order(:lot_id, :name).page params[:page]
   end
 
   def show
@@ -61,15 +61,15 @@ class AnimalsController < ApplicationController
   end
 
   def animal_production
-    @productions = @animal.productions
+    @productions = @animal.productions.page params[:page]
   end
 
   def animal_development
-    @developments = @animal.developments
+    @developments = @animal.developments.page params[:page]
   end
 
   def animal_reproduction
-    @reproductions = @animal.reproductions
+    @reproductions = @animal.reproductions.page params[:page]
   end
 
   private
