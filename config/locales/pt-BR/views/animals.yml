@@ -8,4 +8,8 @@ pt-BR:
       edit: Alterando Animal
     show:
       animal: Animal
-      reproduction: Reprodução (Cio, retorno, aborto, parto)
+      reproduction: Reprodução
+      production: Produção
+      disease: Doenças
+      feed: Alimentação
+      development: Desenvolvimento

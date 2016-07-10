@@ -1,0 +1,16 @@
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-condensed">
+			<tr>
+			    <% @productions.each do |p| %>
+					<td><%= p.amount %></td>
+					<td><%= p.measurement %></td>
+					<td><%= p.observation %></td>
+		    	<% end %>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+  Aqui vai ter o gráfico
+</div>

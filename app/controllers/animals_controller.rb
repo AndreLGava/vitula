@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
   first_heat = [15, 24] #moths after her birth
@@ -58,6 +58,14 @@ class AnimalsController < ApplicationController
       format.html { redirect_to animals_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
+  end
+
+  def animal_production
+    @productions = @animal.productions
+  end
+
+  def animal_development
+    @developments = @animal.developments
   end
 
   private
