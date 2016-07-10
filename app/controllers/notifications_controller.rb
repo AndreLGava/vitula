@@ -14,11 +14,6 @@ class NotificationsController < ApplicationController
   def show_notification
   end
 
-  def self.create(notification_params)
-    @notification = Notification.new(notification_params)
-    @notification.save
-  end
-
   def destroy
     @notification.destroy
     respond_to do |format|

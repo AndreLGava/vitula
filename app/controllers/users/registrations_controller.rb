@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :sign_in_successfuly
 
   def sign_in_successfuly
-    NotificationsController.me(title: 'Welcome to Vitula', description: 'Seja bem vindo ao sistema Vitula', limit: Time.now + 7.days, user_id: 1)
+    Notification.create(title: I18n.t('users.notification.welcome'), description: I18n.t('users.notification.welcome_message'), limit: Time.now + 7.days, user_id: current_user.id)
   end
 
   # GET /resource/sign_up

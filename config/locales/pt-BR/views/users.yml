@@ -1,0 +1,13 @@
+pt-BR:
+  users:
+    index:
+      users: Usuarios
+    new:
+      new: Novo Usuário
+    edit:
+      edit: Alterando Usuário
+    show:
+      usuario: Usuário
+    notification:
+      welcome: Seja bem vindo
+      welcome_message: Seja bem vindo ao sistema vitula. O sistema vitula foi projetado para atender as necessidades do pequeno e médio produtor rural a fim de que produtor possa cadastrar seus animais e gerenciar sua propriedade a fim de obter maiores lucros e reduzir custos.
