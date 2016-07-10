@@ -65,7 +65,7 @@
       <div class="btn-group" role="group" aria-label="...">
       <%= link_to I18n.t('animals.show.production'), animal_production_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
         <button type="button" class="btn btn-default">Doenças</button>
-        <button type="button" class="btn btn-default">Reproduções</button>
+        <%= link_to I18n.t('animals.show.reproduction'), animal_reproduction_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
         <button type="button" class="btn btn-default">Alimentação</button>
         <%= link_to I18n.t('animals.show.development'), animal_development_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
       </div>

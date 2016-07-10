@@ -2,6 +2,11 @@
 	<div class="table-responsive">
 		<table class="table table-striped table-hover table-condensed">
 			<tr>
+				<td><%= Development.human_attribute_name(:weight)%></td>
+				<td><%= Development.human_attribute_name(:height)%></td>
+				<td><%= Development.human_attribute_name(:created_at)%></td>
+			</tr>
+			<tr>
 			    <% @developments.each do |d| %>
 					<td><%= d.weight %></td>
 					<td><%= d.height %></td>
