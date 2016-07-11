@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "30x30#" }, default_url: "/images/:style/missing_user.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  has_many :properties
-  has_many :animals
+  has_many :properties, dependent: :destroy
+  has_many :animals, dependent: :destroy
 
   has_paper_trail
 

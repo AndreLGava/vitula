@@ -6,8 +6,8 @@ class Animal < ActiveRecord::Base
 
   has_many :reproductions_as_father, class_name: 'Reproduction',  foreign_key: 'father_id'
   has_many :reproductions_as_mother, class_name: 'Reproduction',  foreign_key: 'mother_id'
-  has_many :developments
-  has_many :productions
+  has_many :developments, dependent: :destroy
+  has_many :productions, dependent: :destroy
 
   accepts_nested_attributes_for :developments, :productions, allow_destroy: true
 
