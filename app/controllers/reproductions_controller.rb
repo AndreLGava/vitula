@@ -33,13 +33,20 @@ class ReproductionsController < ApplicationController
   end
 
   def update
+
+    @animal = Animal.find_by_id(@reproduction.mother_id)
+
+    @reproductions = @animal.reproductions.page params[:page]
+
     respond_to do |format|
       if @reproduction.update(reproduction_params)
         format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @reproduction }
+        format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
       else
         format.html { render :edit }
         format.json { render json: @reproduction.errors, status: :unprocessable_entity }
+        format.js { render 'edit' }
       end
     end
   end

@@ -16,6 +16,7 @@
 				<% else %>
 		      		<td><%= Reproduction.human_attribute_name(:mother)%></td>
 				<% end %>
+        <td></td>
 			</tr>
 			<% @reproductions.each do |r| %>
 				<tr>
@@ -30,6 +31,11 @@
 					<% else %>
 						<td><%= r.mother.name unless r.mother.nil? %></td>
 					<% end %>
+          <td>
+            <%= link_to edit_reproduction_path(r), remote: true, class: "btn btn-sm btn-default" do %>
+              <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+            <% end %>
+          </td>
 				</tr>
 		    <% end %>
 		</table>
