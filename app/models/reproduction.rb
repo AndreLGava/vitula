@@ -1,5 +1,5 @@
 class Reproduction < ActiveRecord::Base
-
+  include ActionView::Helpers::DateHelper
   belongs_to :father, foreign_key: "father_id", class_name: "Animal"
   belongs_to :mother, foreign_key: "mother_id", class_name: "Animal"
 
@@ -7,4 +7,12 @@ class Reproduction < ActiveRecord::Base
 
   validates :mother, presence: true
   validates :heat, presence: true
+
+  	def age
+	  	unless parturition.nil?
+		  now = Time.now
+		  parturit = parturition
+		  distance_of_time_in_words(now, parturit, options = {include_seconds: false})
+		end
+	end
 end

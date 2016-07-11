@@ -35,7 +35,6 @@
             <li><%= link_to "Property", properties_path %></li>
             <li><%= link_to "Lot", lots_path %></li>
             <li><%= link_to "Animal", animals_path %></li>
-            <li><%= link_to "Reproduction", reproductions_path %></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -62,20 +61,18 @@
 </nav>
 <div class="container-fluid">
   <% if notice %>
-    <div class="alert alert-success" role="alert"><%= notice %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+      <script>
+        alertify.success("<%= notice %>");
+      </script>
   <% end %>
   <% if alert %>
-    <div class="alert alert-success" role="alert"><%= alert %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+      <script>
+        alertify.error("<%= alert %>");
+      </script>
   <% end %>
+
   <%= breadcrumbs style: :bootstrap %>
+  
 	<%= yield %>
 
 </div>

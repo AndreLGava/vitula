@@ -1,28 +1,13 @@
 class DevelopmentsController < ApplicationController
   before_action :set_development, only: [:show, :edit, :update, :destroy]
 
-  # GET /developments
-  # GET /developments.json
-  def index
-    @developments = Development.all
-  end
-
-  # GET /developments/1
-  # GET /developments/1.json
-  def show
-  end
-
-  # GET /developments/new
   def new
     @development = Development.new
   end
 
-  # GET /developments/1/edit
   def edit
   end
 
-  # POST /developments
-  # POST /developments.json
   def create
     @development = Development.new(development_params)
 
@@ -37,8 +22,6 @@ class DevelopmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /developments/1
-  # PATCH/PUT /developments/1.json
   def update
     respond_to do |format|
       if @development.update(development_params)
@@ -48,16 +31,6 @@ class DevelopmentsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @development.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /developments/1
-  # DELETE /developments/1.json
-  def destroy
-    @development.destroy
-    respond_to do |format|
-      format.html { redirect_to developments_url, notice: I18n.t('crud.destroyed') }
-      format.json { head :no_content }
     end
   end
 

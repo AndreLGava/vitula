@@ -1,5 +1,6 @@
 class ProductionsController < ApplicationController
   before_action :set_production, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:new, :edit, :update]
 
   # GET /productions
   # GET /productions.json
@@ -25,14 +26,20 @@ class ProductionsController < ApplicationController
   # POST /productions.json
   def create
     @production = Production.new(production_params)
+    
+    @animal = Animal.find_by_id(@production.animal_id)
+
+    @productions = @animal.productions.page params[:page]
 
     respond_to do |format|
       if @production.save
         format.html { redirect_to @production, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @production }
+        format.js { render 'production', animal: @animal, productions: @productions}
       else
         format.html { render :new }
         format.json { render json: @production.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
       end
     end
   end
@@ -62,6 +69,10 @@ class ProductionsController < ApplicationController
   end
 
   private
+
+    def set_animal
+      @animal = Animal.find(params[:animal_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_production
       @production = Production.find(params[:id])

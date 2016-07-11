@@ -1,19 +1,21 @@
-<%= simple_form_for(@reproduction) do |f| %>
-  <%= f.error_notification %>
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <%= simple_form_for(@reproduction, remote: true) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :mother, :include_blank => false, readonly: true %>
-    <%= f.association :father, :collection => @father, :label_method => :name, :value_method => :id %>
-    <%= f.input :heat, as: :date_picker, :include_blank => false %>
-    <%= f.input :insemination, as: :date_picker, :include_blank => true %>
-    <%= f.input :regress, as: :date_picker, :include_blank => true %>
-    <%= f.input :abortion, as: :date_picker, :include_blank => true %>
-    <%=  f.input :stop_breastfeeding, as: :date_picker, :include_blank => true %>
-    <%= f.input :parturition, as: :date_picker, :include_blank => true %>
-  </div>
+    <div class="form-inputs">
+      <%= f.association :mother, :include_blank => false, readonly: true %>
+      <%= f.association :father, :collection => @father, :label_method => :name, :value_method => :id %>
+      <%= f.input :heat, as: :date_picker, :include_blank => false %>
+      <%= f.input :insemination, as: :date_picker, :include_blank => true %>
+      <%= f.input :regress, as: :date_picker, :include_blank => true %>
+      <%= f.input :abortion, as: :date_picker, :include_blank => true %>
+      <%=  f.input :stop_breastfeeding, as: :date_picker, :include_blank => true %>
+      <%= f.input :parturition, as: :date_picker, :include_blank => true %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-success" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
 <br>
