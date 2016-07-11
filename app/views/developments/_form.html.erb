@@ -1,14 +1,16 @@
-<%= simple_form_for(@development) do |f| %>
-  <%= f.error_notification %>
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <%= simple_form_for(@development, remote: true) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :weight %>
-    <%= f.input :height %>
-    <%= f.association :animal %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :weight %>
+      <%= f.input :height %>
+      <%= f.association :animal, :include_blank => false, readonly: true %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-success" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
 <br>

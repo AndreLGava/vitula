@@ -11,13 +11,21 @@ class DevelopmentsController < ApplicationController
   def create
     @development = Development.new(development_params)
 
+    @animal = Animal.find_by_id(@development.animal_id)
+
+    @developments = @animal.developments.page params[:page]
+
     respond_to do |format|
       if @development.save
         format.html { redirect_to @development, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @development }
+        format.js { render 'development', animal: @animal, developments: @developments}
+
       else
         format.html { render :new }
         format.json { render json: @development.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
+
       end
     end
   end
@@ -25,7 +33,7 @@ class DevelopmentsController < ApplicationController
   def update
     respond_to do |format|
       if @development.update(development_params)
-        format.html { redirect_to @development, notice: notice: I18n.t('crud.saved') }
+        format.html { redirect_to @development, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @development }
       else
         format.html { render :edit }

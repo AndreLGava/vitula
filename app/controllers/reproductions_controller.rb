@@ -15,11 +15,15 @@ class ReproductionsController < ApplicationController
   def create
     @reproduction = Reproduction.new(reproduction_params)
 
+    @animal = Animal.find_by_id(@reproduction.mother_id)
+
+    @reproductions = @animal.reproductions.page params[:page]
+
     respond_to do |format|
       if @reproduction.save
         format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @reproduction }
-        format.js { render 'reproduction' }
+        format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
       else
         format.html { render :new }
         format.json { render json: @reproduction.errors, status: :unprocessable_entity }
