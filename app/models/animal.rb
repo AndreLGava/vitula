@@ -9,8 +9,6 @@ class Animal < ActiveRecord::Base
   has_many :developments, dependent: :destroy
   has_many :productions, dependent: :destroy
 
-  accepts_nested_attributes_for :developments, :productions, allow_destroy: true
-
   has_paper_trail
 
   validates :code, presence: true
