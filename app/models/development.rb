@@ -4,8 +4,18 @@ class Development < ActiveRecord::Base
   validates :weight, presence: true
   validates :height, presence: true
 
-  def development_graph
-    
+  def graph
+    hash = {}
+    hash['title'] =  'Teste'
+    hash['subtitle'] = 'subtitulo'
+    hash = data(hash)
+    hash.to_json.html_safe
+  end
+
+  def data(hash)
+    hash['weight'] = []
+    hash['height'] = []
+    hash['time'] = []
   end
 
 end
