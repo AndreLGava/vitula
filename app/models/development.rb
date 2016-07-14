@@ -4,4 +4,8 @@ class Development < ActiveRecord::Base
   validates :weight, presence: true
   validates :height, presence: true
 
+  def development_graph
+    
+  end
+
 end
