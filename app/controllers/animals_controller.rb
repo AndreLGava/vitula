@@ -61,15 +61,15 @@ class AnimalsController < ApplicationController
   end
 
   def animal_production
-    @productions = @animal.productions.page params[:page]
+    @productions = @animal.productions.order(id: :desc).page params[:page]
   end
 
   def animal_development
-    @developments = @animal.developments.page params[:page]
+    @developments = @animal.developments.order(id: :desc).page params[:page]
   end
 
   def animal_reproduction
-    @reproductions = @animal.reproductions.page params[:page]
+    @reproductions = @animal.reproductions.order(id: :desc).page params[:page]
   end
 
   private

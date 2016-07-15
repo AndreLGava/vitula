@@ -5,11 +5,11 @@
     <div class="form-inputs">
       <%= f.association :mother, :include_blank => false, readonly: true %>
       <%= f.association :father, :collection => @father, :label_method => :name, :value_method => :id %>
-      <%= f.input :heat, as: :date_picker, :include_blank => false %>
-      <%= f.input :insemination, as: :date_picker, :include_blank => true %>
-      <%= f.input :regress, as: :date_picker, :include_blank => true %>
-      <%= f.input :abortion, as: :date_picker, :include_blank => true %>
-      <%=  f.input :stop_breastfeeding, as: :date_picker, :include_blank => true %>
+      <%= f.input :heat, as: :date_picker, :include_blank => false, disabled: @reproduction.heat? %>
+      <%= f.input :insemination, as: :date_picker, :include_blank => true, disabled: @reproduction.insemination? %>
+      <%= f.input :regress, as: :date_picker, :include_blank => true, disabled: @reproduction.regress? %>
+      <%= f.input :abortion, as: :date_picker, :include_blank => true, disabled: @reproduction.abortion? %>
+      <%= f.input :stop_breastfeeding, as: :date_picker, :include_blank => true, disabled: @reproduction.stop_breastfeeding? %>
       <%= f.input :parturition, as: :date_picker, :include_blank => true %>
     </div>
 
