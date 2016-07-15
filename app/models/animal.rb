@@ -23,4 +23,19 @@ class Animal < ActiveRecord::Base
     Reproduction.where('mother_id = ? or father_id = ?', id, id)
   end
 
+  def average_month(date)
+    all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_month, date.end_of_month)
+    return all_of_them.empty? ? 0 : all_of_them.average(:amount)
+  end
+
+  def average_year
+    data = {}
+    on_time = 1..12
+    on_time.each do |t|
+      on_date = Time.now - t.months
+      data[t] = { on_date => self.average_month(on_date) }
+    end
+    return data
+  end
+
 end
