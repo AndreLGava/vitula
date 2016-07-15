@@ -33,7 +33,7 @@ class Animal < ActiveRecord::Base
     on_time = 1..12
     on_time.each do |t|
       on_date = Time.now - t.months
-      data[t] = { on_date.strftime("%B, %Y") => self.average_month(on_date) }
+      data[t] = { on_date.strftime("%B/%Y") => self.average_month(on_date) }
     end
     return data
   end
