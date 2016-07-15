@@ -29,13 +29,34 @@ class Animal < ActiveRecord::Base
   end
 
   def average_year
-    data = {}
-    on_time = 1..12
+    data = []
+    on_time = 0..11
     on_time.each do |t|
       on_date = Time.now - t.months
-      data[t] = { on_date.strftime("%B/%Y") => self.average_month(on_date) }
+      data[t] = [on_date.strftime("%B/%Y"), self.average_month(on_date).to_f]
     end
     return data
+  end
+
+  def define_categories
+    categories = []
+    on_time = 0..11
+    on_time.each do |t|
+      on_date = Time.now - t.months
+      categories[t] = on_date.strftime("%B/%Y")
+    end
+    return categories
+  end
+
+  def production_chart
+    variable = {}
+    variable['title'] = 'Title'
+    variable['subtitle'] = 'Subtitle'
+    variable['yAxis'] = 'Produção'
+    variable['description'] = 'Produção ao longo dos meses'
+    variable['categories'] = self.define_categories
+    variable['data'] = self.average_year
+    return variable.to_json.html_safe
   end
 
 end
