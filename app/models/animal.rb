@@ -59,14 +59,19 @@ class Animal < ActiveRecord::Base
     return variable.to_json.html_safe
   end
 
+  def animal_development
+    data = self.developments.map{|d| {height: d.height, created: d.created_at, weight: d.weight }}
+    return data.reverse
+  end
+
   def development_chart
     variable = {}
     variable['title'] = 'Title development'
     variable['subtitle'] = 'Subtitle development'
     variable['yAxis'] = ''
     variable['description'] = 'Desenvolvimento ao longo da vida'
-    variable['categories'] = self.define_categories
-    variable['data'] = self.average_year
+    variable['categories'] = define_categories
+    variable['data'] = animal_development
     return variable.to_json.html_safe
   end
 
