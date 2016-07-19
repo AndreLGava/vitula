@@ -47,7 +47,7 @@ RSpec.describe ProfilesController, type: :controller do
   describe "GET #show" do
     it "assigns the requested profile as @profile" do
       profile = Profile.create! valid_attributes
-      get :show, {:id => profile.to_param}, valid_session
+      get :show, {id: profile.to_param}, valid_session
       expect(assigns(:profile)).to eq(profile)
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe ProfilesController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested profile as @profile" do
       profile = Profile.create! valid_attributes
-      get :edit, {:id => profile.to_param}, valid_session
+      get :edit, {id: profile.to_param}, valid_session
       expect(assigns(:profile)).to eq(profile)
     end
   end
@@ -71,30 +71,30 @@ RSpec.describe ProfilesController, type: :controller do
     context "with valid params" do
       it "creates a new Profile" do
         expect {
-          post :create, {:profile => valid_attributes}, valid_session
+          post :create, {profile: valid_attributes}, valid_session
         }.to change(Profile, :count).by(1)
       end
 
       it "assigns a newly created profile as @profile" do
-        post :create, {:profile => valid_attributes}, valid_session
+        post :create, {profile: valid_attributes}, valid_session
         expect(assigns(:profile)).to be_a(Profile)
         expect(assigns(:profile)).to be_persisted
       end
 
       it "redirects to the created profile" do
-        post :create, {:profile => valid_attributes}, valid_session
+        post :create, {profile: valid_attributes}, valid_session
         expect(response).to redirect_to(Profile.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved profile as @profile" do
-        post :create, {:profile => invalid_attributes}, valid_session
+        post :create, {profile: invalid_attributes}, valid_session
         expect(assigns(:profile)).to be_a_new(Profile)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:profile => invalid_attributes}, valid_session
+        post :create, {profile: invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe ProfilesController, type: :controller do
 
       it "updates the requested profile" do
         profile = Profile.create! valid_attributes
-        put :update, {:id => profile.to_param, :profile => new_attributes}, valid_session
+        put :update, {id: profile.to_param, profile: new_attributes}, valid_session
         profile.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested profile as @profile" do
         profile = Profile.create! valid_attributes
-        put :update, {:id => profile.to_param, :profile => valid_attributes}, valid_session
+        put :update, {id: profile.to_param, profile: valid_attributes}, valid_session
         expect(assigns(:profile)).to eq(profile)
       end
 
       it "redirects to the profile" do
         profile = Profile.create! valid_attributes
-        put :update, {:id => profile.to_param, :profile => valid_attributes}, valid_session
+        put :update, {id: profile.to_param, profile: valid_attributes}, valid_session
         expect(response).to redirect_to(profile)
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe ProfilesController, type: :controller do
     context "with invalid params" do
       it "assigns the profile as @profile" do
         profile = Profile.create! valid_attributes
-        put :update, {:id => profile.to_param, :profile => invalid_attributes}, valid_session
+        put :update, {id: profile.to_param, profile: invalid_attributes}, valid_session
         expect(assigns(:profile)).to eq(profile)
       end
 
       it "re-renders the 'edit' template" do
         profile = Profile.create! valid_attributes
-        put :update, {:id => profile.to_param, :profile => invalid_attributes}, valid_session
+        put :update, {id: profile.to_param, profile: invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +145,13 @@ RSpec.describe ProfilesController, type: :controller do
     it "destroys the requested profile" do
       profile = Profile.create! valid_attributes
       expect {
-        delete :destroy, {:id => profile.to_param}, valid_session
+        delete :destroy, {id: profile.to_param}, valid_session
       }.to change(Profile, :count).by(-1)
     end
 
     it "redirects to the profiles list" do
       profile = Profile.create! valid_attributes
-      delete :destroy, {:id => profile.to_param}, valid_session
+      delete :destroy, {id: profile.to_param}, valid_session
       expect(response).to redirect_to(profiles_url)
     end
   end

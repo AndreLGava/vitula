@@ -47,7 +47,7 @@ RSpec.describe ReproductionsController, type: :controller do
   describe "GET #show" do
     it "assigns the requested reproduction as @reproduction" do
       reproduction = Reproduction.create! valid_attributes
-      get :show, {:id => reproduction.to_param}, valid_session
+      get :show, {id: reproduction.to_param}, valid_session
       expect(assigns(:reproduction)).to eq(reproduction)
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe ReproductionsController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested reproduction as @reproduction" do
       reproduction = Reproduction.create! valid_attributes
-      get :edit, {:id => reproduction.to_param}, valid_session
+      get :edit, {id: reproduction.to_param}, valid_session
       expect(assigns(:reproduction)).to eq(reproduction)
     end
   end
@@ -71,30 +71,30 @@ RSpec.describe ReproductionsController, type: :controller do
     context "with valid params" do
       it "creates a new Reproduction" do
         expect {
-          post :create, {:reproduction => valid_attributes}, valid_session
+          post :create, {reproduction: valid_attributes}, valid_session
         }.to change(Reproduction, :count).by(1)
       end
 
       it "assigns a newly created reproduction as @reproduction" do
-        post :create, {:reproduction => valid_attributes}, valid_session
+        post :create, {reproduction: valid_attributes}, valid_session
         expect(assigns(:reproduction)).to be_a(Reproduction)
         expect(assigns(:reproduction)).to be_persisted
       end
 
       it "redirects to the created reproduction" do
-        post :create, {:reproduction => valid_attributes}, valid_session
+        post :create, {reproduction: valid_attributes}, valid_session
         expect(response).to redirect_to(Reproduction.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved reproduction as @reproduction" do
-        post :create, {:reproduction => invalid_attributes}, valid_session
+        post :create, {reproduction: invalid_attributes}, valid_session
         expect(assigns(:reproduction)).to be_a_new(Reproduction)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:reproduction => invalid_attributes}, valid_session
+        post :create, {reproduction: invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe ReproductionsController, type: :controller do
 
       it "updates the requested reproduction" do
         reproduction = Reproduction.create! valid_attributes
-        put :update, {:id => reproduction.to_param, :reproduction => new_attributes}, valid_session
+        put :update, {id: reproduction.to_param, reproduction: new_attributes}, valid_session
         reproduction.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested reproduction as @reproduction" do
         reproduction = Reproduction.create! valid_attributes
-        put :update, {:id => reproduction.to_param, :reproduction => valid_attributes}, valid_session
+        put :update, {id: reproduction.to_param, reproduction: valid_attributes}, valid_session
         expect(assigns(:reproduction)).to eq(reproduction)
       end
 
       it "redirects to the reproduction" do
         reproduction = Reproduction.create! valid_attributes
-        put :update, {:id => reproduction.to_param, :reproduction => valid_attributes}, valid_session
+        put :update, {id: reproduction.to_param, reproduction: valid_attributes}, valid_session
         expect(response).to redirect_to(reproduction)
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe ReproductionsController, type: :controller do
     context "with invalid params" do
       it "assigns the reproduction as @reproduction" do
         reproduction = Reproduction.create! valid_attributes
-        put :update, {:id => reproduction.to_param, :reproduction => invalid_attributes}, valid_session
+        put :update, {id: reproduction.to_param, reproduction: invalid_attributes}, valid_session
         expect(assigns(:reproduction)).to eq(reproduction)
       end
 
       it "re-renders the 'edit' template" do
         reproduction = Reproduction.create! valid_attributes
-        put :update, {:id => reproduction.to_param, :reproduction => invalid_attributes}, valid_session
+        put :update, {id: reproduction.to_param, reproduction: invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +145,13 @@ RSpec.describe ReproductionsController, type: :controller do
     it "destroys the requested reproduction" do
       reproduction = Reproduction.create! valid_attributes
       expect {
-        delete :destroy, {:id => reproduction.to_param}, valid_session
+        delete :destroy, {id: reproduction.to_param}, valid_session
       }.to change(Reproduction, :count).by(-1)
     end
 
     it "redirects to the reproductions list" do
       reproduction = Reproduction.create! valid_attributes
-      delete :destroy, {:id => reproduction.to_param}, valid_session
+      delete :destroy, {id: reproduction.to_param}, valid_session
       expect(response).to redirect_to(reproductions_url)
     end
   end

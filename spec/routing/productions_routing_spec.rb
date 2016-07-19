@@ -12,11 +12,11 @@ RSpec.describe ProductionsController, type: :routing do
     end
 
     it "routes to #show" do
-      expect(:get => "/productions/1").to route_to("productions#show", :id => "1")
+      expect(:get => "/productions/1").to route_to("productions#show", id: '1')
     end
 
     it "routes to #edit" do
-      expect(:get => "/productions/1/edit").to route_to("productions#edit", :id => "1")
+      expect(:get => "/productions/1/edit").to route_to("productions#edit", id: '1')
     end
 
     it "routes to #create" do
@@ -24,15 +24,15 @@ RSpec.describe ProductionsController, type: :routing do
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/productions/1").to route_to("productions#update", :id => "1")
+      expect(:put => "/productions/1").to route_to("productions#update", id: '1')
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/productions/1").to route_to("productions#update", :id => "1")
+      expect(patch: "/productions/1").to route_to("productions#update", id: '1')
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/productions/1").to route_to("productions#destroy", :id => "1")
+      expect(:delete => "/productions/1").to route_to("productions#destroy", id: '1')
     end
 
   end

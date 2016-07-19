@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "properties/edit", type: :view do
   before(:each) do
     @property = assign(:property, Property.create!(
-      :name => "MyString",
+      name: "MyString",
       :description => "MyString",
       :long => 1.5,
       :lat => 1.5

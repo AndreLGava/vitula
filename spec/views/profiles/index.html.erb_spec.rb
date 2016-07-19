@@ -4,11 +4,11 @@ RSpec.describe "profiles/index", type: :view do
   before(:each) do
     assign(:profiles, [
       Profile.create!(
-        :name => "Name",
+        name: "Name",
         :description => "Description"
       ),
       Profile.create!(
-        :name => "Name",
+        name: "Name",
         :description => "Description"
       )
     ])
