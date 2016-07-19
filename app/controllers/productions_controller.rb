@@ -26,10 +26,10 @@ class ProductionsController < ApplicationController
   # POST /productions.json
   def create
     @production = Production.new(production_params)
-    
+
     @animal = Animal.find_by_id(@production.animal_id)
 
-    @productions = @animal.productions.page params[:page]
+    @productions = @animal.productions.order(id: :desc).page params[:page]
 
     respond_to do |format|
       if @production.save

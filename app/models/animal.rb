@@ -35,7 +35,7 @@ class Animal < ActiveRecord::Base
       on_date = Time.now - t.months
       data[t] = [on_date.strftime("%B/%Y"), self.average_month(on_date).to_f]
     end
-    return data
+    return data.reverse
   end
 
   def define_categories
@@ -45,7 +45,7 @@ class Animal < ActiveRecord::Base
       on_date = Time.now - t.months
       categories[t] = on_date.strftime("%B/%Y")
     end
-    return categories
+    return categories.reverse
   end
 
   def production_chart
@@ -54,6 +54,17 @@ class Animal < ActiveRecord::Base
     variable['subtitle'] = 'Subtitle'
     variable['yAxis'] = 'Produção'
     variable['description'] = 'Produção ao longo dos meses'
+    variable['categories'] = define_categories
+    variable['data'] = average_year
+    return variable.to_json.html_safe
+  end
+
+  def development_chart
+    variable = {}
+    variable['title'] = 'Title development'
+    variable['subtitle'] = 'Subtitle development'
+    variable['yAxis'] = ''
+    variable['description'] = 'Desenvolvimento ao longo da vida'
     variable['categories'] = self.define_categories
     variable['data'] = self.average_year
     return variable.to_json.html_safe

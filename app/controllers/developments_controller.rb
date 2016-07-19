@@ -13,8 +13,8 @@ class DevelopmentsController < ApplicationController
 
     @animal = Animal.find_by_id(@development.animal_id)
 
-    @developments = @animal.developments.page params[:page]
-
+    @developments = @animal.developments.order(id: :desc).page params[:page]
+    
     respond_to do |format|
       if @development.save
         format.html { redirect_to @development, notice: I18n.t('crud.saved') }
