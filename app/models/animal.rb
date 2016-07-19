@@ -1,5 +1,6 @@
+# Animal is one of the most importnat class this is used to manage all the animals
 class Animal < ActiveRecord::Base
-
+  # Animal must belong to a user and this can had a reproduction where we set a mother and his birth
   belongs_to :lot
   belongs_to :user
   belongs_to :reproduction
@@ -31,9 +32,9 @@ class Animal < ActiveRecord::Base
   def average_year
     data = []
     on_time = 0..11
-    on_time.each do |t|
-      on_date = Time.now - t.months
-      data[t] = [on_date.strftime("%B/%Y"), self.average_month(on_date).to_f]
+    on_time.each do |time|
+      on_date = Time.now - time.months
+      data[time] = [on_date.strftime("%B/%Y"), self.average_month(on_date).to_f]
     end
     return data.reverse
   end
@@ -41,9 +42,9 @@ class Animal < ActiveRecord::Base
   def define_categories
     categories = []
     on_time = 0..11
-    on_time.each do |t|
-      on_date = Time.now - t.months
-      categories[t] = on_date.strftime("%B/%Y")
+    on_time.each do |time|
+      on_date = Time.now - time.months
+      categories[time] = on_date.strftime("%B/%Y")
     end
     return categories.reverse
   end
