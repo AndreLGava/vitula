@@ -1,5 +1,6 @@
+# Animal is one of the most importnat class this is used to manage all the animals
 class Animal < ActiveRecord::Base
-
+  # Animal must belong to a user and this can had a reproduction where we set a mother and his birth
   belongs_to :lot
   belongs_to :user
   belongs_to :reproduction
@@ -29,13 +30,50 @@ class Animal < ActiveRecord::Base
   end
 
   def average_year
-    data = {}
-    on_time = 1..12
-    on_time.each do |t|
-      on_date = Time.now - t.months
-      data[t] = { on_date.strftime("%B/%Y") => self.average_month(on_date) }
+    data = []
+    on_time = 0..11
+    on_time.each do |time|
+      on_date = Time.now - time.months
+      data[time] = [on_date.strftime("%B/%Y"), self.average_month(on_date).to_f]
     end
-    return data
+    return data.reverse
+  end
+
+  def define_categories
+    categories = []
+    on_time = 0..11
+    on_time.each do |time|
+      on_date = Time.now - time.months
+      categories[time] = on_date.strftime("%B/%Y")
+    end
+    return categories.reverse
+  end
+
+  def production_chart
+    variable = {}
+    variable['title'] = 'Title'
+    variable['subtitle'] = 'Subtitle'
+    variable['yAxis'] = 'Produção'
+    variable['description'] = 'Produção ao longo dos meses'
+    variable['categories'] = define_categories
+    variable['data'] = average_year
+    return variable.to_json.html_safe
+  end
+
+  def animal_development
+    data = self.developments.map{|d| {height: d.height, created: d.created_at, weight: d.weight }}
+    return data.reverse
+  end
+
+  def development_chart
+    variable = {}
+    variable['title'] = 'Title development'
+    variable['subtitle'] = 'Subtitle development'
+    variable['yAxis'] = ''
+    variable['description'] = 'Desenvolvimento ao longo da vida'
+    variable['categories'] = define_categories
+    variable['data'] = animal_development
+    return variable.to_json.html_safe
   end
 
 end

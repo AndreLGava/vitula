@@ -17,7 +17,7 @@ class ReproductionsController < ApplicationController
 
     @animal = Animal.find_by_id(@reproduction.mother_id)
 
-    @reproductions = @animal.reproductions.page params[:page]
+    @reproductions = @animal.reproductions.order(id: :desc).page params[:page]
 
     respond_to do |format|
       if @reproduction.save

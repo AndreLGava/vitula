@@ -5,7 +5,7 @@ RSpec.describe "animals/index", type: :view do
     assign(:animals, [
       Animal.create!(
         :code => 1,
-        :name => "Name",
+        name: "Name",
         :description => "Description",
         :female => false,
         :breed => "Breed",
@@ -14,7 +14,7 @@ RSpec.describe "animals/index", type: :view do
       ),
       Animal.create!(
         :code => 1,
-        :name => "Name",
+        name: "Name",
         :description => "Description",
         :female => false,
         :breed => "Breed",

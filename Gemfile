@@ -10,19 +10,19 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-#validates with jquery validate
+# validates with jquery validate
 gem "jquery-validation-rails"
 
-#Dual list (select) bootstrap based
+# Dual list (select) bootstrap based
 gem 'bootstrap-duallistbox-rails', '~> 3.0', '>= 3.0.2'
 
-#Jquery mask
+# Jquery mask
 gem 'jquery-mask-plugin', '~> 0.1.0'
 
-#customizable alert js
+# customizable alert js
 gem 'alertifyjs-rails'
 
-#datepicker bootstrap
+# datepicker bootstrap
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 # gem 'momentjs-rails', '>= 2.9.0'
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
@@ -35,13 +35,13 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
+# See https://github.com/rails/execjs# readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-#Filterable selects
+# Filterable selects
 gem 'select2-rails', '~> 4.0', '>= 4.0.2'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -56,7 +56,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # User management
 gem 'devise'
 
-#authorization
+# authorization
 gem 'cancan', '~> 1.6', '>= 1.6.10'
 
 # register everithig that users do
@@ -65,7 +65,7 @@ gem 'paper_trail', '~> 5.1', '>= 5.1.1'
 # I18n + Better interface for bootstrap views
 gem 'devise-bootstrap-views'
 
-#Breadcrumbs
+# Breadcrumbs
 gem "gretel"
 
 # Icons
@@ -77,20 +77,23 @@ gem 'simple_form'
 # Grid filter sort pagination by js
 gem 'jquery-datatables-rails'
 
-#pagination
+# pagination
 gem 'kaminari'
 
 # i18n for enums
 gem 'enum_help'
 
-#Send files
+# Send files
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
-#manipulate image files
+# manipulate image files
 gem 'papercrop', '~> 0.3.0'
 
-#show data organized into terminal
+# show data organized into terminal
 gem 'awesome_print', :require => 'ap'
+
+# charts
+gem 'highcharts-rails', '~> 4.2', '>= 4.2.5'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -119,13 +122,13 @@ group :development, :test do
 end
 
 group :quality do
-  #security
+  # security
   gem 'brakeman', '~> 3.3', '>= 3.3.1'
 
-  #code quality and style
+  # code quality and style
   gem 'rubocop', '~> 0.40.0'
 
-  #report of quality and complexity
+  # report of quality and complexity
   gem 'rubycritic', '~> 2.9', '>= 2.9.1'
 
 end
@@ -140,7 +143,7 @@ group :development do
   # Console on browser at raise
   gem 'better_errors'
 
-  #Return and debug errors
+  # Return and debug errors
   gem 'pry'
 
 end

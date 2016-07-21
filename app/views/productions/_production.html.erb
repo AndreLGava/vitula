@@ -19,8 +19,14 @@
 				</tr>
 		    <% end %>
 		</table>
+		<%= paginate @productions, remote: true %>
 	</div>
 </div>
 <div class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
-  Aqui vai ter o gráfico
+	<script type="text/javascript">
+		SeriesGraph.setup(<%= @animal.production_chart %>);
+	</script>
+  <div class="chart">
+
+  </div>
 </div>

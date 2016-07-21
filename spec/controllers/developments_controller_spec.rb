@@ -47,7 +47,7 @@ RSpec.describe DevelopmentsController, type: :controller do
   describe "GET #show" do
     it "assigns the requested development as @development" do
       development = Development.create! valid_attributes
-      get :show, {:id => development.to_param}, valid_session
+      get :show, {id: development.to_param}, valid_session
       expect(assigns(:development)).to eq(development)
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe DevelopmentsController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested development as @development" do
       development = Development.create! valid_attributes
-      get :edit, {:id => development.to_param}, valid_session
+      get :edit, {id: development.to_param}, valid_session
       expect(assigns(:development)).to eq(development)
     end
   end
@@ -71,30 +71,30 @@ RSpec.describe DevelopmentsController, type: :controller do
     context "with valid params" do
       it "creates a new Development" do
         expect {
-          post :create, {:development => valid_attributes}, valid_session
+          post :create, {development: valid_attributes}, valid_session
         }.to change(Development, :count).by(1)
       end
 
       it "assigns a newly created development as @development" do
-        post :create, {:development => valid_attributes}, valid_session
+        post :create, {development: valid_attributes}, valid_session
         expect(assigns(:development)).to be_a(Development)
         expect(assigns(:development)).to be_persisted
       end
 
       it "redirects to the created development" do
-        post :create, {:development => valid_attributes}, valid_session
+        post :create, {development: valid_attributes}, valid_session
         expect(response).to redirect_to(Development.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved development as @development" do
-        post :create, {:development => invalid_attributes}, valid_session
+        post :create, {development: invalid_attributes}, valid_session
         expect(assigns(:development)).to be_a_new(Development)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:development => invalid_attributes}, valid_session
+        post :create, {development: invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe DevelopmentsController, type: :controller do
 
       it "updates the requested development" do
         development = Development.create! valid_attributes
-        put :update, {:id => development.to_param, :development => new_attributes}, valid_session
+        put :update, {id: development.to_param, development: new_attributes}, valid_session
         development.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested development as @development" do
         development = Development.create! valid_attributes
-        put :update, {:id => development.to_param, :development => valid_attributes}, valid_session
+        put :update, {id: development.to_param, development: valid_attributes}, valid_session
         expect(assigns(:development)).to eq(development)
       end
 
       it "redirects to the development" do
         development = Development.create! valid_attributes
-        put :update, {:id => development.to_param, :development => valid_attributes}, valid_session
+        put :update, {id: development.to_param, development: valid_attributes}, valid_session
         expect(response).to redirect_to(development)
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe DevelopmentsController, type: :controller do
     context "with invalid params" do
       it "assigns the development as @development" do
         development = Development.create! valid_attributes
-        put :update, {:id => development.to_param, :development => invalid_attributes}, valid_session
+        put :update, {id: development.to_param, development: invalid_attributes}, valid_session
         expect(assigns(:development)).to eq(development)
       end
 
       it "re-renders the 'edit' template" do
         development = Development.create! valid_attributes
-        put :update, {:id => development.to_param, :development => invalid_attributes}, valid_session
+        put :update, {id: development.to_param, development: invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +145,13 @@ RSpec.describe DevelopmentsController, type: :controller do
     it "destroys the requested development" do
       development = Development.create! valid_attributes
       expect {
-        delete :destroy, {:id => development.to_param}, valid_session
+        delete :destroy, {id: development.to_param}, valid_session
       }.to change(Development, :count).by(-1)
     end
 
     it "redirects to the developments list" do
       development = Development.create! valid_attributes
-      delete :destroy, {:id => development.to_param}, valid_session
+      delete :destroy, {id: development.to_param}, valid_session
       expect(response).to redirect_to(developments_url)
     end
   end

@@ -12,11 +12,11 @@ RSpec.describe AnimalsController, type: :routing do
     end
 
     it "routes to #show" do
-      expect(:get => "/animals/1").to route_to("animals#show", :id => "1")
+      expect(:get => "/animals/1").to route_to("animals#show", id: '1')
     end
 
     it "routes to #edit" do
-      expect(:get => "/animals/1/edit").to route_to("animals#edit", :id => "1")
+      expect(:get => "/animals/1/edit").to route_to("animals#edit", id: '1')
     end
 
     it "routes to #create" do
@@ -24,15 +24,15 @@ RSpec.describe AnimalsController, type: :routing do
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/animals/1").to route_to("animals#update", :id => "1")
+      expect(:put => "/animals/1").to route_to("animals#update", id: '1')
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/animals/1").to route_to("animals#update", :id => "1")
+      expect(patch: "/animals/1").to route_to("animals#update", id: '1')
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/animals/1").to route_to("animals#destroy", :id => "1")
+      expect(:delete => "/animals/1").to route_to("animals#destroy", id: '1')
     end
 
   end

@@ -4,13 +4,13 @@ RSpec.describe "properties/index", type: :view do
   before(:each) do
     assign(:properties, [
       Property.create!(
-        :name => "Name",
+        name: "Name",
         :description => "Description",
         :long => 1.5,
         :lat => 1.5
       ),
       Property.create!(
-        :name => "Name",
+        name: "Name",
         :description => "Description",
         :long => 1.5,
         :lat => 1.5
