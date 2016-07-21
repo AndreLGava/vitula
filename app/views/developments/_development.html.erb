@@ -1,0 +1,30 @@
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+	<%= link_to  I18n.t('developments.new.new'), new_development_path(animal_id: @animal.id), remote: true, class: 'btn btn-info' %>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+	<div class="table-responsive">
+		<table class="table table-striped table-hover table-condensed">
+			<tr>
+				<td><%= Development.human_attribute_name(:weight)%></td>
+				<td><%= Development.human_attribute_name(:height)%></td>
+				<td><%= Development.human_attribute_name(:created_at)%></td>
+			</tr>
+			<% @developments.each do |d| %>
+				<tr>
+					<td><%= d.weight %></td>
+					<td><%= d.height %></td>
+					<td><%= d.created_at %></td>
+				</tr>
+			<% end %>
+		</table>
+		<%= paginate @developments, remote: true %>
+	</div>
+</div>
+<div class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
+<script type="text/javascript">
+	SplineGraph.setup(<%= @animal.development_chart %>);
+</script>
+	<div class="chart">
+
+	</div>
+</div>

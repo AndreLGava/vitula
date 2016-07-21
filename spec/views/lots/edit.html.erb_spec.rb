@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "lots/edit", type: :view do
   before(:each) do
     @lot = assign(:lot, Lot.create!(
-      :name => "MyString",
+      name: "MyString",
       :description => "MyString",
       :property => nil
     ))

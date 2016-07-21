@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160704170727) do
     t.boolean  "female"
     t.string   "breed"
     t.integer  "lot_id"
+    t.integer  "user_id"
     t.integer  "reproduction_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160704170727) do
 
   add_index "animals", ["lot_id"], name: "index_animals_on_lot_id"
   add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id"
+  add_index "animals", ["user_id"], name: "index_animals_on_user_id"
 
   create_table "developments", force: :cascade do |t|
     t.float    "weight"

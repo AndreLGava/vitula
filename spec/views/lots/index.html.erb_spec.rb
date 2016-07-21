@@ -4,12 +4,12 @@ RSpec.describe "lots/index", type: :view do
   before(:each) do
     assign(:lots, [
       Lot.create!(
-        :name => "Name",
+        name: "Name",
         :description => "Description",
         :property => nil
       ),
       Lot.create!(
-        :name => "Name",
+        name: "Name",
         :description => "Description",
         :property => nil
       )

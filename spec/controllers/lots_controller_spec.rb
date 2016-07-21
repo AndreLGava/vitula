@@ -47,7 +47,7 @@ RSpec.describe LotsController, type: :controller do
   describe "GET #show" do
     it "assigns the requested lot as @lot" do
       lot = Lot.create! valid_attributes
-      get :show, {:id => lot.to_param}, valid_session
+      get :show, {id: lot.to_param}, valid_session
       expect(assigns(:lot)).to eq(lot)
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe LotsController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested lot as @lot" do
       lot = Lot.create! valid_attributes
-      get :edit, {:id => lot.to_param}, valid_session
+      get :edit, {id: lot.to_param}, valid_session
       expect(assigns(:lot)).to eq(lot)
     end
   end
@@ -71,30 +71,30 @@ RSpec.describe LotsController, type: :controller do
     context "with valid params" do
       it "creates a new Lot" do
         expect {
-          post :create, {:lot => valid_attributes}, valid_session
+          post :create, {lot: valid_attributes}, valid_session
         }.to change(Lot, :count).by(1)
       end
 
       it "assigns a newly created lot as @lot" do
-        post :create, {:lot => valid_attributes}, valid_session
+        post :create, {lot: valid_attributes}, valid_session
         expect(assigns(:lot)).to be_a(Lot)
         expect(assigns(:lot)).to be_persisted
       end
 
       it "redirects to the created lot" do
-        post :create, {:lot => valid_attributes}, valid_session
+        post :create, {lot: valid_attributes}, valid_session
         expect(response).to redirect_to(Lot.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved lot as @lot" do
-        post :create, {:lot => invalid_attributes}, valid_session
+        post :create, {lot: invalid_attributes}, valid_session
         expect(assigns(:lot)).to be_a_new(Lot)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:lot => invalid_attributes}, valid_session
+        post :create, {lot: invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe LotsController, type: :controller do
 
       it "updates the requested lot" do
         lot = Lot.create! valid_attributes
-        put :update, {:id => lot.to_param, :lot => new_attributes}, valid_session
+        put :update, {id: lot.to_param, lot: new_attributes}, valid_session
         lot.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested lot as @lot" do
         lot = Lot.create! valid_attributes
-        put :update, {:id => lot.to_param, :lot => valid_attributes}, valid_session
+        put :update, {id: lot.to_param, lot: valid_attributes}, valid_session
         expect(assigns(:lot)).to eq(lot)
       end
 
       it "redirects to the lot" do
         lot = Lot.create! valid_attributes
-        put :update, {:id => lot.to_param, :lot => valid_attributes}, valid_session
+        put :update, {id: lot.to_param, lot: valid_attributes}, valid_session
         expect(response).to redirect_to(lot)
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe LotsController, type: :controller do
     context "with invalid params" do
       it "assigns the lot as @lot" do
         lot = Lot.create! valid_attributes
-        put :update, {:id => lot.to_param, :lot => invalid_attributes}, valid_session
+        put :update, {id: lot.to_param, lot: invalid_attributes}, valid_session
         expect(assigns(:lot)).to eq(lot)
       end
 
       it "re-renders the 'edit' template" do
         lot = Lot.create! valid_attributes
-        put :update, {:id => lot.to_param, :lot => invalid_attributes}, valid_session
+        put :update, {id: lot.to_param, lot: invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +145,13 @@ RSpec.describe LotsController, type: :controller do
     it "destroys the requested lot" do
       lot = Lot.create! valid_attributes
       expect {
-        delete :destroy, {:id => lot.to_param}, valid_session
+        delete :destroy, {id: lot.to_param}, valid_session
       }.to change(Lot, :count).by(-1)
     end
 
     it "redirects to the lots list" do
       lot = Lot.create! valid_attributes
-      delete :destroy, {:id => lot.to_param}, valid_session
+      delete :destroy, {id: lot.to_param}, valid_session
       expect(response).to redirect_to(lots_url)
     end
   end

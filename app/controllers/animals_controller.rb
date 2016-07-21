@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
   first_heat = [15, 24] #moths after her birth
@@ -11,7 +11,7 @@ class AnimalsController < ApplicationController
   parturition = 274 #days +- 7 days [267 , 282] after last insemination
 
   def index
-    @animals = Animal.all.page params[:page]
+    @animals = Animal.select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where(user_id: current_user.id, discard: nil).order(:lot_id, :name).page params[:page]
   end
 
   def show
@@ -60,6 +60,18 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def animal_production
+    @productions = @animal.productions.order(id: :desc).page params[:page]
+  end
+
+  def animal_development
+    @developments = @animal.developments.order(id: :desc).page params[:page]
+  end
+
+  def animal_reproduction
+    @reproductions = @animal.reproductions.order(id: :desc).page params[:page]
+  end
+
   private
     def set_animal
       @animal = Animal.find(params[:id])
@@ -71,6 +83,6 @@ class AnimalsController < ApplicationController
     end
 
     def animal_params
-      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :developments_attributes => [:weight, :height], :productions_attributes => [:amount, :measurement, :observation])
+      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :user_id)
     end
 end

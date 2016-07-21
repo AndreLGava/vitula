@@ -47,7 +47,7 @@ RSpec.describe ProductionsController, type: :controller do
   describe "GET #show" do
     it "assigns the requested production as @production" do
       production = Production.create! valid_attributes
-      get :show, {:id => production.to_param}, valid_session
+      get :show, {id: production.to_param}, valid_session
       expect(assigns(:production)).to eq(production)
     end
   end
@@ -62,7 +62,7 @@ RSpec.describe ProductionsController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested production as @production" do
       production = Production.create! valid_attributes
-      get :edit, {:id => production.to_param}, valid_session
+      get :edit, {id: production.to_param}, valid_session
       expect(assigns(:production)).to eq(production)
     end
   end
@@ -71,30 +71,30 @@ RSpec.describe ProductionsController, type: :controller do
     context "with valid params" do
       it "creates a new Production" do
         expect {
-          post :create, {:production => valid_attributes}, valid_session
+          post :create, {production: valid_attributes}, valid_session
         }.to change(Production, :count).by(1)
       end
 
       it "assigns a newly created production as @production" do
-        post :create, {:production => valid_attributes}, valid_session
+        post :create, {production: valid_attributes}, valid_session
         expect(assigns(:production)).to be_a(Production)
         expect(assigns(:production)).to be_persisted
       end
 
       it "redirects to the created production" do
-        post :create, {:production => valid_attributes}, valid_session
+        post :create, {production: valid_attributes}, valid_session
         expect(response).to redirect_to(Production.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved production as @production" do
-        post :create, {:production => invalid_attributes}, valid_session
+        post :create, {production: invalid_attributes}, valid_session
         expect(assigns(:production)).to be_a_new(Production)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:production => invalid_attributes}, valid_session
+        post :create, {production: invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +108,20 @@ RSpec.describe ProductionsController, type: :controller do
 
       it "updates the requested production" do
         production = Production.create! valid_attributes
-        put :update, {:id => production.to_param, :production => new_attributes}, valid_session
+        put :update, {id: production.to_param, production: new_attributes}, valid_session
         production.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested production as @production" do
         production = Production.create! valid_attributes
-        put :update, {:id => production.to_param, :production => valid_attributes}, valid_session
+        put :update, {id: production.to_param, production: valid_attributes}, valid_session
         expect(assigns(:production)).to eq(production)
       end
 
       it "redirects to the production" do
         production = Production.create! valid_attributes
-        put :update, {:id => production.to_param, :production => valid_attributes}, valid_session
+        put :update, {id: production.to_param, production: valid_attributes}, valid_session
         expect(response).to redirect_to(production)
       end
     end
@@ -129,13 +129,13 @@ RSpec.describe ProductionsController, type: :controller do
     context "with invalid params" do
       it "assigns the production as @production" do
         production = Production.create! valid_attributes
-        put :update, {:id => production.to_param, :production => invalid_attributes}, valid_session
+        put :update, {id: production.to_param, production: invalid_attributes}, valid_session
         expect(assigns(:production)).to eq(production)
       end
 
       it "re-renders the 'edit' template" do
         production = Production.create! valid_attributes
-        put :update, {:id => production.to_param, :production => invalid_attributes}, valid_session
+        put :update, {id: production.to_param, production: invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +145,13 @@ RSpec.describe ProductionsController, type: :controller do
     it "destroys the requested production" do
       production = Production.create! valid_attributes
       expect {
-        delete :destroy, {:id => production.to_param}, valid_session
+        delete :destroy, {id: production.to_param}, valid_session
       }.to change(Production, :count).by(-1)
     end
 
     it "redirects to the productions list" do
       production = Production.create! valid_attributes
-      delete :destroy, {:id => production.to_param}, valid_session
+      delete :destroy, {id: production.to_param}, valid_session
       expect(response).to redirect_to(productions_url)
     end
   end

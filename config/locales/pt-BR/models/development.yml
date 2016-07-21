@@ -7,3 +7,4 @@ pt-BR:
         development: Desenvolvimento
         weight: Peso
         height: Altura
+        created_at: Data da medição

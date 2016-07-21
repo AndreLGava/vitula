@@ -117,6 +117,8 @@ GEM
       activesupport (>= 4.1.0)
     gretel (3.0.8)
       rails (>= 3.2.0)
+    highcharts-rails (4.2.5)
+      railties (>= 3.1)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jbuilder (2.5.0)
@@ -325,6 +327,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   gretel
+  highcharts-rails (~> 4.2, >= 4.2.5)
   jbuilder (~> 2.0)
   jquery-datatables-rails
   jquery-mask-plugin (~> 0.1.0)

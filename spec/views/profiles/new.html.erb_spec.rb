@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "profiles/new", type: :view do
   before(:each) do
     assign(:profile, Profile.new(
-      :name => "MyString",
+      name: "MyString",
       :description => "MyString"
     ))
   end
