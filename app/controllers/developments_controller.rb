@@ -2,7 +2,8 @@ class DevelopmentsController < ApplicationController
   before_action :set_development, only: [:show, :edit, :update, :destroy]
 
   def new
-    @development = Development.new
+    @animal = Animal.find(params[:animal_id])
+    @development = @animal.developments.new
   end
 
   def edit

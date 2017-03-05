@@ -3,10 +3,10 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :amount %>
+      <%= f.input :amount       ,as: :l %>
       <%= f.input :measurement %>
       <%= f.input :observation %>
-      <%= f.association :animal, :include_blank => false, readonly: true %>
+      <%= f.association :animal, as: :hidden %>
     </div>
 
     <div class="form-actions">

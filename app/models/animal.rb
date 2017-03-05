@@ -61,8 +61,11 @@ class Animal < ActiveRecord::Base
   end
 
   def animal_development
-    data = self.developments.map{|d| {height: d.height, created: d.created_at, weight: d.weight }}
-    return data.reverse
+    development = {}
+    development['created'] = self.developments.select(:created_at).map(&:created_at).map(&:to_s).uniq
+    development['height'] = self.developments.select(:height).map(&:height).uniq
+    development['weight'] = self.developments.select(:weight).map(&:weight).uniq
+    return development
   end
 
   def development_chart
@@ -71,9 +74,19 @@ class Animal < ActiveRecord::Base
     variable['subtitle'] = 'Subtitle development'
     variable['yAxis'] = ''
     variable['description'] = 'Desenvolvimento ao longo da vida'
-    variable['categories'] = define_categories
+    variable['categories'] = nil
     variable['data'] = animal_development
     return variable.to_json.html_safe
+  end
+
+  def can_reproduce?
+    if !self.reproductions.nil?
+      return true
+    elsif self.discard.nil? && self.female == true && !self.reproductions.last.last_reproduction_active?
+      return true
+    else
+      return false
+    end
   end
 
 end

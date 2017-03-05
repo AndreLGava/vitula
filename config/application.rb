@@ -32,7 +32,7 @@ module Vitula
       :port                 => 587,
       :domain               => 'gmail.com',
       :user_name            => 'vitulasystem',
-      :password             => 'uniedusystem',
+      :password             => 'unieduuniedu',
       :authentication       => 'plain',
       :enable_starttls_auto => true
     }
@@ -41,6 +41,8 @@ module Vitula
     config.i18n.load_path += Dir[File.join(config.root, 'config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.available_locales = [:"pt-BR"]
     config.i18n.default_locale = :"pt-BR"
+    Time::DATE_FORMATS[:default] = "%d/%m/%Y %H:%M"
+    Date::DATE_FORMATS[:default] = "%d/%m/%Y"
 
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

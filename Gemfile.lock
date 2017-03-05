@@ -313,7 +313,7 @@ DEPENDENCIES
   alertifyjs-rails
   awesome_print
   better_errors
-  bootstrap-datepicker-rails (~> 1.6, >= 1.6.1.1)
+  bootstrap-datepicker-rails
   bootstrap-duallistbox-rails (~> 3.0, >= 3.0.2)
   bootstrap-sass (~> 3.3, >= 3.3.6)
   brakeman (~> 3.3, >= 3.3.1)

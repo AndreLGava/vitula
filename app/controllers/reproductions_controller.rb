@@ -21,9 +21,14 @@ class ReproductionsController < ApplicationController
 
     respond_to do |format|
       if @reproduction.save
-        format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :created, location: @reproduction }
-        format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
+        if !reproduction_params[:parturition].nil?
+          format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
+          format.json { render :show, status: :created, location: @reproduction }
+          format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
+        else
+          @animal = Animal.new(@reproduction)
+          format.html { render @animal, notice: I18n.t('crud.saved') }
+        end
       else
         format.html { render :new }
         format.json { render json: @reproduction.errors, status: :unprocessable_entity }
@@ -36,13 +41,18 @@ class ReproductionsController < ApplicationController
 
     @animal = Animal.find_by_id(@reproduction.mother_id)
 
-    @reproductions = @animal.reproductions.page params[:page]
+    @reproductions = @animal.reproductions.order(id: :desc).page params[:page]
 
     respond_to do |format|
       if @reproduction.update(reproduction_params)
-        format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :ok, location: @reproduction }
-        format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
+        if reproduction_params[:parturition].nil?
+          format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
+          format.json { render :show, status: :ok, location: @reproduction }
+          format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
+        else
+          @animal = Animal.new(@reproduction)
+          redirect_to new_animal_path
+        end
       else
         format.html { render :edit }
         format.json { render json: @reproduction.errors, status: :unprocessable_entity }
