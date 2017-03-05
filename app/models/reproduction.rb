@@ -49,7 +49,7 @@ class Reproduction < ActiveRecord::Base
   end
 
   def last_reproduction_active?
-    return self.regress.nil? && self.abortion.nil? && self.parturition.nil? ? true : false
+     return self.regress.nil? && self.abortion.nil? && self.parturition.nil? ? true : false
   end
 
 

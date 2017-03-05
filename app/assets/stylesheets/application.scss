@@ -13,6 +13,8 @@
  *= require devise_bootstrap_views
  *= require bootstrap-datepicker3
  *= require jquery.jcrop
+  *= require select2
+ *= require select2-bootstrap
  */
 
 @import "bootstrap-sprockets";
@@ -21,6 +23,12 @@
 @import "alertify/default";
 @import "alertify/bootstrap";
 @import "font-awesome";
+
+
+
+
+
+
 .profile{
 	padding: 13px!important;
 	img{

@@ -5,7 +5,7 @@ class ProductionsController < ApplicationController
   # GET /productions
   # GET /productions.json
   def index
-    @productions = Production.all
+    @productions = Production.all.page params[:page]
   end
 
   # GET /productions/1
@@ -15,7 +15,8 @@ class ProductionsController < ApplicationController
 
   # GET /productions/new
   def new
-    @production = Production.new
+    @animal = Animal.find(params[:animal_id])
+    @production = @animal.productions.new
   end
 
   # GET /productions/1/edit

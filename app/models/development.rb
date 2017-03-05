@@ -3,6 +3,7 @@ class Development < ActiveRecord::Base
 
   validates :weight, presence: true
   validates :height, presence: true
+  validates :animal, presence: true
 
   def graph
     hash = {}

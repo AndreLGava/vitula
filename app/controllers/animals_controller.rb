@@ -18,6 +18,7 @@ class AnimalsController < ApplicationController
   end
 
   def new
+    @reproduction = Reproduction.all
     @animal = Animal.new
     @animal.productions.build
     @animal.developments.build

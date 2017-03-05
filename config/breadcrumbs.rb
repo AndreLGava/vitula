@@ -37,6 +37,10 @@ crumb :notifications do
   link "Notifications", notifications_path
 end
 
+crumb :productions do
+  link "Productions", productions_path
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

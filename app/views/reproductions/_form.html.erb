@@ -3,8 +3,8 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.association :mother, :include_blank => false, readonly: true %>
-      <%= f.association :father, :collection => @father, :label_method => :name, :value_method => :id %>
+      <%= f.association :mother, as: :hidden %>
+      <%= f.association :father, :collection => @father, :label_method => :name, :value_method => :id, include_blank: false %>
       <%= f.input :heat, as: :date_picker, :include_blank => false, disabled: @reproduction.heat? %>
       <%= f.input :insemination, as: :date_picker, :include_blank => true, disabled: @reproduction.insemination? %>
       <%= f.input :regress, as: :date_picker, :include_blank => true, disabled: @reproduction.regress? %>

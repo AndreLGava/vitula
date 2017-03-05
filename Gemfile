@@ -23,7 +23,7 @@ gem 'jquery-mask-plugin', '~> 0.1.0'
 gem 'alertifyjs-rails'
 
 # datepicker bootstrap
-gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
+gem 'bootstrap-datepicker-rails'
 # gem 'momentjs-rails', '>= 2.9.0'
 # gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
