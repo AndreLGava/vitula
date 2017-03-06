@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Glebes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Purpose</th>
+      <th>Area</th>
+      <th>Property</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @glebes.each do |glebe| %>
+      <tr>
+        <td><%= glebe.name %></td>
+        <td><%= glebe.purpose %></td>
+        <td><%= glebe.area %></td>
+        <td><%= glebe.property %></td>
+        <td><%= link_to 'Show', glebe %></td>
+        <td><%= link_to 'Edit', edit_glebe_path(glebe) %></td>
+        <td><%= link_to 'Destroy', glebe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Glebe', new_glebe_path %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :glebes
+  resources :glebes
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   root to: "home#index"
