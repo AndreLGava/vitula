@@ -6,7 +6,15 @@
     <%= f.input :description %>
     <%= f.input :long %>
     <%= f.input :lat %>
-    <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+    <%= f.input :area, as: :ha %>
+    <%= f.input :altitude, as: :m %>
+    <%= f.input :precipitation, as: :mm %>
+    <%= f.input :enrolement_of_sanity %>
+    <%= f.input :nirf %>
+    <%= f.input :incra %>
+    <%= f.input :state_registration %>
+    <%= f.input :manager %>
+    <%= f.input :user_id, as: :hidden, :input_html => { :value => current_user.id } %>
     <%# f.input :user_id, input_html: {value: f.object.user_id || current_user.id} %>
 
   </div>

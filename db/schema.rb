@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704170727) do
+ActiveRecord::Schema.define(version: 20170306115558) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160704170727) do
     t.date     "discard"
     t.string   "reason_discard"
     t.boolean  "female"
-    t.string   "breed"
+    t.integer  "breed"
     t.integer  "lot_id"
     t.integer  "user_id"
     t.integer  "reproduction_id"
@@ -92,8 +92,16 @@ ActiveRecord::Schema.define(version: 20160704170727) do
     t.float    "long"
     t.float    "lat"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.decimal  "area"
+    t.decimal  "altitude"
+    t.decimal  "precipitation"
+    t.integer  "enrolement_of_sanity"
+    t.string   "nirf"
+    t.string   "incra"
+    t.string   "state_registration"
+    t.string   "manager"
   end
 
   add_index "properties", ["user_id"], name: "index_properties_on_user_id"

@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
+   
 <div id="m_1431738521701901139content" align="center" style="margin:0px;padding:10px 0px;width:100%!important;background:#e0e4e6;font-family:sans-serif,Avenir,'Segoe UI',Helvetica,Arial">
   <table style="font-weight:normal;text-align:left;vertical-align:top;border-collapse:collapse;border-spacing:0;background:#fff;max-width:600px;width:100%;padding:5px;display:block;border-radius:5px">
     <tbody><tr>
@@ -17,7 +12,7 @@
           <tr>
             <td style="width:600px">
               <h2 align="center" style="margin-top:5px;font-size:1.5em">
-                <%= Welcome to Vitula, <%= @user.name %>
+                <%= assunto %>
               </h2>
             </td>
           </tr>  
@@ -37,18 +32,9 @@
             <tbody><tr>
               <td height="5" colspan="2" style="min-width:210px;width:600px;text-align:left;padding-left:15px">
                 <span style="font-weight:bold">
-                  Welcome to Vitula, <%= @user.name %>
+                  Ação:
                 </span>
-                <span>
-                  <p>
-                    You have successfully signed up to Vitula,
-                    your username is you e-mail: <%= @user.email %>.<br>
-                  </p>
-                  <p>
-                    To login to the site, just follow this link: <%= @url %>.
-                  </p>
-                  <p>Thanks for joining and have a great day!</p>
-                </span>
+                <span><%= acao %></span>
               </td>
             </tr>
           </tbody>
@@ -76,7 +62,3 @@
     </tbody>
   </table>
 </div>
-  </body>
-</html>
-
-   

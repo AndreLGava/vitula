@@ -20,6 +20,9 @@ class Animal < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   crop_attached_file :photo
 
+  enum breed: {Holandez: 1, Jersey: 2, Gir: 3, Nelore: 4}
+
+
   def reproductions
     Reproduction.where('mother_id = ? or father_id = ?', id, id)
   end

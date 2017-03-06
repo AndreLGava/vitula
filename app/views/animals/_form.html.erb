@@ -7,7 +7,7 @@
     <%= f.input :photo, as: :file %>
     <%= f.input :description %>
     <%= f.input :female %>
-    <%= f.input :breed %>
+    <%= f.select :breed, Animal.breeds.keys, class: "form-inputs" %>
     <%= f.association :lot %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
     <%= f.association :reproduction, :label_method => lambda { |reproduction| "#{reproduction.parturition} - #{reproduction.mother.code} #{reproduction.mother.name} - #{reproduction.father.code} #{reproduction.father.name}" } , :value_method => :id %>

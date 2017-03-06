@@ -5,6 +5,8 @@ class Development < ActiveRecord::Base
   validates :height, presence: true
   validates :animal, presence: true
 
+  has_paper_trail
+
   def graph
     hash = {}
     hash['title'] =  'Teste'

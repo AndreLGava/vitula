@@ -1,5 +1,5 @@
 <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
-        <% if @animal.can_reproduce? && !@animal.reproductions.last.last_reproduction_active? %>
+        <% if @animal.can_reproduce? %>
 			<%= link_to  I18n.t('reproductions.new.new'), new_reproduction_path(mother_id: @animal.id), remote: true, class: 'btn btn-info' %>
         <% end %>
 	<div class="table-responsive">
