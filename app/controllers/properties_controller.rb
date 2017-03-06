@@ -50,6 +50,11 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def property_glebes
+    @property = Property.find(params[:id])
+    @glebes   = Glebe.them(@property, params[:page])
+  end
+
   private
     def set_property
       @property = Property.find(params[:id])

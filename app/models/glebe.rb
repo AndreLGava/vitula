@@ -8,5 +8,5 @@ class Glebe < ActiveRecord::Base
 
   has_paper_trail
 
-  scope :all,   -> (current_user) { where(property_id: property.id) }
+  scope :them,   -> (property, params) { where(property_id: property.id).order(id: :desc).page params }
 end
