@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      drug: Medicamento
+    attributes:
+      drug:
+        drug: Medicamento
+        name: Nome do produto
+        laboratory: Laboratório
+        reference: Referência
+        presentation: Apresentação
+        use: Uso
+        composition: Composição
+        indication: Indicação
+        contraindication: Contra-Indicação
+        warning: Advertência
+        interaction: Interação com outros medicamentos
+        effect: Reações Adversas / Efeitos Colaterais
+        dosage: Dosagem/Possologia
+        overdosage: Super Dosagem
+        properties: Características Farmacológicas
+        species: Espécies

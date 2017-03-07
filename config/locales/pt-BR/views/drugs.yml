@@ -1,0 +1,10 @@
+pt-BR:
+  drugs:
+    index:
+      drugs: Medicamentos
+    new:
+      new: Novo Medicamento
+    edit:
+      edit: Alterando Medicamento
+    show:
+      property: Medicamento

@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      illness: Enfermidade
+    attributes:
+      illness:
+        illness: Enfermidade
+        StartDate: Inicio da Doença
+        EndDate: Fim da Doença
+        sequel: Sequela
+        animal: Animal
+        disease: Doença
+        treatment: Tratamento

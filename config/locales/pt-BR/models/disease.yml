@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      disease: Doença
+    attributes:
+      disease:
+        disease: Doença
+        VulgarName: Nome comum
+        CientificName: Nome Cientifíco
+        Causes: Causas
+        Description: Descrição
+        Symptoms: Sintomas

@@ -1,0 +1,11 @@
+pt-BR:
+  treatments:
+    index:
+      treatments: Tratamentos
+    new:
+      new: Novo Tratamento
+    edit:
+      edit: Alterando Tratamento
+    show:
+      treatment: Tratamento
+

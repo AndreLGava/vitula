@@ -9,3 +9,11 @@ pt-BR:
         description: Descrição
         lat: Latitude
         long: Longitude
+        area: Área
+        altitude: Altitude
+        precipitation: Precipitação
+        enrolement_od_sanity: Inscrição em orgão de sanidade
+        nirf: NIRF
+        incra: INCRA
+        state_registration: Registro Estadual
+        manager: Gerente

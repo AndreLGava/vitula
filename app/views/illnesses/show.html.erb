@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @illness.StartDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @illness.EndDate %>
+</p>
+
+<p>
+  <strong>Sequel:</strong>
+  <%= @illness.sequel %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @illness.animal %>
+</p>
+
+<p>
+  <strong>Disease:</strong>
+  <%= @illness.disease %>
+</p>
+
+<p>
+  <strong>Treatment:</strong>
+  <%= @illness.treatment %>
+</p>
+
+<%= link_to 'Edit', edit_illness_path(@illness) %> |
+<%= link_to 'Back', illnesses_path %>

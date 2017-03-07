@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      treatment: Tramento
+    attributes:
+      treatment:
+        treatment: Tramento
+        StartDate: Data de Inicio
+        EndDate: Data de Fim
+        dosage: Dosagem
+        lack: Carência

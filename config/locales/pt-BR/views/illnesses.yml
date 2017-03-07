@@ -1,0 +1,10 @@
+pt-BR:
+  illnesses:
+    index:
+      illnesses: Enfermidades
+    new:
+      new: Nova Enfermidade
+    edit:
+      edit: Alterando Enfermidade
+    show:
+      property: Enfermidade

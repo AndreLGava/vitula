@@ -1,0 +1,10 @@
+pt-BR:
+  diseases:
+    index:
+      diseases: Doenças
+    new:
+      new: Nova Doença
+    edit:
+      edit: Alterando Doença
+    show:
+      property: Doença

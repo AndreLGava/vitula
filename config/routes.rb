@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :productions
   resources :developments
   resources :glebes
+  resources :illnesses
+  resources :treatments
+  resources :drugs
+  resources :diseases
 
   get 'show_notification'   , to: 'notifications#show_notification', as: :show_notification
   get 'animal_production'   , to: 'animals#animal_production'      , as: :animal_production

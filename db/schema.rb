@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307000901) do
+ActiveRecord::Schema.define(version: 20170307112716) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -46,6 +46,36 @@ ActiveRecord::Schema.define(version: 20170307000901) do
 
   add_index "developments", ["animal_id"], name: "index_developments_on_animal_id"
 
+  create_table "diseases", force: :cascade do |t|
+    t.string   "VulgarName"
+    t.string   "CientificName"
+    t.text     "Causes"
+    t.text     "Description"
+    t.text     "Symptoms"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "laboratory"
+    t.string   "reference"
+    t.text     "presentation"
+    t.text     "use"
+    t.text     "composition"
+    t.text     "indication"
+    t.text     "contraindication"
+    t.text     "warning"
+    t.text     "interaction"
+    t.text     "effect"
+    t.text     "dosage"
+    t.text     "overdosage"
+    t.text     "properties"
+    t.text     "species"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "glebes", force: :cascade do |t|
     t.string   "name"
     t.integer  "purpose"
@@ -57,6 +87,21 @@ ActiveRecord::Schema.define(version: 20170307000901) do
   end
 
   add_index "glebes", ["property_id"], name: "index_glebes_on_property_id"
+
+  create_table "illnesses", force: :cascade do |t|
+    t.date     "StartDate"
+    t.date     "EndDate"
+    t.text     "sequel"
+    t.integer  "animal_id"
+    t.integer  "disease_id"
+    t.integer  "treatment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "illnesses", ["animal_id"], name: "index_illnesses_on_animal_id"
+  add_index "illnesses", ["disease_id"], name: "index_illnesses_on_disease_id"
+  add_index "illnesses", ["treatment_id"], name: "index_illnesses_on_treatment_id"
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
@@ -135,6 +180,15 @@ ActiveRecord::Schema.define(version: 20170307000901) do
   add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id"
   add_index "reproductions", ["father_id"], name: "index_reproductions_on_father_id"
   add_index "reproductions", ["mother_id"], name: "index_reproductions_on_mother_id"
+
+  create_table "treatments", force: :cascade do |t|
+    t.date     "StartDate"
+    t.date     "EndDate"
+    t.decimal  "dosage"
+    t.integer  "lack"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
