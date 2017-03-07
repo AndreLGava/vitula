@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to treatments_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_treatment_path(@treatment), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show treatment</h1>
+</div>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @treatment.StartDate %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Startdate:</dt>
+  <dd><%= @treatment.StartDate %></dd>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @treatment.EndDate %>
-</p>
+  <dt>Enddate:</dt>
+  <dd><%= @treatment.EndDate %></dd>
 
-<p>
-  <strong>Dosage:</strong>
-  <%= @treatment.dosage %>
-</p>
+  <dt>Dosage:</dt>
+  <dd><%= @treatment.dosage %></dd>
 
-<p>
-  <strong>Lack:</strong>
-  <%= @treatment.lack %>
-</p>
+  <dt>Lack:</dt>
+  <dd><%= @treatment.lack %></dd>
 
-<p>
-  <strong>Illness:</strong>
-  <%= @treatment.illness %>
-</p>
+  <dt>Illness:</dt>
+  <dd><%= @treatment.illness %></dd>
 
-<%= link_to 'Edit', edit_treatment_path(@treatment) %> |
-<%= link_to 'Back', treatments_path %>
+</dl>

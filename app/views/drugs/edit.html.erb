@@ -1,6 +1,13 @@
-<h1>Editing Drug</h1>
+<div class="page-header">
+  <%= link_to drugs_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @drug, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing drug</h1>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @drug %> |
-<%= link_to 'Back', drugs_path %>

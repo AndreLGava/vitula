@@ -1,55 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to new_drug_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Drug
+  <% end %>
+  <h1>Listing drugs</h1>
+</div>
 
-<h1>Listing Drugs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Laboratory</th>
-      <th>Reference</th>
-      <th>Presentation</th>
-      <th>Use</th>
-      <th>Composition</th>
-      <th>Indication</th>
-      <th>Contraindication</th>
-      <th>Warning</th>
-      <th>Interaction</th>
-      <th>Effect</th>
-      <th>Dosage</th>
-      <th>Overdosage</th>
-      <th>Properties</th>
-      <th>Species</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @drugs.each do |drug| %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= drug.name %></td>
-        <td><%= drug.laboratory %></td>
-        <td><%= drug.reference %></td>
-        <td><%= drug.presentation %></td>
-        <td><%= drug.use %></td>
-        <td><%= drug.composition %></td>
-        <td><%= drug.indication %></td>
-        <td><%= drug.contraindication %></td>
-        <td><%= drug.warning %></td>
-        <td><%= drug.interaction %></td>
-        <td><%= drug.effect %></td>
-        <td><%= drug.dosage %></td>
-        <td><%= drug.overdosage %></td>
-        <td><%= drug.properties %></td>
-        <td><%= drug.species %></td>
-        <td><%= link_to 'Show', drug %></td>
+            <th>Name</th>
+            <th>Laboratory</th>
+            <th>Reference</th>
+            <th>Presentation</th>
+            <th>Use</th>
+            <th>Composition</th>
+            <th>Indication</th>
+            <th>Contraindication</th>
+            <th>Warning</th>
+            <th>Interaction</th>
+            <th>Effect</th>
+            <th>Dosage</th>
+            <th>Overdosage</th>
+            <th>Properties</th>
+            <th>Species</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @drugs) do |drug| %>
+            <td><%= drug.name %></td>
+            <td><%= drug.laboratory %></td>
+            <td><%= drug.reference %></td>
+            <td><%= drug.presentation %></td>
+            <td><%= drug.use %></td>
+            <td><%= drug.composition %></td>
+            <td><%= drug.indication %></td>
+            <td><%= drug.contraindication %></td>
+            <td><%= drug.warning %></td>
+            <td><%= drug.interaction %></td>
+            <td><%= drug.effect %></td>
+            <td><%= drug.dosage %></td>
+            <td><%= drug.overdosage %></td>
+            <td><%= drug.properties %></td>
+            <td><%= drug.species %></td>
+            <td><%= link_to 'Show', drug %></td>
         <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
         <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Drug', new_drug_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

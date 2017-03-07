@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :diseases
+  resources :drugs
+  resources :illnesses
+  resources :treatments
+  resources :treatments
   resources :treatments
   resources :illnesses
   devise_for :users, controllers: { sessions: 'users/sessions' }

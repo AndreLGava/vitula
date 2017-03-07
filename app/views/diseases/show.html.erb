@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to diseases_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_disease_path(@disease), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show disease</h1>
+</div>
 
-<p>
-  <strong>Vulgarname:</strong>
-  <%= @disease.VulgarName %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Vulgarname:</dt>
+  <dd><%= @disease.VulgarName %></dd>
 
-<p>
-  <strong>Cientificname:</strong>
-  <%= @disease.CientificName %>
-</p>
+  <dt>Cientificname:</dt>
+  <dd><%= @disease.CientificName %></dd>
 
-<p>
-  <strong>Causes:</strong>
-  <%= @disease.Causes %>
-</p>
+  <dt>Causes:</dt>
+  <dd><%= @disease.Causes %></dd>
 
-<p>
-  <strong>Description:</strong>
-  <%= @disease.Description %>
-</p>
+  <dt>Description:</dt>
+  <dd><%= @disease.Description %></dd>
 
-<p>
-  <strong>Symptoms:</strong>
-  <%= @disease.Symptoms %>
-</p>
+  <dt>Symptoms:</dt>
+  <dd><%= @disease.Symptoms %></dd>
 
-<%= link_to 'Edit', edit_disease_path(@disease) %> |
-<%= link_to 'Back', diseases_path %>
+</dl>

@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to new_treatment_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Treatment
+  <% end %>
+  <h1>Listing treatments</h1>
+</div>
 
-<h1>Listing Treatments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Dosage</th>
-      <th>Lack</th>
-      <th>Illness</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @treatments.each do |treatment| %>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= treatment.StartDate %></td>
-        <td><%= treatment.EndDate %></td>
-        <td><%= treatment.dosage %></td>
-        <td><%= treatment.lack %></td>
-        <td><%= treatment.illness %></td>
-        <td><%= link_to 'Show', treatment %></td>
+            <th>Startdate</th>
+            <th>Enddate</th>
+            <th>Dosage</th>
+            <th>Lack</th>
+            <th>Illness</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @treatments) do |treatment| %>
+            <td><%= treatment.StartDate %></td>
+            <td><%= treatment.EndDate %></td>
+            <td><%= treatment.dosage %></td>
+            <td><%= treatment.lack %></td>
+            <td><%= treatment.illness %></td>
+            <td><%= link_to 'Show', treatment %></td>
         <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
         <td><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Treatment', new_treatment_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
