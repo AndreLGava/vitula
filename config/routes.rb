@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :treatments
+  resources :illnesses
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   root to: "home#index"

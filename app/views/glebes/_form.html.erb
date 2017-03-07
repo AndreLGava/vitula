@@ -6,7 +6,7 @@
       <%= f.input :name %>
       <%= f.select :purpose, Glebe.purposes.keys, class: "form-inputs" %>
       <%= f.input :area %>
-      <%= f.input :inactive %>
+      <%= f.input :inactive, as: :toogle %>
       <%= f.association :property, as: :hidden %>
     </div>
 

@@ -5,6 +5,5 @@ FactoryGirl.define do
     sequel "MyText"
     animal nil
     disease nil
-    treatment nil
   end
 end

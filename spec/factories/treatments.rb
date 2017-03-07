@@ -4,5 +4,6 @@ FactoryGirl.define do
     EndDate "2017-03-07"
     dosage "9.99"
     lack 1
+    illness nil
   end
 end

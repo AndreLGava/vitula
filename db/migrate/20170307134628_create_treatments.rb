@@ -5,6 +5,7 @@ class CreateTreatments < ActiveRecord::Migration
       t.date :EndDate
       t.decimal :dosage
       t.integer :lack
+      t.references :illness, index: true, foreign_key: true
 
       t.timestamps null: false
     end

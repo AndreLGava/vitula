@@ -10,7 +10,6 @@
       <th>Sequel</th>
       <th>Animal</th>
       <th>Disease</th>
-      <th>Treatment</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +22,6 @@
         <td><%= illness.sequel %></td>
         <td><%= illness.animal %></td>
         <td><%= illness.disease %></td>
-        <td><%= illness.treatment %></td>
         <td><%= link_to 'Show', illness %></td>
         <td><%= link_to 'Edit', edit_illness_path(illness) %></td>
         <td><%= link_to 'Destroy', illness, method: :delete, data: { confirm: 'Are you sure?' } %></td>

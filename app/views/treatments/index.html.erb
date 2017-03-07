@@ -9,6 +9,7 @@
       <th>Enddate</th>
       <th>Dosage</th>
       <th>Lack</th>
+      <th>Illness</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= treatment.EndDate %></td>
         <td><%= treatment.dosage %></td>
         <td><%= treatment.lack %></td>
+        <td><%= treatment.illness %></td>
         <td><%= link_to 'Show', treatment %></td>
         <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
         <td><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

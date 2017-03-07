@@ -69,6 +69,6 @@ class IllnessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def illness_params
-      params.require(:illness).permit(:StartDate, :EndDate, :sequel, :animal_id, :disease_id, :treatment_id)
+      params.require(:illness).permit(:StartDate, :EndDate, :sequel, :animal_id, :disease_id)
     end
 end
