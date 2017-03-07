@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306165831) do
+ActiveRecord::Schema.define(version: 20170307000901) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(version: 20170306165831) do
     t.integer  "purpose"
     t.decimal  "area"
     t.integer  "property_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "inactive",    default: false
   end
 
   add_index "glebes", ["property_id"], name: "index_glebes_on_property_id"

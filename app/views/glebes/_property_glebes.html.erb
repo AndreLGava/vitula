@@ -5,9 +5,9 @@
   <div class="table-responsive">
     <table class="table table-striped table-hover table-condensed">
       <tr>
-        <td><%= Glebes.human_attribute_name(:name)%></td>
-        <td><%= Glebes.human_attribute_name(:purpose)%></td>
-        <td><%= Glebes.human_attribute_name(:area)%></td>
+        <td><%= Glebe.human_attribute_name(:name)%></td>
+        <td><%= Glebe.human_attribute_name(:purpose)%></td>
+        <td><%= Glebe.human_attribute_name(:area)%></td>
         <td></td>
         <td></td>
       </tr>
@@ -17,7 +17,7 @@
           <td><%= g.purpose %></td>
           <td><%= g.area %></td>
           <td><%= link_to 'Edit', edit_glebe_path(glebe), remote: true %></td>
-          <td><%= link_to 'Destroy', glebe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', glebe, method: :delete, data: { confirm: I18n.t('glebes.destroy.delete') } %></td>
         </tr>
         <% end %>
     </table>

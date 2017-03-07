@@ -1,15 +1,18 @@
-<%= simple_form_for(@glebe) do |f| %>
-  <%= f.error_notification %>
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <%= simple_form_for(@glebe, remote: true) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :purpose %>
-    <%= f.input :area %>
-    <%= f.association :property %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.select :purpose, Glebe.purposes.keys, class: "form-inputs" %>
+      <%= f.input :area %>
+      <%= f.input :inactive %>
+      <%= f.association :property, as: :hidden %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-success" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
 <br>

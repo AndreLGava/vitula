@@ -4,7 +4,7 @@ class GlebesController < ApplicationController
   # GET /glebes
   # GET /glebes.json
   def index
-    @glebes = Glebe.all(property)
+    @glebes = Glebe.them(property, params[:pages])
   end
 
   # GET /glebes/1

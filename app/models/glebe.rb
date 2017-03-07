@@ -8,5 +8,8 @@ class Glebe < ActiveRecord::Base
 
   has_paper_trail
 
+  enum purpose: {Plantio: 1, Pastejo: 2, Construção: 3}
+
   scope :them,   -> (property, params) { where(property_id: property.id).order(id: :desc).page params }
+
 end
