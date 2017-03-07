@@ -1,0 +1,13 @@
+pt-BR:
+  glebes:
+    index:
+      glebes: Glebes
+    new:
+      new: Nova Gleba
+    edit:
+      edit: Alterando Gleba
+    show:
+      glebe: Gleba
+    destroy:
+      delete: Apagar Gleba
+

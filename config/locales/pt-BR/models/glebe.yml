@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      glebe: Gleba
+    attributes:
+      glebe:
+        glebe: Gleba
+        name: Nome
+        purpose: Propósito
+        area: Área
+        property: Propriedade
+        incative: Inativada
