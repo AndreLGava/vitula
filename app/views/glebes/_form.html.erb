@@ -4,7 +4,7 @@
 
     <div class="form-inputs">
       <%= f.input :name %>
-      <%= f.select :purpose, Glebe.purposes.keys, class: "form-inputs" %>
+      <%= f.input :purpose, collection: Glebe.purposes.keys, as: :select, allow_blank: true %>
       <%= f.input :area %>
       <%= f.input :inactive, as: :toogle %>
       <%= f.association :property, as: :hidden %>

@@ -1,6 +1,6 @@
-ready = undefined
+datepick = undefined
 
-ready = ->
+datepick = ->
   $('.datepicker').datepicker
     autoclose: true
     todayBtn: true
@@ -11,5 +11,5 @@ ready = ->
     calendarWeeks: true
     todayHighlight: true
 
-$(document).ready ready
-$(document).on 'page:change turbolinks:load ready page:load', ready
+$(document).ready datepick
+$(document).on 'page:load', datepick

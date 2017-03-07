@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307112716) do
+ActiveRecord::Schema.define(version: 20170307134628) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -94,14 +94,12 @@ ActiveRecord::Schema.define(version: 20170307112716) do
     t.text     "sequel"
     t.integer  "animal_id"
     t.integer  "disease_id"
-    t.integer  "treatment_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "illnesses", ["animal_id"], name: "index_illnesses_on_animal_id"
   add_index "illnesses", ["disease_id"], name: "index_illnesses_on_disease_id"
-  add_index "illnesses", ["treatment_id"], name: "index_illnesses_on_treatment_id"
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
@@ -186,9 +184,12 @@ ActiveRecord::Schema.define(version: 20170307112716) do
     t.date     "EndDate"
     t.decimal  "dosage"
     t.integer  "lack"
+    t.integer  "illness_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "treatments", ["illness_id"], name: "index_treatments_on_illness_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

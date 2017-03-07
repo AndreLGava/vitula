@@ -6,8 +6,8 @@
     <%= f.input :name %>
     <%= f.input :photo, as: :file %>
     <%= f.input :description %>
-    <%= f.input :female %>
-    <%= f.select :breed, Animal.breeds.keys, class: "form-inputs" %>
+    <%= f.input :female, as: :toogle %>
+    <%= f.input :breed, collection: Animal.breeds.keys, as: :select, allow_blank: true %>
     <%= f.association :lot %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
     <%= f.association :reproduction, :label_method => lambda { |reproduction| "#{reproduction.parturition} - #{reproduction.mother.code} #{reproduction.mother.name} - #{reproduction.father.code} #{reproduction.father.name}" } , :value_method => :id %>
@@ -19,4 +19,5 @@
     <%= f.button :submit, class: "btn btn-success" %>
   </div>
 <% end %>
-<br>
+<br>true
+true
