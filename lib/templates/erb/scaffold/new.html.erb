@@ -1,9 +1,9 @@
 <div class="page-header">
   <%%= link_to <%= index_helper %>_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
   <%% end %>
-  <h1>New <%= singular_table_name %></h1>
+  <h1><%= I18n.t('crud.creating') %> <%= singular_table_name %></h1>
 </div>
 
 <%%= render 'form' %>

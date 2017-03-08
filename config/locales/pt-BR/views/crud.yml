@@ -5,6 +5,9 @@ pt-BR:
     saved: Salvo com sucesso.
     show: Mostrar
     edit: Editar
+    editing: Editando
+    create: Criar
+    creating: Criando
     delete: Excluir
     destroyed: Removido com sucesso.
     not_destroyed: Falha ao remover o registro.
