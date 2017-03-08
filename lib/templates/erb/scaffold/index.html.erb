@@ -4,7 +4,7 @@
     <span class="fa fa-plus"></span>
     <%= I18n.t('crud.new') %>
   <%% end %>
-  <h3><%%= <%=singular_model_name%>.human_attribute_name(:<%=plural_table_name%>)%></h3>
+  <h3><%%= <%= singular_table_name.capitalize %>.human_attribute_name(:<%=plural_table_name%>)%></h3>
 </div>
 
 <div class="table-responsive">
