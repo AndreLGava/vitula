@@ -41,6 +41,25 @@ crumb :productions do
   link "Productions", productions_path
 end
 
+crumb :diseases do
+  link "Doenças", diseases_path
+end
+
+crumb :disease do |disease|
+  link disease.VulgarName, disease
+  parent :diseases
+end
+
+crumb :drugs do
+  link "Medicamentos", drugs_path
+end
+
+crumb :drug do |drug|
+  link drug.name, drug
+  parent :drugs
+end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

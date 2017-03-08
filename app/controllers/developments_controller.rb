@@ -1,4 +1,5 @@
 class DevelopmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_development, only: [:show, :edit, :update, :destroy]
 
   def new

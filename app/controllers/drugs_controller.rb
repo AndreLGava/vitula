@@ -1,10 +1,11 @@
 class DrugsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
 
   # GET /drugs
   # GET /drugs.json
   def index
-    @drugs = Drug.all
+    @drugs = Drug.all.page params[:page]
   end
 
   # GET /drugs/1

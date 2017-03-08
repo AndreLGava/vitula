@@ -1,4 +1,5 @@
 class ProductionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_production, only: [:show, :edit, :update, :destroy]
   before_action :set_animal, only: [:new, :edit, :update]
 
