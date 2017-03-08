@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_notification, only: [:destroy, :show_notification]
   before_action :read_notification, only: [:show_notification]
 

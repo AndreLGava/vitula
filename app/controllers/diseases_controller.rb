@@ -1,10 +1,11 @@
 class DiseasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_disease, only: [:show, :edit, :update, :destroy]
 
   # GET /diseases
   # GET /diseases.json
   def index
-    @diseases = Disease.all
+    @diseases = Disease.all.page params[:page]
   end
 
   # GET /diseases/1

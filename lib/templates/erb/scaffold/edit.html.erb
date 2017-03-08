@@ -1,13 +1,13 @@
 <div class="page-header">
   <%%= link_to <%= index_helper %>_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
   <%% end %>
   <%%= link_to @<%= singular_table_name %>, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-info-sign"></span>
-    Show
+    <span class="fa fa-eye"></span>
+    <%= I18n.t('crud.show') %>
   <%% end %>
-  <h1>Editing <%= singular_table_name %></h1>
+  <h3> <%= I18n.t('crud.editing') %> <%= singular_table_name %></h3>
 </div>
 
 <%%= render 'form' %>

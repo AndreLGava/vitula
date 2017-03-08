@@ -1,110 +1,24 @@
-<%= form_for(@drug, html: { class: "form-horizontal", role: "form" }) do |f| %>
-  <% if @drug.errors.any? %>
-    <div class="alert alert-danger alert-dismissable" role="alert">
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <h4><%= pluralize(@drug.errors.count, "error") %> prohibited this drug from being saved:</h4>
+<%= simple_form_for(@drug) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @drug.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
+  <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :laboratory %>
+      <%= f.input :reference %>
+      <%= f.input :presentation %>
+      <%= f.input :use %>
+      <%= f.input :composition %>
+      <%= f.input :indication %>
+      <%= f.input :contraindication %>
+      <%= f.input :warning %>
+      <%= f.input :interaction %>
+      <%= f.input :effect %>
+      <%= f.input :dosage %>
+      <%= f.input :overdosage %>
+      <%= f.input :properties %>
+      <%= f.input :species %>
   </div>
-  <div class="form-group">
-    <%= f.label :laboratory, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :laboratory, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :reference, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :reference, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :presentation, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :presentation, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :use, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :use, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :composition, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :composition, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :indication, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :indication, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :contraindication, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :contraindication, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :warning, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :warning, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :interaction, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :interaction, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :effect, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :effect, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :dosage, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :dosage, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :overdosage, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :overdosage, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :properties, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :properties, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :species, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_area :species, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
-    </div>
+  <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

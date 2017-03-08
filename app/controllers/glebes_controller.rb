@@ -1,4 +1,5 @@
 class GlebesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_glebe, only: [:show, :edit, :update, :destroy]
 
   # GET /glebes
