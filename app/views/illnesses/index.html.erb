@@ -2,7 +2,7 @@
 <div class="page-header">
   <%= link_to new_illness_path, class: 'btn btn-primary' do %>
     <span class="fa fa-plus"></span>
-    <%= Novo registro %>
+    <%= I18n.t('crud.new') %>
   <% end %>
   <h3><%= Illness.human_attribute_name(:illnesses)%></h3>
 </div>
@@ -33,17 +33,17 @@
             <td><%= illness.treatment %></td>
             <td>
           <%= link_to illness, class: 'btn btn-sm btn-primary' do %>
-            <i class="fa fa-eye"></i> <%= Mostrar %>
+            <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
           <% end %>
         </td>
         <td>
           <%= link_to edit_illness_path(illness), class: 'btn btn-sm btn-default' do %>
-            <i class="fa fa-pencil"></i> <%= Editar %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
           <% end %>
         </td>
         <td>
           <%= link_to illness, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
-            <i class="fa fa-trash"></i> <%= Excluir %>
+            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
           <% end %>      
         </td>
       <% end %>

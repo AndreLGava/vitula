@@ -1,13 +1,13 @@
 <div class="page-header">
   <%%= link_to <%= index_helper %>_path, class: 'btn btn-default' do %>
     <span class="fa fa-chevron-left"></span>
-    <%%= <%= I18n.t('crud.back') %> %>
+    <%%= I18n.t('crud.back') %>
   <%% end %>
   <%%= link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' do %>
     <span class="fa fa-pencil"></span>
-    <%%= <%= I18n.t('crud.edit') %> %>
+    <%%= I18n.t('crud.edit') %>
   <%% end %>
-  <h3><%%= <%= I18n.t('crud.show') %> %> <%= singular_table_name %></h3>
+  <h3><%%= I18n.t('crud.show') %> <%= singular_table_name %></h3>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
