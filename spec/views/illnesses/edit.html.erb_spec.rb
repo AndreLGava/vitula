@@ -5,7 +5,8 @@ RSpec.describe "illnesses/edit", type: :view do
     @illness = assign(:illness, Illness.create!(
       :sequel => "MyText",
       :animal => nil,
-      :disease => nil
+      :disease => nil,
+      :treatment => nil
     ))
   end
 
@@ -19,6 +20,8 @@ RSpec.describe "illnesses/edit", type: :view do
       assert_select "input#illness_animal_id[name=?]", "illness[animal_id]"
 
       assert_select "input#illness_disease_id[name=?]", "illness[disease_id]"
+
+      assert_select "input#illness_treatment_id[name=?]", "illness[treatment_id]"
     end
   end
 end

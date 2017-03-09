@@ -1,11 +1,10 @@
 <% breadcrumb :diseases %>
-
 <div class="page-header">
   <%= link_to new_disease_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Disease
+    <span class="fa fa-plus"></span>
+    <%= Novo registro %>
   <% end %>
-  <h1>Listing diseases</h1>
+  <h3><%= Disease.human_attribute_name(:diseases)%></h3>
 </div>
 
 <div class="table-responsive">
@@ -25,14 +24,26 @@
 
     <tbody>
       <%= content_tag_for(:tr, @diseases) do |disease| %>
-            <td><%= disease.VulgarName %></td>
-            <td><%= disease.CientificName %></td>
-            <td><%= disease.Causes %></td>
-            <td><%= disease.Description %></td>
-            <td><%= disease.Symptoms %></td>
-            <td><%= link_to 'Show', disease %></td>
-        <td><%= link_to 'Edit', edit_disease_path(disease) %></td>
-        <td><%= link_to 'Destroy', disease, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= disease.vulgarname %></td>
+            <td><%= disease.cientificname %></td>
+            <td><%= disease.causes %></td>
+            <td><%= disease.description %></td>
+            <td><%= disease.symptoms %></td>
+            <td>
+          <%= link_to disease, class: 'btn btn-sm btn-primary' do %>
+            <i class="fa fa-eye"></i> <%= Mostrar %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_disease_path(disease), class: 'btn btn-sm btn-default' do %>
+            <i class="fa fa-pencil"></i> <%= Editar %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to disease, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+            <i class="fa fa-trash"></i> <%= Excluir %>
+          <% end %>      
+        </td>
       <% end %>
     </tbody>
   </table>

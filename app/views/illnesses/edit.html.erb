@@ -1,13 +1,13 @@
 <div class="page-header">
   <%= link_to illnesses_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= Voltar %>
   <% end %>
   <%= link_to @illness, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-info-sign"></span>
-    Show
+    <span class="fa fa-eye"></span>
+    <%= Mostrar %>
   <% end %>
-  <h1>Editing illness</h1>
+  <h3> <%= Editando %> illness</h3>
 </div>
 
 <%= render 'form' %>

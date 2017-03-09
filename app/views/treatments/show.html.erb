@@ -1,29 +1,31 @@
 <div class="page-header">
   <%= link_to treatments_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= Voltar %>
   <% end %>
   <%= link_to edit_treatment_path(@treatment), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    <span class="fa fa-pencil"></span>
+    <%= Editar %>
   <% end %>
-  <h1>Show treatment</h1>
+  <h3><%= Mostrar %> treatment</h3>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Startdate:</dt>
-  <dd><%= @treatment.StartDate %></dd>
-
-  <dt>Enddate:</dt>
-  <dd><%= @treatment.EndDate %></dd>
-
-  <dt>Dosage:</dt>
-  <dd><%= @treatment.dosage %></dd>
-
-  <dt>Lack:</dt>
-  <dd><%= @treatment.lack %></dd>
-
-  <dt>Illness:</dt>
-  <dd><%= @treatment.illness %></dd>
-
-</dl>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Startdate:</strong>
+      <%= @treatment.startdate %>
+    </li>
+    <li class="list-group-item">
+      <strong>Enddate:</strong>
+      <%= @treatment.enddate %>
+    </li>
+    <li class="list-group-item">
+      <strong>Dosage:</strong>
+      <%= @treatment.dosage %>
+    </li>
+    <li class="list-group-item">
+      <strong>Lack:</strong>
+      <%= @treatment.lack %>
+    </li>
+  </ul>
+</div>

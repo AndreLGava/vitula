@@ -1,29 +1,39 @@
 <div class="page-header">
   <%= link_to illnesses_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= Voltar %>
   <% end %>
   <%= link_to edit_illness_path(@illness), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    <span class="fa fa-pencil"></span>
+    <%= Editar %>
   <% end %>
-  <h1>Show illness</h1>
+  <h3><%= Mostrar %> illness</h3>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Startdate:</dt>
-  <dd><%= @illness.StartDate %></dd>
-
-  <dt>Enddate:</dt>
-  <dd><%= @illness.EndDate %></dd>
-
-  <dt>Sequel:</dt>
-  <dd><%= @illness.sequel %></dd>
-
-  <dt>Animal:</dt>
-  <dd><%= @illness.animal %></dd>
-
-  <dt>Disease:</dt>
-  <dd><%= @illness.disease %></dd>
-
-</dl>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Startdate:</strong>
+      <%= @illness.startdate %>
+    </li>
+    <li class="list-group-item">
+      <strong>Enddate:</strong>
+      <%= @illness.enddate %>
+    </li>
+    <li class="list-group-item">
+      <strong>Sequel:</strong>
+      <%= @illness.sequel %>
+    </li>
+    <li class="list-group-item">
+      <strong>Animal:</strong>
+      <%= @illness.animal %>
+    </li>
+    <li class="list-group-item">
+      <strong>Disease:</strong>
+      <%= @illness.disease %>
+    </li>
+    <li class="list-group-item">
+      <strong>Treatment:</strong>
+      <%= @illness.treatment %>
+    </li>
+  </ul>
+</div>

@@ -1,9 +1,9 @@
 <div class="page-header">
   <%= link_to diseases_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= Voltar %>
   <% end %>
-  <h1>New disease</h1>
+  <h3><%= Criando %> disease</h3>
 </div>
 
 <%= render 'form' %>
