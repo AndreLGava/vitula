@@ -2,7 +2,7 @@ class ToogleInput < SimpleForm::Inputs::BooleanInput
   def input
     template.content_tag(:label, class: 'switch pull-right') do
       template.concat @builder.check_box(attribute_name, input_html_options)
-      template.concat description_label("Sim", "Não")
+      template.concat description_label("", "")
       template.concat button_handle
     end
   end
