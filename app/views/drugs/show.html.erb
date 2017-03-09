@@ -1,60 +1,60 @@
 <% breadcrumb :drug, @drug %>
 <div class="page-header">
   <%= link_to drugs_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
   <% end %>
   <%= link_to edit_drug_path(@drug), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
   <% end %>
-  <h1>Show drug</h1>
+  <h3><%= I18n.t('crud.showing') %></h3>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name:</dt>
+  <dt><%= Drug.human_attribute_name(:name)%></dt>
   <dd><%= @drug.name %></dd>
 
-  <dt>Laboratory:</dt>
+  <dt><%= Drug.human_attribute_name(:laboratory)%></dt>
   <dd><%= @drug.laboratory %></dd>
 
-  <dt>Reference:</dt>
+  <dt><%= Drug.human_attribute_name(:reference)%></dt>
   <dd><%= @drug.reference %></dd>
 
-  <dt>Presentation:</dt>
+  <dt><%= Drug.human_attribute_name(:presentation)%></dt>
   <dd><%= @drug.presentation %></dd>
 
-  <dt>Use:</dt>
+  <dt><%= Drug.human_attribute_name(:use)%></dt>
   <dd><%= @drug.use %></dd>
 
-  <dt>Composition:</dt>
+  <dt><%= Drug.human_attribute_name(:composition)%></dt>
   <dd><%= @drug.composition %></dd>
 
-  <dt>Indication:</dt>
+  <dt><%= Drug.human_attribute_name(:indication)%></dt>
   <dd><%= @drug.indication %></dd>
 
-  <dt>Contraindication:</dt>
+  <dt><%= Drug.human_attribute_name(:contraindication)%></dt>
   <dd><%= @drug.contraindication %></dd>
 
-  <dt>Warning:</dt>
+  <dt><%= Drug.human_attribute_name(:warning)%></dt>
   <dd><%= @drug.warning %></dd>
 
-  <dt>Interaction:</dt>
+  <dt><%= Drug.human_attribute_name(:interaction)%></dt>
   <dd><%= @drug.interaction %></dd>
 
-  <dt>Effect:</dt>
+  <dt><%= Drug.human_attribute_name(:effect)%></dt>
   <dd><%= @drug.effect %></dd>
 
-  <dt>Dosage:</dt>
+  <dt><%= Drug.human_attribute_name(:dosage)%></dt>
   <dd><%= @drug.dosage %></dd>
 
-  <dt>Overdosage:</dt>
+  <dt><%= Drug.human_attribute_name(:overdosage)%></dt>
   <dd><%= @drug.overdosage %></dd>
 
-  <dt>Properties:</dt>
+  <dt><%= Drug.human_attribute_name(:properties)%></dt>
   <dd><%= @drug.properties %></dd>
 
-  <dt>Species:</dt>
+  <dt><%= Drug.human_attribute_name(:species)%></dt>
   <dd><%= @drug.species %></dd>
 
 </dl>

@@ -1,9 +1,9 @@
 <div class="page-header">
   <%= link_to drugs_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
   <% end %>
-  <h1>New drug</h1>
+  <h3><%= t('drugs.new.new')%></h3>
 </div>
 
 <%= render 'form' %>
