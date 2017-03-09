@@ -1,13 +1,13 @@
 <div class="page-header">
   <%= link_to diseases_path, class: 'btn btn-default' do %>
     <span class="fa fa-chevron-left"></span>
-    <%= Voltar %>
+    <%= I18n.t('crud.back') %>
   <% end %>
   <%= link_to @disease, class: 'btn btn-primary' do %>
     <span class="fa fa-eye"></span>
-    <%= Mostrar %>
+    <%= I18n.t('crud.show') %>
   <% end %>
-  <h3> <%= Editando %> disease</h3>
+  <h3> <%= I18n.t('crud.editing') %> disease</h3>
 </div>
 
 <%= render 'form' %>

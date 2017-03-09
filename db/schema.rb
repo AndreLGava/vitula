@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307134628) do
+ActiveRecord::Schema.define(version: 20170309190925) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20170307134628) do
   add_index "developments", ["animal_id"], name: "index_developments_on_animal_id"
 
   create_table "diseases", force: :cascade do |t|
-    t.string   "VulgarName"
-    t.string   "CientificName"
-    t.text     "Causes"
-    t.text     "Description"
-    t.text     "Symptoms"
+    t.string   "vulgarname"
+    t.string   "cientificname"
+    t.text     "causes"
+    t.text     "description"
+    t.text     "symptoms"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -89,17 +89,19 @@ ActiveRecord::Schema.define(version: 20170307134628) do
   add_index "glebes", ["property_id"], name: "index_glebes_on_property_id"
 
   create_table "illnesses", force: :cascade do |t|
-    t.date     "StartDate"
-    t.date     "EndDate"
+    t.date     "startdate"
+    t.date     "enddate"
     t.text     "sequel"
     t.integer  "animal_id"
     t.integer  "disease_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "treatment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "illnesses", ["animal_id"], name: "index_illnesses_on_animal_id"
   add_index "illnesses", ["disease_id"], name: "index_illnesses_on_disease_id"
+  add_index "illnesses", ["treatment_id"], name: "index_illnesses_on_treatment_id"
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
@@ -180,16 +182,13 @@ ActiveRecord::Schema.define(version: 20170307134628) do
   add_index "reproductions", ["mother_id"], name: "index_reproductions_on_mother_id"
 
   create_table "treatments", force: :cascade do |t|
-    t.date     "StartDate"
-    t.date     "EndDate"
+    t.date     "startdate"
+    t.date     "enddate"
     t.decimal  "dosage"
     t.integer  "lack"
-    t.integer  "illness_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "treatments", ["illness_id"], name: "index_treatments_on_illness_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

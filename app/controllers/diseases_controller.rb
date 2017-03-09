@@ -4,7 +4,7 @@ class DiseasesController < ApplicationController
   # GET /diseases
   # GET /diseases.json
   def index
-    @diseases = Disease.all
+    @diseases = Disease.all.page params[:page]
   end
 
   # GET /diseases/1
