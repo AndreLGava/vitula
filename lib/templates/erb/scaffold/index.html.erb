@@ -1,6 +1,6 @@
 <%% breadcrumb :<%= plural_table_name %> %>
 <div class="page-header">
-  <%%= link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary' do %>
+  <%%= link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary pull-right' do %>
     <span class="fa fa-plus"></span>
     <%%= I18n.t('crud.new') %>
   <%% end %>

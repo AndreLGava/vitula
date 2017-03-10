@@ -1,5 +1,11 @@
 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-    <%= link_to  I18n.t('glebes.new.new'), new_glebe_path(property_id: @property.id), remote: true, class: 'btn btn-info' %>
+  <div class="page-header">
+    <%= link_to new_glebe_path(property_id: @property.id), remote: true, class: 'btn btn-primary pull-right'  do %>
+      <span class="fa fa-plus"></span>
+      <%= I18n.t('glebes.new.new') %>
+    <% end %>
+    <h3><%= Glebe.human_attribute_name(:Glebes)%></h3>
+  </div>
 </div>
 <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
   <div class="table-responsive">
@@ -16,8 +22,8 @@
           <td><%= g.name %></td>
           <td><%= g.purpose %></td>
           <td><%= g.area %></td>
-          <td><%= link_to 'Edit', edit_glebe_path(glebe), remote: true %></td>
-          <td><%= link_to 'Destroy', glebe, method: :delete, data: { confirm: I18n.t('glebes.destroy.delete') } %></td>
+          <td><%= link_to 'Edit', edit_glebe_path(g), remote: true %></td>
+          <td><%= link_to 'Destroy', g, method: :delete, data: { confirm: I18n.t('glebes.destroy.delete') } %></td>
         </tr>
         <% end %>
     </table>

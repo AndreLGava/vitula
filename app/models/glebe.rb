@@ -12,4 +12,6 @@ class Glebe < ActiveRecord::Base
 
   scope :them,   -> (property, params) { where(property_id: property.id).order(id: :desc).page params }
 
+  belongs_to :property
+
 end

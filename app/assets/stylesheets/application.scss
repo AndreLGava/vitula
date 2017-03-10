@@ -240,7 +240,7 @@ $colors: (default $default) (danger $danger) (warning $warning) (success $succes
     $success:#5cb85c;
     $info:#5bc0de;
     $primary: #337ab7;
-    $andrestrap: (default $default) (danger $danger) (warning $warning) (success $success) (info $info) ;
+    $andrestrap: (default $default) (danger $danger) (warning $warning) (success $success) (info $info) (primary $primary) ;
 
     @each $name, $color in $andrestrap{
         .switch-#{$name}:checked ~ .switch-label{

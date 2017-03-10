@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309190925) do
+ActiveRecord::Schema.define(version: 20170310021414) do
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -75,6 +75,28 @@ ActiveRecord::Schema.define(version: 20170309190925) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "work"
+    t.string   "name"
+    t.date     "startwork"
+    t.date     "endwork"
+    t.date     "born"
+    t.string   "phone"
+    t.string   "rg"
+    t.string   "cpf"
+    t.integer  "schooling"
+    t.integer  "inss"
+    t.integer  "pis"
+    t.decimal  "salary"
+    t.string   "profession"
+    t.integer  "payment"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "employees", ["property_id"], name: "index_employees_on_property_id"
 
   create_table "glebes", force: :cascade do |t|
     t.string   "name"
@@ -186,9 +208,15 @@ ActiveRecord::Schema.define(version: 20170309190925) do
     t.date     "enddate"
     t.decimal  "dosage"
     t.integer  "lack"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "observation"
+    t.integer  "disease_id"
+    t.integer  "drug_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "treatments", ["disease_id"], name: "index_treatments_on_disease_id"
+  add_index "treatments", ["drug_id"], name: "index_treatments_on_drug_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

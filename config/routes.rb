@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
-  devise_for :users, controllers: { sessions: 'users/sessions' }
-
-  root to: "home#index"
   
+  resources :treatments
+  resources :treatments
+  resources :employees
   resources :lots
   resources :properties
   resources :profiles
@@ -23,5 +22,10 @@ Rails.application.routes.draw do
   get 'animal_development'  , to: 'animals#animal_development'     , as: :animal_development
   get 'animal_reproduction' , to: 'animals#animal_reproduction'    , as: :animal_reproduction
   get 'property_glebes'     , to: 'properties#property_glebes'     , as: :property_glebes
+  
+  devise_for :users, controllers: { sessions: 'users/sessions' }
+
+  root to: "home#index"
+
 
 end

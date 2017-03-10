@@ -5,7 +5,8 @@ class GlebesController < ApplicationController
   # GET /glebes
   # GET /glebes.json
   def index
-    @glebes = Glebe.them(property, params[:pages])
+    @property = Property.find(params[:property_id])
+    @glebes = Glebe.them(@property, params[:pages])
   end
 
   # GET /glebes/1
@@ -15,7 +16,8 @@ class GlebesController < ApplicationController
 
   # GET /glebes/new
   def new
-    @glebe = Glebe.new
+    @property = Property.find(params[:property_id])
+    @glebe = @property.glebes.new
   end
 
   # GET /glebes/1/edit
@@ -29,11 +31,13 @@ class GlebesController < ApplicationController
 
     respond_to do |format|
       if @glebe.save
-        format.html { redirect_to @glebe, notice: 'Glebe was successfully created.' }
+        format.html { redirect_to @glebe, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @glebe }
+        format.js { render 'property_glebes', property: @property, glebes: @glebes}
       else
         format.html { render :new }
         format.json { render json: @glebe.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
       end
     end
   end
@@ -43,7 +47,7 @@ class GlebesController < ApplicationController
   def update
     respond_to do |format|
       if @glebe.update(glebe_params)
-        format.html { redirect_to @glebe, notice: 'Glebe was successfully updated.' }
+        format.html { redirect_to @glebe, notice: I18n.t('crud.updated') }
         format.json { render :show, status: :ok, location: @glebe }
       else
         format.html { render :edit }
@@ -57,7 +61,7 @@ class GlebesController < ApplicationController
   def destroy
     @glebe.destroy
     respond_to do |format|
-      format.html { redirect_to glebes_url, notice: 'Glebe was successfully destroyed.' }
+      format.html { redirect_to glebes_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end

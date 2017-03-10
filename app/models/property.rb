@@ -7,4 +7,7 @@ class Property < ActiveRecord::Base
   validates :user_id    , presence: true
   validates :area       , presence: true
 
+  has_many :glebes      , dependent: :destroy 
+  has_many :employees   , dependent: :destroy 
+
 end
