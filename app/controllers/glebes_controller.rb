@@ -28,12 +28,14 @@ class GlebesController < ApplicationController
   # POST /glebes.json
   def create
     @glebe = Glebe.new(glebe_params)
+    @property = Property.find(@glebe.property_id)
+    @glebes = Glebe.them(@property, params[:page])
 
     respond_to do |format|
       if @glebe.save
         format.html { redirect_to @glebe, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @glebe }
-        format.js { render 'property_glebes', property: @property, glebes: @glebes}
+        format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}
       else
         format.html { render :new }
         format.json { render json: @glebe.errors, status: :unprocessable_entity }

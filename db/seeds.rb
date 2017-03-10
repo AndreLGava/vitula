@@ -33,12 +33,12 @@ Lot.create(name: "Vacas Leiteiras", description: "Vacas Leiteiras em produção"
 Lot.create(name: "Bezerros", description: "Animais de 0 até 9 meses de idade", property_id: 2)
 
 puts "Generate Animals"
-Animal.create(code: 156455, name: "Mimosa", description: "Vaca holandeza de grande porte", female: true, breed: "Holandesa", lot_id: 6, user_id: 1)
-Animal.create(code: 156455, name: "Destructor", description: "Touro da propreidade", female: false, breed: "Holandesa", user_id: 1)
-Animal.create(code: 158755, name: "Bilasa", description: "Vaca jersey de pequeno porte", female: true, breed: "Jersey", lot_id: 6, reproduction_id: 1, user_id: 1)
-Animal.create(code: 155485, name: "Boneca", description: "Proveniente de propriedade externa, adquirida no passado", female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1, user_id: 1)
-Animal.create(code: 345552, name: "Pequena", description: "Vaca holandeza de grande porte", female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1, user_id: 1)
-Animal.create(code: 544546, name: "Laranja", description: "Vaca holandeza de grande porte", female: true, breed: "Holandesa", lot_id: 6, reproduction_id: 1, user_id: 1)
+Animal.create(code: 156455, name: "Mimosa", description: "Vaca holandeza de grande porte", female: true, breed: 1 , lot_id: 6, user_id: 1)
+Animal.create(code: 156455, name: "Destructor", description: "Touro da propreidade", female: false, breed: 1 , user_id: 1)
+Animal.create(code: 158755, name: "Bilasa", description: "Vaca jersey de pequeno porte", female: true, breed: 1 , lot_id: 6, reproduction_id: 1, user_id: 1)
+Animal.create(code: 155485, name: "Boneca", description: "Proveniente de propriedade externa, adquirida no passado", female: true, breed: 1 , lot_id: 6, reproduction_id: 1, user_id: 1)
+Animal.create(code: 345552, name: "Pequena", description: "Vaca holandeza de grande porte", female: true, breed: 1 , lot_id: 6, reproduction_id: 1, user_id: 1)
+Animal.create(code: 544546, name: "Laranja", description: "Vaca holandeza de grande porte", female: true, breed: 1 , lot_id: 6, reproduction_id: 1, user_id: 1)
 
 puts "Generates Reproduction"
 Reproduction.create( heat: today, insemination: insemination, stop_breastfeeding: stop, parturition: parturition, father_id: 2, mother_id: 1)
