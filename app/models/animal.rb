@@ -25,7 +25,7 @@ class Animal < ActiveRecord::Base
   scope :animais,  -> (current_user, params) {select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where(user_id: current_user.id, discard: nil).order(:lot_id, :name).page params}
   scope :machos,   -> (current_user)         { where(female: false, discard: nil, user_id: current_user.id) }
   scope :femeas,   -> (current_user)         { where(female: true, discard: nil, user_id: current_user.id ) }
-  scope :novilhas, -> (current_user)         { joins(:reproduction).where('reproductions.parturition > ?', Time.now - 18.months).where(discard: nil, user_id: current_user.id) }
+  scope :parturition,   -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination = ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date ).where(discard: nil, user_id: current_user.id) }
 
 
   def reproductions
@@ -96,5 +96,4 @@ class Animal < ActiveRecord::Base
       return false
     end
   end
-
 end
