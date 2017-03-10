@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   resources :treatments
-  resources :treatments
   resources :employees
   resources :lots
   resources :properties
