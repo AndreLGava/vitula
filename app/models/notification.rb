@@ -4,6 +4,7 @@ class Notification < ActiveRecord::Base
   has_paper_trail
   ########################################Variables###################################################
   @login = Time.now.to_date - 90.days
+  @limit = Time.now + 30.days
   @heat  = Time.now - Reproduction.class_variable_get(:@@heat) + 7.days
 
   ########################################Methods###################################################
@@ -17,10 +18,12 @@ class Notification < ActiveRecord::Base
   	@users = User.all.where(last_sign_in_at: @login )
 
   	@users.each do |user|
-  		@animals = Animal.parturition(user, )
+  		@animals = Animal.parturition(user, @heat)
 
+  		@animals.each do |animal|
+  			Notification.create(title: "Descrição da notificação" , description: "O animal deverá entrar em cio em aproximadamente 7 dias, fique atento aos sinais", limit: @limit, user_id: user.id)
+  		end
   	end
-  	Notification.create(title: "Mocha" , description: "Laranja precisa ser desverminada", limit: limit, user_id: 1)
   end
   
 end
