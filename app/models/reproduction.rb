@@ -11,8 +11,9 @@ class Reproduction < ActiveRecord::Base
 
   validates :mother, presence: true
   validates :heat, presence: true
+  validate  :is_father?
 
-  @@first_heat = 19.moths #moths after her birth
+  @@first_heat = 19.months #moths after her birth
   @@heat = 21.days #days after parturition or abortion
   @@insemiation = 18.hours #hours to success
   @@regress = @@heat #days after insemination or last heat
@@ -56,5 +57,10 @@ class Reproduction < ActiveRecord::Base
      return self.regress.nil? && self.abortion.nil? && self.parturition.nil? ? true : false
   end
 
-
+  def is_father?
+    @father     = self.father_id
+    @mother     = Animal.find(self.mother_id)
+    @her_father = @mother.father_id unless @mother.father_id.nil?
+    errors.add(:father, I18n.t('activerecord.models.is_father')) unless @father <> @her_father
+  end
 end

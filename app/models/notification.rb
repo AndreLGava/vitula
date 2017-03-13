@@ -21,7 +21,7 @@ class Notification < ActiveRecord::Base
   		@animals = Animal.parturition(user, @heat)
 
   		@animals.each do |animal|
-  			Notification.create(title: "Descrição da notificação" , description: "O animal deverá entrar em cio em aproximadamente 7 dias, fique atento aos sinais", limit: @limit, user_id: user.id)
+  			Notification.create(title: I18n.t('activerecord.models.notify_heat_title', :animal_name => "#{animal.name}") , description: I18n.t('activerecord.models.notify_heat_description', :animal_name => "#{animal.name}", :animal_code => "#{animal.code}", :user_name => "#{user.name}"), limit: @limit, user_id: user.id)
   		end
   	end
   end

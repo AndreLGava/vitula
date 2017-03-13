@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       reproduction: Reprodução
+      is_father: O animal usado como macho para esta reprodução é pai da femea que está para ser inseminada, cuidado com a consanquinidade!
     attributes:
       reproduction:
         reproduction: Reprodução
