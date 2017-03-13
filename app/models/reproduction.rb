@@ -60,7 +60,7 @@ class Reproduction < ActiveRecord::Base
   def is_father?
     @father     = self.father_id
     @mother     = Animal.find(self.mother_id)
-    @her_father = @mother.father_id unless @mother.father_id.nil?
-    errors.add(:father, I18n.t('activerecord.models.is_father')) unless @father <> @her_father
+    @her_father = @mother.reproduction.father_id unless @mother.reproduction.nil?
+    errors.add(:father, I18n.t('activerecord.models.is_father')) unless @father != @her_father
   end
 end

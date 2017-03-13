@@ -26,6 +26,7 @@ class Animal < ActiveRecord::Base
   scope :machos,        -> (current_user)         { where(female: false, discard: nil, user_id: current_user.id) }
   scope :femeas,        -> (current_user)         { where(female: true, discard: nil, user_id: current_user.id ) }
   scope :parturition,   -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination = ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date ).where(discard: nil, user_id: current_user.id) }
+  scope :heat,          -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination = ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date ).where(discard: nil, user_id: current_user.id) }
 
 
   def reproductions
