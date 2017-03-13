@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction, :animal_illness]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
   def index
@@ -15,6 +15,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.new
     @animal.productions.build
     @animal.developments.build
+    @animal.illnesses.build
   end
 
   def edit
@@ -64,6 +65,10 @@ class AnimalsController < ApplicationController
 
   def animal_reproduction
     @reproductions = @animal.reproductions.order(id: :desc).page params[:page]
+  end
+
+  def animal_illness
+    @illnesses = @animal.illnesses.order(id: :desc).page params[:page]
   end
 
   private

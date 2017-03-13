@@ -5,6 +5,7 @@ pt-BR:
     attributes:
       illness:
         illness: Enfermidade
+        illnesses: Enfermidades
         StartDate: Inicio da Doença
         EndDate: Fim da Doença
         sequel: Sequela

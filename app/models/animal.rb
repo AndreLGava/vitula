@@ -9,6 +9,7 @@ class Animal < ActiveRecord::Base
   has_many :reproductions_as_mother, class_name: 'Reproduction',  foreign_key: 'mother_id'
   has_many :developments, dependent: :destroy
   has_many :productions, dependent: :destroy
+  has_many :illnesses, dependent: :destroy
 
   has_paper_trail
 

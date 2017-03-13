@@ -1,5 +1,11 @@
 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-	<%= link_to  I18n.t('developments.new.new'), new_development_path(animal_id: @animal.id), remote: true, class: 'btn btn-info' %>
+	<div class="page-header">
+	  <%= link_to new_development_path(animal_id: @animal.id), remote: true, class: 'btn btn-primary pull-right' do %>
+	    <span class="fa fa-plus"></span>
+	    <%= I18n.t('developments.new.new') %>
+	  <% end %>
+	  <h3><%= Development.human_attribute_name(:development)%></h3>
+	</div>
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	<div class="table-responsive">

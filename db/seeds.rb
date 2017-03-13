@@ -88,6 +88,3 @@ puts "Generates Productions"
 	end
 end
 
-
-public
-

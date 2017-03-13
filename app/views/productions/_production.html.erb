@@ -1,7 +1,14 @@
 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-	<% if @animal.discard.nil? && @animal.female == true %>
-		<%= link_to  I18n.t('productions.new.new'), new_production_path(animal_id: @animal.id), remote: true, class: 'btn btn-info' %>
-	<% end %>
+	<div class="page-header">
+		<% if @animal.discard.nil? && @animal.female == true %>
+		  <%= link_to new_production_path(animal_id: @animal.id), remote: true, class: 'btn btn-primary pull-right' do %>
+		    <span class="fa fa-plus"></span>
+		    <%= I18n.t('productions.new.new') %>
+		  <% end %>
+		<% end %>
+	  <h3><%= Production.human_attribute_name(:productions)%></h3>
+	</div>
+
 </div>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 	<div class="table-responsive">
