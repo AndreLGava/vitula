@@ -4,7 +4,11 @@ pt-BR:
     informations: Informações gerais
     saved: Salvo com sucesso.
     show: Mostrar
+    showing: Mostrando
     edit: Editar
+    editing: Editando
+    create: Criar
+    creating: Criando
     delete: Excluir
     destroyed: Removido com sucesso.
     not_destroyed: Falha ao remover o registro.

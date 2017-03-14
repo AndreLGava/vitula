@@ -2,15 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :StartDate %>
-    <%= f.input :EndDate %>
+    <%= f.input :startdate, as: :date_picker %>
+    <%= f.input :enddate, as: :date_picker %>
     <%= f.input :dosage %>
     <%= f.input :lack %>
-    <%= f.association :illness %>
+    <%= f.input :observation %>
+    <%= f.association :disease, as: :hidden %>
+    <%= f.association :drug, as: :hidden %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-success" %>
+    <%= f.button :submit %>
   </div>
 <% end %>
-<br>

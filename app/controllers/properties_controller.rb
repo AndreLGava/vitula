@@ -11,6 +11,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @property.glebes.build
   end
 
   def edit

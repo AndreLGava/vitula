@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :disease do
-    VulgarName "MyString"
-    CientificName "MyString"
-    Causes "MyText"
-    Description "MyText"
-    Symptoms "MyText"
+    vulgarname "MyString"
+    cientificname "MyString"
+    causes "MyText"
+    description "MyText"
+    symptoms "MyText"
   end
 end

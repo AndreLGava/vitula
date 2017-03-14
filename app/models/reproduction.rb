@@ -1,6 +1,9 @@
 class Reproduction < ActiveRecord::Base
   
   include ActionView::Helpers::DateHelper
+
+  has_many :animals
+
   belongs_to :father, foreign_key: "father_id", class_name: "Animal"
   belongs_to :mother, foreign_key: "mother_id", class_name: "Animal"
 

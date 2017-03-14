@@ -1,35 +1,56 @@
-<p id="notice"><%= notice %></p>
+<% breadcrumb :treatments %>
+<div class="page-header">
+  <%= link_to new_treatment_path, class: 'btn btn-primary pull-right' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('crud.new') %>
+  <% end %>
+  <h3><%= Treatment.human_attribute_name(:treatments)%></h3>
+</div>
 
-<h1>Listing Treatments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Dosage</th>
-      <th>Lack</th>
-      <th>Illness</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @treatments.each do |treatment| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
       <tr>
-        <td><%= treatment.StartDate %></td>
-        <td><%= treatment.EndDate %></td>
-        <td><%= treatment.dosage %></td>
-        <td><%= treatment.lack %></td>
-        <td><%= treatment.illness %></td>
-        <td><%= link_to 'Show', treatment %></td>
-        <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
-        <td><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <th>Startdate</th>
+            <th>Enddate</th>
+            <th>Dosage</th>
+            <th>Lack</th>
+            <th>Observation</th>
+            <th>Disease</th>
+            <th>Drug</th>
+            <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <%= content_tag_for(:tr, @treatments) do |treatment| %>
+            <td><%= treatment.startdate %></td>
+            <td><%= treatment.enddate %></td>
+            <td><%= treatment.dosage %></td>
+            <td><%= treatment.lack %></td>
+            <td><%= treatment.observation %></td>
+            <td><%= treatment.disease %></td>
+            <td><%= treatment.drug %></td>
+            <td>
+          <%= link_to treatment, class: 'btn btn-sm btn-primary' do %>
+            <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_treatment_path(treatment), class: 'btn btn-sm btn-default' do %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to treatment, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+          <% end %>      
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @treatments %>
 <br>
-
-<%= link_to 'New Treatment', new_treatment_path %>

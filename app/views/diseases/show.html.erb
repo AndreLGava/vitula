@@ -1,29 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Vulgarname:</strong>
-  <%= @disease.VulgarName %>
-</p>
-
-<p>
-  <strong>Cientificname:</strong>
-  <%= @disease.CientificName %>
-</p>
-
-<p>
-  <strong>Causes:</strong>
-  <%= @disease.Causes %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @disease.Description %>
-</p>
-
-<p>
-  <strong>Symptoms:</strong>
-  <%= @disease.Symptoms %>
-</p>
-
-<%= link_to 'Edit', edit_disease_path(@disease) %> |
-<%= link_to 'Back', diseases_path %>
+<div class="page-header">
+  <%= link_to diseases_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_disease_path(@disease), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> disease</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Vulgarname:</strong>
+      <%= @disease.vulgarname %>
+    </li>
+    <li class="list-group-item">
+      <strong>Cientificname:</strong>
+      <%= @disease.cientificname %>
+    </li>
+    <li class="list-group-item">
+      <strong>Causes:</strong>
+      <%= @disease.causes %>
+    </li>
+    <li class="list-group-item">
+      <strong>Description:</strong>
+      <%= @disease.description %>
+    </li>
+    <li class="list-group-item">
+      <strong>Symptoms:</strong>
+      <%= @disease.symptoms %>
+    </li>
+  </ul>
+</div>

@@ -98,6 +98,9 @@ gem 'highcharts-rails', '~> 4.2', '>= 4.2.5'
 #contador de tempo
 gem 'dotiw'
 
+#gerador de templates bootstrap
+gem 'bootstrap-generators', '~> 3.3.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

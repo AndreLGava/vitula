@@ -1,29 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Startdate:</strong>
-  <%= @illness.StartDate %>
-</p>
-
-<p>
-  <strong>Enddate:</strong>
-  <%= @illness.EndDate %>
-</p>
-
-<p>
-  <strong>Sequel:</strong>
-  <%= @illness.sequel %>
-</p>
-
-<p>
-  <strong>Animal:</strong>
-  <%= @illness.animal %>
-</p>
-
-<p>
-  <strong>Disease:</strong>
-  <%= @illness.disease %>
-</p>
-
-<%= link_to 'Edit', edit_illness_path(@illness) %> |
-<%= link_to 'Back', illnesses_path %>
+<div class="page-header">
+  <%= link_to illnesses_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_illness_path(@illness), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> illness</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Startdate:</strong>
+      <%= @illness.startdate %>
+    </li>
+    <li class="list-group-item">
+      <strong>Enddate:</strong>
+      <%= @illness.enddate %>
+    </li>
+    <li class="list-group-item">
+      <strong>Sequel:</strong>
+      <%= @illness.sequel %>
+    </li>
+    <li class="list-group-item">
+      <strong>Animal:</strong>
+      <%= @illness.animal %>
+    </li>
+    <li class="list-group-item">
+      <strong>Disease:</strong>
+      <%= @illness.disease %>
+    </li>
+    <li class="list-group-item">
+      <strong>Treatment:</strong>
+      <%= @illness.treatment %>
+    </li>
+  </ul>
+</div>

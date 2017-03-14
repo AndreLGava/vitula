@@ -1,79 +1,60 @@
-<p id="notice"><%= notice %></p>
+<% breadcrumb :drug, @drug %>
+<div class="page-header">
+  <%= link_to drugs_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_drug_path(@drug), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.showing') %></h3>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @drug.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><%= Drug.human_attribute_name(:name)%></dt>
+  <dd><%= @drug.name %></dd>
 
-<p>
-  <strong>Laboratory:</strong>
-  <%= @drug.laboratory %>
-</p>
+  <dt><%= Drug.human_attribute_name(:laboratory)%></dt>
+  <dd><%= @drug.laboratory %></dd>
 
-<p>
-  <strong>Reference:</strong>
-  <%= @drug.reference %>
-</p>
+  <dt><%= Drug.human_attribute_name(:reference)%></dt>
+  <dd><%= @drug.reference %></dd>
 
-<p>
-  <strong>Presentation:</strong>
-  <%= @drug.presentation %>
-</p>
+  <dt><%= Drug.human_attribute_name(:presentation)%></dt>
+  <dd><%= @drug.presentation %></dd>
 
-<p>
-  <strong>Use:</strong>
-  <%= @drug.use %>
-</p>
+  <dt><%= Drug.human_attribute_name(:use)%></dt>
+  <dd><%= @drug.use %></dd>
 
-<p>
-  <strong>Composition:</strong>
-  <%= @drug.composition %>
-</p>
+  <dt><%= Drug.human_attribute_name(:composition)%></dt>
+  <dd><%= @drug.composition %></dd>
 
-<p>
-  <strong>Indication:</strong>
-  <%= @drug.indication %>
-</p>
+  <dt><%= Drug.human_attribute_name(:indication)%></dt>
+  <dd><%= @drug.indication %></dd>
 
-<p>
-  <strong>Contraindication:</strong>
-  <%= @drug.contraindication %>
-</p>
+  <dt><%= Drug.human_attribute_name(:contraindication)%></dt>
+  <dd><%= @drug.contraindication %></dd>
 
-<p>
-  <strong>Warning:</strong>
-  <%= @drug.warning %>
-</p>
+  <dt><%= Drug.human_attribute_name(:warning)%></dt>
+  <dd><%= @drug.warning %></dd>
 
-<p>
-  <strong>Interaction:</strong>
-  <%= @drug.interaction %>
-</p>
+  <dt><%= Drug.human_attribute_name(:interaction)%></dt>
+  <dd><%= @drug.interaction %></dd>
 
-<p>
-  <strong>Effect:</strong>
-  <%= @drug.effect %>
-</p>
+  <dt><%= Drug.human_attribute_name(:effect)%></dt>
+  <dd><%= @drug.effect %></dd>
 
-<p>
-  <strong>Dosage:</strong>
-  <%= @drug.dosage %>
-</p>
+  <dt><%= Drug.human_attribute_name(:dosage)%></dt>
+  <dd><%= @drug.dosage %></dd>
 
-<p>
-  <strong>Overdosage:</strong>
-  <%= @drug.overdosage %>
-</p>
+  <dt><%= Drug.human_attribute_name(:overdosage)%></dt>
+  <dd><%= @drug.overdosage %></dd>
 
-<p>
-  <strong>Properties:</strong>
-  <%= @drug.properties %>
-</p>
+  <dt><%= Drug.human_attribute_name(:properties)%></dt>
+  <dd><%= @drug.properties %></dd>
 
-<p>
-  <strong>Species:</strong>
-  <%= @drug.species %>
-</p>
+  <dt><%= Drug.human_attribute_name(:species)%></dt>
+  <dd><%= @drug.species %></dd>
 
-<%= link_to 'Edit', edit_drug_path(@drug) %> |
-<%= link_to 'Back', drugs_path %>
+</dl>

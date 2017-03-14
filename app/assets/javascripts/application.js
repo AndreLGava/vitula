@@ -21,6 +21,7 @@
 //= require papercrop
 //= require alertify
 //= require alertify/confirm-modal
+//= require bootstrap
 //= require_tree .
 //= require select2-full
 //= require highcharts

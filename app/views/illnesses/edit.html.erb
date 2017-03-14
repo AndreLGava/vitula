@@ -1,6 +1,13 @@
-<h1>Editing Illness</h1>
+<div class="page-header">
+  <%= link_to illnesses_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to @illness, class: 'btn btn-primary' do %>
+    <span class="fa fa-eye"></span>
+    <%= I18n.t('crud.show') %>
+  <% end %>
+  <h3> <%= I18n.t('crud.editing') %> illness</h3>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @illness %> |
-<%= link_to 'Back', illnesses_path %>

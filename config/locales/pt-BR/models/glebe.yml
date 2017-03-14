@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       glebe: Gleba
+      glebe_invalid: O tamanho da gleba somado as outras glebas ativas da mesma properiedade excede o tamnho da propriedade
     attributes:
       glebe:
         glebe: Gleba
@@ -9,4 +10,4 @@ pt-BR:
         purpose: Propósito
         area: Área
         property: Propriedade
-        incative: Inativada
+        inactive: Inativada

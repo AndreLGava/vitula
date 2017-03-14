@@ -1,5 +1,5 @@
 crumb :root do
-  link "Vitula", root_path
+  link "Início", root_path
 end
 
 crumb :animals do
@@ -40,6 +40,53 @@ end
 crumb :productions do
   link "Productions", productions_path
 end
+
+crumb :diseases do
+  link "Doenças", diseases_path
+end
+
+crumb :disease do |disease|
+  link disease.VulgarName, disease
+  parent :diseases
+end
+
+crumb :drugs do
+  link "Medicamentos", drugs_path
+end
+
+crumb :drug do |drug|
+  link drug.name, drug
+  parent :drugs
+end
+
+crumb :illnesses do
+  link "Enfermidade", illnesses_path
+end
+
+crumb :illness do |illness|
+  link drug.name, illness
+  parent :illnesses
+end
+
+crumb :treatments do
+  link "Tratamento", treatments_path
+end
+
+crumb :treatment do |treatment|
+  link treatment.name, treatment
+  parent :treatments
+end
+
+
+crumb :employees do
+  link "Tratamento", employees_path
+end
+
+crumb :employee do |employee|
+  link employee.name, employee
+  parent :employees
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path

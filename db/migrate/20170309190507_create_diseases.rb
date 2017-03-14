@@ -1,11 +1,11 @@
 class CreateDiseases < ActiveRecord::Migration
   def change
     create_table :diseases do |t|
-      t.string :VulgarName
-      t.string :CientificName
-      t.text :Causes
-      t.text :Description
-      t.text :Symptoms
+      t.string :vulgarname
+      t.string :cientificname
+      t.text :causes
+      t.text :description
+      t.text :symptoms
 
       t.timestamps null: false
     end

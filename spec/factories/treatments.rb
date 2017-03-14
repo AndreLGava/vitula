@@ -1,9 +1,11 @@
 FactoryGirl.define do
   factory :treatment do
-    StartDate "2017-03-07"
-    EndDate "2017-03-07"
+    startdate "2017-03-09"
+    enddate "2017-03-09"
     dosage "9.99"
     lack 1
-    illness nil
+    observation "MyText"
+    disease nil
+    drug nil
   end
 end

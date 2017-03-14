@@ -1,6 +1,13 @@
-<h1>Editing Treatment</h1>
+<div class="page-header">
+  <%= link_to treatments_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to @treatment, class: 'btn btn-primary' do %>
+    <span class="fa fa-eye"></span>
+    <%= I18n.t('crud.show') %>
+  <% end %>
+  <h3> <%= I18n.t('crud.editing') %> treatment</h3>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @treatment %> |
-<%= link_to 'Back', treatments_path %>

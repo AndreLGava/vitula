@@ -1,6 +1,13 @@
-<h1>Editing Drug</h1>
+<div class="page-header">
+  <%= link_to drugs_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to @drug, class: 'btn btn-primary' do %>
+    <span class="fa fa-eye"></span>
+    <%= I18n.t('crud.show') %>
+  <% end %>
+  <h3><%= t('drugs.edit.edit')%></h3>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @drug %> |
-<%= link_to 'Back', drugs_path %>

@@ -1,5 +1,9 @@
-<h1>New Disease</h1>
+<div class="page-header">
+  <%= link_to diseases_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <h3><%= I18n.t('crud.creating') %> disease</h3>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', diseases_path %>

@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "diseases/edit", type: :view do
   before(:each) do
     @disease = assign(:disease, Disease.create!(
-      :VulgarName => "MyString",
-      :CientificName => "MyString",
-      :Causes => "MyText",
-      :Description => "MyText",
-      :Symptoms => "MyText"
+      :vulgarname => "MyString",
+      :cientificname => "MyString",
+      :causes => "MyText",
+      :description => "MyText",
+      :symptoms => "MyText"
     ))
   end
 
@@ -16,15 +16,15 @@ RSpec.describe "diseases/edit", type: :view do
 
     assert_select "form[action=?][method=?]", disease_path(@disease), "post" do
 
-      assert_select "input#disease_VulgarName[name=?]", "disease[VulgarName]"
+      assert_select "input#disease_vulgarname[name=?]", "disease[vulgarname]"
 
-      assert_select "input#disease_CientificName[name=?]", "disease[CientificName]"
+      assert_select "input#disease_cientificname[name=?]", "disease[cientificname]"
 
-      assert_select "textarea#disease_Causes[name=?]", "disease[Causes]"
+      assert_select "textarea#disease_causes[name=?]", "disease[causes]"
 
-      assert_select "textarea#disease_Description[name=?]", "disease[Description]"
+      assert_select "textarea#disease_description[name=?]", "disease[description]"
 
-      assert_select "textarea#disease_Symptoms[name=?]", "disease[Symptoms]"
+      assert_select "textarea#disease_symptoms[name=?]", "disease[symptoms]"
     end
   end
 end

@@ -1,10 +1,11 @@
 class DiseasesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_disease, only: [:show, :edit, :update, :destroy]
 
   # GET /diseases
   # GET /diseases.json
   def index
-    @diseases = Disease.all
+    @diseases = Disease.all.page params[:page]
   end
 
   # GET /diseases/1
@@ -69,6 +70,6 @@ class DiseasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disease_params
-      params.require(:disease).permit(:VulgarName, :CientificName, :Causes, :Description, :Symptoms)
+      params.require(:disease).permit(:vulgarname, :cientificname, :causes, :description, :symptoms)
     end
 end

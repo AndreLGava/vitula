@@ -1,0 +1,75 @@
+<div class="page-header">
+  <%= link_to employees_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_employee_path(@employee), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> employee</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Work:</strong>
+      <%= @employee.work %>
+    </li>
+    <li class="list-group-item">
+      <strong>Name:</strong>
+      <%= @employee.name %>
+    </li>
+    <li class="list-group-item">
+      <strong>Startwork:</strong>
+      <%= @employee.startwork %>
+    </li>
+    <li class="list-group-item">
+      <strong>Endwork:</strong>
+      <%= @employee.endwork %>
+    </li>
+    <li class="list-group-item">
+      <strong>Born:</strong>
+      <%= @employee.born %>
+    </li>
+    <li class="list-group-item">
+      <strong>Phone:</strong>
+      <%= @employee.phone %>
+    </li>
+    <li class="list-group-item">
+      <strong>Rg:</strong>
+      <%= @employee.rg %>
+    </li>
+    <li class="list-group-item">
+      <strong>Cpf:</strong>
+      <%= @employee.cpf %>
+    </li>
+    <li class="list-group-item">
+      <strong>Schooling:</strong>
+      <%= @employee.schooling %>
+    </li>
+    <li class="list-group-item">
+      <strong>Inss:</strong>
+      <%= @employee.inss %>
+    </li>
+    <li class="list-group-item">
+      <strong>Pis:</strong>
+      <%= @employee.pis %>
+    </li>
+    <li class="list-group-item">
+      <strong>Salary:</strong>
+      <%= @employee.salary %>
+    </li>
+    <li class="list-group-item">
+      <strong>Profession:</strong>
+      <%= @employee.profession %>
+    </li>
+    <li class="list-group-item">
+      <strong>Payment:</strong>
+      <%= @employee.payment %>
+    </li>
+    <li class="list-group-item">
+      <strong>Property:</strong>
+      <%= @employee.property %>
+    </li>
+  </ul>
+</div>
