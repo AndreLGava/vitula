@@ -27,7 +27,8 @@ class ReproductionsController < ApplicationController
           format.json { render :show, status: :created, location: @reproduction }
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
-          format.html { redirect_to new_animal_path(reproduction: @reproduction), notice: I18n.t('crud.saved') }
+          format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
+          #format.html { redirect_to new_animal_url(reproduction: @reproduction), notice: I18n.t('crud.saved') }
         end
       else
         format.html { render :new }
@@ -50,7 +51,8 @@ class ReproductionsController < ApplicationController
           format.json { render :show, status: :ok, location: @reproduction }
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
-          format.html { redirect_to new_animal_path(reproduction: @reproduction), notice: I18n.t('crud.saved') }
+          format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
+          #format.html { redirect_to new_animal_url(reproduction: @reproduction), notice: I18n.t('crud.saved') }
         end
       else
         format.html { render :edit }
