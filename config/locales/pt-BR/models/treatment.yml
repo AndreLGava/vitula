@@ -5,7 +5,8 @@ pt-BR:
     attributes:
       treatment:
         treatment: Tramento
-        StartDate: Data de Inicio
-        EndDate: Data de Fim
+        treatments: Tramentos
+        startdate: Data de Inicio
+        enddate: Data de Fim
         dosage: Dosagem
         lack: Carência

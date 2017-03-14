@@ -1,0 +1,86 @@
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <div class="page-header">
+    <%= link_to animal_illness_path(id: @animal.id),remote: true, class: 'btn btn-default' do %>
+      <span class="fa fa-chevron-left"></span>
+      <%= I18n.t('crud.back') %>
+    <% end %>
+    <%= link_to edit_illness_path(@illness), remote: true, class: 'btn btn-primary' do %>
+      <span class="fa fa-pencil"></span>
+      <%= I18n.t('crud.edit') %>
+    <% end %>
+    <h3><%= I18n.t('crud.show') %> <%= Illness.human_attribute_name(:illness)%></h3>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:startdate )%></strong>
+        <%= @illness.startdate %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:enddate )%></strong>
+        <%= @illness.enddate %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:sequel )%></strong>
+        <%= @illness.sequel %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:disease )%></strong>
+        <%= @illness.disease.vulgarname %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= Illness.human_attribute_name(:treatment)%>
+      </div>
+      <div class="panel-body" id="show_treatment">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                    <th><%= Treatment.human_attribute_name(:startdate )%></th>
+                    <th><%= Treatment.human_attribute_name(:enddate )%></th>
+                    <th><%= Treatment.human_attribute_name(:dosage )%></th>
+                    <th><%= Treatment.human_attribute_name(:lack )%></th>
+                    <th><%= Treatment.human_attribute_name(:observation )%></th>
+                    <th><%= Treatment.human_attribute_name(:drug )%></th>
+                    <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @treatments = @illness.treatments%>
+              <%= content_tag_for(:tr, @treatments) do |treatment| %>
+                    <td><%= treatment.startdate %></td>
+                    <td><%= treatment.enddate %></td>
+                    <td><%= treatment.dosage %></td>
+                    <td><%= treatment.lack %></td>
+                    <td><%= treatment.observation %></td>
+                    <td><%= treatment.drug.name %></td>
+                    <td>
+                  <%= link_to treatment, class: 'btn btn-sm btn-primary' do %>
+                    <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to edit_treatment_path(treatment), class: 'btn btn-sm btn-default' do %>
+                    <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to treatment, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+                    <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+                  <% end %>      
+                </td>
+              <% end %>
+            </tbody>
+          </table>      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

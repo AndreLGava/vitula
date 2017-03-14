@@ -1,8 +1,11 @@
 <% breadcrumb :animals %>
-<h3><%= Animal.human_attribute_name(:animal)%></h3>
-  <%= link_to  new_animal_path, class: "btn btn-info" do %>
-    <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
-  <% end %>
+  <div class="page-header">
+    <%= link_to new_animal_path, class: 'btn btn-primary pull-right' do %>
+      <span class="fa fa-plus"></span>
+      <%= I18n.t('animals.new.new') %>
+    <% end %>
+    <h3><%= Animal.human_attribute_name(:animals)%></h3>
+  </div>
 <div class="table-responsive">
   <table class="table table-striped table-hover table-condensed">
     <thead>

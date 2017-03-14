@@ -5,6 +5,7 @@ pt-BR:
     attributes:
       animal:
         animal: Animal
+        animals: Animais
         code: Código
         name: Nome
         description: Descrição

@@ -5,6 +5,7 @@ pt-BR:
     attributes:
       lot:
         lot: Lote
+        lots: Lotes
         name: Nome
         description: Descrição
         property: Propriedade

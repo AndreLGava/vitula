@@ -5,8 +5,9 @@ pt-BR:
     attributes:
       disease:
         disease: Doença
-        VulgarName: Nome comum
-        CientificName: Nome Cientifíco
-        Causes: Causas
-        Description: Descrição
-        Symptoms: Sintomas
+        diseases: Doenças
+        vulgarname: Nome comum
+        cientificname: Nome Cientifíco
+        causes: Causas
+        description: Descrição
+        symptoms: Sintomas

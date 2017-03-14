@@ -1,8 +1,8 @@
 <% breadcrumb :diseases %>
 <div class="page-header">
-  <%= link_to new_disease_path, class: 'btn btn-primary' do %>
+  <%= link_to new_disease_path, class: 'btn btn-primary pull-right' do %>
     <span class="fa fa-plus"></span>
-    <%= I18n.t('crud.new') %>
+    <%= I18n.t('diseases.new.new') %>
   <% end %>
   <h3><%= Disease.human_attribute_name(:diseases)%></h3>
 </div>
@@ -11,11 +11,11 @@
   <table class="table table-striped table-hover table-condensed">
     <thead>
       <tr>
-            <th>Vulgarname</th>
-            <th>Cientificname</th>
-            <th>Causes</th>
-            <th>Description</th>
-            <th>Symptoms</th>
+            <th><%= Disease.human_attribute_name(:vulgarname)%></th>
+            <th><%= Disease.human_attribute_name(:cientificname)%></th>
+            <th><%= Disease.human_attribute_name(:causes)%></th>
+            <th><%= Disease.human_attribute_name(:description)%></th>
+            <th><%= Disease.human_attribute_name(:symptoms)%></th>
             <th></th>
         <th></th>
         <th></th>

@@ -28,8 +28,7 @@ class GlebesController < ApplicationController
   # POST /glebes.json
   def create
     @glebe = Glebe.new(glebe_params)
-    @property = Property.find(@glebe.property_id)
-    @glebes = Glebe.them(@property, params[:page])
+    set_data
 
     respond_to do |format|
       if @glebe.save
@@ -47,13 +46,17 @@ class GlebesController < ApplicationController
   # PATCH/PUT /glebes/1
   # PATCH/PUT /glebes/1.json
   def update
+    set_data
+
     respond_to do |format|
       if @glebe.update(glebe_params)
         format.html { redirect_to @glebe, notice: I18n.t('crud.updated') }
         format.json { render :show, status: :ok, location: @glebe }
+        format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}
       else
         format.html { render :edit }
         format.json { render json: @glebe.errors, status: :unprocessable_entity }
+        format.js { render 'edit' }
       end
     end
   end
@@ -61,14 +64,21 @@ class GlebesController < ApplicationController
   # DELETE /glebes/1
   # DELETE /glebes/1.json
   def destroy
+    set_data
+
     @glebe.destroy
     respond_to do |format|
       format.html { redirect_to glebes_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
+      format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}
     end
   end
 
   private
+    def set_data
+      @property = Property.find(@glebe.property_id)
+      @glebes = Glebe.them(@property, params[:page])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_glebe
       @glebe = Glebe.find(params[:id])

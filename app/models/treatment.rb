@@ -1,4 +1,4 @@
 class Treatment < ActiveRecord::Base
-  belongs_to :disease
+  belongs_to :illness
   belongs_to :drug
 end

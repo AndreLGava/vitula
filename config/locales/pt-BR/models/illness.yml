@@ -6,8 +6,8 @@ pt-BR:
       illness:
         illness: Enfermidade
         illnesses: Enfermidades
-        StartDate: Inicio da Doença
-        EndDate: Fim da Doença
+        startdate: Inicio da Doença
+        enddate: Fim da Doença
         sequel: Sequela
         animal: Animal
         disease: Doença

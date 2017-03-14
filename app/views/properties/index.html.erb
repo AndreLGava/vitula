@@ -1,9 +1,11 @@
 <% breadcrumb :properties %>
-<h3><%= Property.human_attribute_name(:property)%></h3>
-<%= link_to  new_property_path, class: "btn btn-info pull-right" do %>
-  <i class="fa fa-plus"></i> <%= I18n.t('crud.new') %>
-<% end %>
-
+  <div class="page-header">
+    <%= link_to  new_property_path, class: 'btn btn-primary pull-right' do %>
+      <span class="fa fa-plus"></span>
+      <%= I18n.t('properties.new.new') %>
+    <% end %>
+    <h3><%= Property.human_attribute_name(:properties)%></h3>
+  </div>
 <table class="table table-responsive table-striped">
   <thead>
     <tr>

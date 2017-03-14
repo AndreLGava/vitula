@@ -5,6 +5,7 @@ pt-BR:
     attributes:
       property:
         property: Propriedade
+        properties: Propriedades
         name: Nome
         description: Descrição
         lat: Latitude

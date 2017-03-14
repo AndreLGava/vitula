@@ -61,32 +61,32 @@ class Animal < ActiveRecord::Base
 
   def production_chart
     variable = {}
-    variable['title'] = 'Title'
-    variable['subtitle'] = 'Subtitle'
-    variable['yAxis'] = 'Produção'
-    variable['description'] = 'Produção ao longo dos meses'
-    variable['categories'] = define_categories
-    variable['data'] = average_year
+    variable['title']                      = I18n.t('productions.chart.title')
+    variable['subtitle']                   = I18n.t('productions.chart.subtitle')
+    variable['yAxis']                      = I18n.t('productions.chart.yaxis')
+    variable['description']                = I18n.t('productions.chart.description')
+    variable['categories']                 = define_categories
+    variable['data']                       = average_year
     return variable.to_json.html_safe
   end
 
   def animal_development
     development = {}
-    development['created'] = self.developments.select(:created_at).map(&:created_at).map(&:to_s).uniq
-    development['height'] = self.developments.select(:height).map(&:height).uniq
-    development['weight'] = self.developments.select(:weight).map(&:weight).uniq
+    development['created']                 = self.developments.select(:created_at).map(&:created_at).map(&:to_s).uniq
+    development['height']                  = self.developments.select(:height).map(&:height).uniq
+    development['weight']                  = self.developments.select(:weight).map(&:weight).uniq
     return development
   end
 
   def development_chart
     variable = {}
-    variable['title'] = 'Title development'
-    variable['subtitle'] = 'Subtitle development'
-    variable['yAxis'] = ''
-    variable['description'] = 'Desenvolvimento ao longo da vida'
-    variable['categories'] = nil
-    variable['data'] = animal_development
-    return variable.to_json.html_safe
+    variable['title']                      = I18n.t('developments.chart.title')
+    variable['subtitle']                   = I18n.t('developments.chart.subtitle')
+    variable['yAxis']                      = I18n.t('developments.chart.yaxis')
+    variable['description']                = I18n.t('developments.chart.description')
+    variable['categories']                 = nil
+    variable['data']                       = animal_development
+    return variable.to_json.html_safe 
   end
 
   def can_reproduce?
