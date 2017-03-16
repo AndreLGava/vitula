@@ -46,7 +46,7 @@ puts "Generate Properties"
 @users = User.all
 @users.each do |p|
 	2.times do |t|
-		puts Property.create(name: "Propriedade de teste #{t}", description: "Propriedade rural de produção leitera", area: 100 , user_id: user.id)
+		puts Property.create(name: "Propriedade de teste #{t}", description: "Propriedade rural de produção leitera", area: 100 , user_id: p.id)
 	end
 end
 
@@ -79,10 +79,10 @@ end
 puts "Generate Animals"
 
 @users = User.all
-male = Animal.create(code: (codes).sample.to_i, name: 'Destructor', female: male, breed: 1 , lot_id: 6, user_id: user.id)
-male2 = Animal.create(code: (codes).sample.to_i, name: 'Biond', female: male, breed: 1 , lot_id: 6, user_id: user.id)
 
 @users.each do |user|
+	male = Animal.create(code: (codes).sample.to_i, name: 'Destructor', female: male, breed: 1 , lot_id: 6, user_id: user.id)
+	male2 = Animal.create(code: (codes).sample.to_i, name: 'Biond', female: male, breed: 1 , lot_id: 6, user_id: user.id)
 	50.times do |a|
 		puts Animal.create(code: (codes).sample.to_i, name: animals_names.sample, female: true, breed: 1 , lot_id: 6, user_id: user.id)
 	end
@@ -92,9 +92,11 @@ puts "Generates Reproduction"
 
 @animais = Animal.all.where(female: true)
 
+
+
 @animais.each do |animal|
 	5.times do |a|
-		puts Reproduction.create( heat: today, insemination: insemination, stop_breastfeeding: stop, parturition: parturition, father_id: [male.id, male2.id].sample, mother_id: animal.id)
+		puts Reproduction.create( heat: today, insemination: insemination, stop_breastfeeding: stop, parturition: parturition, father_id: [1, 2].sample, mother_id: animal.id)
 	end
 end
 
