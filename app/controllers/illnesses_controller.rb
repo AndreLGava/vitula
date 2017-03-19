@@ -12,6 +12,7 @@ class IllnessesController < ApplicationController
   # GET /illnesses/1.json
   def show
     @animal = Animal.find(@illness.animal_id)
+    @treatments = @illness.treatments
   end
 
   # GET /illnesses/new

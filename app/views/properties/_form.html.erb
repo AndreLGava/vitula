@@ -6,9 +6,9 @@
     <%= f.input :description %>
     <%= f.input :long %>
     <%= f.input :lat %>
-    <%= f.input :area, as: :ha %>
-    <%= f.input :altitude, as: :m %>
-    <%= f.input :precipitation, as: :mm %>
+    <%= f.input :area, as: :normal, before: "Ha" %>
+    <%= f.input :altitude, as: :normal, before: "M"%>
+    <%= f.input :precipitation, as: :normal, before: "mm" %>
     <%= f.input :enrolement_of_sanity %>
     <%= f.input :nirf %>
     <%= f.input :incra %>

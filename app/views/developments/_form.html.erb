@@ -3,8 +3,8 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :weight, as: :kg, class: "peso" %>
-      <%= f.input :height, as: :cm, class: "altura" %> 
+      <%= f.input :weight, as: :normal, before: "Kg", class: "peso" %>
+      <%= f.input :height, as: :normal, before: "Cm", class: "altura" %> 
       <%= f.association :animal, as: :hidden %>
     </div>
 

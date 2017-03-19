@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to treatments_path(treatment: @treatment), remote: true, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_treatment_path(@treatment), remote: true, class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.showing') %> <%= Treatment.human_attribute_name(:treatment)%></h3>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong><%= Treatment.human_attribute_name(:startdate)%></strong>
+      <%= @treatment.startdate %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Treatment.human_attribute_name(:enddate)%></strong>
+      <%= @treatment.enddate %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Treatment.human_attribute_name(:dosage)%></strong>
+      <%= @treatment.dosage %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Treatment.human_attribute_name(:lack)%></strong>
+      <%= @treatment.lack %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Treatment.human_attribute_name(:observation)%></strong>
+      <%= @treatment.observation %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Treatment.human_attribute_name(:drug)%></strong>
+      <%= @treatment.drug %>
+    </li>
+  </ul>
+</div>

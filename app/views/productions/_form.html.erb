@@ -3,7 +3,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :amount       ,as: :l %>
+      <%= f.input :amount       ,as: :normal, before: "L" %>
       <%= f.input :measurement %>
       <%= f.input :observation %>
       <%= f.association :animal, as: :hidden %>
