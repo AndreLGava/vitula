@@ -2,6 +2,10 @@ pt-BR:
   activerecord:
     models:
       notification: Notificação
+      notify_heat_title: "%{animal_name} entrará em cio nos próximos dias"
+      notify_heat_description: "%{user_name} a %{animal_name} de número %{animal_code} entrará em cio em aproximadamente 7 (sete) dias (valiabilidade de 3 dias para mais ou para menos), fique atento aos sinais."
+      notify_parturition_title: "%{animal_name} deve parir nos próximos dias"
+      notify_parturition_description: "%{user_name} a %{animal_name} de número %{animal_code} deverá parir nos próximos 14 (quatorze) dias (valiabilidade de 7 dias para mais ou para menos), fique atento aos sinais."
     attributes:
       notification:
         title: Título
@@ -9,3 +13,4 @@ pt-BR:
         read: Data Leitura
         limit: Data Expiração
         user: Usuário
+

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'animal_production'   , to: 'animals#animal_production'      , as: :animal_production
   get 'animal_development'  , to: 'animals#animal_development'     , as: :animal_development
   get 'animal_reproduction' , to: 'animals#animal_reproduction'    , as: :animal_reproduction
+  get 'animal_illness'      , to: 'animals#animal_illness'         , as: :animal_illness
   get 'property_glebes'     , to: 'properties#property_glebes'     , as: :property_glebes
   
   devise_for :users, controllers: { sessions: 'users/sessions' }

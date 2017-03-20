@@ -6,7 +6,6 @@ class CreateIllnesses < ActiveRecord::Migration
       t.text :sequel
       t.references :animal, index: true, foreign_key: true
       t.references :disease, index: true, foreign_key: true
-      t.references :treatment, index: true, foreign_key: true
 
       t.timestamps null: false
     end

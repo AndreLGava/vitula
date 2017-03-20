@@ -1,4 +1,4 @@
-class mlInput < SimpleForm::Inputs::Base
+class NormalInput < SimpleForm::Inputs::Base
   def input
     template.content_tag(:div, class: 'input-group') do
       template.concat @builder.text_field(attribute_name, input_html_options)
@@ -7,7 +7,7 @@ class mlInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge({class: 'form-control litro', readonly: false})
+    super.merge({class: 'form-control altura', readonly: false})
   end
 
   def span
@@ -17,7 +17,7 @@ class mlInput < SimpleForm::Inputs::Base
   end
 
   def icon
-    "<i> ml </i>".html_safe
+    "<i> #{options[:before]} </i>".html_safe
   end
 
 end

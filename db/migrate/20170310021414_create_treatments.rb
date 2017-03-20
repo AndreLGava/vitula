@@ -6,7 +6,7 @@ class CreateTreatments < ActiveRecord::Migration
       t.decimal :dosage
       t.integer :lack
       t.text :observation
-      t.references :disease, index: true, foreign_key: true
+      t.references :illness, index: true, foreign_key: true
       t.references :drug, index: true, foreign_key: true
 
       t.timestamps null: false

@@ -8,3 +8,8 @@ pt-BR:
       edit: Alterando Produção
     show:
       lot: Produção
+    chart:
+      title: 'Média de produção por mês'
+      subtitle: 'Litros por mês'
+      description: 'Litragem'
+      yaxis: 'Produção'

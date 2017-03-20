@@ -5,8 +5,9 @@ pt-BR:
     attributes:
       illness:
         illness: Enfermidade
-        StartDate: Inicio da Doença
-        EndDate: Fim da Doença
+        illnesses: Enfermidades
+        startdate: Inicio da Doença
+        enddate: Fim da Doença
         sequel: Sequela
         animal: Animal
         disease: Doença

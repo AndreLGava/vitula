@@ -1,0 +1,43 @@
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <div class="page-header">
+    <%= link_to animal_illness_path(id: @animal.id),remote: true, class: 'btn btn-default' do %>
+      <span class="fa fa-chevron-left"></span>
+      <%= I18n.t('crud.back') %>
+    <% end %>
+    <%= link_to edit_illness_path(@illness), remote: true, class: 'btn btn-primary' do %>
+      <span class="fa fa-pencil"></span>
+      <%= I18n.t('crud.edit') %>
+    <% end %>
+    <h3><%= I18n.t('crud.show') %> <%= Illness.human_attribute_name(:illness)%></h3>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:startdate )%></strong>
+        <%= @illness.startdate %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:enddate )%></strong>
+        <%= @illness.enddate %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:sequel )%></strong>
+        <%= @illness.sequel %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Illness.human_attribute_name(:disease )%></strong>
+        <%= @illness.disease.vulgarname %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= Illness.human_attribute_name(:treatment)%>
+      </div>
+      <div class="panel-body" id="show_treatment">
+        <%= render partial: 'treatments/treatment', locals: {illness_id: @illness.id, treatments: @treatments} %>
+      </div>
+    </div>
+  </div>
+</div>

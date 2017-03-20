@@ -4,7 +4,8 @@ pt-BR:
       production: Produções
     attributes:
       production:
-        production: Produções
+        production: Produção
+        productions: Produções
         amount: Quantidade de leite produzido
         measurement: Data e hora da medição
         observation: Observação

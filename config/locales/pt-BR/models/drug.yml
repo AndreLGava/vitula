@@ -5,6 +5,7 @@ pt-BR:
     attributes:
       drug:
         drug: Medicamento
+        drugs: Medicamentos
         name: Nome do produto
         laboratory: Laboratório
         reference: Referência

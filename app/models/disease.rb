@@ -1,3 +1,3 @@
 class Disease < ActiveRecord::Base
-	has_many :treatments, dependent: :destroy
+	has_many :illnesses, dependent: :destroy
 end

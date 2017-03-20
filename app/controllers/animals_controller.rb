@@ -1,14 +1,7 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction, :animal_illness]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
-
-  first_heat = [15, 24] #moths after her birth
-  heat = [18, 24] #days after parturition or abortion
-  insemination = [6, 30] #hours to success
-  regress = heat #days after insemination or last heat
-  stop_breastfeeding = 214 #days after insemination 60 days before partturition
-  parturition = 274 #days +- 7 days [267 , 282] after last insemination
 
   def index
     @animals = Animal.animais(current_user, params[:page])
@@ -22,6 +15,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.new
     @animal.productions.build
     @animal.developments.build
+    @animal.illnesses.build
   end
 
   def edit
@@ -71,6 +65,10 @@ class AnimalsController < ApplicationController
 
   def animal_reproduction
     @reproductions = @animal.reproductions.order(id: :desc).page params[:page]
+  end
+
+  def animal_illness
+    @illnesses = @animal.illnesses.order(id: :desc).page params[:page]
   end
 
   private

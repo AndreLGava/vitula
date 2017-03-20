@@ -1,8 +1,7 @@
-<% breadcrumb :treatments %>
 <div class="page-header">
-  <%= link_to new_treatment_path, class: 'btn btn-primary pull-right' do %>
+  <%= link_to new_treatment_path(illness_id: @illness.id), class: 'btn btn-primary pull-right', remote: true do %>
     <span class="fa fa-plus"></span>
-    <%= I18n.t('crud.new') %>
+    <%= I18n.t('treatments.new.new') %>
   <% end %>
   <h3><%= Treatment.human_attribute_name(:treatments)%></h3>
 </div>
@@ -16,7 +15,6 @@
             <th><%= Treatment.human_attribute_name(:dosage)%></th>
             <th><%= Treatment.human_attribute_name(:lack)%></th>
             <th><%= Treatment.human_attribute_name(:observation)%></th>
-            <th><%= Treatment.human_attribute_name(:disease)%></th>
             <th><%= Treatment.human_attribute_name(:drug)%></th>
             <th></th>
         <th></th>
@@ -31,20 +29,19 @@
             <td><%= treatment.dosage %></td>
             <td><%= treatment.lack %></td>
             <td><%= treatment.observation %></td>
-            <td><%= treatment.disease %></td>
-            <td><%= treatment.drug %></td>
+            <td><%= treatment.drug.name %></td>
             <td>
-          <%= link_to treatment, class: 'btn btn-sm btn-primary' do %>
+          <%= link_to treatment, class: 'btn btn-sm btn-primary',remote: true do %>
             <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
           <% end %>
         </td>
         <td>
-          <%= link_to edit_treatment_path(treatment), class: 'btn btn-sm btn-default' do %>
+          <%= link_to edit_treatment_path(treatment), class: 'btn btn-sm btn-default',remote: true do %>
             <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
           <% end %>
         </td>
         <td>
-          <%= link_to treatment, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+          <%= link_to treatment, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger',remote: true do %>    
             <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
           <% end %>      
         </td>
@@ -52,5 +49,4 @@
     </tbody>
   </table>
 </div>
-<%= paginate @treatments %>
 <br>

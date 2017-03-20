@@ -7,28 +7,28 @@
     <span class="fa fa-pencil"></span>
     <%= I18n.t('crud.edit') %>
   <% end %>
-  <h3><%= I18n.t('crud.show') %> disease</h3>
+  <h3><%= I18n.t('crud.show') %> <%= Disease.human_attribute_name(:disease)%></h3>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
     <li class="list-group-item">
-      <strong>Vulgarname:</strong>
+      <strong><%= Disease.human_attribute_name(:vulgarname)%></strong>
       <%= @disease.vulgarname %>
     </li>
     <li class="list-group-item">
-      <strong>Cientificname:</strong>
+      <strong><%= Disease.human_attribute_name(:cientificname)%></strong>
       <%= @disease.cientificname %>
     </li>
     <li class="list-group-item">
-      <strong>Causes:</strong>
+      <strong><%= Disease.human_attribute_name(:causes)%></strong>
       <%= @disease.causes %>
     </li>
     <li class="list-group-item">
-      <strong>Description:</strong>
+      <strong><%= Disease.human_attribute_name(:description)%></strong>
       <%= @disease.description %>
     </li>
     <li class="list-group-item">
-      <strong>Symptoms:</strong>
+      <strong><%= Disease.human_attribute_name(:symptoms)%></strong>
       <%= @disease.symptoms %>
     </li>
   </ul>

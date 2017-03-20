@@ -116,14 +116,12 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.text     "sequel"
     t.integer  "animal_id"
     t.integer  "disease_id"
-    t.integer  "treatment_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "illnesses", ["animal_id"], name: "index_illnesses_on_animal_id"
   add_index "illnesses", ["disease_id"], name: "index_illnesses_on_disease_id"
-  add_index "illnesses", ["treatment_id"], name: "index_illnesses_on_treatment_id"
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
@@ -209,14 +207,14 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.decimal  "dosage"
     t.integer  "lack"
     t.text     "observation"
-    t.integer  "disease_id"
+    t.integer  "illness_id"
     t.integer  "drug_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "treatments", ["disease_id"], name: "index_treatments_on_disease_id"
   add_index "treatments", ["drug_id"], name: "index_treatments_on_drug_id"
+  add_index "treatments", ["illness_id"], name: "index_treatments_on_illness_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

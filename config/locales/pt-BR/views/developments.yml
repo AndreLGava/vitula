@@ -8,3 +8,8 @@ pt-BR:
       edit: Alterando Desenvolvimento
     show:
       lot: Desenvolvimento
+    chart:
+      title: 'Desenvolvimento do animal ao longo da vida'
+      subtitle: 'Peso e Altura'
+      description: ''
+      yaxis: 'Peso X Altura'

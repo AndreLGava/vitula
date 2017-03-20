@@ -5,7 +5,11 @@ class TreatmentsController < ApplicationController
   # GET /treatments
   # GET /treatments.json
   def index
-    @treatments = Treatment.all.page params[:pages]
+    @treatment = Treatment.find(params[:treatment])
+    set_data
+    respond_to do |format|
+      format.js { render 'illnesses/treatment', illness: @illness, treatments: @treatments}
+    end
   end
 
   # GET /treatments/1
@@ -15,7 +19,8 @@ class TreatmentsController < ApplicationController
 
   # GET /treatments/new
   def new
-    @treatment = Treatment.new
+    @illness = Illness.find(params[:illness_id])
+    @treatment = @illness.treatments.new
   end
 
   # GET /treatments/1/edit
@@ -26,14 +31,12 @@ class TreatmentsController < ApplicationController
   # POST /treatments.json
   def create
     @treatment = Treatment.new(treatment_params)
-
+    set_data
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully created.' }
-        format.json { render :show, status: :created, location: @treatment }
+        format.js { render 'illnesses/treatment', illness: @illness, treatments: @treatments}
       else
-        format.html { render :new }
-        format.json { render json: @treatment.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
       end
     end
   end
@@ -41,13 +44,12 @@ class TreatmentsController < ApplicationController
   # PATCH/PUT /treatments/1
   # PATCH/PUT /treatments/1.json
   def update
+    set_data
     respond_to do |format|
       if @treatment.update(treatment_params)
-        format.html { redirect_to @treatment, notice: 'Treatment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @treatment }
+        format.js { render 'illnesses/treatment', illness: @illness, treatments: @treatments}
       else
-        format.html { render :edit }
-        format.json { render json: @treatment.errors, status: :unprocessable_entity }
+        format.js { render 'edit' }
       end
     end
   end
@@ -55,14 +57,18 @@ class TreatmentsController < ApplicationController
   # DELETE /treatments/1
   # DELETE /treatments/1.json
   def destroy
+    set_data
     @treatment.destroy
     respond_to do |format|
-      format.html { redirect_to treatments_url, notice: 'Treatment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render 'illnesses/treatment', illness: @illness, treatments: @treatments}
     end
   end
 
   private
+    def set_data
+      @illness = Illness.find(@treatment.illness_id)
+      @treatments = Treatment.all.where(illness: @illness)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_treatment
       @treatment = Treatment.find(params[:id])
@@ -70,6 +76,6 @@ class TreatmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def treatment_params
-      params.require(:treatment).permit(:startdate, :enddate, :dosage, :lack, :observation, :disease_id, :drug_id)
+      params.require(:treatment).permit(:startdate, :enddate, :dosage, :lack, :observation, :illness_id, :drug_id)
     end
 end
