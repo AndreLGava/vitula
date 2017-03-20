@@ -1,4 +1,4 @@
-<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
 	<div class="page-header">
 		<% if @animal.discard.nil? && @animal.female == true %>
 		  <%= link_to new_production_path(animal_id: @animal.id), remote: true, class: 'btn btn-primary pull-right' do %>
@@ -29,7 +29,7 @@
 		<%= paginate @productions, remote: true %>
 	</div>
 </div>
-<div class="col-lg-5 col-md-4 col-sm-6 col-xs-12">
+<div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
 	<script type="text/javascript">
 		SeriesGraph.setup(<%= @animal.production_chart %>);
 	</script>
