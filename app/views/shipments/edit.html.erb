@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to shipments_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to @shipment, class: 'btn btn-primary' do %>
+    <span class="fa fa-eye"></span>
+    <%= I18n.t('crud.show') %>
+  <% end %>
+  <h3> <%= I18n.t('crud.editing') %> shipment</h3>
+</div>
+
+<%= render 'form' %>

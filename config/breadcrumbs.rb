@@ -87,6 +87,15 @@ crumb :employee do |employee|
   parent :employees
 end
 
+crumb :shipments do
+  link "Carregamento de leite", shipments_path
+end
+
+crumb :shipment do |shipment|
+  link shipment.date, shipment
+  parent :shipments
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path

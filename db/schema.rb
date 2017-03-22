@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310021414) do
+ActiveRecord::Schema.define(version: 20170322022033) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -32,9 +35,9 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "photo_updated_at"
   end
 
-  add_index "animals", ["lot_id"], name: "index_animals_on_lot_id"
-  add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id"
-  add_index "animals", ["user_id"], name: "index_animals_on_user_id"
+  add_index "animals", ["lot_id"], name: "index_animals_on_lot_id", using: :btree
+  add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id", using: :btree
+  add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
 
   create_table "developments", force: :cascade do |t|
     t.float    "weight"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "developments", ["animal_id"], name: "index_developments_on_animal_id"
+  add_index "developments", ["animal_id"], name: "index_developments_on_animal_id", using: :btree
 
   create_table "diseases", force: :cascade do |t|
     t.string   "vulgarname"
@@ -96,7 +99,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "employees", ["property_id"], name: "index_employees_on_property_id"
+  add_index "employees", ["property_id"], name: "index_employees_on_property_id", using: :btree
 
   create_table "glebes", force: :cascade do |t|
     t.string   "name"
@@ -108,7 +111,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.boolean  "inactive",    default: false
   end
 
-  add_index "glebes", ["property_id"], name: "index_glebes_on_property_id"
+  add_index "glebes", ["property_id"], name: "index_glebes_on_property_id", using: :btree
 
   create_table "illnesses", force: :cascade do |t|
     t.date     "startdate"
@@ -120,8 +123,8 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "illnesses", ["animal_id"], name: "index_illnesses_on_animal_id"
-  add_index "illnesses", ["disease_id"], name: "index_illnesses_on_disease_id"
+  add_index "illnesses", ["animal_id"], name: "index_illnesses_on_animal_id", using: :btree
+  add_index "illnesses", ["disease_id"], name: "index_illnesses_on_disease_id", using: :btree
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
@@ -131,7 +134,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "lots", ["property_id"], name: "index_lots_on_property_id"
+  add_index "lots", ["property_id"], name: "index_lots_on_property_id", using: :btree
 
   create_table "notifications", force: :cascade do |t|
     t.string   "title"
@@ -143,7 +146,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "productions", force: :cascade do |t|
     t.float    "amount"
@@ -154,7 +157,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "productions", ["animal_id"], name: "index_productions_on_animal_id"
+  add_index "productions", ["animal_id"], name: "index_productions_on_animal_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -181,7 +184,7 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.string   "manager"
   end
 
-  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
 
   create_table "reproductions", force: :cascade do |t|
     t.date     "heat"
@@ -197,9 +200,16 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id"
-  add_index "reproductions", ["father_id"], name: "index_reproductions_on_father_id"
-  add_index "reproductions", ["mother_id"], name: "index_reproductions_on_mother_id"
+  add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id", using: :btree
+  add_index "reproductions", ["father_id"], name: "index_reproductions_on_father_id", using: :btree
+  add_index "reproductions", ["mother_id"], name: "index_reproductions_on_mother_id", using: :btree
+
+  create_table "shipments", force: :cascade do |t|
+    t.decimal  "amount"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "treatments", force: :cascade do |t|
     t.date     "startdate"
@@ -213,8 +223,8 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "treatments", ["drug_id"], name: "index_treatments_on_drug_id"
-  add_index "treatments", ["illness_id"], name: "index_treatments_on_illness_id"
+  add_index "treatments", ["drug_id"], name: "index_treatments_on_drug_id", using: :btree
+  add_index "treatments", ["illness_id"], name: "index_treatments_on_illness_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -246,18 +256,18 @@ ActiveRecord::Schema.define(version: 20170310021414) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",                     null: false
-    t.integer  "item_id",                       null: false
-    t.string   "event",                         null: false
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
     t.string   "whodunnit"
-    t.text     "object",     limit: 1073741823
+    t.text     "object"
     t.datetime "created_at"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
