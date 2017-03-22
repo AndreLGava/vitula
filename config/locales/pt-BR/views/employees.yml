@@ -1,0 +1,18 @@
+pt-BR:
+  employees:
+    index:
+      employees: Empregados
+    new:
+      new: Novo Empregado
+    edit:
+      edit: Alterando Empregado
+    show:
+      employee: Empregado
+    destroy:
+      delete: Tem certeza que deseja excluir este empregado?
+    schooling:
+      primario: Primário
+      fundamental: Fundamental
+      medio: Ensino médio
+      praduacao: Graduação
+      posgraduacao: Pós Graduação

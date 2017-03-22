@@ -6,7 +6,7 @@ class GlebesController < ApplicationController
   # GET /glebes.json
   def index
     @property = Property.find(params[:property_id])
-    @glebes = Glebe.them(@property, params[:pages])
+    @glebes = Glebe.them(@property, params[:page])
   end
 
   # GET /glebes/1
@@ -32,12 +32,8 @@ class GlebesController < ApplicationController
 
     respond_to do |format|
       if @glebe.save
-        format.html { redirect_to @glebe, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :created, location: @glebe }
         format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}
       else
-        format.html { render :new }
-        format.json { render json: @glebe.errors, status: :unprocessable_entity }
         format.js { render 'new' }
       end
     end
@@ -50,12 +46,8 @@ class GlebesController < ApplicationController
 
     respond_to do |format|
       if @glebe.update(glebe_params)
-        format.html { redirect_to @glebe, notice: I18n.t('crud.updated') }
-        format.json { render :show, status: :ok, location: @glebe }
         format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}
       else
-        format.html { render :edit }
-        format.json { render json: @glebe.errors, status: :unprocessable_entity }
         format.js { render 'edit' }
       end
     end
@@ -68,8 +60,6 @@ class GlebesController < ApplicationController
 
     @glebe.destroy
     respond_to do |format|
-      format.html { redirect_to glebes_url, notice: I18n.t('crud.destroyed') }
-      format.json { head :no_content }
       format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}
     end
   end

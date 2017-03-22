@@ -12,6 +12,7 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @property.glebes.build
+    @property.employees.build
   end
 
   def edit
@@ -54,6 +55,11 @@ class PropertiesController < ApplicationController
   def property_glebes
     @property = Property.find(params[:id])
     @glebes   = Glebe.them(@property, params[:page])
+  end
+  
+  def property_employees
+    @property = Property.find(params[:id])
+    @employees= Employee.them(@property, params[:page])
   end
 
   private

@@ -1,25 +1,28 @@
-<%= simple_form_for(@employee) do |f| %>
-  <%= f.error_notification %>
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <%= simple_form_for(@employee, remote: true) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :work %>
-    <%= f.input :name %>
-    <%= f.input :startwork , as: :date_picker %>
-    <%= f.input :endwork   , as: :date_picker %>
-    <%= f.input :born      , as: :date_picker %>
-    <%= f.input :phone %>
-    <%= f.input :rg %>
-    <%= f.input :cpf %>
-    <%= f.input :schooling %>
-    <%= f.input :inss %>
-    <%= f.input :pis %>
-    <%= f.input :salary %>
-    <%= f.input :profession %>
-    <%= f.input :payment %>
-    <%= f.association :property %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :work %>
+      <%= f.input :name %>
+      <%= f.input :startwork , as: :date_picker %>
+      <%= f.input :endwork   , as: :date_picker %>
+      <%= f.input :born      , as: :date_picker %>
+      <%= f.input :phone %>
+      <%= f.input :rg %>
+      <%= f.input :cpf %>
+      <%= f.input :schooling, collection: Employee.schoolings.keys, as: :select, allow_blank: true %>
+      <%= f.input :inss %>
+      <%= f.input :pis %>
+      <%= f.input :salary, as: :rs %>
+      <%= f.input :profession %>
+      <%= f.input :payment, collection: Employee.payments.keys, as: :select, allow_blank: true %>
+      <%= f.association :property, as: :hidden %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
+<br>

@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      employee: Empregado
+    attributes:
+      employee:
+        employee: Empregado
+        employees: Empregados
+        work: Trabalho
+        name: Nome
+        startwork: Data de ínicio
+        endwork: Data de demissão
+        born: Nascimento
+        phone: Telefone
+        rg: RG
+        cpf: CPF
+        schooling: Escolaridade
+        inss: INSS
+        pis: PIS
+        salary: Salário
+        profession: Profissão
+        payment: Pagamento
