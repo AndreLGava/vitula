@@ -2,7 +2,7 @@
 <div class="page-header">
   <%= link_to new_analysis_path, class: 'btn btn-primary pull-right' do %>
     <span class="fa fa-plus"></span>
-    <%= I18n.t('crud.new') %>
+    <%= I18n.t('analyses.new.new') %>
   <% end %>
   <h3><%= Analysis.human_attribute_name(:analyses)%></h3>
 </div>
@@ -11,17 +11,16 @@
   <table class="table table-striped table-hover table-condensed">
     <thead>
       <tr>
-            <th>Property</th>
-            <th>Codeanalysis</th>
-            <th>Collect</th>
-            <th>Fat</th>
-            <th>Protein</th>
-            <th>Lactose</th>
-            <th>Totalsolids</th>
-            <th>Defattedextract</th>
-            <th>Css</th>
-            <th>Scorecss</th>
-            <th>Ufc</th>
+            <th><%= Analysis.human_attribute_name(:codeanalysis)%></th>
+            <th><%= Analysis.human_attribute_name(:collect)%></th>
+            <th><%= Analysis.human_attribute_name(:fat)%></th>
+            <th><%= Analysis.human_attribute_name(:protein)%></th>
+            <th><%= Analysis.human_attribute_name(:lactose)%></th>
+            <th><%= Analysis.human_attribute_name(:totalsolids)%></th>
+            <th><%= Analysis.human_attribute_name(:defattedextract)%></th>
+            <th><%= Analysis.human_attribute_name(:css)%></th>
+            <th><%= Analysis.human_attribute_name(:scorecss)%></th>
+            <th><%= Analysis.human_attribute_name(:ufc)%></th>
             <th></th>
         <th></th>
         <th></th>
@@ -30,7 +29,6 @@
 
     <tbody>
       <%= content_tag_for(:tr, @analyses) do |analysis| %>
-            <td><%= analysis.property %></td>
             <td><%= analysis.codeanalysis %></td>
             <td><%= analysis.collect %></td>
             <td><%= analysis.fat %></td>
@@ -53,7 +51,7 @@
         </td>
         <td>
           <%= link_to analysis, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
-            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+            <i class="fa fa-trash"></i> <%= I18n.t('analyses.destroy.delete') %>
           <% end %>      
         </td>
       <% end %>

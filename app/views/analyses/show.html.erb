@@ -12,47 +12,43 @@
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
     <li class="list-group-item">
-      <strong>Property:</strong>
-      <%= @analysis.property %>
-    </li>
-    <li class="list-group-item">
-      <strong>Codeanalysis:</strong>
+      <strong><%= Analysis.human_attribute_name(:codeanalysis) %></strong>
       <%= @analysis.codeanalysis %>
     </li>
     <li class="list-group-item">
-      <strong>Collect:</strong>
+      <strong><%= Analysis.human_attribute_name(:dollect) %></strong>
       <%= @analysis.collect %>
     </li>
     <li class="list-group-item">
-      <strong>Fat:</strong>
+      <strong><%= Analysis.human_attribute_name(:fat) %></strong>
       <%= @analysis.fat %>
     </li>
     <li class="list-group-item">
-      <strong>Protein:</strong>
+      <strong><%= Analysis.human_attribute_name(:protein) %></strong>
       <%= @analysis.protein %>
     </li>
     <li class="list-group-item">
-      <strong>Lactose:</strong>
+      <strong><%= Analysis.human_attribute_name(:lactose) %></strong>
       <%= @analysis.lactose %>
     </li>
     <li class="list-group-item">
-      <strong>Totalsolids:</strong>
+      <strong><%= Analysis.human_attribute_name(:totalsolids) %></strong>
       <%= @analysis.totalsolids %>
     </li>
     <li class="list-group-item">
-      <strong>Defattedextract:</strong>
+      <strong><%= Analysis.human_attribute_name(:defattedextract) %></strong>
       <%= @analysis.defattedextract %>
     </li>
     <li class="list-group-item">
-      <strong>Css:</strong>
+      <strong><%= Analysis.human_attribute_name(:css) %></strong>
       <%= @analysis.css %>
     </li>
     <li class="list-group-item">
-      <strong>Scorecss:</strong>
+      <strong><%= Analysis.human_attribute_name(:scorecss) %></strong>
       <%= @analysis.scorecss %>
     </li>
     <li class="list-group-item">
-      <strong>Ufc:</strong>
+      <strong><%= Analysis.human_attribute_name(:ufc) %></strong>
       <%= @analysis.ufc %>
     </li>
   </ul>

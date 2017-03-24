@@ -1,10 +1,11 @@
 class AnalysesController < ApplicationController
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: [:new, :edit, :update, :create, :index]
 
   # GET /analyses
   # GET /analyses.json
   def index
-    @analyses = Analysis.all.page params[:page]
+    @analyses = Analysis.them(@property, params[:page])
   end
 
   # GET /analyses/1
@@ -65,6 +66,10 @@ class AnalysesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_analysis
       @analysis = Analysis.find(params[:id])
+    end
+
+    def set_property
+      @property = Property.where(user_id: @current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

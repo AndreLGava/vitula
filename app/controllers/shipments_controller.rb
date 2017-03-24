@@ -1,10 +1,11 @@
 class ShipmentsController < ApplicationController
   before_action :set_shipment, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: [:new, :edit, :update, :create, :index]
 
   # GET /shipments
   # GET /shipments.json
   def index
-    @shipments = Shipment.all.page params[:page]
+    @shipments = Shipment.them(@property, params[:page])
   end
 
   # GET /shipments/1
@@ -66,6 +67,11 @@ class ShipmentsController < ApplicationController
     def set_shipment
       @shipment = Shipment.find(params[:id])
     end
+
+    def set_property
+      @property = Property.where(user_id: @current_user.id)
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params

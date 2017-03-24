@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :property %>
+    <%= f.association :property, :collection => @property, :label_method => :name, :value_method => :id, include_blank: false %>
     <%= f.input :codeanalysis %>
     <%= f.input :collect %>
     <%= f.input :fat %>
