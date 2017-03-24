@@ -1,0 +1,21 @@
+<%= simple_form_for(@analysis) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :property %>
+    <%= f.input :codeanalysis %>
+    <%= f.input :collect %>
+    <%= f.input :fat %>
+    <%= f.input :protein %>
+    <%= f.input :lactose %>
+    <%= f.input :totalsolids %>
+    <%= f.input :defattedextract %>
+    <%= f.input :css %>
+    <%= f.input :scorecss %>
+    <%= f.input :ufc %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

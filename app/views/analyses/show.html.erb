@@ -1,0 +1,59 @@
+<div class="page-header">
+  <%= link_to analyses_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_analysis_path(@analysis), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> analysis</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Property:</strong>
+      <%= @analysis.property %>
+    </li>
+    <li class="list-group-item">
+      <strong>Codeanalysis:</strong>
+      <%= @analysis.codeanalysis %>
+    </li>
+    <li class="list-group-item">
+      <strong>Collect:</strong>
+      <%= @analysis.collect %>
+    </li>
+    <li class="list-group-item">
+      <strong>Fat:</strong>
+      <%= @analysis.fat %>
+    </li>
+    <li class="list-group-item">
+      <strong>Protein:</strong>
+      <%= @analysis.protein %>
+    </li>
+    <li class="list-group-item">
+      <strong>Lactose:</strong>
+      <%= @analysis.lactose %>
+    </li>
+    <li class="list-group-item">
+      <strong>Totalsolids:</strong>
+      <%= @analysis.totalsolids %>
+    </li>
+    <li class="list-group-item">
+      <strong>Defattedextract:</strong>
+      <%= @analysis.defattedextract %>
+    </li>
+    <li class="list-group-item">
+      <strong>Css:</strong>
+      <%= @analysis.css %>
+    </li>
+    <li class="list-group-item">
+      <strong>Scorecss:</strong>
+      <%= @analysis.scorecss %>
+    </li>
+    <li class="list-group-item">
+      <strong>Ufc:</strong>
+      <%= @analysis.ufc %>
+    </li>
+  </ul>
+</div>

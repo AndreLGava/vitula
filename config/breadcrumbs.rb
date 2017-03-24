@@ -60,7 +60,7 @@ crumb :drug do |drug|
 end
 
 crumb :illnesses do
-  link "Enfermidade", illnesses_path
+  link "Enfermidades", illnesses_path
 end
 
 crumb :illness do |illness|
@@ -69,7 +69,7 @@ crumb :illness do |illness|
 end
 
 crumb :treatments do
-  link "Tratamento", treatments_path
+  link "Tratamentos", treatments_path
 end
 
 crumb :treatment do |treatment|
@@ -79,7 +79,7 @@ end
 
 
 crumb :employees do
-  link "Tratamento", employees_path
+  link "Tratamentos", employees_path
 end
 
 crumb :employee do |employee|
@@ -88,12 +88,22 @@ crumb :employee do |employee|
 end
 
 crumb :shipments do
-  link "Carregamento de leite", shipments_path
+  link "Carregamentos de leite", shipments_path
 end
 
 crumb :shipment do |shipment|
   link shipment.date, shipment
   parent :shipments
+end
+
+
+crumb :analyses do
+  link "Analises de leite", analyses_path
+end
+
+crumb :analysis do |analysis|
+  link analysis.codeanalysis, analysis
+  parent :analyses
 end
 
 

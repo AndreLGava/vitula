@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322022033) do
+ActiveRecord::Schema.define(version: 20170324143421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "analyses", force: :cascade do |t|
+    t.integer  "property_id"
+    t.string   "codeanalysis"
+    t.date     "collect"
+    t.decimal  "fat"
+    t.decimal  "protein"
+    t.decimal  "lactose"
+    t.decimal  "totalsolids"
+    t.decimal  "defattedextract"
+    t.decimal  "css"
+    t.decimal  "scorecss"
+    t.decimal  "ufc"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "analyses", ["property_id"], name: "index_analyses_on_property_id", using: :btree
 
   create_table "animals", force: :cascade do |t|
     t.integer  "code"
@@ -207,9 +225,12 @@ ActiveRecord::Schema.define(version: 20170322022033) do
   create_table "shipments", force: :cascade do |t|
     t.decimal  "amount"
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "shipments", ["property_id"], name: "index_shipments_on_property_id", using: :btree
 
   create_table "treatments", force: :cascade do |t|
     t.date     "startdate"
@@ -270,4 +291,6 @@ ActiveRecord::Schema.define(version: 20170322022033) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
+  add_foreign_key "analyses", "properties"
+  add_foreign_key "shipments", "properties"
 end

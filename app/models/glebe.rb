@@ -1,13 +1,13 @@
 class Glebe < ActiveRecord::Base
 
+  has_paper_trail
+  
   belongs_to :property
 
   validates :name          , presence: true
   validates :area          , presence: true 
   validates :property      , presence: true
   validate  :validate_glebe
-
-  has_paper_trail
 
   enum purpose: {Plantio: 1, Pastejo: 2, Construção: 3}
 

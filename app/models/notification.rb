@@ -1,7 +1,9 @@
 class Notification < ActiveRecord::Base
+  
+  has_paper_trail
+  
   belongs_to :user
 
-  has_paper_trail
   ########################################Variables###################################################
   @login 		= Time.now.to_date - 90.days
   @limit 		= Time.now + 30.days

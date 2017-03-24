@@ -1,5 +1,7 @@
 class Employee < ActiveRecord::Base
 
+  has_paper_trail
+
   belongs_to :property
 
   enum schooling: {primario: 1, fundamental: 2, medio: 3, graduacao: 4, posgraduacao: 5}
