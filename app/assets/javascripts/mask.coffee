@@ -3,16 +3,23 @@ ready = undefined
 ready = ->
   $('.date').mask '00/00/0000'
   $('.time').mask '00:00:00'
-  $('.peso').mask '0.000,000', reverse: true
-  $('.litro').mask '0.000,0000', reverse: true
-  $('.altura').mask '000,00', reverse: true
+  $('.Kg').mask '0.000,000', reverse: true
+  $('.G').mask '0.000,000', reverse: true
+  $('.Ton').mask '0.000,000', reverse: true
+  $('.L').mask '0.000,0000', reverse: true
+  $('.ml').mask '0.000,0000', reverse: true
+  $('.M³').mask '0.000,0000', reverse: true
+  $('.altura').mask '0.000,00', reverse: true
+  $('.M').mask '000,00', reverse: true
+  $('.mm').mask '000,00', reverse: true
+  $('.Ha').mask '0.000.000,00', reverse: true
   $('.date_time').mask '00/00/0000 00:00:00'
   $('.datepicker').mask '00/00/0000'
-  $('.cep').mask '00000-000'
+  $('.CEP').mask '00000-000'
   $('.phone').mask '00000-0000'
   $('.phone_with_ddd').mask '(00) 00000-0000'
   $('.mixed').mask 'AAA 000-S0S'
-  $('.cpf').mask '000.000.000-00', reverse: true
+  $('.CPF').mask '000.000.000-00', reverse: true
   $('.cnpj').mask '00.000.000/0000-00', reverse: true
   $('.money').mask '000.000.000.000.000,00', reverse: true
   $('.money2').mask '#.##0,00', reverse: true

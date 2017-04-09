@@ -1,0 +1,13 @@
+pt-BR:
+  analyses:
+    index:
+      analyses: Análises
+    new:
+      new: Nova Análise
+    edit:
+      edit: Alterando Análise
+    show:
+      analysis: Análise
+    destroy:
+      delete: Tem certeza que deseja excluir esta análise?
+

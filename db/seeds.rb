@@ -161,6 +161,26 @@ puts "Generates Treatment"
 end
 
 
+puts "Generates Shipments"
+
+@property.each do |p|
+	24.times do |a|
+		@date = Time.now 
+		@date_than = @date - a.months
+		puts Shipment.create({ amount: rand(1000..50000), date: @date_than, property_id: p.id})
+	end
+end
+
+puts "Generates Analyses"
+
+@property.each do |p|
+	24.times do |a|
+		@date = Time.now 
+		@date_than = @date - a.months
+		puts Analysis.create({property_id: p.id , codeanalysis: rand(1000..50000), collect:  @date_than, fat: rand(10000..500000), protein:rand(1000..50000) , lactose:rand(1000..50000) , totalsolids:rand(100..5000) , defattedextract:rand(1000..50000) , css:rand(10000..500000) , scorecss:rand(1000..50000) , ufc:rand(1000..50000)})
+	end
+end
+
 
 
 

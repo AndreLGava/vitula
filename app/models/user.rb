@@ -1,5 +1,8 @@
 
 class User < ActiveRecord::Base
+
+  has_paper_trail
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
@@ -9,7 +12,6 @@ class User < ActiveRecord::Base
   has_many :properties, dependent: :destroy
   has_many :animals, dependent: :destroy
 
-  has_paper_trail
 
   def user_params
 		params.require(:user).permit(:name, :avatar, :phone, :born, :cpf, :rg, :address, :city, :language)

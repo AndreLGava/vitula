@@ -1,4 +1,7 @@
 class Treatment < ActiveRecord::Base
+
+  has_paper_trail
+
   belongs_to :illness
   belongs_to :drug
 
@@ -6,4 +9,5 @@ class Treatment < ActiveRecord::Base
   validates :drug, presence: true
   validates :startdate, presence: true
   validates :dosage, presence: true
+  
 end

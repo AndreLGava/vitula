@@ -1,0 +1,55 @@
+<div class="page-header">
+  <%= link_to analyses_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_analysis_path(@analysis), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> analysis</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:codeanalysis) %></strong>
+      <%= @analysis.codeanalysis %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:dollect) %></strong>
+      <%= @analysis.collect %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:fat) %></strong>
+      <%= @analysis.fat %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:protein) %></strong>
+      <%= @analysis.protein %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:lactose) %></strong>
+      <%= @analysis.lactose %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:totalsolids) %></strong>
+      <%= @analysis.totalsolids %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:defattedextract) %></strong>
+      <%= @analysis.defattedextract %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:css) %></strong>
+      <%= @analysis.css %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:scorecss) %></strong>
+      <%= @analysis.scorecss %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Analysis.human_attribute_name(:ufc) %></strong>
+      <%= @analysis.ufc %>
+    </li>
+  </ul>
+</div>

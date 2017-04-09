@@ -1,0 +1,17 @@
+pt-BR:
+  shipments:
+    index:
+      shipments: Carregamentos
+    new:
+      new: Novo Carregamento
+    edit:
+      edit: Alterando Carregamento
+    show:
+      lot: Carregamento
+    destroy:
+      delete: Tem certeza que deseja excluir este carregamento?
+    chart:
+      title: 'Total carregado por mês'
+      subtitle: 'Litros por mês'
+      description: 'Litragem'
+      yaxis: 'Carregamento'

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      shipment: Carregamento de leite
+    attributes:
+      shipment:
+        shipment: Carregamento de leite
+        shipments: Carregamentos de leite
+        amount: Quantidade
+        date: Data de carregamento
+        property: Propriedade

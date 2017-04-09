@@ -7,7 +7,7 @@ class NormalInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge({class: 'form-control altura', readonly: false})
+    super.merge({class: "form-control #{options[:before]}", readonly: false})
   end
 
   def span

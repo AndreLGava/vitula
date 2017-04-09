@@ -1,5 +1,8 @@
 # Animal is one of the most importnat class this is used to manage all the animals
 class Animal < ActiveRecord::Base
+  
+  has_paper_trail
+
   # Animal must belong to a user and this can had a reproduction where we set a mother and his birth
   belongs_to :lot
   belongs_to :user
@@ -11,8 +14,6 @@ class Animal < ActiveRecord::Base
   has_many :developments, dependent: :destroy
   has_many :productions, dependent: :destroy
   has_many :illnesses, dependent: :destroy
-
-  has_paper_trail
 
   validates :code, presence: true
   validates :name, presence: true

@@ -1,7 +1,8 @@
 class Lot < ActiveRecord::Base
-  belongs_to :property
 
   has_paper_trail
+
+  belongs_to :property
 
   validates :name, presence: true
   validates :description, presence: true

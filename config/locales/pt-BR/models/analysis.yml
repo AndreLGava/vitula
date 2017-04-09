@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      analysis: Análise
+    attributes:
+      analysis:
+        analysis: Análise
+        analyses: Análises
+        codeanalysis: Código da análise
+        collect: Data de coleta
+        fat: Percentual de gordura
+        protein: Percentual de proteina
+        lactose: Percentual de lactose
+        totalsolids: Percentual extra seco (Sólidos totais)
+        defattedextract: Percentual extrato desengordurado
+        css: Contagem de células somáticas CSS
+        scorecss: Escore de células somáticas
+        ufc: Contagem bacteriana UFC
