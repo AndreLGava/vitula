@@ -10,4 +10,9 @@ pt-BR:
       analysis: Análise
     destroy:
       delete: Tem certeza que deseja excluir esta análise?
+    chart:
+      title: 'Histórico de Análises'
+      subtitle: ''
+      description: ''
+      yaxis: ''
 

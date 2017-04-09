@@ -5,8 +5,12 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @property = Property.find(params[:property_id])
-    @employees = Employee.them(@property, params[:page])
+    if params[:property_id].nil?
+      @employees = Employee.them(current_user.properties.ids, params[:page])
+    else
+      @property = Property.find(params[:property_id])
+      @employees = Employee.them(@property.id, params[:page])
+    end
   end
 
   # GET /employees/1

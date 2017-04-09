@@ -5,7 +5,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments
   # GET /shipments.json
   def index
-    @shipments = Shipment.them(@property, params[:page])
+    @shipments = Shipment.them(current_user, params[:page])
   end
 
   # GET /shipments/1

@@ -5,7 +5,8 @@ class AnalysesController < ApplicationController
   # GET /analyses
   # GET /analyses.json
   def index
-    @analyses = Analysis.them(@property, params[:page])
+    @properties = current_user.properties
+    @analyses = Analysis.them(current_user, params[:page])
   end
 
   # GET /analyses/1

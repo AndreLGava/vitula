@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170409165812) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -291,7 +289,7 @@ ActiveRecord::Schema.define(version: 20170409165812) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
-
+  add_foreign_key "analyses", "properties"
   add_foreign_key "animals", "lots"
   add_foreign_key "animals", "properties"
   add_foreign_key "animals", "reproductions"
@@ -305,8 +303,7 @@ ActiveRecord::Schema.define(version: 20170409165812) do
   add_foreign_key "notifications", "users"
   add_foreign_key "productions", "animals"
   add_foreign_key "properties", "users"
+  add_foreign_key "shipments", "properties"
   add_foreign_key "treatments", "drugs"
   add_foreign_key "treatments", "illnesses"
-  add_foreign_key "analyses", "properties"
-  add_foreign_key "shipments", "properties"
 end

@@ -23,7 +23,6 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-    binding.pry
     respond_to do |format|
       if @animal.save
         if @animal.donor == true 

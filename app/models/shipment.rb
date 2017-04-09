@@ -8,6 +8,6 @@ class Shipment < ActiveRecord::Base
 
 	belongs_to :property
 
-	scope :them,   -> (property, params) { where(property_id: property.id).order(id: :desc).page params }
+	scope :them,   -> (user, params) { where(property_id: user.properties.ids).order(id: :desc).page params }
 	
 end

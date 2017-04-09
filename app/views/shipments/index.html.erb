@@ -13,6 +13,7 @@
       <tr>
             <th><%= Shipment.human_attribute_name(:amount)%></th>
             <th><%= Shipment.human_attribute_name(:date)%></th>
+            <th><%= Shipment.human_attribute_name(:property)%></th>
             <th></th>
         <th></th>
         <th></th>
@@ -23,6 +24,7 @@
       <%= content_tag_for(:tr, @shipments) do |shipment| %>
             <td><%= shipment.amount %></td>
             <td><%= shipment.date %></td>
+            <td><%= shipment.property.name %></td>
             <td>
           <%= link_to shipment, class: 'btn btn-sm btn-primary' do %>
             <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
