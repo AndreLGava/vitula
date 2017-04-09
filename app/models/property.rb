@@ -9,5 +9,6 @@ class Property < ActiveRecord::Base
 
   has_many :glebes      , dependent: :destroy 
   has_many :employees   , dependent: :destroy 
+  has_many :animals     , dependent: :destroy 
 
 end

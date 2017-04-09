@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322022033) do
+ActiveRecord::Schema.define(version: 20170409165812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,16 +26,19 @@ ActiveRecord::Schema.define(version: 20170322022033) do
     t.integer  "breed"
     t.integer  "lot_id"
     t.integer  "user_id"
-    t.integer  "reproduction_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "property_id"
+    t.integer  "reproduction_id"
+    t.boolean  "donor",              default: false
   end
 
   add_index "animals", ["lot_id"], name: "index_animals_on_lot_id", using: :btree
+  add_index "animals", ["property_id"], name: "index_animals_on_property_id", using: :btree
   add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
 
@@ -193,16 +196,11 @@ ActiveRecord::Schema.define(version: 20170322022033) do
     t.date     "abortion"
     t.date     "stop_breastfeeding"
     t.date     "parturition"
-    t.integer  "animal_id"
-    t.integer  "father_id"
-    t.integer  "mother_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "father_id"
+    t.integer  "mother_id"
   end
-
-  add_index "reproductions", ["animal_id"], name: "index_reproductions_on_animal_id", using: :btree
-  add_index "reproductions", ["father_id"], name: "index_reproductions_on_father_id", using: :btree
-  add_index "reproductions", ["mother_id"], name: "index_reproductions_on_mother_id", using: :btree
 
   create_table "shipments", force: :cascade do |t|
     t.decimal  "amount"
@@ -270,4 +268,19 @@ ActiveRecord::Schema.define(version: 20170322022033) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
+  add_foreign_key "animals", "lots"
+  add_foreign_key "animals", "properties"
+  add_foreign_key "animals", "reproductions"
+  add_foreign_key "animals", "users"
+  add_foreign_key "developments", "animals"
+  add_foreign_key "employees", "properties"
+  add_foreign_key "glebes", "properties"
+  add_foreign_key "illnesses", "animals"
+  add_foreign_key "illnesses", "diseases"
+  add_foreign_key "lots", "properties"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "productions", "animals"
+  add_foreign_key "properties", "users"
+  add_foreign_key "treatments", "drugs"
+  add_foreign_key "treatments", "illnesses"
 end

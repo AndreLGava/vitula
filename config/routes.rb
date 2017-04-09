@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :reproductions
   resources :animals
+  resources :donors
   resources :notifications
   resources :productions
   resources :developments

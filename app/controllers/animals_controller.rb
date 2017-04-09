@@ -23,14 +23,16 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-
+    binding.pry
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to animals_path, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :created, location: @animal }
+        if @animal.donor == true 
+          format.html { redirect_to donors_path, notice: I18n.t('crud.saved') }
+        else
+          format.html { redirect_to animals_path, notice: I18n.t('crud.saved') }
+        end
       else
         format.html { render :new }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,11 +40,13 @@ class AnimalsController < ApplicationController
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        format.html { redirect_to animals_path, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :ok, location: @animal }
+        if @animal.donor == true 
+          format.html { redirect_to donors_path, notice: I18n.t('crud.saved') }
+        else
+          format.html { redirect_to animals_path, notice: I18n.t('crud.saved') }
+        end
       else
         format.html { render :edit }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,7 +55,6 @@ class AnimalsController < ApplicationController
     @animal.destroy
     respond_to do |format|
       format.html { redirect_to animals_url, notice: I18n.t('crud.destroyed') }
-      format.json { head :no_content }
     end
   end
 
@@ -77,11 +80,12 @@ class AnimalsController < ApplicationController
     end
 
     def set_reproduction
-      Reproduction.all
+      id = @animal.id unless @animal.nil?
+      Reproduction.where.not(mother_id: id).where("reproduction.parturition is not null")
       #Reproduction.all.map{|i| {id: i.id, parturition: i.parturition, mother: i.mother.name, father: i.father.name}}
     end
 
     def animal_params
-      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :user_id)
+      params.require(:animal).permit(:code, :name, :photo, :description, :female, :breed, :lot_id, :reproduction_id, :discard, :reason_discard, :user_id, :property_id, :donor)
     end
 end

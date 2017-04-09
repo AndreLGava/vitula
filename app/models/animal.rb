@@ -4,6 +4,7 @@ class Animal < ActiveRecord::Base
   belongs_to :lot
   belongs_to :user
   belongs_to :reproduction
+  belongs_to :property
 
   has_many :reproductions_as_father, class_name: 'Reproduction',  foreign_key: 'father_id'
   has_many :reproductions_as_mother, class_name: 'Reproduction',  foreign_key: 'mother_id'
@@ -21,7 +22,7 @@ class Animal < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   crop_attached_file :photo
 
-  enum breed: {Holandez: 1, Jersey: 2, Gir: 3, Nelore: 4}
+  enum breed: {Holandes: 1, Jersey: 2, Gir: 3, Nelore: 4}
 
   scope :animais,       -> (current_user, params) {select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where(user_id: current_user.id, discard: nil).order(:lot_id, :name).page params}
   scope :machos,        -> (current_user)         { where(female: false, discard: nil, user_id: current_user.id) }
