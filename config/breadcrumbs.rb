@@ -11,6 +11,10 @@ crumb :animal do |animal|
   parent :animals
 end
 
+crumb :donors do
+  link "Doadores de semen", donors_path
+end
+
 crumb :properties do
   link "Properties", properties_path
 end

@@ -4,8 +4,10 @@ pt-BR:
       animals: Animais
     new:
       new: Novo Animal
+      new_donor: Novo doador
     edit:
       edit: Alterando Animal
+      edit_donor: Alterando Doador
     show:
       animal: Animal
       reproduction: Reprodução

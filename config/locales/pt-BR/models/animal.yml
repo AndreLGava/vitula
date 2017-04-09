@@ -15,9 +15,12 @@ pt-BR:
         mother: Mãe
         father: Pai
         breed: Raça
-        lot: Lote
+        lot: Rebanho
+        property: Propriedade
         reproduction: Mãe/Parto/Nascimento
         photo: Foto
         weight: Peso
         height: Altura
         age: Idade
+        donor: Doador de semen
+        donors: Doadores de semen

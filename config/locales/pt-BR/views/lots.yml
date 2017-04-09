@@ -1,10 +1,10 @@
 pt-BR:
   lots:
     index:
-      lots: Lotes
+      lots: Rebanhos
     new:
-      new: Novo Lote
+      new: Novo Rebanho
     edit:
-      edit: Alterando Lote
+      edit: Alterando Rebanho
     show:
-      lot: Lote
+      lot: Rebanho

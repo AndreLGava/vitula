@@ -1,4 +1,4 @@
-<%= simple_form_for(@animal) do |f| %>
+<%= simple_form_for(@donor) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -6,14 +6,11 @@
     <%= f.input :name %>
     <%= f.input :photo, as: :file %>
     <%= f.input :description %>
-    <%= f.input :female, as: :toogle %>
+    <%= f.input :female, as: :hidden, input_html: { value: false } %>
+    <%= f.input :donor, as: :hidden, input_html: { value: true } %>
     <%= f.input :breed, collection: Animal.breeds.keys, as: :select, allow_blank: true %>
-    <%= f.association :lot %>
-    <%= f.association :property, collection: Property.where(user_id: current_user.id) , allow_blank: true %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-    <%= f.association :reproduction, :label_method => lambda { |reproduction| "Parto: #{reproduction.parturition} - Mãe: #{reproduction.mother.code} #{reproduction.mother.name} - Pai: #{reproduction.father.code} #{reproduction.father.name}" } , :value_method => :id %>
     <%= f.input :discard, as: :date_picker, :include_blank => true  %>
-    <%= f.input :reason_discard %>
   </div>
 
   <div class="form-actions">

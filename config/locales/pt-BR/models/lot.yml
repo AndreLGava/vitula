@@ -1,11 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      lot: Lote
+      lot: Rebanho
     attributes:
       lot:
-        lot: Lote
-        lots: Lotes
+        lot: Rebanho
+        lots: Rebanhos
         name: Nome
         description: Descrição
         property: Propriedade

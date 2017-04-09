@@ -32,6 +32,10 @@
         <%= @animal.lot.name unless @animal.lot.nil? %>
       </li>
       <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:property)%></strong>
+        <%= @animal.property.name unless @animal.property.nil? %>
+      </li>
+      <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:age)%></strong>
         <%= @animal.reproduction.age unless @animal.reproduction.nil? %>
       </li>
