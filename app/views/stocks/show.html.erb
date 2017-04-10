@@ -1,0 +1,43 @@
+<div class="page-header">
+  <%= link_to stocks_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_stock_path(@stock), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> stock</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Bin:</strong>
+      <%= @stock.bin %>
+    </li>
+    <li class="list-group-item">
+      <strong>Feed:</strong>
+      <%= @stock.feed %>
+    </li>
+    <li class="list-group-item">
+      <strong>Glebe:</strong>
+      <%= @stock.glebe %>
+    </li>
+    <li class="list-group-item">
+      <strong>Amount:</strong>
+      <%= @stock.amount %>
+    </li>
+    <li class="list-group-item">
+      <strong>Datestock:</strong>
+      <%= @stock.datestock %>
+    </li>
+    <li class="list-group-item">
+      <strong>Datestart:</strong>
+      <%= @stock.datestart %>
+    </li>
+    <li class="list-group-item">
+      <strong>Dateend:</strong>
+      <%= @stock.dateend %>
+    </li>
+  </ul>
+</div>

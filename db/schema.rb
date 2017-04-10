@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409165812) do
+ActiveRecord::Schema.define(version: 20170410122532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20170409165812) do
   add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
 
+  create_table "bins", force: :cascade do |t|
+    t.decimal  "capacity"
+    t.integer  "property_id"
+    t.integer  "kind"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "bins", ["property_id"], name: "index_bins_on_property_id", using: :btree
+
   create_table "developments", force: :cascade do |t|
     t.float    "weight"
     t.float    "height"
@@ -69,6 +79,19 @@ ActiveRecord::Schema.define(version: 20170409165812) do
   end
 
   add_index "developments", ["animal_id"], name: "index_developments_on_animal_id", using: :btree
+
+  create_table "diets", force: :cascade do |t|
+    t.decimal  "amount"
+    t.datetime "datestart"
+    t.datetime "dateend"
+    t.integer  "animal_id"
+    t.integer  "stock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "diets", ["animal_id"], name: "index_diets_on_animal_id", using: :btree
+  add_index "diets", ["stock_id"], name: "index_diets_on_stock_id", using: :btree
 
   create_table "diseases", force: :cascade do |t|
     t.string   "vulgarname"
@@ -121,6 +144,14 @@ ActiveRecord::Schema.define(version: 20170409165812) do
   end
 
   add_index "employees", ["property_id"], name: "index_employees_on_property_id", using: :btree
+
+  create_table "feeds", force: :cascade do |t|
+    t.integer  "kind"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "glebes", force: :cascade do |t|
     t.string   "name"
@@ -230,6 +261,22 @@ ActiveRecord::Schema.define(version: 20170409165812) do
 
   add_index "shipments", ["property_id"], name: "index_shipments_on_property_id", using: :btree
 
+  create_table "stocks", force: :cascade do |t|
+    t.integer  "bin_id"
+    t.integer  "feed_id"
+    t.integer  "glebe_id"
+    t.decimal  "amount"
+    t.datetime "datestock"
+    t.datetime "datestart"
+    t.datetime "dateend"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "stocks", ["bin_id"], name: "index_stocks_on_bin_id", using: :btree
+  add_index "stocks", ["feed_id"], name: "index_stocks_on_feed_id", using: :btree
+  add_index "stocks", ["glebe_id"], name: "index_stocks_on_glebe_id", using: :btree
+
   create_table "treatments", force: :cascade do |t|
     t.date     "startdate"
     t.date     "enddate"
@@ -294,7 +341,10 @@ ActiveRecord::Schema.define(version: 20170409165812) do
   add_foreign_key "animals", "properties"
   add_foreign_key "animals", "reproductions"
   add_foreign_key "animals", "users"
+  add_foreign_key "bins", "properties"
   add_foreign_key "developments", "animals"
+  add_foreign_key "diets", "animals"
+  add_foreign_key "diets", "stocks"
   add_foreign_key "employees", "properties"
   add_foreign_key "glebes", "properties"
   add_foreign_key "illnesses", "animals"
@@ -304,6 +354,9 @@ ActiveRecord::Schema.define(version: 20170409165812) do
   add_foreign_key "productions", "animals"
   add_foreign_key "properties", "users"
   add_foreign_key "shipments", "properties"
+  add_foreign_key "stocks", "bins"
+  add_foreign_key "stocks", "feeds"
+  add_foreign_key "stocks", "glebes"
   add_foreign_key "treatments", "drugs"
   add_foreign_key "treatments", "illnesses"
 end
