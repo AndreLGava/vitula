@@ -23,16 +23,12 @@ class ReproductionsController < ApplicationController
     respond_to do |format|
       if @reproduction.save
         if !reproduction_params[:parturition].nil?
-          format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
-          format.json { render :show, status: :created, location: @reproduction }
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
           format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
           #format.html { redirect_to new_animal_url(reproduction: @reproduction), notice: I18n.t('crud.saved') }
         end
       else
-        format.html { render :new }
-        format.json { render json: @reproduction.errors, status: :unprocessable_entity }
         format.js { render 'new' }
       end
     end
@@ -47,16 +43,12 @@ class ReproductionsController < ApplicationController
     respond_to do |format|
       if @reproduction.update(reproduction_params)
         if reproduction_params[:parturition].nil?
-          format.html { redirect_to reproductions_path, notice: I18n.t('crud.saved') }
-          format.json { render :show, status: :ok, location: @reproduction }
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
           format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
           #format.html { redirect_to new_animal_url(reproduction: @reproduction), notice: I18n.t('crud.saved') }
         end
       else
-        format.html { render :edit }
-        format.json { render json: @reproduction.errors, status: :unprocessable_entity }
         format.js { render 'edit' }
       end
     end

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get 'animal_illness'      , to: 'animals#animal_illness'         , as: :animal_illness
   get 'property_glebes'     , to: 'properties#property_glebes'     , as: :property_glebes
   get 'property_employees'  , to: 'properties#property_employees'  , as: :property_employees
+  get 'descartados'         , to: 'animals#descartados'            , as: :descartados
+  get 'all_animals'         , to: 'animals#all_animals'            , as: :all_animals
   
   devise_for :users, controllers: { sessions: 'users/sessions' }
 

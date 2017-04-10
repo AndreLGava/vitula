@@ -30,10 +30,8 @@ class ShipmentsController < ApplicationController
     respond_to do |format|
       if @shipment.save
         format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
-        format.json { render :show, status: :created, location: @shipment }
       else
         format.html { render :new }
-        format.json { render json: @shipment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +42,8 @@ class ShipmentsController < ApplicationController
     respond_to do |format|
       if @shipment.update(shipment_params)
         format.html { redirect_to @shipment, notice: 'Shipment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shipment }
       else
         format.html { render :edit }
-        format.json { render json: @shipment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +54,6 @@ class ShipmentsController < ApplicationController
     @shipment.destroy
     respond_to do |format|
       format.html { redirect_to shipments_url, notice: 'Shipment was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

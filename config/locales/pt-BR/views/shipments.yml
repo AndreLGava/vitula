@@ -11,7 +11,7 @@ pt-BR:
     destroy:
       delete: Tem certeza que deseja excluir este carregamento?
     chart:
-      title: 'Total carregado por mês'
-      subtitle: 'Litros por mês'
+      title: 'Total de cargas'
+      subtitle: 'Litros por carga'
       description: 'Litragem'
       yaxis: 'Carregamento'

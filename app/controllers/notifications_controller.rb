@@ -19,7 +19,6 @@ class NotificationsController < ApplicationController
     @notification.destroy
     respond_to do |format|
       format.html { redirect_to notifications_url, notice: I18n.t('crud.destroyed') }
-      format.json { head :no_content }
     end
   end
 

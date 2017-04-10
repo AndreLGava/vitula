@@ -19,13 +19,9 @@ class DevelopmentsController < ApplicationController
     
     respond_to do |format|
       if @development.save
-        format.html { redirect_to @development, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :created, location: @development }
         format.js { render 'development', animal: @animal, developments: @developments}
 
       else
-        format.html { render :new }
-        format.json { render json: @development.errors, status: :unprocessable_entity }
         format.js { render 'new' }
 
       end
@@ -36,10 +32,8 @@ class DevelopmentsController < ApplicationController
     respond_to do |format|
       if @development.update(development_params)
         format.html { redirect_to @development, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :ok, location: @development }
       else
         format.html { render :edit }
-        format.json { render json: @development.errors, status: :unprocessable_entity }
       end
     end
   end

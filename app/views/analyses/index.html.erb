@@ -1,9 +1,4 @@
 <% breadcrumb :analyses %>
-<div class="btn-group" role="group" aria-label="...">
-  <% @properties.each do |p| %>
-    <%= link_to p.name, property_path(p), class: "btn btn-default" %>
-  <% end %>
-</div>
 <div class="page-header">
   <%= link_to new_analysis_path, class: 'btn btn-primary pull-right' do %>
     <span class="fa fa-plus"></span>
@@ -13,7 +8,7 @@
 </div>
 <div>
   <script type="text/javascript">
-    Analysis.setup(<%= current_user.chart %>);
+    Analysis.setup(<%= current_user.analyses_chart %>);
   </script>
     <div class="chart">
 

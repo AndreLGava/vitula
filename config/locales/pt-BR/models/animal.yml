@@ -5,6 +5,12 @@ pt-BR:
     attributes:
       animal:
         animal: Animal
+        vacas: Vacas
+        secas: Vacas Secas
+        novilhas: Novilhas
+        bezeros: Bezeros
+        descartados: Animais Descartados/Mortos
+        todos: Todos animais
         animals: Animais
         code: Código
         name: Nome

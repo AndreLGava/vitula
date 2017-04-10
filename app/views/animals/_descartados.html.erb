@@ -1,20 +1,4 @@
-<% breadcrumb :animals %>
-    <div class="btn-group" role="group" aria-label="...">
-        <%= link_to Animal.human_attribute_name(:todos), all_animals_path, class: "btn btn-default", remote: true %>
-        <%= link_to Animal.human_attribute_name(:descartados), descartados_path, class: "btn btn-default", remote: true %>
-        <%= link_to Animal.human_attribute_name(:novilhas), animals_path, class: "btn btn-default", remote: true %>
-        <%= link_to Animal.human_attribute_name(:secas), animals_path, class: "btn btn-default", remote: true %>
-        <%= link_to Animal.human_attribute_name(:bezerros), animals_path, class: "btn btn-default", remote: true %>
-    </div>
-  <div class="page-header">
-    <%= link_to new_animal_path, class: 'btn btn-primary pull-right' do %>
-      <span class="fa fa-plus"></span>
-      <%= I18n.t('animals.new.new') %>
-    <% end %>
-    <h3><%= Animal.human_attribute_name(:animals)%></h3>
-  </div>
-<div class="table-responsive" id="animal">
-  <table class="table table-striped table-hover table-condensed">
+<table class="table table-striped table-hover table-condensed">
     <thead>
       <tr>
         <th><%= Animal.human_attribute_name(:photo)%></th>
@@ -50,6 +34,4 @@
       <% end %>
     </tbody>
   </table>
-<%= paginate @animals %>
-</div>
-<br>
+    <%= paginate @animals %>

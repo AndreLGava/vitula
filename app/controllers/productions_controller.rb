@@ -36,11 +36,9 @@ class ProductionsController < ApplicationController
     respond_to do |format|
       if @production.save
         format.html { redirect_to @production, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :created, location: @production }
         format.js { render 'production', animal: @animal, productions: @productions}
       else
         format.html { render :new }
-        format.json { render json: @production.errors, status: :unprocessable_entity }
         format.js { render 'new' }
       end
     end
@@ -52,10 +50,8 @@ class ProductionsController < ApplicationController
     respond_to do |format|
       if @production.update(production_params)
         format.html { redirect_to @production, notice: I18n.t('crud.saved') }
-        format.json { render :show, status: :ok, location: @production }
       else
         format.html { render :edit }
-        format.json { render json: @production.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,7 +62,6 @@ class ProductionsController < ApplicationController
     @production.destroy
     respond_to do |format|
       format.html { redirect_to productions_url, notice: I18n.t('crud.destroyed') }
-      format.json { head :no_content }
     end
   end
 

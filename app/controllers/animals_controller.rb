@@ -5,6 +5,14 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.animais(current_user, params[:page])
+  end  
+
+  def all_animals
+    @animals = Animal.animais(current_user, params[:page])
+  end
+
+  def descartados
+    @animals = Animal.descartados(current_user, params[:page])
   end
 
   def show

@@ -45,7 +45,7 @@ User.create(name: "Teste 2", email: "andre_gava2006@yahoo.com.br", password: "12
 puts "Generate Properties"
 @users = User.all
 @users.each do |p|
-	2.times do |t|
+	1.times do |t|
 		puts Property.create(name: "Propriedade de teste #{t}", description: "Propriedade rural de produção leitera", area: 100 , user_id: p.id)
 	end
 end
@@ -104,19 +104,23 @@ end
 puts "Generates Productions"
 
 @animais.each do |animal|
+		@amount=rand(15..25)
 	24.times do |a|
 		@date = Time.now 
 		@date_than = @date - a.months
-		puts Production.create({ amount: rand(5..60), measurement: @date_than, observation: nil, animal_id: animal.id,})
+		@amount = @amount + rand(-3..10)
+		puts Production.create({ amount: @amount, measurement: @date_than, observation: nil, animal_id: animal.id,})
 	end
 end
 
 puts "Generates Developments"
 
 @animais.each do |animal|
-	2.times do |a|
-		@weight = rand(450..890)
-		@height = rand(140..170)
+		@weight = rand(150..700)
+		@height = rand(100..140)
+	12.times do |a|
+		@weight = @weight + rand(-3..60)
+		@height = @height + rand(-2..10)
 		puts Development.create({ weight: @weight, height: @height, animal_id: animal.id,})
 	end
 end
@@ -164,23 +168,38 @@ end
 puts "Generates Shipments"
 
 @property.each do |p|
-	24.times do |a|
-		@date = Time.now 
-		@date_than = @date - a.months
-		puts Shipment.create({ amount: rand(1000..50000), date: @date_than, property_id: p.id})
+	@date_than = Time.now - 1.year
+	@amount=rand(350..500)
+	250.times do |a|
+		@amount = @amount + rand(-30..30)
+		@date_than = @date_than + 3.days
+		puts Shipment.create({ amount: @amount , date: @date_than, property_id: p.id})
 	end
 end
 
 puts "Generates Analyses"
 
 @property.each do |p|
-	24.times do |a|
-		@date = Time.now 
-		@date_than = @date - a.months
-		puts Analysis.create({property_id: p.id , codeanalysis: rand(1000..50000), collect:  @date_than, fat: rand(10000..500000), protein:rand(1000..50000) , lactose:rand(1000..50000) , totalsolids:rand(100..5000) , defattedextract:rand(1000..50000) , css:rand(10000..500000) , scorecss:rand(1000..50000) , ufc:rand(1000..50000)})
+	@date_than = Time.now - 1.year
+	@fat = rand(10000..500000)
+	@protein = rand(1000..50000)
+	@lactose = rand(1000..50000)
+	@totalsolids = rand(100..5000)
+	@defattedextract = rand(1000..50000)
+	@css = rand(10000..500000)
+	@scorecss = rand(1000..50000)
+	@ufc = rand(1000..50000)
+
+	125.times do |a|
+		@date_than       = @date_than + 3.days
+		@fat             = @fat + rand(-300..2500)
+		@protein         = @protein + rand(-300..2500)
+		@lactose         = @lactose + rand(-300..2500)
+		@totalsolids     = @totalsolids + rand(-300..2500)
+		@defattedextract = @defattedextract + rand(-300..2500)
+		@css             = @css + rand(-300..2500)
+		@scorecss        = @scorecss + rand(-300..2500)
+		@ufc             = @ufc + rand(-300..2500)
+		puts Analysis.create({property_id: p.id , codeanalysis: rand(1000..50000), collect:  @date_than, fat:  @fat , protein: @protein  ,lactose: @lactose  , totalsolids: @totalsolids  , defattedextract: @defattedextract  , css: @css  , scorecss: @scorecss  , ufc: @ufc })
 	end
 end
-
-
-
-

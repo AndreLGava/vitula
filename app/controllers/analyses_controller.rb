@@ -31,10 +31,8 @@ class AnalysesController < ApplicationController
     respond_to do |format|
       if @analysis.save
         format.html { redirect_to @analysis, notice: 'Analysis was successfully created.' }
-        format.json { render :show, status: :created, location: @analysis }
       else
         format.html { render :new }
-        format.json { render json: @analysis.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,10 +43,8 @@ class AnalysesController < ApplicationController
     respond_to do |format|
       if @analysis.update(analysis_params)
         format.html { redirect_to @analysis, notice: 'Analysis was successfully updated.' }
-        format.json { render :show, status: :ok, location: @analysis }
       else
         format.html { render :edit }
-        format.json { render json: @analysis.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +55,6 @@ class AnalysesController < ApplicationController
     @analysis.destroy
     respond_to do |format|
       format.html { redirect_to analyses_url, notice: 'Analysis was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
