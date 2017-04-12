@@ -101,6 +101,9 @@ gem 'dotiw'
 #gerador de templates bootstrap
 gem 'bootstrap-generators', '~> 3.3.4'
 
+#Jobs
+gem 'sidekiq'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
