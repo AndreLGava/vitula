@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      bin: Silo
+    attributes:
+      bin:
+        bin: Silo
+        bins: Silos
+        capacity: Capacidade
+        property: Propriedade
+        kind: Tipo de silo
+

@@ -4,7 +4,7 @@ class BinsController < ApplicationController
   # GET /bins
   # GET /bins.json
   def index
-    @bins = Bin.all
+    @bins = Bin.all.page params[:page]
   end
 
   # GET /bins/1

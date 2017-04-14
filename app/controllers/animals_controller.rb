@@ -1,10 +1,11 @@
 class AnimalsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction, :animal_illness]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction, :animal_illness, :animal_diet]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
 
   def index
-    @animals = Animal.animais(current_user, params[:page])
+    redirect_to properties_path unless current_user.has_property?
+    @animals = Animal.animais(current_user, params[:page]) 
   end  
 
   def all_animals
@@ -24,6 +25,7 @@ class AnimalsController < ApplicationController
     @animal.productions.build
     @animal.developments.build
     @animal.illnesses.build
+    @animal.diets.build
   end
 
   def edit
@@ -79,6 +81,10 @@ class AnimalsController < ApplicationController
 
   def animal_illness
     @illnesses = @animal.illnesses.order(id: :desc).page params[:page]
+  end
+
+  def animal_diet
+    @diets = @animal.diets.order(id: :desc).page params[:page]
   end
 
   private

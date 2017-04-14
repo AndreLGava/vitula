@@ -7,20 +7,20 @@
     <span class="fa fa-pencil"></span>
     <%= I18n.t('crud.edit') %>
   <% end %>
-  <h3><%= I18n.t('crud.show') %> bin</h3>
+  <h3><%= I18n.t('crud.show') %> <%= Bin.human_attribute_name(:bin)%></h3>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
     <li class="list-group-item">
-      <strong>Capacity:</strong>
-      <%= @bin.capacity %>
+      <strong><%=Bin.human_attribute_name(:capacity)%></strong>
+      <%= @bin.capacity %> M³
     </li>
     <li class="list-group-item">
-      <strong>Property:</strong>
-      <%= @bin.property %>
+      <strong><%=Bin.human_attribute_name(:property)%></strong>
+      <%= @bin.property.name %>
     </li>
     <li class="list-group-item">
-      <strong>Kind:</strong>
+      <strong><%=Bin.human_attribute_name(:kind)%></strong>
       <%= @bin.kind %>
     </li>
   </ul>

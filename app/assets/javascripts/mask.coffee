@@ -13,9 +13,10 @@ ready = ->
   $('.altura').mask '0.000,00', reverse: true
   $('.M').mask '000,00', reverse: true
   $('.mm').mask '000,00', reverse: true
-  $('.Ha').mask '0.000.000,00', reverse: true
+  $('.Ha').mask '0.000.000,0', reverse: true
   $('.date_time').mask '00/00/0000 00:00:00'
   $('.datepicker').mask '00/00/0000'
+  $('.datetimepicker').mask '00/00/0000 00:00:00'
   $('.CEP').mask '00000-000'
   $('.phone').mask '00000-0000'
   $('.phone_with_ddd').mask '(00) 00000-0000'

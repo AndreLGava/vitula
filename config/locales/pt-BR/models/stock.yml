@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      stock: Estocagem
+    attributes:
+      stock:
+        stock: Estocagem
+        stocks: Estocagens
+        name: Nome
+        purpose: Propósito
+        area: Área
+        property: Propriedade
+        inactive: Inativada
+        bin: Silo
+        feed: Alimento
+        glebe: Gleba
+        amount: Quantidade
+        datestock: Data de estocagem/recebimento
+        datestart: Data de inicio
+        dateend: Data de término
+        fournisseur: Fornecedor
+

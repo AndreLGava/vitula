@@ -3,8 +3,8 @@ class CreateProperties < ActiveRecord::Migration
     create_table :properties do |t|
       t.string :name
       t.string :description
-      t.float :long
-      t.float :lat
+      t.decimal :long, precision: 10, scale: 8
+      t.decimal :lat, precision: 10, scale: 8
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

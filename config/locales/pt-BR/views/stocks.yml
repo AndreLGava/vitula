@@ -1,0 +1,13 @@
+pt-BR:
+  stocks:
+    index:
+      stocks: stocks
+    new:
+      new: Nova Estocagem
+    edit:
+      edit: Alterando Estocagem
+    show:
+      stock: Estocagem
+    destroy:
+      delete: Apagar Estocagem
+

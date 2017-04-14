@@ -1,0 +1,14 @@
+pt-BR:
+  diets:
+    index:
+      diets: Dietas
+      diet: Dieta
+    new:
+      new: Nova Dieta
+    edit:
+      edit: Alterando Dieta
+    show:
+      stock: Dieta
+    destroy:
+      delete: Apagar Dieta
+

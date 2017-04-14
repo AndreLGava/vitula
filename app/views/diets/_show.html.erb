@@ -1,0 +1,33 @@
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <div class="page-header">
+    <%= link_to animal_diet_path(id: @animal.id),remote: true, class: 'btn btn-default' do %>
+      <span class="fa fa-chevron-left"></span>
+      <%= I18n.t('crud.back') %>
+    <% end %>
+    <%= link_to edit_diet_path(@diet), remote: true, class: 'btn btn-primary' do %>
+      <span class="fa fa-pencil"></span>
+      <%= I18n.t('crud.edit') %>
+    <% end %>
+    <h3><%= I18n.t('crud.show') %> <%= Diet.human_attribute_name(:diet)%></h3>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong><%= Diet.human_attribute_name(:amount)%></strong>
+        <%= @diet.amount %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Diet.human_attribute_name(:datestart)%></strong>
+        <%= @diet.datestart %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Diet.human_attribute_name(:dateend)%></strong>
+        <%= @diet.dateend %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Diet.human_attribute_name(:stock)%></strong>
+        <%= @diet.stock.feed.name %>
+      </li>
+    </ul>
+  </div>
+</div>

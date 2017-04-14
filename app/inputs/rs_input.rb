@@ -7,7 +7,7 @@ class RsInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge({class: 'form-control ', readonly: false})
+    super.merge({class: 'form-control money', readonly: false})
   end
 
   def span

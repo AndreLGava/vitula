@@ -1,0 +1,14 @@
+pt-BR:
+  bins:
+    index:
+      bins: Silos
+      bin: Silo
+    new:
+      new: Nova Silo
+    edit:
+      edit: Alterando Silo
+    show:
+      stock: Silo
+    destroy:
+      delete: Apagar Silo
+

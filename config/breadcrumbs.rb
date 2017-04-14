@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :animals do
-  link "Animals", animals_path
+  link "Animais", animals_path
 end
 
 crumb :animal do |animal|
@@ -16,7 +16,7 @@ crumb :donors do
 end
 
 crumb :properties do
-  link "Properties", properties_path
+  link "Propriedades", properties_path
 end
 
 crumb :property do |property|
@@ -25,11 +25,11 @@ crumb :property do |property|
 end
 
 crumb :lots do
-  link "Lots", lots_path
+  link "Rebanhos", lots_path
 end
 
 crumb :profiles do
-  link "Profiles", profiles_path
+  link "PErfis", profiles_path
 end
 
 crumb :profile do |profile|
@@ -38,11 +38,11 @@ crumb :profile do |profile|
 end
 
 crumb :notifications do
-  link "Notifications", notifications_path
+  link "Notificações", notifications_path
 end
 
 crumb :productions do
-  link "Productions", productions_path
+  link "Produções", productions_path
 end
 
 crumb :diseases do
@@ -83,7 +83,7 @@ end
 
 
 crumb :employees do
-  link "Tratamentos", employees_path
+  link "Empregados", employees_path
 end
 
 crumb :employee do |employee|
@@ -109,6 +109,43 @@ crumb :analysis do |analysis|
   link analysis.codeanalysis, analysis
   parent :analyses
 end
+
+crumb :bins do
+  link "Silos", bins_path
+end
+
+crumb :bin do |bin|
+  link "#{bin.id} - #{bin.capacity} - #{bin.kind}", bin
+  parent :bins
+end
+
+crumb :stocks do
+  link "Estocagem", stocks_path
+end
+
+crumb :stock do |stock|
+  link stock.feed.name, stock
+  parent :stocks
+end
+
+crumb :feeds do
+  link "Alimento", feeds_path
+end
+
+crumb :feed do |feed|
+  link feed.name, feed
+  parent :feeds
+end
+
+crumb :diets do
+  link "Dieta", diets_path
+end
+
+crumb :diet do |diet|
+  link diet.name, diet
+  parent :diets
+end
+  
 
 
 # crumb :projects do
