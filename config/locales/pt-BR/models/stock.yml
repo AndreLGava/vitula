@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       stock: Estocagem
+      amount_invalid: "A quantidade indicada na armagenagem é superior a capacidade do silo"
     attributes:
       stock:
         stock: Estocagem
@@ -19,4 +20,5 @@ pt-BR:
         datestart: Data de inicio
         dateend: Data de término
         fournisseur: Fornecedor
+        density: Densidade (Kg/M³)
 

@@ -109,11 +109,12 @@ puts "Generates Productions"
 		@date = Time.now 
 		@date_than = @date - a.months
 		@amount = @amount + rand(-5..5)
-		puts Production.create({ amount: @amount, measurement: @date_than, observation: nil, animal_id: animal.id,})
+		puts Production.create({ amount: @amount, measurement: @date_than, observation: nil, animal_id: animal.id})
 	end
 end
 
 puts "Generates Developments"
+
 
 @animais.each do |animal|
 		@weight = rand(150..700)
@@ -121,7 +122,7 @@ puts "Generates Developments"
 	12.times do |a|
 		@weight = @weight + rand(-3..60)
 		@height = @height + rand(-2..10)
-		puts Development.create({ weight: @weight, height: @height, animal_id: animal.id,})
+		puts Development.create({ weight: @weight, height: @height, animal_id: animal.id})
 	end
 end
 
@@ -319,6 +320,7 @@ puts "Generates Stock"
          bin_id: b.id,
     fournisseur: "André Luiz",
          amount: rand(1..5),
+         density: rand(1..5),
       datestock: today,
       datestart: nil,
         dateend: nil,

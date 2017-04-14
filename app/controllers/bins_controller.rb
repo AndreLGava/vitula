@@ -4,7 +4,7 @@ class BinsController < ApplicationController
   # GET /bins
   # GET /bins.json
   def index
-    @bins = Bin.all.page params[:page]
+    @bins = Bin.where(property_id: current_user.properties.ids).page params[:page]
   end
 
   # GET /bins/1

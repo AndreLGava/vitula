@@ -6,6 +6,7 @@ class CreateStocks < ActiveRecord::Migration
       t.references :glebe, index: true, foreign_key: true
       t.string :fournisseur
       t.decimal :amount, precision: 8, scale: 4
+      t.decimal :density, precision: 8, scale: 4
       t.datetime :datestock
       t.datetime :datestart
       t.datetime :dateend

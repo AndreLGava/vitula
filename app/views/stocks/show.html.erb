@@ -3,9 +3,11 @@
     <span class="fa fa-chevron-left"></span>
     <%= I18n.t('crud.back') %>
   <% end %>
-  <%= link_to edit_stock_path(@stock), class: 'btn btn-primary' do %>
-    <span class="fa fa-pencil"></span>
-    <%= I18n.t('crud.edit') %>
+  <% if @stock.inactive? %>
+    <%= link_to edit_stock_path(@stock), class: 'btn btn-primary' do %>
+      <span class="fa fa-pencil"></span>
+      <%= I18n.t('crud.edit') %>
+    <% end %>
   <% end %>
   <h3><%= I18n.t('crud.show') %> <%= Stock.human_attribute_name(:stock)%></h3>
 </div>
@@ -13,7 +15,7 @@
   <ul class="list-group">
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:bin)%></strong>
-      <%= @stock.bin.nil? ? "" : @stock.bin %>
+      <%= @stock.bin.nil? ? "" : @stock.bin.name %>
     </li>
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:feed)%></strong>
@@ -26,6 +28,10 @@
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:amount)%></strong>
       <%= @stock.amount %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:density)%></strong>
+      <%= @stock.density %>
     </li>
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:datestock)%></strong>

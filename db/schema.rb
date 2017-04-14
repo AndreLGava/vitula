@@ -267,6 +267,7 @@ ActiveRecord::Schema.define(version: 20170410122532) do
     t.integer  "glebe_id"
     t.string   "fournisseur"
     t.decimal  "amount",      precision: 8, scale: 4
+    t.decimal  "density",     precision: 8, scale: 4
     t.datetime "datestock"
     t.datetime "datestart"
     t.datetime "dateend"

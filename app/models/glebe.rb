@@ -10,6 +10,9 @@ class Glebe < ActiveRecord::Base
   validate  :validate_glebe
   validate  :validate_area
 
+  has_many :stocks, dependent: :destroy
+
+
   enum purpose: {Plantio: 1, Pastejo: 2, Construção: 3}
 
   scope :them,   -> (property, params) { where(property_id: property.id).order(id: :desc).page params }

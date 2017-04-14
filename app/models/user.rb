@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :analyses, through: :properties
   has_many :employees, through: :properties
   has_many :animals, dependent: :destroy
+  has_many :bins, through: :properties
 
   def has_property?
     self.properties.empty? ? false : true

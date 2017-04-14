@@ -8,6 +8,8 @@ class Bin < ActiveRecord::Base
 
   belongs_to :property
 
+  has_many :stocks, dependent: :destroy
+
   enum kind: {concreto: 1, metal: 2, madeira: 3, fibra: 4, plástico: 5}
 
   def name

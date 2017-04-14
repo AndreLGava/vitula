@@ -4,7 +4,7 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all.page params[:page]
+    @stocks = Stock.where(bin_id: current_user.bins.ids).page params[:page]
   end
 
   # GET /stocks/1

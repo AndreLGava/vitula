@@ -4,9 +4,10 @@ ready = ->
   $('.date').mask '00/00/0000'
   $('.time').mask '00:00:00'
   $('.Kg').mask '0.000,000', reverse: true
+  $('.T').mask '0.000,000', reverse: true
   $('.percentual').mask '0.000,000', reverse: true
   $('.G').mask '0.000,000', reverse: true
-  $('.Ton').mask '0.000,000', reverse: true
+  $('.Ton').mask '0.000.000,000', reverse: true
   $('.L').mask '0.000,0000', reverse: true
   $('.ml').mask '0.000,0000', reverse: true
   $('.M³').mask '0.000,0000', reverse: true

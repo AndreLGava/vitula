@@ -15,6 +15,7 @@
             <th><%= Stock.human_attribute_name(:bin)%></th>
             <th><%= Stock.human_attribute_name(:glebe)%></th>
             <th><%= Stock.human_attribute_name(:amount)%></th>
+            <th><%= Stock.human_attribute_name(:density)%></th>
             <th><%= Stock.human_attribute_name(:datestock)%></th>
             <th><%= Stock.human_attribute_name(:datestart)%></th>
             <th><%= Stock.human_attribute_name(:dateend)%></th>
@@ -30,7 +31,8 @@
             <td><%= stock.feed.name %></td>
             <td><%= stock.bin.nil? ? "" : stock.bin.name %></td>
             <td><%= stock.glebe.nil? ? "" : stock.glebe.name%></td>
-            <td><%= stock.amount %></td>
+            <td><%= stock.amount %> T</td>
+            <td><%= stock.density %> Kg/M³</td>
             <td><%= stock.datestock %></td>
             <td><%= stock.datestart %></td>
             <td><%= stock.dateend %></td>
@@ -41,8 +43,10 @@
           <% end %>
         </td>
         <td>
-          <%= link_to edit_stock_path(stock), class: 'btn btn-sm btn-default' do %>
-            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+          <% if stock.inactive? %>
+            <%= link_to edit_stock_path(stock), class: 'btn btn-sm btn-default' do %>
+              <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+            <% end %>
           <% end %>
         </td>
         <td>
