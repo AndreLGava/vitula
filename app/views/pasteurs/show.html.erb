@@ -1,10 +1,10 @@
 <div class="page-header">
-  <%= link_to stocks_path, class: 'btn btn-default' do %>
+  <%= link_to pasteur_path, class: 'btn btn-default' do %>
     <span class="fa fa-chevron-left"></span>
     <%= I18n.t('crud.back') %>
   <% end %>
   <% if @stock.inactive? %>
-    <%= link_to edit_stock_path(@stock), class: 'btn btn-primary' do %>
+    <%= link_to edit_pasteur_path(@stock), class: 'btn btn-primary' do %>
       <span class="fa fa-pencil"></span>
       <%= I18n.t('crud.edit') %>
     <% end %>
@@ -14,12 +14,12 @@
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
     <li class="list-group-item">
-      <strong><%= Stock.human_attribute_name(:bin)%></strong>
-      <%= @stock.bin.nil? ? "" : @stock.bin.name %>
-    </li>
-    <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:feed)%></strong>
       <%= @stock.feed.name %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:glebe)%></strong>
+      <%= @stock.glebe.nil? ? "" : @stock.glebe.name %>
     </li>
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:amount)%></strong>

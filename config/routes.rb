@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   resources :diets
   resources :stocks
+  resources :pasteurs
   resources :feeds
   resources :bins
   resources :analyses

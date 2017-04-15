@@ -1,10 +1,10 @@
-<% breadcrumb :stocks %>
+<% breadcrumb :pasteurs %>
 <div class="page-header">
-  <%= link_to new_stock_path, class: 'btn btn-primary pull-right' do %>
+  <%= link_to new_pasteur_path, class: 'btn btn-primary pull-right' do %>
     <span class="fa fa-plus"></span>
     <%= I18n.t('crud.new') %>
   <% end %>
-  <h3><%= Stock.human_attribute_name(:stocks)%></h3>
+  <h3><%= Stock.human_attribute_name(:pasteurs)%></h3>
 </div>
 
 <div class="table-responsive">
@@ -12,13 +12,12 @@
     <thead>
       <tr>
             <th><%= Stock.human_attribute_name(:feed)%></th>
-            <th><%= Stock.human_attribute_name(:bin)%></th>
+            <th><%= Stock.human_attribute_name(:glebe)%></th>
             <th><%= Stock.human_attribute_name(:amount)%></th>
-            <th><%= Stock.human_attribute_name(:density)%></th>
-            <th><%= Stock.human_attribute_name(:datestock)%></th>
-            <th><%= Stock.human_attribute_name(:datestart)%></th>
-            <th><%= Stock.human_attribute_name(:dateend)%></th>
-            <th><%= Stock.human_attribute_name(:fournisseur)%></th>
+            <th><%= Stock.human_attribute_name(:densitypasteur)%></th>
+            <th><%= Stock.human_attribute_name(:datepasteur)%></th>
+            <th><%= Stock.human_attribute_name(:datestartpasteur)%></th>
+            <th><%= Stock.human_attribute_name(:dateendpasteur)%></th>
             <th></th>
         <th></th>
         <th></th>
@@ -28,27 +27,26 @@
     <tbody>
       <%= content_tag_for(:tr, @stocks) do |stock| %>
             <td><%= stock.feed.name %></td>
-            <td><%= stock.bin.nil? ? "" : stock.bin.name %></td>
+            <td><%= stock.glebe.nil? ? "" : stock.glebe.name%></td>
             <td><%= stock.amount %> T</td>
             <td><%= stock.density %> Kg/M³</td>
             <td><%= stock.datestock %></td>
             <td><%= stock.datestart %></td>
             <td><%= stock.dateend %></td>
-            <td><%= stock.fournisseur %></td>
             <td>
-          <%= link_to stock, class: 'btn btn-sm btn-primary' do %>
+          <%= link_to pasteur, class: 'btn btn-sm btn-primary' do %>
             <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
           <% end %>
         </td>
         <td>
           <% if stock.inactive? %>
-            <%= link_to edit_stock_path(stock), class: 'btn btn-sm btn-default' do %>
+            <%= link_to edit_pasteur_path(stock), class: 'btn btn-sm btn-default' do %>
               <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
             <% end %>
           <% end %>
         </td>
         <td>
-          <%= link_to stock, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+          <%= link_to pasteur, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
             <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
           <% end %>      
         </td>

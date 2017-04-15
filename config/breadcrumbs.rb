@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :animals do
-  link "Animais", animals_path
+  link Animal.human_attribute_name(:animals), animals_path
 end
 
 crumb :animal do |animal|
@@ -12,11 +12,11 @@ crumb :animal do |animal|
 end
 
 crumb :donors do
-  link "Doadores de semen", donors_path
+  link Animal.human_attribute_name(:donors), donors_path
 end
 
 crumb :properties do
-  link "Propriedades", properties_path
+  link Property.human_attribute_name(:properties), properties_path
 end
 
 crumb :property do |property|
@@ -25,11 +25,11 @@ crumb :property do |property|
 end
 
 crumb :lots do
-  link "Rebanhos", lots_path
+  link Lot.human_attribute_name(:lots), lots_path
 end
 
 crumb :profiles do
-  link "PErfis", profiles_path
+  link Profile.human_attribute_name(:profiles), profiles_path
 end
 
 crumb :profile do |profile|
@@ -38,15 +38,15 @@ crumb :profile do |profile|
 end
 
 crumb :notifications do
-  link "Notificações", notifications_path
+  link Notification.human_attribute_name(:notifications), notifications_path
 end
 
 crumb :productions do
-  link "Produções", productions_path
+  link Production.human_attribute_name(:productions), productions_path
 end
 
 crumb :diseases do
-  link "Doenças", diseases_path
+  link Disease.human_attribute_name(:diseases), diseases_path
 end
 
 crumb :disease do |disease|
@@ -55,7 +55,7 @@ crumb :disease do |disease|
 end
 
 crumb :drugs do
-  link "Medicamentos", drugs_path
+  link Drug.human_attribute_name(:drugs), drugs_path
 end
 
 crumb :drug do |drug|
@@ -64,7 +64,7 @@ crumb :drug do |drug|
 end
 
 crumb :illnesses do
-  link "Enfermidades", illnesses_path
+  link Illness.human_attribute_name(:illnesses), illnesses_path
 end
 
 crumb :illness do |illness|
@@ -73,7 +73,7 @@ crumb :illness do |illness|
 end
 
 crumb :treatments do
-  link "Tratamentos", treatments_path
+  link Treatment.human_attribute_name(:treatments), treatments_path
 end
 
 crumb :treatment do |treatment|
@@ -83,7 +83,7 @@ end
 
 
 crumb :employees do
-  link "Empregados", employees_path
+  link Employee.human_attribute_name(:employees), employees_path
 end
 
 crumb :employee do |employee|
@@ -92,7 +92,7 @@ crumb :employee do |employee|
 end
 
 crumb :shipments do
-  link "Carregamentos de leite", shipments_path
+  link Shipment.human_attribute_name(:shipments), shipments_path
 end
 
 crumb :shipment do |shipment|
@@ -102,7 +102,7 @@ end
 
 
 crumb :analyses do
-  link "Analises de leite", analyses_path
+  link Analysis.human_attribute_name(:analyses), analyses_path
 end
 
 crumb :analysis do |analysis|
@@ -111,7 +111,7 @@ crumb :analysis do |analysis|
 end
 
 crumb :bins do
-  link "Silos", bins_path
+  link Bin.human_attribute_name(:bins), bins_path
 end
 
 crumb :bin do |bin|
@@ -120,7 +120,7 @@ crumb :bin do |bin|
 end
 
 crumb :stocks do
-  link "Estocagem", stocks_path
+  link Stock.human_attribute_name(:stocks), stocks_path
 end
 
 crumb :stock do |stock|
@@ -128,8 +128,17 @@ crumb :stock do |stock|
   parent :stocks
 end
 
+crumb :pasteurs do
+  link Stock.human_attribute_name(:pasteurs), pasteurs_path
+end
+
+crumb :pasteur do |pasteur|
+  link pasteur.feed.name, pasteur
+  parent :pasteurs
+end
+
 crumb :feeds do
-  link "Alimento", feeds_path
+  link Feed.human_attribute_name(:feeds), feeds_path
 end
 
 crumb :feed do |feed|
@@ -138,7 +147,7 @@ crumb :feed do |feed|
 end
 
 crumb :diets do
-  link "Dieta", diets_path
+  link Diet.human_attribute_name(:diets), diets_path
 end
 
 crumb :diet do |diet|

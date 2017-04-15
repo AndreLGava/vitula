@@ -2,14 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :bin, collection: Bin.where(property_id: current_user.properties.ids) %>
+    <%= f.association :glebe, collection: Glebe.where(property_id: current_user.properties.ids) %>
     <%= f.association :feed %>
     <%= f.input :amount, as: :normal, before: "T", placeholder: "Valor em toneladas" %>
     <%= f.input :density, as: :normal, before: "Kg", placeholder: "Kg por M³" %>
     <%= f.input :datestock, as: :date_time_picker  %>
     <%= f.input :datestart, as: :date_time_picker %>
     <%= f.input :dateend, as: :date_time_picker %>
-    <%= f.input :fournisseur %>
   </div>
 
   <div class="form-actions">

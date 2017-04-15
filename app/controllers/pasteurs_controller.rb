@@ -1,10 +1,10 @@
-class StocksController < ApplicationController
+class PasteursController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
 
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.where(bin_id: current_user.bins.ids, glebe_id: nil).page params[:page]
+    @stocks = Stock.where(glebe_id: current_user.glebes.ids, bin_id: nil).page params[:page]
   end
 
   # GET /stocks/1

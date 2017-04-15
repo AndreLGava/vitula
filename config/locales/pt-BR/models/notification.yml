@@ -8,6 +8,8 @@ pt-BR:
       notify_parturition_description: "%{user_name} a %{animal_name} de número %{animal_code} deverá parir nos próximos 14 (quatorze) dias (valiabilidade de 7 dias para mais ou para menos), fique atento aos sinais."
     attributes:
       notification:
+        notification: Notificação
+        notifications: Notificações
         title: Título
         description: Descrição
         read: Data Leitura
