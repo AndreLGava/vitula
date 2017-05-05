@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :diets
+  resources :stocks
+  resources :feeds
+  resources :bins
   resources :analyses
   resources :shipments
   resources :treatments

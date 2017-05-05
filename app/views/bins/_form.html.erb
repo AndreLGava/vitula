@@ -1,0 +1,13 @@
+<%= simple_form_for(@bin) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :capacity %>
+    <%= f.association :property %>
+    <%= f.input :kind, collection: Bin.kinds.keys, as: :select, allow_blank: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

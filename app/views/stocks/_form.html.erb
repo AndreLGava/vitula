@@ -1,0 +1,17 @@
+<%= simple_form_for(@stock) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :bin %>
+    <%= f.association :feed %>
+    <%= f.association :glebe %>
+    <%= f.input :amount %>
+    <%= f.input :datestock %>
+    <%= f.input :datestart %>
+    <%= f.input :dateend %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
