@@ -17,11 +17,11 @@
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:weight)%></strong>
-        <%= @animal.developments.last.weight unless @animal.developments.empty? %>
+        <%= "#{@animal.developments.last.weight} Kg" unless @animal.developments.empty? %>
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:height)%></strong>
-        <%= @animal.developments.last.height unless @animal.developments.empty? %>
+        <%= "#{@animal.developments.last.height} Cm" unless @animal.developments.empty? %>
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:breed)%></strong>
@@ -68,7 +68,7 @@
         <% end %>
         <%= link_to I18n.t('animals.show.illness'), animal_illness_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
         <%= link_to I18n.t('animals.show.reproduction'), animal_reproduction_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
-        <button type="button" class="btn btn-default">Alimentação</button>
+        <%= link_to I18n.t('animals.show.diet'), animal_diet_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
         <%= link_to I18n.t('animals.show.development'), animal_development_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
       </div>
     </div>

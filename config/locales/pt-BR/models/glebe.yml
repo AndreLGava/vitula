@@ -3,6 +3,7 @@ pt-BR:
     models:
       glebe: Gleba
       glebe_invalid: O tamanho da gleba somado as outras glebas ativas da mesma properiedade excede o tamnho da propriedade
+      area_invalid: O tamanho da área não pode ser inferior o 0.1 Ha
     attributes:
       glebe:
         glebe: Gleba

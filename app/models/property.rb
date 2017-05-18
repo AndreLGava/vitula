@@ -12,5 +12,6 @@ class Property < ActiveRecord::Base
   has_many :animals     , dependent: :destroy 
   has_many :shipments   , dependent: :destroy 
   has_many :analyses    , dependent: :destroy 
+  has_many :bins        , dependent: :destroy 
 
 end

@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      diet: Dieta
+    attributes:
+      diet:
+        diet: Dieta
+        diets: Dietas
+        amount: Quantidade
+        datestart: Data de inicio 
+        dateend: Data de fim
+        animal: Animal
+        stock: Estocagem
+        feed: Alimento
+

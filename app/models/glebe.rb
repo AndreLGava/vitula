@@ -8,6 +8,10 @@ class Glebe < ActiveRecord::Base
   validates :area          , presence: true 
   validates :property      , presence: true
   validate  :validate_glebe
+  validate  :validate_area
+
+  has_many :stocks, dependent: :destroy
+
 
   enum purpose: {Plantio: 1, Pastejo: 2, Construção: 3}
 
@@ -17,8 +21,17 @@ class Glebe < ActiveRecord::Base
   
   def validate_glebe
   	@property = Property.find(self.property_id)
-  	@glebes   = @property.glebes.where(inactive: false).sum(:area)
+  	@glebes   = @property.glebes.where(inactive: false).where.not(id: self.id).sum(:area)
   	@total    = @glebes + self.area
 		errors.add(:area, I18n.t('activerecord.models.glebe_invalid')) unless @total <= @property.area
+  end
+
+  def validate_area
+    @area     = self.area
+    errors.add(:area, I18n.t('activerecord.models.area_invalid')) if @area < 0.1
+  end
+
+  def active?
+    return "danger" if self.inactive == true 
   end
 end

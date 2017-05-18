@@ -14,6 +14,7 @@ class Animal < ActiveRecord::Base
   has_many :developments, dependent: :destroy
   has_many :productions, dependent: :destroy
   has_many :illnesses, dependent: :destroy
+  has_many :diets, dependent: :destroy
 
   validates :code, presence: true
   validates :name, presence: true

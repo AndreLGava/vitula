@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      feed: Alimento
+    attributes:
+      feed:
+        feed: Alimento
+        feeds: Alimentos
+        kind: Tipo de alimento
+        name: Nome
+        description: Descrição
+

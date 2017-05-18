@@ -1,0 +1,14 @@
+pt-BR:
+  feeds:
+    index:
+      feeds: Alimentos
+      feed: Alimento
+    new:
+      new: Nova Alimento
+    edit:
+      edit: Alterando Alimento
+    show:
+      stock: Alimento
+    destroy:
+      delete: Apagar Alimento
+

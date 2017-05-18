@@ -1,0 +1,31 @@
+pt-BR:
+  activerecord:
+    models:
+      stock: Alimento estocado
+      pasteur: Pastagem
+      amount_invalid: "A quantidade indicada na armagenagem é superior a capacidade do silo"
+    attributes:
+      stock:
+        stock: Alimento estocado
+        pasteur: Pastagem
+        stocks: Alimentos estocados
+        pasteurs: Pastagens
+        name: Nome
+        purpose: Propósito
+        area: Área
+        property: Propriedade
+        inactive: Inativada
+        bin: Silo
+        feed: Alimento
+        glebe: Gleba
+        amount: Quantidade
+        datestock: Data de estocagem/recebimento
+        datepasteur: Data de plantio
+        datestart: Data de inicio
+        datestartpasteur: Data de inicio pastoreio
+        dateend: Data de término
+        dateendpasteur: Data de término pastoreio
+        fournisseur: Fornecedor
+        density: Densidade (Kg/M³)
+        densitypasteur: Densidade (Kg/M²)
+

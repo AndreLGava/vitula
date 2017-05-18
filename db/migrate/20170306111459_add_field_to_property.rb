@@ -1,6 +1,6 @@
 class AddFieldToProperty < ActiveRecord::Migration
   def change
-    add_column :properties, :area, :decimal
+    add_column :properties, :area, :decimal, precision: 8, scale: 1
     add_column :properties, :altitude, :decimal
     add_column :properties, :precipitation, :decimal
     add_column :properties, :enrolement_of_sanity, :integer

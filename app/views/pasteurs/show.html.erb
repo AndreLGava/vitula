@@ -1,0 +1,49 @@
+<div class="page-header">
+  <%= link_to pasteur_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <% if @stock.inactive? %>
+    <%= link_to edit_pasteur_path(@stock), class: 'btn btn-primary' do %>
+      <span class="fa fa-pencil"></span>
+      <%= I18n.t('crud.edit') %>
+    <% end %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> <%= Stock.human_attribute_name(:stock)%></h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:feed)%></strong>
+      <%= @stock.feed.name %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:glebe)%></strong>
+      <%= @stock.glebe.nil? ? "" : @stock.glebe.name %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:amount)%></strong>
+      <%= @stock.amount %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:density)%></strong>
+      <%= @stock.density %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:datestock)%></strong>
+      <%= @stock.datestock %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:datestart)%></strong>
+      <%= @stock.datestart %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:dateend)%></strong>
+      <%= @stock.dateend %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Stock.human_attribute_name(:fournisseur)%></strong>
+      <%= @stock.fournisseur %>
+    </li>
+  </ul>
+</div>

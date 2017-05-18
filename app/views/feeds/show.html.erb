@@ -7,20 +7,20 @@
     <span class="fa fa-pencil"></span>
     <%= I18n.t('crud.edit') %>
   <% end %>
-  <h3><%= I18n.t('crud.show') %> feed</h3>
+  <h3><%= I18n.t('crud.show') %> <%= Feed.human_attribute_name(:feed)%></h3>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
     <li class="list-group-item">
-      <strong>Kind:</strong>
+      <strong><%= Feed.human_attribute_name(:kind)%></strong>
       <%= @feed.kind %>
     </li>
     <li class="list-group-item">
-      <strong>Name:</strong>
+      <strong><%= Feed.human_attribute_name(:name)%></strong>
       <%= @feed.name %>
     </li>
     <li class="list-group-item">
-      <strong>Description:</strong>
+      <strong><%= Feed.human_attribute_name(:description)%></strong>
       <%= @feed.description %>
     </li>
   </ul>

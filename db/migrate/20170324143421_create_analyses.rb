@@ -4,11 +4,11 @@ class CreateAnalyses < ActiveRecord::Migration
       t.references :property, index: true, foreign_key: true
       t.string :codeanalysis
       t.date :collect
-      t.decimal :fat
-      t.decimal :protein
-      t.decimal :lactose
-      t.decimal :totalsolids
-      t.decimal :defattedextract
+      t.decimal :fat, precision: 9, scale: 3
+      t.decimal :protein, precision: 9, scale: 3
+      t.decimal :lactose, precision: 9, scale: 3
+      t.decimal :totalsolids, precision: 9, scale: 3
+      t.decimal :defattedextract, precision: 9, scale: 3
       t.decimal :css
       t.decimal :scorecss
       t.decimal :ufc

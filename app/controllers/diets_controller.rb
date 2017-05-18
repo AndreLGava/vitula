@@ -1,20 +1,16 @@
 class DietsController < ApplicationController
   before_action :set_diet, only: [:show, :edit, :update, :destroy]
 
-  # GET /diets
-  # GET /diets.json
-  def index
-    @diets = Diet.all
-  end
-
   # GET /diets/1
   # GET /diets/1.json
   def show
+    @animal = Animal.find(@diet.animal_id)
   end
 
   # GET /diets/new
   def new
-    @diet = Diet.new
+    @animal = Animal.find(params[:animal_id])
+    @diet = @animal.diets.new
   end
 
   # GET /diets/1/edit
@@ -25,14 +21,12 @@ class DietsController < ApplicationController
   # POST /diets.json
   def create
     @diet = Diet.new(diet_params)
-
+    set_data
     respond_to do |format|
       if @diet.save
-        format.html { redirect_to @diet, notice: 'Diet was successfully created.' }
-        format.json { render :show, status: :created, location: @diet }
+        format.js { render 'diet', animal: @animal, ilnesses: @diets}
       else
-        format.html { render :new }
-        format.json { render json: @diet.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
       end
     end
   end
@@ -40,13 +34,12 @@ class DietsController < ApplicationController
   # PATCH/PUT /diets/1
   # PATCH/PUT /diets/1.json
   def update
+    set_data
     respond_to do |format|
       if @diet.update(diet_params)
-        format.html { redirect_to @diet, notice: 'Diet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @diet }
+        format.js { render 'diet', animal: @animal, ilnesses: @diets}
       else
-        format.html { render :edit }
-        format.json { render json: @diet.errors, status: :unprocessable_entity }
+        format.js { render 'edit' }
       end
     end
   end
@@ -54,10 +47,10 @@ class DietsController < ApplicationController
   # DELETE /diets/1
   # DELETE /diets/1.json
   def destroy
+    set_data
     @diet.destroy
     respond_to do |format|
-      format.html { redirect_to diets_url, notice: 'Diet was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render 'diet', animal: @animal, ilnesses: @diets}
     end
   end
 
@@ -65,6 +58,11 @@ class DietsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_diet
       @diet = Diet.find(params[:id])
+    end
+
+    def set_data
+      @animal = Animal.find_by_id(@diet.animal_id)
+      @diets = @animal.diets.order(id: :desc).page params[:page]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

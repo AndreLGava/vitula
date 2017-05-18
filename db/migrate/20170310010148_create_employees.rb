@@ -12,7 +12,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.integer :schooling
       t.integer :inss
       t.integer :pis
-      t.decimal :salary
+      t.decimal :salary, precision: 7, scale: 2
       t.string :profession
       t.integer :payment
       t.references :property, index: true, foreign_key: true

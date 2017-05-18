@@ -64,7 +64,7 @@ puts "Generate Glebes"
 
 @property.each do |p|
 	5.times do |t|
-		puts Glebe.create( name: "Gleba #{t}", purpose: rand(1..3), area: (1..10), property_id: p.id, inactive: false) 
+		puts Glebe.create( name: "Gleba #{t}", purpose: rand(1..3), area: rand(1..10), property_id: p.id, inactive: false) 
 	end
 end
 
@@ -72,7 +72,7 @@ puts "Generate Employee"
 
 @property.each do |p|
 	5.times do |t|
-		puts Employee.create(work: "Trabalho #{t}", name: "Empregado #{t} #{p}", startwork: today, schooling: rand(1..5), salary: rand(1000..2500), payment: rand(1..2), property_id: p.id)
+		puts Employee.create(work: "Trabalho #{t}", name: "Empregado #{t} #{p.id}", startwork: today, schooling: rand(1..5), salary: rand(1000..2500), payment: rand(1..2), property_id: p.id)
 	end
 end
  
@@ -83,7 +83,7 @@ puts "Generate Animals"
 @users.each do |user|
 	male = Animal.create(code: (codes).sample.to_i, name: 'Destructor', female: male, breed: 1 , lot_id: 6, user_id: user.id)
 	male2 = Animal.create(code: (codes).sample.to_i, name: 'Biond', female: male, breed: 1 , lot_id: 6, user_id: user.id)
-	50.times do |a|
+	30.times do |a|
 		puts Animal.create(code: (codes).sample.to_i, name: animals_names.sample, female: true, breed: 1 , lot_id: 6, user_id: user.id)
 	end
 end
@@ -105,15 +105,16 @@ puts "Generates Productions"
 
 @animais.each do |animal|
 		@amount=rand(15..25)
-	24.times do |a|
+	18.times do |a|
 		@date = Time.now 
 		@date_than = @date - a.months
-		@amount = @amount + rand(-3..10)
-		puts Production.create({ amount: @amount, measurement: @date_than, observation: nil, animal_id: animal.id,})
+		@amount = @amount + rand(-5..5)
+		puts Production.create({ amount: @amount, measurement: @date_than, observation: nil, animal_id: animal.id})
 	end
 end
 
 puts "Generates Developments"
+
 
 @animais.each do |animal|
 		@weight = rand(150..700)
@@ -121,14 +122,14 @@ puts "Generates Developments"
 	12.times do |a|
 		@weight = @weight + rand(-3..60)
 		@height = @height + rand(-2..10)
-		puts Development.create({ weight: @weight, height: @height, animal_id: animal.id,})
+		puts Development.create({ weight: @weight, height: @height, animal_id: animal.id})
 	end
 end
 
 puts "Generates Drugs"
 
 
-20.times do |a|
+15.times do |a|
 	puts Drug.create({name: "Medicamento #{a}"})
 end
 
@@ -142,7 +143,7 @@ end
 puts "Generates Illness"
 
 @animais.each do |animal|
-	5.times do |a|
+	3.times do |a|
 		@disease = rand(1..20)
 		@start = rand(fiftydays..today)
 		@end = rand(today..limit)
@@ -170,7 +171,7 @@ puts "Generates Shipments"
 @property.each do |p|
 	@date_than = Time.now - 1.year
 	@amount=rand(350..500)
-	250.times do |a|
+	210.times do |a|
 		@amount = @amount + rand(-30..30)
 		@date_than = @date_than + 3.days
 		puts Shipment.create({ amount: @amount , date: @date_than, property_id: p.id})
@@ -190,16 +191,16 @@ puts "Generates Analyses"
 	@scorecss = rand(1000..50000)
 	@ufc = rand(1000..50000)
 
-	125.times do |a|
+	100.times do |a|
 		@date_than       = @date_than + 3.days
-		@fat             = @fat + rand(-300..2500)
-		@protein         = @protein + rand(-300..2500)
-		@lactose         = @lactose + rand(-300..2500)
-		@totalsolids     = @totalsolids + rand(-300..2500)
-		@defattedextract = @defattedextract + rand(-300..2500)
-		@css             = @css + rand(-300..2500)
-		@scorecss        = @scorecss + rand(-300..2500)
-		@ufc             = @ufc + rand(-300..2500)
+		@fat             = @fat + rand(-2500..2500)
+		@protein         = @protein + rand(-2500..2500)
+		@lactose         = @lactose + rand(-2500..2500)
+		@totalsolids     = @totalsolids + rand(-2500..2500)
+		@defattedextract = @defattedextract + rand(-2500..2500)
+		@css             = @css + rand(-2500..2500)
+		@scorecss        = @scorecss + rand(-2500..2500)
+		@ufc             = @ufc + rand(-2500..2500)
 		puts Analysis.create({property_id: p.id , codeanalysis: rand(1000..50000), collect:  @date_than, fat:  @fat , protein: @protein  ,lactose: @lactose  , totalsolids: @totalsolids  , defattedextract: @defattedextract  , css: @css  , scorecss: @scorecss  , ufc: @ufc })
 	end
 end
@@ -293,6 +294,7 @@ puts Feed.create({kind: 5, name: "Sorgo (Grãos)"})
 puts Feed.create({kind: 5, name: "Suplementos Minerais"})
 puts Feed.create({kind: 5, name: "Trigo (Farelo)"})
 puts Feed.create({kind: 5, name: "Uréia"})
+@feeds = Feed.all
 
 
 puts "Generates Bin"
@@ -301,8 +303,47 @@ puts "Generates Bin"
 	@date_than = Time.now - 1.year
 	@amount=rand(3..10)
 	3.times do |a|
-		@amount = @amount + rand(-30..30)
+		@amount = @amount + rand(1..30)
 		@date_than = @date_than + 3.days
 		puts Bin.create({ capacity: @amount , kind: rand(1..5), property_id: p.id})
+	end
+end
+
+puts "Generates Stock"
+
+@property.each do |p|
+	@bins = Bin.where(property_id: p.id)
+
+	@bins.each do |b|
+		puts Stock.create({ 
+        feed_id: @feeds.sample.id,
+         bin_id: b.id,
+    fournisseur: "André Luiz",
+         amount: rand(1..5),
+         density: rand(1..5),
+      datestock: today,
+      datestart: nil,
+        dateend: nil,
+})
+	end
+end
+@stocks = Stock.all
+
+puts "Generates Diet"
+
+@animais.each do |animal|
+		@amount=rand(15..25)
+	6.times do |a|
+		@date = Time.now 
+		@date_than = @date - a.months
+		@amount = @amount + rand(-3..10)
+		puts Diet.create({ 
+        amount: 50,
+     datestart: today,
+       dateend: nil,
+     animal_id: animal.id,
+      stock_id: @stocks.sample.id,
+
+			})
 	end
 end

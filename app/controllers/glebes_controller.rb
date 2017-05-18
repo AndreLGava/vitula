@@ -43,7 +43,6 @@ class GlebesController < ApplicationController
   # PATCH/PUT /glebes/1.json
   def update
     set_data
-
     respond_to do |format|
       if @glebe.update(glebe_params)
         format.js { render 'properties/property_glebes', property: @property, glebes: @glebes}

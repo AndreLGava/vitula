@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
   has_many :analyses, through: :properties
   has_many :employees, through: :properties
   has_many :animals, dependent: :destroy
+  has_many :bins, through: :properties
+  has_many :glebes, through: :properties
+
+  def has_property?
+    self.properties.empty? ? false : true
+  end
 
 
   def user_params
@@ -23,8 +29,8 @@ class User < ActiveRecord::Base
 
   def set_data_shipment
     shipment = {}
-    shipment['date']                   = self.shipments.map(&:date).map(&:to_date).map(&:to_s).reverse
-    shipment['amount']                 = self.shipments.map(&:amount).map(&:to_f).reverse
+    shipment['date']                       = self.shipments.map(&:date).map(&:to_date).map(&:to_s)
+    shipment['amount']                     = self.shipments.map(&:amount).map(&:to_f)
     return shipment
   end
 
@@ -41,15 +47,15 @@ class User < ActiveRecord::Base
 
   def set_data_analyses
     analysis = {}
-    analysis['collect']                = self.analyses.map(&:collect).map(&:to_s).reverse
-    analysis['fat']                    = self.analyses.map(&:fat).map(&:to_f).reverse
-    analysis['protein']                = self.analyses.map(&:protein).map(&:to_f).reverse
-    analysis['lactose']                = self.analyses.map(&:lactose).map(&:to_f).reverse
-    analysis['totalsolids']            = self.analyses.map(&:totalsolids).map(&:to_f).reverse
-    analysis['defattedextract']        = self.analyses.map(&:defattedextract).map(&:to_f).reverse
-    analysis['css']                    = self.analyses.map(&:css).map(&:to_f).reverse
-    analysis['scorecss']               = self.analyses.map(&:scorecss).map(&:to_f).reverse
-    analysis['ufc']                    = self.analyses.map(&:ufc).map(&:to_f).reverse
+    analysis['collect']                    = self.analyses.map(&:collect).map(&:to_s)
+    analysis['fat']                        = self.analyses.map(&:fat).map(&:to_f)
+    analysis['protein']                    = self.analyses.map(&:protein).map(&:to_f)
+    analysis['lactose']                    = self.analyses.map(&:lactose).map(&:to_f)
+    analysis['totalsolids']                = self.analyses.map(&:totalsolids).map(&:to_f)
+    analysis['defattedextract']            = self.analyses.map(&:defattedextract).map(&:to_f)
+    analysis['css']                        = self.analyses.map(&:css).map(&:to_f)
+    analysis['scorecss']                   = self.analyses.map(&:scorecss).map(&:to_f)
+    analysis['ufc']                        = self.analyses.map(&:ufc).map(&:to_f)
     return analysis
   end
 

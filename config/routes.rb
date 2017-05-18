@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   resources :diets
   resources :stocks
+  resources :pasteurs
   resources :feeds
   resources :bins
   resources :analyses
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   get 'animal_development'  , to: 'animals#animal_development'     , as: :animal_development
   get 'animal_reproduction' , to: 'animals#animal_reproduction'    , as: :animal_reproduction
   get 'animal_illness'      , to: 'animals#animal_illness'         , as: :animal_illness
+  get 'animal_diet'         , to: 'animals#animal_diet'            , as: :animal_diet
   get 'property_glebes'     , to: 'properties#property_glebes'     , as: :property_glebes
   get 'property_employees'  , to: 'properties#property_employees'  , as: :property_employees
   get 'descartados'         , to: 'animals#descartados'            , as: :descartados
