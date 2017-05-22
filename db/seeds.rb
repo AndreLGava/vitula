@@ -170,9 +170,9 @@ puts "Generates Shipments"
 
 @property.each do |p|
 	@date_than = Time.now - 1.year
-	@amount=rand(350..500)
+	@amount=rand(550..900)
 	210.times do |a|
-		@amount = @amount + rand(-30..30)
+		@amount = @amount + rand(-20..30)
 		@date_than = @date_than + 3.days
 		puts Shipment.create({ amount: @amount , date: @date_than, property_id: p.id})
 	end

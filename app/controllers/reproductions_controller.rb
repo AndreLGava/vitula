@@ -8,9 +8,19 @@ class ReproductionsController < ApplicationController
     @mother = Animal.find(params[:mother_id])
     @reproduction = @mother.reproductions_as_mother.new
     @reproduction.animals.build
+    if @mother.reproductions.empty?
+      @p_heat = @mother.reproduction.born + 19.months  unless @mother.reproduction.nil?
+    else
+      @p_heat = @mother.reproductions.last.parturition + 21.days unless @mother.reproductions.last.parturition.nil?
+    end
   end
 
   def edit
+    @heat = @reproduction.heat
+    @insemination = @reproduction.insemination
+    @p_insemination = @heat + 1.day
+    @p_stop_breastfeeding = @insemination + 214.days unless @insemination.nil?
+    @p_parturition = @insemination + 274.days unless @insemination.nil?
   end
 
   def create
@@ -22,7 +32,7 @@ class ReproductionsController < ApplicationController
 
     respond_to do |format|
       if @reproduction.save
-        if !reproduction_params[:parturition].nil?
+        unless reproduction_params[:parturition].empty?
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
           format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
@@ -42,7 +52,7 @@ class ReproductionsController < ApplicationController
 
     respond_to do |format|
       if @reproduction.update(reproduction_params)
-        if reproduction_params[:parturition].nil?
+        if reproduction_params[:parturition].empty?
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
           format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
@@ -55,6 +65,7 @@ class ReproductionsController < ApplicationController
   end
 
   private
+
     def set_reproduction
       @reproduction = Reproduction.find(params[:id])
     end

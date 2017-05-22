@@ -17,11 +17,11 @@ class Notification < ActiveRecord::Base
     @notification.save
   end
 
-  def verify_heat
-  	@users = User.all.where(last_sign_in_at: @login )
+  def self.verify_heat
+  	@users = User.all
 
   	@users.each do |user|
-  		@animals = Animal.parturition(user, @heat)
+  		@animals = Animal.parturition(user, Time.now)
 
   		@animals.each do |animal|
   			Notification.create(title: I18n.t('activerecord.models.notify_heat_title', :animal_name => "#{animal.name}") , description: I18n.t('activerecord.models.notify_heat_description', :animal_name => "#{animal.name}", :animal_code => "#{animal.code}", :user_name => "#{user.name}"), limit: @limit, user_id: user.id)
@@ -29,11 +29,23 @@ class Notification < ActiveRecord::Base
   	end
   end
 
-   def verify_parturition
-  	@users = User.all.where(last_sign_in_at: @login )
+  def self.verify_stop
+    @users = User.all
+
+    @users.each do |user|
+      @animals = Animal.stop(user, Time.now)
+
+      @animals.each do |animal|
+        Notification.create(title: I18n.t('activerecord.models.notify_stop_title', :animal_name => "#{animal.name}") , description: I18n.t('activerecord.models.notify_stop_description', :animal_name => "#{animal.name}", :animal_code => "#{animal.code}", :user_name => "#{user.name}"), limit: @limit, user_id: user.id)
+      end
+    end
+  end
+
+   def self.verify_parturition
+  	@users = User.all
 
   	@users.each do |user|
-  		@animals = Animal.parturition(user, @parturition)
+  		@animals = Animal.parturition(user, Time.now)
 
   		@animals.each do |animal|
   			Notification.create(title: I18n.t('activerecord.models.notify_parturition_title', :animal_name => "#{animal.name}") , description: I18n.t('activerecord.models.notify_parturition_description', :animal_name => "#{animal.name}", :animal_code => "#{animal.code}", :user_name => "#{user.name}"), limit: @limit, user_id: user.id)

@@ -33,7 +33,14 @@ Rails.application.routes.draw do
   get 'property_glebes'     , to: 'properties#property_glebes'     , as: :property_glebes
   get 'property_employees'  , to: 'properties#property_employees'  , as: :property_employees
   get 'descartados'         , to: 'animals#descartados'            , as: :descartados
+  get 'stopped'             , to: 'animals#stopped'                , as: :stopped
   get 'all_animals'         , to: 'animals#all_animals'            , as: :all_animals
+
+  #PDF
+  get "pdf", to: "relatorios#pdf", as: :pdf
+
+  #XLS
+  get "excel", to: "excel#excel", as: :excel
   
   devise_for :users, controllers: { sessions: 'users/sessions' }
 

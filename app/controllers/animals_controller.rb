@@ -13,7 +13,11 @@ class AnimalsController < ApplicationController
   end
 
   def descartados
-    @animals = Animal.descartados(current_user, params[:page])
+    @animals = Animal.descartados(current_user)
+  end
+
+  def stopped
+    @animals = Animal.stopped(current_user)
   end
 
   def show

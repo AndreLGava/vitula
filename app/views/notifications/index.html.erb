@@ -9,6 +9,7 @@
     <% end %>
       <%= notification.title %> <%= link_to '', notification, class: "fa fa-trash btn btn-danger btn-sm btn-outline btn-round-sm pull-right", method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') } %>
       <%= link_to '', show_notification_path(id: notification), remote: true, class: "fa fa-envelope btn btn-info btn-outline btn-sm pull-right btn-round-sm " %>
+      <div class="clearfix"></div>
     </li>
     <% end %>
   </ul>

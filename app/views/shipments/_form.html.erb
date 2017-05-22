@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :amount, as: :normal, before: "L" %>
-    <%= f.input :date, as: :date_picker %>
+    <%= f.input :date, as: :date_picker, before: "#{Time.now.to_date}"%>
     <%= f.association :property, :collection => @property, :label_method => :name, :value_method => :id, include_blank: false %>
   </div>
 

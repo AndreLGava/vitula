@@ -8,7 +8,9 @@ class DatePickerInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge({class: 'form-control datepicker', readonly: false})
+    value = options[:before]
+    value = "00/00/0000" if value.nil?
+    super.merge({class: 'form-control datepicker', readonly: false, placeholder: "#{value}"})
   end
 
   def span_remove

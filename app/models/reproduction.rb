@@ -12,6 +12,11 @@ class Reproduction < ActiveRecord::Base
   validates :mother, presence: true
   validates :heat, presence: true
   validate  :is_father?
+  validate  :insemination?
+  validate  :parturition?
+  validate  :first_reproduction?, on: :create
+  validate  :can_reproduce?, on: :create
+
 
   @@first_heat = 19.months #moths after her birth
   @@heat = 21.days #days after parturition or abortion
@@ -20,37 +25,60 @@ class Reproduction < ActiveRecord::Base
   @@stop_breastfeeding = 214.days #days after insemination 60 days before partturition
   @@parturition = 274.days #days +- 7 days [267 , 282] after last insemination
 
+  def can_reproduce?
+    unless Animal.find(self.mother_id).reproduction.empty?
+      born = Animal.find(self.mother_id).reproduction
+      binding.pry
+      if born.age < 19.months
+        errors.add(:insemination, I18n.t('activerecord.models.born'))
+      end
+    end
+  end
+
+  def parturition?
+    if self.insemination.nil? and self.parturition.nil?
+      days_aftera = self.insemination + 6.months
+      days_afterb = self.insemination + 10.months
+      binding.pry
+
+      if self.parturition < days_aftera or self.parturition > days_afterb
+        errors.add(:parturition, I18n.t('activerecord.models.parturition'))
+      end
+    end
+  end
+
+  def insemination?
+    days_after = self.heat + 2.days unless self.heat.nil?
+    unless self.insemination.nil?
+      if self.insemination > days_after 
+        errors.add(:insemination, I18n.t('activerecord.models.insemination'))
+      end
+    end
+  end
+
+  def first_reproduction?
+    unless Animal.find(self.mother_id).reproductions.empty?
+      reproduction = Animal.find(self.mother_id).reproductions.last
+      unless reproduction.parturition.nil?
+        if self.heat < reproduction.parturition
+          errors.add(:heat, I18n.t('activerecord.models.heat'))
+        end
+      end
+    end
+  end
+
   def age
 	  unless parturition.nil?
-		  now = Time.now
-		  parturit = parturition
+		  now = Time.now.to_datetime
+		  parturit = self.parturition.to_datetime
 		  distance_of_time_in_words(now, parturit, true)
 		end
 	end
 
-  def first_heat
-    animal_age = parturition + 15.months
-    puts animal_age
-    animal_age == Time.now
-  end
-
-  def find_heat
-    animal_time = [regress , abortion , parturition].compact
-    animal_time = animal_time[0] + 18.days
-    puts animal_time
-    animal_time == Time.now
-  end
-
-  def set_breast_feeding
-    stopping_lactation = insemination + 214.days
-    puts stopping_lactation
-    stopping_lactation == Time.now
-  end
-
-  def set_parturition
-    animal_parturition = insemination + 274.days
-    puts animal_parturition
-    animal_parturition == Time.now
+  def born
+    unless parturition.nil?
+      parturition
+    end
   end
 
   def last_reproduction_active?

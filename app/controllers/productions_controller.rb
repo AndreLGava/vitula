@@ -6,7 +6,7 @@ class ProductionsController < ApplicationController
   # GET /productions
   # GET /productions.json
   def index
-    @productions = Production.all.page params[:page]
+    @animals = Animal.femeas(current_user)
   end
 
   # GET /productions/1

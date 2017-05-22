@@ -3,6 +3,10 @@ pt-BR:
     models:
       reproduction: Reprodução
       is_father: O animal usado como macho para esta reprodução é pai da femea que está para ser inseminada, cuidado com a consanquinidade!
+      heat: A data de cio é menor do que o tempo da último parto.
+      insemination: A data de inseminação é maior do que dois dias após o cio, o animal não ficará coberto.
+      parturition: A data de parto é inferior a 6 meses ou superior a 10 meses, este animal foi abortado! Preencha o campo da data de aborto.
+      born: Este animal possui idade inferior a 18 meses, insemina-la poderá trazer riscos a sua saúde.
     attributes:
       reproduction:
         reproduction: Reprodução

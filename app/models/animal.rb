@@ -27,10 +27,12 @@ class Animal < ActiveRecord::Base
   enum breed: {Holandes: 1, Jersey: 2, Gir: 3, Nelore: 4}
 
   scope :animais,       -> (current_user, params) {select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where(user_id: current_user.id, discard: nil).where.not(donor: true).order(id: :desc).page params}
-  scope :descartados,   -> (current_user, params) {select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where("animals.user_id = ? and discard is not null", current_user.id).order(id: :desc).page params}
+  scope :descartados,   -> (current_user) {select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where("animals.user_id = ? and discard is not null", current_user.id).order(id: :desc)}
   scope :machos,        -> (current_user)         { where(female: false, discard: nil, user_id: current_user.id) }
   scope :femeas,        -> (current_user)         { where(female: true, discard: nil, user_id: current_user.id ) }
-  scope :parturition,   -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination = ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date ).where(discard: nil, user_id: current_user.id) }
+  scope :parturition,   -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination between ? and ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date.beginning_of_week - 274.days, date.end_of_week - 274.days).where(discard: nil, user_id: current_user.id) }
+  scope :stopped,       -> (current_user)         { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.abortion IS NULL and reproductions.regress IS NULL and reproductions.stop_breastfeeding IS NOT NULL and reproductions.parturition IS NULL ").where(discard: nil, user_id: current_user.id) }
+  scope :stop,          -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination between ? and ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date.beginning_of_week - 214.days, date.end_of_week - 214.days).where(discard: nil, user_id: current_user.id) }
   scope :heat,          -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination = ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date ).where(discard: nil, user_id: current_user.id) }
 
 
@@ -41,6 +43,11 @@ class Animal < ActiveRecord::Base
   def average_month(date)
     all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_month, date.end_of_month)
     return all_of_them.empty? ? 0 : all_of_them.average(:amount)
+  end
+
+  def average_year_total(date)
+    all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_year, date.end_of_year)
+    return all_of_them.empty? ? 0 : all_of_them.sum(:amount)/12
   end
 
   def average_year
@@ -76,9 +83,9 @@ class Animal < ActiveRecord::Base
 
   def animal_development
     development = {}
-    development['created']                 = self.developments.select(:created_at).map(&:created_at).map(&:to_s).uniq
-    development['height']                  = self.developments.select(:height).map(&:height).uniq
-    development['weight']                  = self.developments.select(:weight).map(&:weight).uniq
+    development['created']                 = self.developments.select(:created_at).map(&:created_at).map(&:to_date).map(&:to_s).uniq.reverse
+    development['height']                  = self.developments.select(:height).map(&:height).uniq.reverse
+    development['weight']                  = self.developments.select(:weight).map(&:weight).uniq.reverse
     return development
   end
 

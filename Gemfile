@@ -104,6 +104,14 @@ gem 'bootstrap-generators', '~> 3.3.4'
 #Jobs
 gem 'sidekiq'
 
+#export PDF
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
+#export XLS
+gem 'axlsx', '~> 2.0'
+gem "axlsx_rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

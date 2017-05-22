@@ -6,6 +6,8 @@ pt-BR:
       shipment:
         shipment: Carregamento de leite
         shipments: Carregamentos de leite
+        this_month: Carregamentos de leite para este mês
         amount: Quantidade
         date: Data de carregamento
+        total: Total
         property: Propriedade
