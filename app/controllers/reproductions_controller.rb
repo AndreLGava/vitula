@@ -32,7 +32,7 @@ class ReproductionsController < ApplicationController
 
     respond_to do |format|
       if @reproduction.save
-        unless reproduction_params[:parturition].empty?
+        if @reproduction.parturition.nil?
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
           format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }
@@ -52,7 +52,7 @@ class ReproductionsController < ApplicationController
 
     respond_to do |format|
       if @reproduction.update(reproduction_params)
-        if reproduction_params[:parturition].empty?
+        if @reproduction.parturition.nil?
           format.js { render 'reproduction', animal: @animal, reproductions: @reproductions }
         else
           format.js { render js: "window.location='#{new_animal_url(reproduction: @reproduction)}'" }

@@ -23,6 +23,7 @@
 			  	<% else %>
 		      		<td><%= Reproduction.human_attribute_name(:mother)%></td>
 				  <% end %>
+		      <td width="20%"></td>
         <td></td>
         <td></td>
 			</tr>
@@ -39,6 +40,13 @@
 					<% else %>
 						<td><%= r.mother.name unless r.mother.nil? %></td>
 					<% end %>
+					<td>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-striped  <%= r.last_reproduction_active? ? 'active'.html_safe : '' %>" role="progressbar" aria-valuenow="<%= r.percent %>" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: <%= r.percent %>%">
+						    <%= r.percent %>%
+						  </div>
+						</div>
+					</td>
 		          <td>
 		            <%= link_to reproduction_path(r), remote: true, class: "btn btn-sm btn-primary" do %>
 		              <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>

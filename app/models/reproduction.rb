@@ -3,6 +3,7 @@ class Reproduction < ActiveRecord::Base
   has_paper_trail
   
   include ActionView::Helpers::DateHelper
+  require 'time'
 
   has_many :animals
 
@@ -12,11 +13,10 @@ class Reproduction < ActiveRecord::Base
   validates :mother, presence: true
   validates :heat, presence: true
   validate  :is_father?
-  validate  :insemination?
+  validate  :age_of_reproduction, on: :create
+  validate  :is_active?, on: :create
   validate  :parturition?
-  validate  :first_reproduction?, on: :create
-  validate  :can_reproduce?, on: :create
-
+  validate  :insemination?
 
   @@first_heat = 19.months #moths after her birth
   @@heat = 21.days #days after parturition or abortion
@@ -25,21 +25,58 @@ class Reproduction < ActiveRecord::Base
   @@stop_breastfeeding = 214.days #days after insemination 60 days before partturition
   @@parturition = 274.days #days +- 7 days [267 , 282] after last insemination
 
-  def can_reproduce?
-    unless Animal.find(self.mother_id).reproduction.empty?
-      born = Animal.find(self.mother_id).reproduction
-      binding.pry
-      if born.age < 19.months
-        errors.add(:insemination, I18n.t('activerecord.models.born'))
+  def age_of_reproduction
+    animal = Animal.find(self.mother_id)
+    errors.add(:insemination, I18n.t('activerecord.models.born')) unless animal.is_adult?
+  end
+
+  def  is_active?
+    animal = Animal.find(self.mother_id)
+    unless animal.reproductions.empty?
+      errors.add(:insemination, I18n.t('activerecord.models.reproduction_false')) if animal.reproductions.last.last_reproduction_active?
+    end
+  end
+
+  def reproduction?
+    animal = Animal.find(self.mother_id)
+    if animal.is_adult?
+      if animal.reproductions.empty?
+        true
+      else
+        if animal.reproductions.last.last_reproduction_active?
+          errors.add(:insemination, I18n.t('activerecord.models.reproduction_false'))
+        else
+          true
+        end
       end
+    else
+      errors.add(:insemination, I18n.t('activerecord.models.born'))
+    end
+  end
+
+  def percent
+    if self.insemination.nil?
+      return 0
+    else
+      insemination = self.insemination
+      today = Time.now.to_date
+      dias = today - insemination
+      valor = ((100*dias)/274).to_i
+      return  valor < 100 ? valor : 100 
+    end
+  end
+
+  def can_reproduce?
+    animal = Animal.find(self.mother_id)
+    unless animal.reproduction.nil?
+     animal.is_adult? ? true : errors.add(:insemination, I18n.t('activerecord.models.born'))
     end
   end
 
   def parturition?
-    if self.insemination.nil? and self.parturition.nil?
+    unless self.parturition.nil?
       days_aftera = self.insemination + 6.months
       days_afterb = self.insemination + 10.months
-      binding.pry
 
       if self.parturition < days_aftera or self.parturition > days_afterb
         errors.add(:parturition, I18n.t('activerecord.models.parturition'))
@@ -52,17 +89,6 @@ class Reproduction < ActiveRecord::Base
     unless self.insemination.nil?
       if self.insemination > days_after 
         errors.add(:insemination, I18n.t('activerecord.models.insemination'))
-      end
-    end
-  end
-
-  def first_reproduction?
-    unless Animal.find(self.mother_id).reproductions.empty?
-      reproduction = Animal.find(self.mother_id).reproductions.last
-      unless reproduction.parturition.nil?
-        if self.heat < reproduction.parturition
-          errors.add(:heat, I18n.t('activerecord.models.heat'))
-        end
       end
     end
   end
@@ -82,7 +108,19 @@ class Reproduction < ActiveRecord::Base
   end
 
   def last_reproduction_active?
-     return self.regress.nil? && self.abortion.nil? && self.parturition.nil? ? true : false
+    if self.regress.nil? 
+      if self.abortion.nil?
+        if self.parturition.nil? 
+          true
+        else
+          false
+        end
+      else
+        false
+      end
+    else
+      false
+    end
   end
 
   def is_father?

@@ -25,7 +25,12 @@ class AnimalsController < ApplicationController
 
   def new
     @reproduction = Reproduction.all
-    @animal = Animal.new
+    if params[:reproduction].nil?
+      @animal = Animal.new
+    else
+      @set_reproduction = Reproduction.find(params[:reproduction])
+      @animal = Animal.new(reproduction: @set_reproduction)
+    end
     @animal.productions.build
     @animal.developments.build
     @animal.illnesses.build

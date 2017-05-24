@@ -36,6 +36,16 @@ class Animal < ActiveRecord::Base
   scope :heat,          -> (current_user, date)   { joins('INNER JOIN "reproductions" ON "reproductions"."mother_id" = "animals"."id"').where("reproductions.insemination = ? and reproductions.abortion IS NULL and reproductions.regress IS NULL", date ).where(discard: nil, user_id: current_user.id) }
 
 
+  def is_adult?
+    if self.reproduction.nil?
+      true
+    else
+      born = self.reproduction.parturition
+      today = Time.now.to_date - 19.months
+      today < born ? true : false    
+    end
+  end
+
   def reproductions
     Reproduction.where('mother_id = ? or father_id = ?', id, id)
   end
@@ -101,12 +111,23 @@ class Animal < ActiveRecord::Base
   end
 
   def can_reproduce?
-    if !self.reproductions.nil?
-      return true
-    elsif self.discard.nil? && self.female == true && !self.reproductions.last.last_reproduction_active?
-      return true
+    animal = self
+    if animal.female?
+      if animal.is_adult?
+        if animal.reproductions.empty?
+          true
+        else
+          if animal.reproductions.last.last_reproduction_active?
+            false
+          else
+            true
+          end
+        end
+      else
+        false
+      end
     else
-      return false
+      false
     end
   end
 end
