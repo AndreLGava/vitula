@@ -1,0 +1,48 @@
+<% breadcrumb :events %>
+<div class="page-header">
+  <%= link_to new_event_path, class: 'btn btn-primary pull-right' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('crud.new') %>
+  <% end %>
+  <h3><%= Event.human_attribute_name(:events)%></h3>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Repeat</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @events) do |event| %>
+            <td><%= event.name %></td>
+            <td><%= event.description %></td>
+            <td><%= event.repeat %></td>
+            <td>
+          <%= link_to event, class: 'btn btn-sm btn-primary' do %>
+            <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_event_path(event), class: 'btn btn-sm btn-default' do %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to event, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+          <% end %>      
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @events %>
+<br>

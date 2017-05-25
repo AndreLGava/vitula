@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :bins, through: :properties
   has_many :glebes, through: :properties
 
+
   def has_property?
     self.properties.empty? ? false : true
   end

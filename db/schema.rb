@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410122532) do
+ActiveRecord::Schema.define(version: 20170525011432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,30 @@ ActiveRecord::Schema.define(version: 20170410122532) do
   add_index "animals", ["property_id"], name: "index_animals_on_property_id", using: :btree
   add_index "animals", ["reproduction_id"], name: "index_animals_on_reproduction_id", using: :btree
   add_index "animals", ["user_id"], name: "index_animals_on_user_id", using: :btree
+
+  create_table "batchanimals", force: :cascade do |t|
+    t.integer  "animal_id"
+    t.integer  "batch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "batchanimals", ["animal_id"], name: "index_batchanimals_on_animal_id", using: :btree
+  add_index "batchanimals", ["batch_id"], name: "index_batchanimals_on_batch_id", using: :btree
+
+  create_table "batches", force: :cascade do |t|
+    t.string   "name"
+    t.text     "observation"
+    t.integer  "type"
+    t.date     "formation"
+    t.integer  "glebe_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "batches", ["glebe_id"], name: "index_batches_on_glebe_id", using: :btree
+  add_index "batches", ["user_id"], name: "index_batches_on_user_id", using: :btree
 
   create_table "bins", force: :cascade do |t|
     t.decimal  "capacity",    precision: 8, scale: 4
@@ -145,6 +169,17 @@ ActiveRecord::Schema.define(version: 20170410122532) do
 
   add_index "employees", ["property_id"], name: "index_employees_on_property_id", using: :btree
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "repeat"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
   create_table "feeds", force: :cascade do |t|
     t.integer  "kind"
     t.string   "name"
@@ -152,6 +187,34 @@ ActiveRecord::Schema.define(version: 20170410122532) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "financials", force: :cascade do |t|
+    t.decimal  "value",           precision: 7, scale: 2
+    t.datetime "datetransaction"
+    t.integer  "operation"
+    t.text     "description"
+    t.integer  "animal_id"
+    t.integer  "service_id"
+    t.integer  "employee_id"
+    t.integer  "reproduction_id"
+    t.integer  "stock_id"
+    t.integer  "treatment_id"
+    t.integer  "shipment_id"
+    t.integer  "schedule_id"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "user_id"
+  end
+
+  add_index "financials", ["animal_id"], name: "index_financials_on_animal_id", using: :btree
+  add_index "financials", ["employee_id"], name: "index_financials_on_employee_id", using: :btree
+  add_index "financials", ["reproduction_id"], name: "index_financials_on_reproduction_id", using: :btree
+  add_index "financials", ["schedule_id"], name: "index_financials_on_schedule_id", using: :btree
+  add_index "financials", ["service_id"], name: "index_financials_on_service_id", using: :btree
+  add_index "financials", ["shipment_id"], name: "index_financials_on_shipment_id", using: :btree
+  add_index "financials", ["stock_id"], name: "index_financials_on_stock_id", using: :btree
+  add_index "financials", ["treatment_id"], name: "index_financials_on_treatment_id", using: :btree
+  add_index "financials", ["user_id"], name: "index_financials_on_user_id", using: :btree
 
   create_table "glebes", force: :cascade do |t|
     t.string   "name"
@@ -251,6 +314,33 @@ ActiveRecord::Schema.define(version: 20170410122532) do
     t.integer  "mother_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "batch_id"
+    t.datetime "datestart"
+    t.datetime "dateend"
+    t.text     "observation"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "schedules", ["batch_id"], name: "index_schedules_on_batch_id", using: :btree
+  add_index "schedules", ["event_id"], name: "index_schedules_on_event_id", using: :btree
+  add_index "schedules", ["user_id"], name: "index_schedules_on_user_id", using: :btree
+
+  create_table "services", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "goal"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "services", ["property_id"], name: "index_services_on_property_id", using: :btree
+  add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
+
   create_table "shipments", force: :cascade do |t|
     t.decimal  "amount",      precision: 8, scale: 4
     t.datetime "date"
@@ -343,11 +433,25 @@ ActiveRecord::Schema.define(version: 20170410122532) do
   add_foreign_key "animals", "properties"
   add_foreign_key "animals", "reproductions"
   add_foreign_key "animals", "users"
+  add_foreign_key "batchanimals", "animals"
+  add_foreign_key "batchanimals", "batches"
+  add_foreign_key "batches", "glebes"
+  add_foreign_key "batches", "users"
   add_foreign_key "bins", "properties"
   add_foreign_key "developments", "animals"
   add_foreign_key "diets", "animals"
   add_foreign_key "diets", "stocks"
   add_foreign_key "employees", "properties"
+  add_foreign_key "events", "users"
+  add_foreign_key "financials", "animals"
+  add_foreign_key "financials", "employees"
+  add_foreign_key "financials", "reproductions"
+  add_foreign_key "financials", "schedules"
+  add_foreign_key "financials", "services"
+  add_foreign_key "financials", "shipments"
+  add_foreign_key "financials", "stocks"
+  add_foreign_key "financials", "treatments"
+  add_foreign_key "financials", "users"
   add_foreign_key "glebes", "properties"
   add_foreign_key "illnesses", "animals"
   add_foreign_key "illnesses", "diseases"
@@ -355,6 +459,11 @@ ActiveRecord::Schema.define(version: 20170410122532) do
   add_foreign_key "notifications", "users"
   add_foreign_key "productions", "animals"
   add_foreign_key "properties", "users"
+  add_foreign_key "schedules", "batches"
+  add_foreign_key "schedules", "events"
+  add_foreign_key "schedules", "users"
+  add_foreign_key "services", "properties"
+  add_foreign_key "services", "users"
   add_foreign_key "shipments", "properties"
   add_foreign_key "stocks", "bins"
   add_foreign_key "stocks", "feeds"

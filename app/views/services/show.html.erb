@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to services_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_service_path(@service), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> service</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Provider:</strong>
+      <%= @service.provider %>
+    </li>
+    <li class="list-group-item">
+      <strong>Goal:</strong>
+      <%= @service.goal %>
+    </li>
+    <li class="list-group-item">
+      <strong>Property:</strong>
+      <%= @service.property %>
+    </li>
+  </ul>
+</div>

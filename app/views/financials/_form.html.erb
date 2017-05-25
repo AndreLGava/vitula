@@ -1,0 +1,23 @@
+<%= simple_form_for(@financial) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value, as: :rs %>
+    <%= f.input :datetransaction, as: :date_picker, before: Time.now.to_date %>
+    <%= f.input :operation, collection: Financial.operations.keys, as: :select, allow_blank: false %>
+    <%= f.input :description %>
+    <%= f.association :animal %>
+    <%= f.association :service %>
+    <%= f.association :employee %>
+    <%= f.association :reproduction %>
+    <%= f.association :stock %>
+    <%= f.association :treatment %>
+    <%= f.association :shipment %>
+    <%= f.association :schedule %>
+    <%= f.association :service %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

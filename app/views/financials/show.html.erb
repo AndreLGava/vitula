@@ -1,0 +1,67 @@
+<div class="page-header">
+  <%= link_to financials_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_financial_path(@financial), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> financial</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Value:</strong>
+      <%= @financial.value %>
+    </li>
+    <li class="list-group-item">
+      <strong>Datetransaction:</strong>
+      <%= @financial.datetransaction %>
+    </li>
+    <li class="list-group-item">
+      <strong>Operation:</strong>
+      <%= @financial.operation %>
+    </li>
+    <li class="list-group-item">
+      <strong>Description:</strong>
+      <%= @financial.description %>
+    </li>
+    <li class="list-group-item">
+      <strong>Animal:</strong>
+      <%= @financial.animal %>
+    </li>
+    <li class="list-group-item">
+      <strong>Service:</strong>
+      <%= @financial.service %>
+    </li>
+    <li class="list-group-item">
+      <strong>Employee:</strong>
+      <%= @financial.employee %>
+    </li>
+    <li class="list-group-item">
+      <strong>Reproduction:</strong>
+      <%= @financial.reproduction %>
+    </li>
+    <li class="list-group-item">
+      <strong>Stock:</strong>
+      <%= @financial.stock %>
+    </li>
+    <li class="list-group-item">
+      <strong>Treatment:</strong>
+      <%= @financial.treatment %>
+    </li>
+    <li class="list-group-item">
+      <strong>Shipment:</strong>
+      <%= @financial.shipment %>
+    </li>
+    <li class="list-group-item">
+      <strong>Schedule:</strong>
+      <%= @financial.schedule %>
+    </li>
+    <li class="list-group-item">
+      <strong>Service:</strong>
+      <%= @financial.service %>
+    </li>
+  </ul>
+</div>

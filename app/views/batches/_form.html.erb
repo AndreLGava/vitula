@@ -1,0 +1,15 @@
+<%= simple_form_for(@batch) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :observation %>
+    <%= f.input :type %>
+    <%= f.input :formation %>
+    <%= f.association :glebe %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

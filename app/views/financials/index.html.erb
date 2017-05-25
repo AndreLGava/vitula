@@ -1,0 +1,68 @@
+<% breadcrumb :financials %>
+<div class="page-header">
+  <%= link_to new_financial_path, class: 'btn btn-primary pull-right' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('crud.new') %>
+  <% end %>
+  <h3><%= Financial.human_attribute_name(:financials)%></h3>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+            <th>Value</th>
+            <th>Datetransaction</th>
+            <th>Operation</th>
+            <th>Description</th>
+            <th>Animal</th>
+            <th>Service</th>
+            <th>Employee</th>
+            <th>Reproduction</th>
+            <th>Stock</th>
+            <th>Treatment</th>
+            <th>Shipment</th>
+            <th>Schedule</th>
+            <th>Service</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @financials) do |financial| %>
+            <td><%= financial.value %></td>
+            <td><%= financial.datetransaction %></td>
+            <td><%= financial.operation %></td>
+            <td><%= financial.description %></td>
+            <td><%= financial.animal %></td>
+            <td><%= financial.service %></td>
+            <td><%= financial.employee %></td>
+            <td><%= financial.reproduction %></td>
+            <td><%= financial.stock %></td>
+            <td><%= financial.treatment %></td>
+            <td><%= financial.shipment %></td>
+            <td><%= financial.schedule %></td>
+            <td><%= financial.service %></td>
+            <td>
+          <%= link_to financial, class: 'btn btn-sm btn-primary' do %>
+            <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_financial_path(financial), class: 'btn btn-sm btn-default' do %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to financial, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+          <% end %>      
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @financials %>
+<br>

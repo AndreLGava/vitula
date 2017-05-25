@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :financials
+  resources :schedules
+  resources :events
+  resources :batchanimals
+  resources :batches
+  resources :services  
   resources :diets
   resources :stocks
   resources :pasteurs

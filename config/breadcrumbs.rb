@@ -154,6 +154,61 @@ crumb :diet do |diet|
   link diet.name, diet
   parent :diets
 end
+
+crumb :financials do 
+  link 'financials', financials_path
+end
+
+crumb :financial do |financial|
+  link financial.name, financial
+  parent :financials
+end
+
+crumb :schedules do 
+  link 'schedules', schedules
+end
+
+crumb :schedule do |schedule|
+  link schedule.name, schedule
+  parent :schedules
+end
+
+crumb :events do 
+  link 'events', events
+end
+
+crumb :event do |event|
+  link event.name, event
+  parent :events
+end
+
+crumb :batchanimals do 
+  link 'batchanimals', batchanimals
+end
+
+crumb :batchanimal do |batchanimal|
+  link batchanimal, batchanimal
+  parent :batchanimals
+end
+
+crumb :batches do 
+  link 'batches', batches
+end
+
+crumb :batch do |batch|
+  link batch.name, batch
+  parent :batches
+end
+
+crumb :services do 
+  link 'services', services
+end
+
+crumb :service do |service|
+  link service.goal, service
+  parent :services
+end
+
   
 
 

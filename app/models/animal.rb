@@ -52,12 +52,12 @@ class Animal < ActiveRecord::Base
 
   def average_month(date)
     all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_month, date.end_of_month)
-    return all_of_them.empty? ? 0 : all_of_them.average(:amount)
+    return all_of_them.empty? ? 0 : all_of_them.average(:amount).round(2)
   end
 
   def average_year_total(date)
     all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_year, date.end_of_year)
-    return all_of_them.empty? ? 0 : all_of_them.sum(:amount)/12
+    return all_of_them.empty? ? 0 : (all_of_them.sum(:amount)/12).round(2)
   end
 
   def average_year

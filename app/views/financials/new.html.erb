@@ -1,0 +1,9 @@
+<div class="page-header">
+  <%= link_to financials_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <h3><%= I18n.t('crud.creating') %> financial</h3>
+</div>
+
+<%= render 'form' %>

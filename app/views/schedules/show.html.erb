@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to schedules_path, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+  <%= link_to edit_schedule_path(@schedule), class: 'btn btn-primary' do %>
+    <span class="fa fa-pencil"></span>
+    <%= I18n.t('crud.edit') %>
+  <% end %>
+  <h3><%= I18n.t('crud.show') %> schedule</h3>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Event:</strong>
+      <%= @schedule.event %>
+    </li>
+    <li class="list-group-item">
+      <strong>Batch:</strong>
+      <%= @schedule.batch %>
+    </li>
+    <li class="list-group-item">
+      <strong>Datestart:</strong>
+      <%= @schedule.datestart %>
+    </li>
+    <li class="list-group-item">
+      <strong>Dateend:</strong>
+      <%= @schedule.dateend %>
+    </li>
+    <li class="list-group-item">
+      <strong>Observation:</strong>
+      <%= @schedule.observation %>
+    </li>
+  </ul>
+</div>

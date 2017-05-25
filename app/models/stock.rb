@@ -12,6 +12,7 @@ class Stock < ActiveRecord::Base
   belongs_to :glebe
 
   has_many :diets, dependent: :destroy
+  has_many :financials, dependent: :destroy
 
   def name
   	return "#{self.feed.name}"
