@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
@@ -21,7 +22,6 @@
 //= require papercrop
 //= require alertify
 //= require alertify/confirm-modal
-//= require bootstrap
 //= require_tree .
 //= require select2-full
 //= require highcharts
