@@ -28,4 +28,5 @@
 // to get the new features in 2.3.0:
 //= require highcharts/highcharts-more
 //=require jquery.mask.min.js
+//= require qtip2-jquery-rails
 

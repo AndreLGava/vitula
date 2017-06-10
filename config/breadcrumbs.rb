@@ -165,7 +165,7 @@ crumb :financial do |financial|
 end
 
 crumb :schedules do 
-  link 'schedules', schedules
+  link 'schedules', schedules_path
 end
 
 crumb :schedule do |schedule|
@@ -174,7 +174,7 @@ crumb :schedule do |schedule|
 end
 
 crumb :events do 
-  link 'events', events
+  link 'events', events_path
 end
 
 crumb :event do |event|
@@ -192,7 +192,7 @@ crumb :batchanimal do |batchanimal|
 end
 
 crumb :batches do 
-  link 'batches', batches
+  link 'batches', batches_path
 end
 
 crumb :batch do |batch|
@@ -201,7 +201,11 @@ crumb :batch do |batch|
 end
 
 crumb :services do 
-  link 'services', services
+  link 'services', services_path
+end
+
+crumb :feeds do
+  link Feed.human_attribute_name(:feeds), feeds_path
 end
 
 crumb :service do |service|

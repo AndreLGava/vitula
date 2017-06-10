@@ -5,7 +5,11 @@ class AnimalsController < ApplicationController
 
   def index
     redirect_to properties_path unless current_user.has_property?
-    @animals = Animal.animais(current_user, params[:page]) 
+    if params[:pesquisa]
+      @animals = Animal.animais(current_user, params[:page]).pesquisa(params[:pesquisa]) 
+    else
+      @animals = Animal.animais(current_user, params[:page]) 
+    end  
   end  
 
   def all_animals
@@ -35,6 +39,7 @@ class AnimalsController < ApplicationController
     @animal.developments.build
     @animal.illnesses.build
     @animal.diets.build
+    @animal.financials.build
   end
 
   def edit

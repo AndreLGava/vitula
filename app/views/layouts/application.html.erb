@@ -25,13 +25,15 @@
       <% end %>
     </div>
     <% if user_signed_in? %>
-     <form class="navbar-form navbar-left">
+      <%= form_tag(animals_path, method: :get, class: "navbar-form navbar-left") do %>
         <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Buscar">
-          <span class="input-group-btn">
-        <button type="submit" class="btn btn-danger"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <%= text_field_tag 'pesquisa', nil, placeholder: "Buscar", class: "form-control"%>
+            <span class="input-group-btn">
+        <%= button_tag(type: "submit", class: "btn btn-danger") do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
         </div>
-      </form>
+      <% end %>
     <% end %>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

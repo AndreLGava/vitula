@@ -8,6 +8,7 @@ class ReproductionsController < ApplicationController
     @mother = Animal.find(params[:mother_id])
     @reproduction = @mother.reproductions_as_mother.new
     @reproduction.animals.build
+    @reproduction.financials.build
     if @mother.reproductions.empty?
       @p_heat = @mother.reproduction.born + 19.months  unless @mother.reproduction.nil?
     else
@@ -68,6 +69,7 @@ class ReproductionsController < ApplicationController
 
     def set_reproduction
       @reproduction = Reproduction.find(params[:id])
+      @financials = @reproduction.financials
     end
 
     def set_father

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 
@@ -112,6 +113,9 @@ gem 'wicked_pdf'
 gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
 
+# qtip2 jquery plugin packaged for the rails asset pipeline
+gem 'qtip2-jquery-rails', '~> 2.2.100'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -164,3 +168,5 @@ group :development do
   gem 'pry'
 
 end
+
+ruby "2.3.1"

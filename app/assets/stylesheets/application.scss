@@ -13,8 +13,9 @@
  *= require devise_bootstrap_views
  *= require bootstrap-datepicker3
  *= require jquery.jcrop
-  *= require select2
+ *= require select2
  *= require select2-bootstrap
+ *= require qtip2-jquery-rails
  */
 
 @import "bootstrap-sprockets";

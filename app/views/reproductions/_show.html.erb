@@ -1,41 +1,53 @@
 <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:heat)%></strong>
-    <%= @reproduction.heat %>
-  </p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:heat)%></strong>
+        <%= @reproduction.heat %>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:insemination)%></strong>
-    <%= @reproduction.insemination %>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:insemination)%></strong>
+        <%= @reproduction.insemination %>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:regress)%></strong>
-    <%= @reproduction.regress %>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:regress)%></strong>
+        <%= @reproduction.regress %>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:abortion)%></strong>
-    <%= @reproduction.abortion %>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:abortion)%></strong>
+        <%= @reproduction.abortion %>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:stop_breastfeeding)%></strong>
-    <%= @reproduction.stop_breastfeeding %>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:stop_breastfeeding)%></strong>
+        <%= @reproduction.stop_breastfeeding %>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:parturition)%></strong>
-    <%= @reproduction.parturition %>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:parturition)%></strong>
+        <%= @reproduction.parturition %>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:mother )%></strong>
-    <%= @reproduction.mother.name unless @reproduction.mother.nil?%>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:mother )%></strong>
+        <%= @reproduction.mother.name unless @reproduction.mother.nil?%>
+      </p>
 
-  <p>
-    <strong><%= Reproduction.human_attribute_name(:father )%></strong>
-    <%= @reproduction.father.name unless @reproduction.father.nil?%>
-  </p>
+      <p>
+        <strong><%= Reproduction.human_attribute_name(:father )%></strong>
+        <%= @reproduction.father.name unless @reproduction.father.nil?%>
+      </p>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= Illness.human_attribute_name(:financials)%>
+    </div>
+    <div class="panel-body" id="show_treatment">
+      <%= render partial: 'financials/financials', locals: {reproduction_id: @reproduction.id, financials: @financials} %>
+    </div>
+  </div>
 </div>

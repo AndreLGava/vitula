@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%= f.association :event %>
     <%= f.association :batch %>
-    <%= f.input :datestart %>
-    <%= f.input :dateend %>
+    <%= f.input :datestart, as: :date_picker %>
+    <%= f.input :dateend, as: :date_picker %>
     <%= f.input :observation %>
   </div>
 
