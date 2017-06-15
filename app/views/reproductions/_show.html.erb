@@ -46,8 +46,8 @@
     <div class="panel-heading">
       <%= Illness.human_attribute_name(:financials)%>
     </div>
-    <div class="panel-body" id="show_treatment">
-      <%= render partial: 'financials/financials', locals: {reproduction_id: @reproduction.id, financials: @financials} %>
+    <div class="panel-body" id="financials">
+      <%= render partial: 'financials/financials', locals: {id: @reproduction.id, financials: @financials} %>
     </div>
   </div>
 </div>

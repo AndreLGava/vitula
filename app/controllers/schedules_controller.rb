@@ -15,6 +15,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/new
   def new
     @schedule = Schedule.new
+    @schedule.financials.build
   end
 
   # GET /schedules/1/edit
@@ -65,6 +66,7 @@ class SchedulesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = Schedule.find(params[:id])
+      @financials = @schedule.financials
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

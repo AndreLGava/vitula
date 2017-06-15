@@ -15,6 +15,7 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service = Service.new
+    @service.financials.build
   end
 
   # GET /services/1/edit
@@ -65,6 +66,7 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
+      @financials = @service.financials
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

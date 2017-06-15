@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get 'descartados'         , to: 'animals#descartados'            , as: :descartados
   get 'stopped'             , to: 'animals#stopped'                , as: :stopped
   get 'all_animals'         , to: 'animals#all_animals'            , as: :all_animals
+  get 'new_financial_ajax'  , to: 'financials#new_financial_ajax'  , as: :new_financial_ajax
 
   #PDF
   get "pdf", to: "relatorios#pdf", as: :pdf

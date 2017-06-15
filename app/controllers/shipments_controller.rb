@@ -16,6 +16,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new
   def new
     @shipment = Shipment.new
+    @shipment.financials.build
   end
 
   # GET /shipments/1/edit
@@ -61,6 +62,7 @@ class ShipmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shipment
       @shipment = Shipment.find(params[:id])
+      @financials = @shipment.financials
     end
 
     def set_property

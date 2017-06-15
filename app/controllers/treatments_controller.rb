@@ -21,6 +21,7 @@ class TreatmentsController < ApplicationController
   def new
     @illness = Illness.find(params[:illness_id])
     @treatment = @illness.treatments.new
+    @treatment.financials.build
   end
 
   # GET /treatments/1/edit
@@ -72,6 +73,7 @@ class TreatmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_treatment
       @treatment = Treatment.find(params[:id])
+      @financials = @treatment.financials
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

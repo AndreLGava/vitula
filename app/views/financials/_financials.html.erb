@@ -1,8 +1,8 @@
 <div class="page-header">
-  <%%= link_to new_financial_path(<%= controller_name.singularize %>_id: @<%=  controller_name.singularize %>.id), class: 'btn btn-primary pull-right', remote: true do %>
+  <%= link_to new_financial_ajax_path(model: params[:controller] , id: params[:id]), class: 'btn btn-primary pull-right', remote: true do %>
     <span class="fa fa-plus"></span>
     <%= I18n.t('financials.new.new') %>
-  <%% end %>
+  <% end %>
   <h3><%= Financial.human_attribute_name(:financials)%></h3>
 </div>
 

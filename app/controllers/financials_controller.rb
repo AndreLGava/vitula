@@ -14,7 +14,14 @@ class FinancialsController < ApplicationController
 
   # GET /financials/new
   def new
-    @financial = Financial.new
+    @model = params[:model].singularize.classify.constantize.find(params[:id])
+    @financial = @model.financials.new
+  end
+
+  def new_financial_ajax
+    @model_name = params[:model]
+    @model = @model_name.singularize.classify.constantize.find(params[:id])
+    @financial = @model.financials.new
   end
 
   # GET /financials/1/edit
@@ -30,9 +37,11 @@ class FinancialsController < ApplicationController
       if @financial.save
         format.html { redirect_to @financial, notice: 'Financial was successfully created.' }
         format.json { render :show, status: :created, location: @financial }
+        format.js   { render 'financials', financials: @financials}
       else
         format.html { render :new }
         format.json { render json: @financial.errors, status: :unprocessable_entity }
+        format.js   { render 'new_financial_ajax'}
       end
     end
   end

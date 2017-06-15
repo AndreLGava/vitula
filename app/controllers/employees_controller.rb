@@ -22,6 +22,7 @@ class EmployeesController < ApplicationController
   def new
     @property = Property.find(params[:property_id])
     @employee = @property.employees.new
+    @employee.financials.build
   end
 
   # GET /employees/1/edit
@@ -78,6 +79,7 @@ class EmployeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
+      @financials = @employee.financials
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

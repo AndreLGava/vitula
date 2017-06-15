@@ -15,6 +15,7 @@ class StocksController < ApplicationController
   # GET /stocks/new
   def new
     @stock = Stock.new
+    @stock.financials.build
   end
 
   # GET /stocks/1/edit
@@ -65,6 +66,7 @@ class StocksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_stock
       @stock = Stock.find(params[:id])
+      @financials = @stock.financials
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
