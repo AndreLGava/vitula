@@ -1,0 +1,10 @@
+pt-BR:
+  batchs:
+    index:
+      batches: Lotes
+    new:
+      new: Novo Lote
+    edit:
+      edit: Alterando Lote
+    show:
+      batch: Lote

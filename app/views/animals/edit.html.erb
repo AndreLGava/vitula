@@ -2,5 +2,21 @@
 
 <%= render 'form' %>
 
+<div class="panel panel-default hidden" id="financeiro">
+  <div class="panel-heading">
+    <%= Financial.human_attribute_name(:financials)%>
+  </div>
+  <div class="panel-body" id="financials">
+    <%= render partial: 'financials/financials', locals: {id: @animal.id, financials: @financials} %>
+  </div>
+</div>
+<script>
+
+  $('#animal_discard').focusout(function() {
+    $( "#financeiro" ).removeClass( "hidden" );
+  });
+</script>
+
+
 <%= link_to I18n.t('crud.show'), @animal, class: 'btn btn-default btn-sm' %>
 <%= link_to I18n.t('crud.back'), :back, class: 'btn btn-default btn-sm' %>

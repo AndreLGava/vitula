@@ -12,4 +12,7 @@ class Treatment < ActiveRecord::Base
   validates :startdate, presence: true
   validates :dosage, presence: true
   
+  def name
+  	return "Tratamento: #{self.illness.animal.name} - #{self.drug.name} - #{self.illness.disease.vulgarname}"
+  end
 end

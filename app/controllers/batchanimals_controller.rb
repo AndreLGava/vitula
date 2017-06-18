@@ -1,4 +1,5 @@
 class BatchanimalsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_batchanimal, only: [:show, :edit, :update, :destroy]
 
   # GET /batchanimals
@@ -28,7 +29,7 @@ class BatchanimalsController < ApplicationController
 
     respond_to do |format|
       if @batchanimal.save
-        format.html { redirect_to @batchanimal, notice: 'Batchanimal was successfully created.' }
+        format.html { redirect_to @batchanimal, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @batchanimal }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class BatchanimalsController < ApplicationController
   def update
     respond_to do |format|
       if @batchanimal.update(batchanimal_params)
-        format.html { redirect_to @batchanimal, notice: 'Batchanimal was successfully updated.' }
+        format.html { redirect_to @batchanimal, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :ok, location: @batchanimal }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class BatchanimalsController < ApplicationController
   def destroy
     @batchanimal.destroy
     respond_to do |format|
-      format.html { redirect_to batchanimals_url, notice: 'Batchanimal was successfully destroyed.' }
+      format.html { redirect_to batchanimals_url, notice: I18n.t('crud.destroyed') }
       format.json { head :no_content }
     end
   end

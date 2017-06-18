@@ -1,0 +1,46 @@
+<% breadcrumb :closes %>
+<div class="page-header">
+  <%= link_to new_close_path, class: 'btn btn-primary pull-right' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('crud.new') %>
+  <% end %>
+  <h3><%= Close.human_attribute_name(:closes)%></h3>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+            <th>Dateclosing</th>
+            <th>Totalvalue</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @closes) do |close| %>
+            <td><%= close.dateclosing %></td>
+            <td><%= close.totalvalue %></td>
+            <td>
+          <%= link_to close, class: 'btn btn-sm btn-primary' do %>
+            <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_close_path(close), class: 'btn btn-sm btn-default' do %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to close, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, class: 'btn btn-sm btn-danger' do %>    
+            <i class="fa fa-trash"></i> <%= I18n.t('crud.delete') %>
+          <% end %>      
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @closes %>
+<br>

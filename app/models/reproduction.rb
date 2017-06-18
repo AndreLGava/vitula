@@ -26,6 +26,10 @@ class Reproduction < ActiveRecord::Base
   @@stop_breastfeeding = 214.days #days after insemination 60 days before partturition
   @@parturition = 274.days #days +- 7 days [267 , 282] after last insemination
 
+  def name
+    return "Reprodução #{self.heat} - #{self.insemination} - #{self.mother.code}.#{self.mother.name} - #{self.father.code}.#{self.father.name}"    
+  end
+
   def age_of_reproduction
     animal = Animal.find(self.mother_id)
     errors.add(:insemination, I18n.t('activerecord.models.born')) unless animal.is_adult?

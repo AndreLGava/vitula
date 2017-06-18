@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      schedule: Agendamento
+      schedules: Agendamentos
+    attributes:
+      schedule:
+        schedule: Agendamento
+        schedules: Agendamentos
+        event: Evento
+        batch: Lote
+        datestart: Data de ínicio
+        dateend: Data de fim
+        observation: Observação
+        user: Usuário

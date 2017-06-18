@@ -1,0 +1,10 @@
+pt-BR:
+  services:
+    index:
+      services: Serviço
+    new:
+      new: Novo Serviço
+    edit:
+      edit: Alterando Serviço
+    show:
+      service: Serviço

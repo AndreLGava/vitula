@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      service: Serviço
+      services: Serviços
+    attributes:
+      service:
+        service: Serviço
+        services: Serviços
+        provider: Fornecedor 
+        goal: Objetivo
+        property: Propriedade
+        user: Usuário 

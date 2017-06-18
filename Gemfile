@@ -113,8 +113,9 @@ gem 'wicked_pdf'
 gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
 
-# qtip2 jquery plugin packaged for the rails asset pipeline
-gem 'qtip2-jquery-rails', '~> 2.2.100'
+#gerenciar campos dinheiro
+
+gem 'money-rails', '~>1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

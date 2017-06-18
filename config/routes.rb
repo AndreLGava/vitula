@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :closes
   resources :financials
   resources :schedules
   resources :events
@@ -42,6 +43,9 @@ Rails.application.routes.draw do
   get 'stopped'             , to: 'animals#stopped'                , as: :stopped
   get 'all_animals'         , to: 'animals#all_animals'            , as: :all_animals
   get 'new_financial_ajax'  , to: 'financials#new_financial_ajax'  , as: :new_financial_ajax
+  get 'shipment_financial'  , to: 'financials#shipment_financial'  , as: :shipment_financial
+  get 'financial_shipment'  , to: 'financials#financial_shipment'  , as: :financial_shipment
+  get 'close_financial'     , to: 'financials#close_financial'     , as: :close_financial
 
   #PDF
   get "pdf", to: "relatorios#pdf", as: :pdf

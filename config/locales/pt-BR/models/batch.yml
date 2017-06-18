@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      batch: Lote
+      batches: Lotes
+    attributes:
+      batch:
+        batch: Lote
+        batches: Lotes
+        name: Nome
+        observation: Observação
+        type: Tipo
+        formation: Formação
+        glebe: Gleba
+        user: Usuário

@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      event: Evento
+      events: Eventos
+    attributes:
+      event:
+        event: Evento
+        events: Eventos
+        name: Nome
+        description: Descrição
+        repeat: Repetição
+        user: Usuário

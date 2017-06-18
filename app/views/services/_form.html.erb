@@ -4,7 +4,8 @@
   <div class="form-inputs">
     <%= f.input :provider %>
     <%= f.input :goal %>
-    <%= f.association :property %>
+    <%= f.input :user_id, as: :hidden, value: current_user.id %>
+    <%= f.association :property, collection: Property.where(user_id: current_user.id) , allow_blank: false %>
   </div>
 
   <div class="form-actions">

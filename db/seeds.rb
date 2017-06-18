@@ -11,6 +11,9 @@
 
 # Generate String
  
+case Rails.env
+when "development"
+
 #################################################################### Variables #################################################################### 
 
 o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
@@ -346,4 +349,98 @@ puts "Generates Diet"
 
 			})
 	end
+end
+
+when "production"
+   
+puts "Generates Feeds"
+
+puts Feed.create({kind: 1, name: "Bicarbonato de Sódio"})
+puts Feed.create({kind: 1, name: "Gordura de Palma"})
+puts Feed.create({kind: 1, name: "Melaço"})
+puts Feed.create({kind: 1, name: "Monensina sódica"})
+puts Feed.create({kind: 2, name: "Mistura Pronta"})
+puts Feed.create({kind: 2, name: "Sal Comum"})
+puts Feed.create({kind: 2, name: "Sal Concentrado"})
+puts Feed.create({kind: 2, name: "Sal Grosso"})
+puts Feed.create({kind: 2, name: "Sal micromineral-vitamínico"})
+puts Feed.create({kind: 2, name: "Sal Mineral"})
+puts Feed.create({kind: 2, name: "Sal Mineral com Ionóforo"})
+puts Feed.create({kind: 2, name: "Sal Mineral com Tamponante"})
+puts Feed.create({kind: 2, name: "Sal Mineral com Tamponante e Ionóforo"})
+puts Feed.create({kind: 3, name: "Leite"})
+puts Feed.create({kind: 3, name: "Leite de Soja"})
+puts Feed.create({kind: 3, name: "Leite em Pó"})
+puts Feed.create({kind: 3, name: "Suscedâneo do Leite"})
+puts Feed.create({kind: 4, name: "Alfafa"})
+puts Feed.create({kind: 4, name: "Amendoim Forrageiro"})
+puts Feed.create({kind: 4, name: "Andropógon"})
+puts Feed.create({kind: 4, name: "Aveia"})
+puts Feed.create({kind: 4, name: "Azevém"})
+puts Feed.create({kind: 4, name: "Braquiária"})
+puts Feed.create({kind: 4, name: "Cana-de-açúcar"})
+puts Feed.create({kind: 4, name: "Canarana"})
+puts Feed.create({kind: 4, name: "Capim Buffel"})
+puts Feed.create({kind: 4, name: "Capim Colonião"})
+puts Feed.create({kind: 4, name: "Capim Elefante"})
+puts Feed.create({kind: 4, name: "Capim Gordura"})
+puts Feed.create({kind: 4, name: "Capim Mombaça"})
+puts Feed.create({kind: 4, name: "Capim Tanzânia"})
+puts Feed.create({kind: 4, name: "Capim Tobiatã"})
+puts Feed.create({kind: 4, name: "Coast-cross"})
+puts Feed.create({kind: 4, name: "Cratília"})
+puts Feed.create({kind: 4, name: "Estilosantes"})
+puts Feed.create({kind: 4, name: "Feno"})
+puts Feed.create({kind: 4, name: "Grama Estrela"})
+puts Feed.create({kind: 4, name: "Grama Pensacola"})
+puts Feed.create({kind: 4, name: "Guandu"})
+puts Feed.create({kind: 4, name: "Leucena"})
+puts Feed.create({kind: 4, name: "Marandu"})
+puts Feed.create({kind: 4, name: "Milho Verde"})
+puts Feed.create({kind: 4, name: "Millheto"})
+puts Feed.create({kind: 4, name: "Nabo Forrageiro"})
+puts Feed.create({kind: 4, name: "Palma Forrageira"})
+puts Feed.create({kind: 4, name: "Panicum"})
+puts Feed.create({kind: 4, name: "Quicuio da Amazônia"})
+puts Feed.create({kind: 4, name: "Setária"})
+puts Feed.create({kind: 4, name: "Silagem de Capim"})
+puts Feed.create({kind: 4, name: "Silagem de Milho"})
+puts Feed.create({kind: 4, name: "Silagem de Sorgo"})
+puts Feed.create({kind: 4, name: "Tifton"})
+puts Feed.create({kind: 4, name: "Trevo Branco"})
+puts Feed.create({kind: 4, name: "Trevo Vermelho"})
+puts Feed.create({kind: 4, name: "Trevo Yuchi"})
+puts Feed.create({kind: 4, name: "Xaraés"})
+puts Feed.create({kind: 5, name: "Algodão (Caroço)"})
+puts Feed.create({kind: 5, name: "Algodão (Farelo)"})
+puts Feed.create({kind: 5, name: "Algodão (Torta)"})
+puts Feed.create({kind: 5, name: "Amendoim (Torta)"})
+puts Feed.create({kind: 5, name: "Calcário"})
+puts Feed.create({kind: 5, name: "Centeio"})
+puts Feed.create({kind: 5, name: "Cevada"})
+puts Feed.create({kind: 5, name: "Concentrado para bezerros"})
+puts Feed.create({kind: 5, name: "Concentrado para vacas"})
+puts Feed.create({kind: 5, name: "Girassol"})
+puts Feed.create({kind: 5, name: "Mamona"})
+puts Feed.create({kind: 5, name: "Mandioca (Casca)"})
+puts Feed.create({kind: 5, name: "Mandioca (Feno)"})
+puts Feed.create({kind: 5, name: "Mandioca (Parte Aérea)"})
+puts Feed.create({kind: 5, name: "Mandioca (Raiz)"})
+puts Feed.create({kind: 5, name: "Milho"})
+puts Feed.create({kind: 5, name: "Milho (Amido)"})
+puts Feed.create({kind: 5, name: "Milho (Farelo)"})
+puts Feed.create({kind: 5, name: "Milho (Fubá)"})
+puts Feed.create({kind: 5, name: "Núcleo para Concentrado"})
+puts Feed.create({kind: 5, name: "Poupa Cítrica"})
+puts Feed.create({kind: 5, name: "Ração"})
+puts Feed.create({kind: 5, name: "Ração para bezerros"})
+puts Feed.create({kind: 5, name: "Ração para vacas em lactação"})
+puts Feed.create({kind: 5, name: "Soja (Casca)"})
+puts Feed.create({kind: 5, name: "Soja (Farelo)"})
+puts Feed.create({kind: 5, name: "Soja (Grãos)"})
+puts Feed.create({kind: 5, name: "Sorgo (Grãos)"})
+puts Feed.create({kind: 5, name: "Suplementos Minerais"})
+puts Feed.create({kind: 5, name: "Trigo (Farelo)"})
+puts Feed.create({kind: 5, name: "Uréia"})
+@feeds = Feed.all
 end

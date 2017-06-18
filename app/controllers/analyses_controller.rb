@@ -1,4 +1,5 @@
 class AnalysesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
   before_action :set_property, only: [:new, :edit, :update, :create, :index]
 
@@ -30,7 +31,7 @@ class AnalysesController < ApplicationController
 
     respond_to do |format|
       if @analysis.save
-        format.html { redirect_to @analysis, notice: 'Analysis was successfully created.' }
+        format.html { redirect_to @analysis, notice: I18n.t('crud.saved') }
       else
         format.html { render :new }
       end
@@ -42,7 +43,7 @@ class AnalysesController < ApplicationController
   def update
     respond_to do |format|
       if @analysis.update(analysis_params)
-        format.html { redirect_to @analysis, notice: 'Analysis was successfully updated.' }
+        format.html { redirect_to @analysis, notice: I18n.t('crud.saved') }
       else
         format.html { render :edit }
       end
@@ -54,7 +55,7 @@ class AnalysesController < ApplicationController
   def destroy
     @analysis.destroy
     respond_to do |format|
-      format.html { redirect_to analyses_url, notice: 'Analysis was successfully destroyed.' }
+      format.html { redirect_to analyses_url, notice: I18n.t('crud.destroyed') }
     end
   end
 

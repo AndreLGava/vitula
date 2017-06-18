@@ -1,0 +1,10 @@
+pt-BR:
+  events:
+    index:
+      events: Evento
+    new:
+      new: Novo Evento
+    edit:
+      edit: Alterando Evento
+    show:
+      event: Evento

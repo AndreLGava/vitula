@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :capacity  ,as: :normal, before: "M³"%>
-    <%= f.association :property %>
+    <%= f.association :property, collection: Property.where(user_id: current_user.id) , allow_blank: false %>
     <%= f.input :kind, collection: Bin.kinds.keys, as: :select, allow_blank: false %>
   </div>
 

@@ -7,7 +7,7 @@
     <span class="fa fa-eye"></span>
     <%= I18n.t('crud.show') %>
   <% end %>
-  <h3> <%= I18n.t('crud.editing') %> service</h3>
+  <h3> <%= I18n.t('crud.editing') %> <%= Service.human_attribute_name(:service)%></h3>
 </div>
 
 <%= render 'form' %>

@@ -47,3 +47,13 @@
     </li>
   </ul>
 </div>
+<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= Financial.human_attribute_name(:financials)%>
+    </div>
+    <div class="panel-body" id="financials">
+      <%= render partial: 'financials/financials', locals: {id: @stock.id, financials: @financials} %>
+    </div>
+  </div>
+</div>

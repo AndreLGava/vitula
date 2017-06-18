@@ -7,7 +7,7 @@
     <span class="fa fa-eye"></span>
     <%= I18n.t('crud.show') %>
   <% end %>
-  <h3> <%= I18n.t('crud.editing') %> financial</h3>
+  <h3> <%= I18n.t('crud.editing') %> <%= Financial.human_attribute_name(:financial)%></h3>
 </div>
 
 <%= render 'form' %>

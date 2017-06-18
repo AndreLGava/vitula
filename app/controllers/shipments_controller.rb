@@ -1,4 +1,5 @@
 class ShipmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_shipment, only: [:show, :edit, :update, :destroy]
   before_action :set_property, only: [:new, :edit, :update, :create, :index]
 
@@ -30,7 +31,7 @@ class ShipmentsController < ApplicationController
 
     respond_to do |format|
       if @shipment.save
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
+        format.html { redirect_to @shipment, notice:I18n.t('crud.saved') }
       else
         format.html { render :new }
       end
@@ -42,7 +43,7 @@ class ShipmentsController < ApplicationController
   def update
     respond_to do |format|
       if @shipment.update(shipment_params)
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully updated.' }
+        format.html { redirect_to @shipment, notice:I18n.t('crud.saved') }
       else
         format.html { render :edit }
       end
@@ -54,7 +55,7 @@ class ShipmentsController < ApplicationController
   def destroy
     @shipment.destroy
     respond_to do |format|
-      format.html { redirect_to shipments_url, notice: 'Shipment was successfully destroyed.' }
+      format.html { redirect_to shipments_url, notice:I18n.t('crud.destroyed') }
     end
   end
 
@@ -72,6 +73,6 @@ class ShipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shipment_params
-      params.require(:shipment).permit(:amount, :date, :property_id)
+      params.require(:shipment).permit(:amount, :date, :property_id, :financial_id)
     end
 end

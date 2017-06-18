@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :shipments, through: :properties
   has_many :analyses, through: :properties
   has_many :employees, through: :properties
+  has_many :services, through: :properties
   has_many :animals, dependent: :destroy
   has_many :bins, through: :properties
   has_many :glebes, through: :properties

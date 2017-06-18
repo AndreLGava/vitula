@@ -25,7 +25,7 @@ class Animal < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   crop_attached_file :photo
 
-  enum breed: {Holandes: 1, Jersey: 2, Gir: 3, Nelore: 4}
+  enum breed: {Holandes: 1, Jersey: 2, Gir: 3, Nelore: 4, Guzera: 5, Ayrshire: 6, Brahman: 7, Tabapua: 8, Sindi: 9, Angus: 9, Caracu: 10, Charoles: 11, Hereford: 12, Girolando: 13, Guernsey: 14, Normando: 15, Pitangueiras: 16, Red_Polled: 17, Simental: 18, Pinzguaer: 19}
 
   scope :pesquisa,      -> (params)               { where('"animals"."name" like ? ', "%#{params}%")}
   scope :animais,       -> (current_user, params) { select(:id, :code, :name, :breed, :description, :photo_file_name, :photo_content_type).where(user_id: current_user.id, discard: nil).where.not(donor: true).order(id: :desc).page params}

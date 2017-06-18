@@ -1,0 +1,62 @@
+<div class="col-xs-12">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong><%= Financial.human_attribute_name(:value)%></strong>
+      <%= number_to_currency(@financial.value, unit: "R$", separator: ",", delimiter: ".") %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Financial.human_attribute_name(:datetransaction)%></strong>
+      <%= @financial.datetransaction %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Financial.human_attribute_name(:operation)%></strong>
+      <%= @financial.operation %>
+    </li>
+    <li class="list-group-item">
+      <strong><%= Financial.human_attribute_name(:description)%></strong>
+      <%= @financial.description %>
+    </li>
+    <% unless @financial.animal.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:animal)%></strong>
+        <%= @financial.animal.name %>
+      </li>
+    <% end %>
+    <% unless @financial.service.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:service)%></strong>
+        <%= @financial.service.name %>
+      </li>
+    <% end %>
+    <% unless @financial.employee.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:employee)%></strong>
+        <%= @financial.employee.name %>
+      </li>
+    <% end %>
+    <% unless @financial.reproduction.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:reproduction)%></strong>
+        <%= @financial.reproduction.name %>
+      </li>
+    <% end %>
+    <% unless @financial.stock.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:stock)%></strong>
+        <%= @financial.stock.name %>
+      </li>
+    <% end %>
+    <% unless @financial.treatment.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:treatment)%></strong>
+        <%= @financial.treatment.name %>
+      </li>
+    <% end %>
+    <% unless @financial.schedule.nil? %>
+      <li class="list-group-item">
+        <strong><%= Financial.human_attribute_name(:schedule)%></strong>
+        <%= @financial.schedule.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>

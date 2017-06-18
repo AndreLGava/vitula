@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3><%= I18n.t('crud.creating') %></h3>
+  <h3><%= I18n.t('crud.creating') %> <%= Financial.human_attribute_name(:financial)%></h3>
 </div>
 
 <%= render 'form_ajax' %>

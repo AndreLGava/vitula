@@ -8,7 +8,7 @@ class Schedule < ActiveRecord::Base
   has_many :financials, dependent: :destroy
 
   def name
-  	"#{self.event.name} - #{self.datestart} - #{self.dateend}"
+  	"Manejo: #{self.event.name} - #{self.datestart} - #{self.dateend}"
   end
   
 end

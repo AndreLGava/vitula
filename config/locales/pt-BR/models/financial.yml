@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    models:
+      financial: Movimentação
+      financials: Movimentações
+    attributes:
+      financial:
+        financial: Movimentação
+        value: Valor
+        datetransaction: Data da operação
+        operation: Operação
+        description: Descrição da movimentação
+        animal: Animal
+        service: Serviço
+        employee: Empregado
+        reproduction: Reprodução
+        stock: Estoque
+        treatment: Tratamento
+        shipment: Entrega/Venda de leite
+        schedule: Agendamento
+        created_at: Criado em 
+        updated_at: Atualizado em
+        user: Usuário
+        relation: Relação
+        financials: Movimentações
+        close: Efetuar o fechamento de caixa

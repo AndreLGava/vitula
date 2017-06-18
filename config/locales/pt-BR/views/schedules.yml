@@ -1,0 +1,10 @@
+pt-BR:
+  schedules:
+    index:
+      schedules: Agendamentos
+    new:
+      new: Novo Agendamento
+    edit:
+      edit: Alterando Agendamento
+    show:
+      schedule: Agendamento

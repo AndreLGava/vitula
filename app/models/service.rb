@@ -5,4 +5,8 @@ class Service < ActiveRecord::Base
   belongs_to :property
 
   has_many :financials, dependent: :destroy
+
+  def name
+  	return "Serviço: #{self.provider} - #{self.goal}"  	
+  end
 end

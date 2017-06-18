@@ -29,7 +29,7 @@ class DiseasesController < ApplicationController
 
     respond_to do |format|
       if @disease.save
-        format.html { redirect_to @disease, notice: 'Disease was successfully created.' }
+        format.html { redirect_to @disease, notice: I18n.t('crud.saved') }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class DiseasesController < ApplicationController
   def update
     respond_to do |format|
       if @disease.update(disease_params)
-        format.html { redirect_to @disease, notice: 'Disease was successfully updated.' }
+        format.html { redirect_to @disease, notice: I18n.t('crud.saved') }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class DiseasesController < ApplicationController
   def destroy
     @disease.destroy
     respond_to do |format|
-      format.html { redirect_to diseases_url, notice: 'Disease was successfully destroyed.' }
+      format.html { redirect_to diseases_url, notice: I18n.t('crud.destroyed') }
     end
   end
 

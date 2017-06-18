@@ -15,7 +15,7 @@ class Stock < ActiveRecord::Base
   has_many :financials, dependent: :destroy
 
   def name
-  	return "#{self.feed.name}"
+  	return "Alimentos: #{self.feed.name} - #{self.bin.kind} - #{self.bin.capacity}"
   end
 
   def inactive?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525011432) do
+ActiveRecord::Schema.define(version: 20170617000435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 20170525011432) do
   end
 
   add_index "bins", ["property_id"], name: "index_bins_on_property_id", using: :btree
+
+  create_table "closes", force: :cascade do |t|
+    t.datetime "dateclosing"
+    t.decimal  "totalvalue",  precision: 10, scale: 2
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
 
   create_table "developments", force: :cascade do |t|
     t.decimal  "weight",     precision: 7, scale: 3
@@ -204,9 +211,11 @@ ActiveRecord::Schema.define(version: 20170525011432) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.integer  "user_id"
+    t.integer  "close_id"
   end
 
   add_index "financials", ["animal_id"], name: "index_financials_on_animal_id", using: :btree
+  add_index "financials", ["close_id"], name: "index_financials_on_close_id", using: :btree
   add_index "financials", ["employee_id"], name: "index_financials_on_employee_id", using: :btree
   add_index "financials", ["reproduction_id"], name: "index_financials_on_reproduction_id", using: :btree
   add_index "financials", ["schedule_id"], name: "index_financials_on_schedule_id", using: :btree
@@ -342,13 +351,15 @@ ActiveRecord::Schema.define(version: 20170525011432) do
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "shipments", force: :cascade do |t|
-    t.decimal  "amount",      precision: 8, scale: 4
+    t.decimal  "amount",       precision: 8, scale: 4
     t.datetime "date"
     t.integer  "property_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "financial_id"
   end
 
+  add_index "shipments", ["financial_id"], name: "index_shipments_on_financial_id", using: :btree
   add_index "shipments", ["property_id"], name: "index_shipments_on_property_id", using: :btree
 
   create_table "stocks", force: :cascade do |t|
@@ -444,6 +455,7 @@ ActiveRecord::Schema.define(version: 20170525011432) do
   add_foreign_key "employees", "properties"
   add_foreign_key "events", "users"
   add_foreign_key "financials", "animals"
+  add_foreign_key "financials", "closes"
   add_foreign_key "financials", "employees"
   add_foreign_key "financials", "reproductions"
   add_foreign_key "financials", "schedules"
@@ -464,6 +476,7 @@ ActiveRecord::Schema.define(version: 20170525011432) do
   add_foreign_key "schedules", "users"
   add_foreign_key "services", "properties"
   add_foreign_key "services", "users"
+  add_foreign_key "shipments", "financials"
   add_foreign_key "shipments", "properties"
   add_foreign_key "stocks", "bins"
   add_foreign_key "stocks", "feeds"

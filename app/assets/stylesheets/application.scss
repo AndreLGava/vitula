@@ -15,7 +15,6 @@
  *= require jquery.jcrop
  *= require select2
  *= require select2-bootstrap
- *= require qtip2-jquery-rails
  */
 
 @import "bootstrap-sprockets";
@@ -28,7 +27,9 @@
 
 
 
-
+.btn-margin{
+  margin: 2px;
+}
 
 .profile{
 	padding: 13px!important;

@@ -44,8 +44,12 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= Animal.human_attribute_name(:animal)%><span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><%# link_to Lot.human_attribute_name(:lots), lots_path %></li>
+              <li><%# link_to 'Lote', batches_path %> </li>
               <li><%= link_to Animal.human_attribute_name(:animals), animals_path %></li>
               <li><%= link_to Animal.human_attribute_name(:donors), donors_path %></li>
+              <li><%# link_to 'Agendamentos', schedules_path %> </li>
+              <li><%# link_to 'Eventos', events_path %> </li>
             </ul>
           </li>
           <li class="dropdown">
@@ -59,9 +63,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= Animal.human_attribute_name(:feeds) %><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to Stock.human_attribute_name(:stocks), stocks_path %></li>
-              <li><%= link_to Stock.human_attribute_name(:pasteurs), pasteurs_path %></li>
+              <li><%= link_to Bin.human_attribute_name(:bins), bins_path %></li>
               <li><%= link_to Feed.human_attribute_name(:feeds), feeds_path %></li>
+              <li><%= link_to Stock.human_attribute_name(:stocks), stocks_path %></li>
+              <li><%# link_to Stock.human_attribute_name(:pasteurs), pasteurs_path %></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -72,22 +77,21 @@
             </ul>
           </li>
           <li class="dropdown">
-            <%= link_to 'Contábil', financials_path %> 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contábil<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Gastos', financials_path(operation: 0) %> </li>
+              <li><%= link_to 'Receitas', financials_path(operation: 1) %> </li>
+              <li><%= link_to 'Geral', financials_path %> </li>
+            </ul>
+            
           </li>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= Property.human_attribute_name(:properties) %><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to Property.human_attribute_name(:properties), properties_path %></li>
-            <li><%= link_to Lot.human_attribute_name(:lots), lots_path %></li>
-            <li><%= link_to "Procedimento", lots_path %></li>
             <li><%= link_to "Serviço", services_path %></li>
-            <li><%= link_to Employee.human_attribute_name(:employees), employees_path %></li>
-            <li><%= link_to Bin.human_attribute_name(:bins), bins_path %></li>
-
-            <li><%= link_to 'schedules', schedules_path %> </li>
-            <li><%= link_to 'events', events_path %> </li>
-            <li><%= link_to 'batches', batches_path %> </li>
+            <li><%# link_to Employee.human_attribute_name(:employees), employees_path %></li>
           </ul>
         </li>
         <li>
@@ -102,8 +106,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle profile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %><%= current_user.name %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to Profile.human_attribute_name(:profiles), profiles_path %></li>
-            <li role="separator" class="divider"></li>
+            <!--<li><%# link_to Profile.human_attribute_name(:profiles), profiles_path %></li>
+            <li role="separator" class="divider"></li>-->
             <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
             <li><%= link_to "Sair", destroy_user_session_path %></li>
           </ul>

@@ -1,5 +1,5 @@
 //Component for datepicker
-/*
+
   $(document).ready(function(){
     $('.datepicker').datepicker({
       format: "dd/mm/yyyy",
@@ -7,7 +7,7 @@
       clearBtn: true,
       language: "pt-BR",
       calendarWeeks: true,
-      autoclose: true,
+      autoclose: false,
       todayHighlight: true
     });
   });
@@ -19,8 +19,8 @@
       clearBtn: true,
       language: "pt-BR",
       calendarWeeks: true,
-      autoclose: true,
+      autoclose: false,
       todayHighlight: true
     });
   });
-  */
+  

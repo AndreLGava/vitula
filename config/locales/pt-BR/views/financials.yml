@@ -1,0 +1,10 @@
+pt-BR:
+  financials:
+    index:
+      financials: Movimentações
+    new:
+      new: Novo Movimentação
+    edit:
+      edit: Alterando Movimentação
+    show:
+      financial: Movimentação
