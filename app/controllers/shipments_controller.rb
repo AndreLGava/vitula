@@ -17,7 +17,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new
   def new
     @shipment = Shipment.new
-    @shipment.financials.build
+    
   end
 
   # GET /shipments/1/edit
@@ -28,6 +28,7 @@ class ShipmentsController < ApplicationController
   # POST /shipments.json
   def create
     @shipment = Shipment.new(shipment_params)
+    @shipment.amount = shipment_params[:amount].gsub(/[.]/, '').gsub(/[,]/, '.')
 
     respond_to do |format|
       if @shipment.save
@@ -38,11 +39,13 @@ class ShipmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /shipments/1
-  # PATCH/PUT /shipments/1.json
+  # PATCH/PUT /shipments
+  
   def update
+    @shipment_params = shipment_params
+    @shipment_params[:amount] = shipment_params[:amount].gsub(/[.]/, '').gsub(/[,]/, '.')
     respond_to do |format|
-      if @shipment.update(shipment_params)
+      if @shipment.update(@shipment_params)
         format.html { redirect_to @shipment, notice:I18n.t('crud.saved') }
       else
         format.html { render :edit }
@@ -63,7 +66,6 @@ class ShipmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shipment
       @shipment = Shipment.find(params[:id])
-      @financials = @shipment.financials
     end
 
     def set_property

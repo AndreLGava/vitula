@@ -113,9 +113,6 @@ gem 'wicked_pdf'
 gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
 
-#gerenciar campos dinheiro
-
-gem 'money-rails', '~>1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -84,11 +84,28 @@ class FinancialsController < ApplicationController
   end
 
   def financial_shipment
-    binding.pry
+    @date_start = params[:date_start]
+    @date_end = params[:date_end]
+    @value = params[:financial].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @shipments = Shipment.shipment(current_user, @date_start, @date_end)
 
+    unless @shipments.empty?
+      @financial = Financial.create(value: @value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id)
+      
+      @shipments.each do |s|
+        s.update(financial_id: @financial.id)
+      end
+    end
+    binding.pry
+    redirect_to financials_path
   end
 
   def close_financial
+    @credito = Financial.where(user_id: current_user.id, operation: 1, close_id: nil).order(id: :desc)
+    @debito = Financial.where(user_id: current_user.id, operation: 0, close_id: nil).order(id: :desc)
+    #soma
+    #credito.sum(:value)
+    binding.pry
 
   end
 

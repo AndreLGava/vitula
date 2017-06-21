@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617000435) do
+ActiveRecord::Schema.define(version: 20170621003232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(version: 20170617000435) do
     t.integer  "property_id"
     t.string   "codeanalysis"
     t.date     "collect"
-    t.decimal  "fat",             precision: 9, scale: 3
-    t.decimal  "protein",         precision: 9, scale: 3
-    t.decimal  "lactose",         precision: 9, scale: 3
-    t.decimal  "totalsolids",     precision: 9, scale: 3
-    t.decimal  "defattedextract", precision: 9, scale: 3
+    t.decimal  "fat",             precision: 10, scale: 2
+    t.decimal  "protein",         precision: 10, scale: 2
+    t.decimal  "lactose",         precision: 10, scale: 2
+    t.decimal  "totalsolids",     precision: 10, scale: 2
+    t.decimal  "defattedextract", precision: 10, scale: 2
     t.decimal  "css"
     t.decimal  "scorecss"
     t.decimal  "ufc"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "analyses", ["property_id"], name: "index_analyses_on_property_id", using: :btree
@@ -85,11 +85,11 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   add_index "batches", ["user_id"], name: "index_batches_on_user_id", using: :btree
 
   create_table "bins", force: :cascade do |t|
-    t.decimal  "capacity",    precision: 8, scale: 4
+    t.decimal  "capacity",    precision: 10, scale: 2
     t.integer  "property_id"
     t.integer  "kind"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "bins", ["property_id"], name: "index_bins_on_property_id", using: :btree
@@ -102,23 +102,23 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   end
 
   create_table "developments", force: :cascade do |t|
-    t.decimal  "weight",     precision: 7, scale: 3
-    t.decimal  "height",     precision: 5, scale: 2
+    t.decimal  "weight",     precision: 10, scale: 2
+    t.decimal  "height",     precision: 10, scale: 2
     t.integer  "animal_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "developments", ["animal_id"], name: "index_developments_on_animal_id", using: :btree
 
   create_table "diets", force: :cascade do |t|
-    t.decimal  "amount",     precision: 7, scale: 3
+    t.decimal  "amount",     precision: 10, scale: 2
     t.datetime "datestart"
     t.datetime "dateend"
     t.integer  "animal_id"
     t.integer  "stock_id"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "diets", ["animal_id"], name: "index_diets_on_animal_id", using: :btree
@@ -166,12 +166,12 @@ ActiveRecord::Schema.define(version: 20170617000435) do
     t.integer  "schooling"
     t.integer  "inss"
     t.integer  "pis"
-    t.decimal  "salary",      precision: 7, scale: 2
+    t.decimal  "salary",      precision: 10, scale: 2
     t.string   "profession"
     t.integer  "payment"
     t.integer  "property_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "employees", ["property_id"], name: "index_employees_on_property_id", using: :btree
@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   end
 
   create_table "financials", force: :cascade do |t|
-    t.decimal  "value",           precision: 7, scale: 2
+    t.decimal  "value",           precision: 10, scale: 2
     t.datetime "datetransaction"
     t.integer  "operation"
     t.text     "description"
@@ -208,8 +208,8 @@ ActiveRecord::Schema.define(version: 20170617000435) do
     t.integer  "treatment_id"
     t.integer  "shipment_id"
     t.integer  "schedule_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "user_id"
     t.integer  "close_id"
   end
@@ -228,11 +228,11 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   create_table "glebes", force: :cascade do |t|
     t.string   "name"
     t.integer  "purpose"
-    t.decimal  "area",        precision: 8, scale: 1
+    t.decimal  "area",        precision: 10, scale: 2
     t.integer  "property_id"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.boolean  "inactive",                            default: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.boolean  "inactive",                             default: false
   end
 
   add_index "glebes", ["property_id"], name: "index_glebes_on_property_id", using: :btree
@@ -273,12 +273,12 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "productions", force: :cascade do |t|
-    t.decimal  "amount",      precision: 8, scale: 4
+    t.decimal  "amount",      precision: 10, scale: 2
     t.datetime "measurement"
     t.text     "observation"
     t.integer  "animal_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "productions", ["animal_id"], name: "index_productions_on_animal_id", using: :btree
@@ -293,12 +293,12 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   create_table "properties", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.decimal  "long",                 precision: 10, scale: 8
-    t.decimal  "lat",                  precision: 10, scale: 8
+    t.string   "long"
+    t.string   "lat"
     t.integer  "user_id"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.decimal  "area",                 precision: 8,  scale: 1
+    t.decimal  "area",                 precision: 10, scale: 2
     t.decimal  "altitude"
     t.decimal  "precipitation"
     t.integer  "enrolement_of_sanity"
@@ -351,11 +351,11 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "shipments", force: :cascade do |t|
-    t.decimal  "amount",       precision: 8, scale: 4
+    t.decimal  "amount",       precision: 10, scale: 2
     t.datetime "date"
     t.integer  "property_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "financial_id"
   end
 
@@ -367,13 +367,13 @@ ActiveRecord::Schema.define(version: 20170617000435) do
     t.integer  "feed_id"
     t.integer  "glebe_id"
     t.string   "fournisseur"
-    t.decimal  "amount",      precision: 8, scale: 4
-    t.decimal  "density",     precision: 8, scale: 4
+    t.decimal  "amount",      precision: 10, scale: 2
+    t.decimal  "density",     precision: 10, scale: 2
     t.datetime "datestock"
     t.datetime "datestart"
     t.datetime "dateend"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "stocks", ["bin_id"], name: "index_stocks_on_bin_id", using: :btree
@@ -383,13 +383,13 @@ ActiveRecord::Schema.define(version: 20170617000435) do
   create_table "treatments", force: :cascade do |t|
     t.date     "startdate"
     t.date     "enddate"
-    t.decimal  "dosage",      precision: 8, scale: 4
+    t.decimal  "dosage",      precision: 10, scale: 2
     t.integer  "lack"
     t.text     "observation"
     t.integer  "illness_id"
     t.integer  "drug_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "treatments", ["drug_id"], name: "index_treatments_on_drug_id", using: :btree

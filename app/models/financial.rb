@@ -1,7 +1,5 @@
 class Financial < ActiveRecord::Base
 
-  #monetize :value, as: "value_centavos"
-
   belongs_to :animal
   belongs_to :service
   belongs_to :employee
