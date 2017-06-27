@@ -86,17 +86,28 @@ class FinancialsController < ApplicationController
   def financial_shipment
     @date_start = params[:date_start]
     @date_end = params[:date_end]
-    @value = params[:financial].gsub(/[.]/, '').gsub(/[,]/, '.')
+
+    @valor_litro = params[:valor_litro].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_bacteria = params[:b_bacteria].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_ccs = params[:b_ccs].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_gordura = params[:b_gordura].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_tanque = params[:b_tanque].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_canalizacao = params[:b_canalizacao].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_frete = params[:b_frete].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @b_compra = params[:b_compra].gsub(/[.]/, '').gsub(/[,]/, '.')
     @shipments = Shipment.shipment(current_user, @date_start, @date_end)
 
     unless @shipments.empty?
-      @financial = Financial.create(value: @value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id)
+      value = @shipments.count(:amount)
+
+      binding.pry
+      total_value = (@valor_litro * value) + (@b_bacteria * value) + (@b_ccs * value) + (@b_gordura * value) + (@b_tanque * value) + (@b_canalizacao * value) + (@b_frete * value) + (@b_compra * value) + (@shipments * value) 
+      @financial = Financial.create(value: total_value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id,  valor_litro: @valor_litro, b_bacteria: @b_bacteria, b_ccs: @b_ccs, b_gordura: @b_gordura, b_tanque: @b_tanque, b_canalizacao: @b_canalizacao, b_frete: @b_frete, b_compra: @b_compra, shipments: @shipments)
       
       @shipments.each do |s|
         s.update(financial_id: @financial.id)
       end
     end
-    binding.pry
     redirect_to financials_path
   end
 
@@ -117,7 +128,7 @@ class FinancialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def financial_params
-      params.require(:financial).permit(:datestart, :dateend, :value, :datetransaction, :operation, :description, :animal_id, :service_id, :employee_id, :reproduction_id, :stock_id, :treatment_id, :shipment_id, :schedule_id, :service_id, :user_id)
+      params.require(:financial).permit(:valor_litro, :b_ccs, :b_bacteria, :b_gordura, :b_tanque, :b_canalizacao, :b_frete, :b_compra, :datestart, :dateend, :value, :datetransaction, :operation, :description, :animal_id, :service_id, :employee_id, :reproduction_id, :stock_id, :treatment_id, :shipment_id, :schedule_id, :service_id, :user_id)
     end
 
 end

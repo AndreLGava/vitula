@@ -73,7 +73,7 @@ class ReproductionsController < ApplicationController
     end
 
     def set_father
-      @father = Animal.where('female' => false, 'discard' => nil)
+      @father = Animal.where('female' => false, 'discard' => nil, user_id: current_user.id)
     end
 
     def reproduction_params

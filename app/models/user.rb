@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
   has_many :bins, through: :properties
   has_many :glebes, through: :properties
 
-
   def has_property?
     self.properties.empty? ? false : true
   end
@@ -31,8 +30,8 @@ class User < ActiveRecord::Base
 
   def set_data_shipment
     shipment = {}
-    shipment['date']                       = self.shipments.map(&:date).map(&:to_date).map(&:to_s)
-    shipment['amount']                     = self.shipments.map(&:amount).map(&:to_f)
+    shipment['date']                       = self.shipments.order(date: :ASC).map(&:date).map(&:to_date).map(&:to_s)
+    shipment['amount']                     = self.shipments.order(date: :ASC).map(&:amount).map(&:to_f)
     return shipment
   end
 
