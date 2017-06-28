@@ -40,14 +40,14 @@
             <td><%= analysis.property.name %></td>
             <td><%= analysis.codeanalysis %></td>
             <td><%= analysis.collect %></td>
-            <td><%= analysis.fat %></td>
-            <td><%= analysis.protein %></td>
-            <td><%= analysis.lactose %></td>
-            <td><%= analysis.totalsolids %></td>
-            <td><%= analysis.defattedextract %></td>
-            <td><%= analysis.css %></td>
-            <td><%= analysis.scorecss %></td>
-            <td><%= analysis.ufc %></td>
+            <td><%= number_to_currency(analysis.fat, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.protein, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.lactose, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.totalsolids, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.defattedextract, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.css, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.scorecss, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(analysis.ufc, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %></td>
             <td>
           <%= link_to analysis, class: 'btn btn-sm btn-primary' do %>
             <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>

@@ -7,7 +7,7 @@
     <span class="fa fa-pencil"></span>
     <%= I18n.t('crud.edit') %>
   <% end %>
-  <h3><%= I18n.t('crud.show') %> analysis</h3>
+  <h3><%= I18n.t('crud.show') %> <%= Analysis.human_attribute_name(:analysis) %></h3>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
@@ -16,40 +16,40 @@
       <%= @analysis.codeanalysis %>
     </li>
     <li class="list-group-item">
-      <strong><%= Analysis.human_attribute_name(:dollect) %></strong>
+      <strong><%= Analysis.human_attribute_name(:collect) %></strong>
       <%= @analysis.collect %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:fat) %></strong>
-      <%= @analysis.fat %>
+      <%= number_to_currency(@analysis.fat, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:protein) %></strong>
-      <%= @analysis.protein %>
+      <%= number_to_currency(@analysis.protein, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:lactose) %></strong>
-      <%= @analysis.lactose %>
+      <%= number_to_currency(@analysis.lactose, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:totalsolids) %></strong>
-      <%= @analysis.totalsolids %>
+      <%= number_to_currency(@analysis.totalsolids, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:defattedextract) %></strong>
-      <%= @analysis.defattedextract %>
+      <%= number_to_currency(@analysis.defattedextract, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:css) %></strong>
-      <%= @analysis.css %>
+      <%= number_to_currency(@analysis.css, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:scorecss) %></strong>
-      <%= @analysis.scorecss %>
+      <%= number_to_currency(@analysis.scorecss, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Analysis.human_attribute_name(:ufc) %></strong>
-      <%= @analysis.ufc %>
+      <%= number_to_currency(@analysis.ufc, unit: "%", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
   </ul>
 </div>

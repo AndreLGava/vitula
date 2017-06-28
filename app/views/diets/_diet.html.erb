@@ -24,7 +24,7 @@
 
 	    <tbody>
 	      <%= content_tag_for(:tr, @diets) do |diet| %>
-	            <td><%= diet.amount %></td>
+	            <td><%= number_to_currency(diet.amount, unit: "L/Dia", separator: ",", delimiter: ".", format: "%n %u") %></td>
 	            <td><%= diet.datestart %></td>
 	            <td><%= diet.dateend %></td>
 	            <td><%= diet.stock.feed.name %></td>

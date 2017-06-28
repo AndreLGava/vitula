@@ -15,8 +15,8 @@
     <% @animals.each do |production| %>
       <tr>
         <td><%= "#{production.code} - #{production.name}" %></td>
-        <td><%= production.average_month(Time.now) %></td>
-        <td><%= production.average_year_total(Time.now) %></td>
+        <td><%= number_to_currency(production.average_month(Time.now) , unit: "L/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
+        <td><%= number_to_currency(production.average_year_total(Time.now) , unit: "L/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
       </tr>
     <% end %>
     </tbody>

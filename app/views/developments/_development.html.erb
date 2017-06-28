@@ -17,8 +17,8 @@
 			</tr>
 			<% @developments.each do |d| %>
 				<tr>
-					<td><%= d.weight %></td>
-					<td><%= d.height %></td>
+					<td><%= number_to_currency(d.weight, unit: "Kg", separator: ",", delimiter: ".", format: "%n %u") %></td>
+					<td><%= number_to_currency(d.height, unit: "cm", separator: ",", delimiter: ".", format: "%n %u") %></td>
 					<td><%= d.created_at %></td>
 				</tr>
 			<% end %>

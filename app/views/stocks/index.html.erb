@@ -29,8 +29,8 @@
       <%= content_tag_for(:tr, @stocks) do |stock| %>
             <td><%= stock.feed.name %></td>
             <td><%= stock.bin.nil? ? "" : stock.bin.name %></td>
-            <td><%= stock.amount %> T</td>
-            <td><%= stock.density %> Kg/M³</td>
+            <td><%= number_to_currency(stock.amount, unit: "T", separator: ",", delimiter: ".", format: "%n %u") %></td>
+            <td><%= number_to_currency(stock.density, unit: "Kg/M³", separator: ",", delimiter: ".", format: "%n %u") %></td>
             <td><%= stock.datestock %></td>
             <td><%= stock.datestart %></td>
             <td><%= stock.dateend %></td>

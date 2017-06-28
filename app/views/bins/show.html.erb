@@ -13,7 +13,7 @@
   <ul class="list-group">
     <li class="list-group-item">
       <strong><%=Bin.human_attribute_name(:capacity)%></strong>
-      <%= @bin.capacity %> M³
+      <%= number_to_currency(@bin.capacity, unit: "M³", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%=Bin.human_attribute_name(:property)%></strong>

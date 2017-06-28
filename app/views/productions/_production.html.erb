@@ -20,7 +20,7 @@
 			</tr>
 			<% @productions.each do |p| %>
 				<tr>
-					<td><%= p.amount %></td>
+					<td><%= number_to_currency(p.amount, unit: "L", separator: ",", delimiter: ".", format: "%n %u") %></td>
 					<td><%= p.measurement %></td>
 					<td><%= p.observation %></td>
 				</tr>

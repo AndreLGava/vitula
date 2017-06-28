@@ -59,7 +59,7 @@
         <%= @financial.schedule.name %>
       </li>
     <% end %>
-    <% unless @financial.shipments.nil? %>
+    <% unless @financial.shipments.empty? %>
       <li class="list-group-item">
         <strong>Quantidade de litros:</strong>
         <%= number_to_currency(@financial.shipments.sum(:amount), unit: "L", separator: ",", delimiter: ".", format: "%n %u") %>

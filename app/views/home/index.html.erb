@@ -1,6 +1,6 @@
 <% if current_user.has_property? %>
 	<div class="row">
-		<div class="col-sm-6 col-xs-12">
+<!-- 		<div class="col-sm-6 col-xs-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					Previsão do tempo
@@ -9,7 +9,7 @@
 					Lista
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<% unless @stop.empty? %>
 			<div class="col-sm-6 col-xs-12">
 				<div class="panel panel-info">
@@ -86,7 +86,7 @@
 				</div>
 			</div>
 		<% end %>
-		<div class="col-sm-6 col-xs-12">
+		<!-- <div class="col-sm-6 col-xs-12">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					Proximos animais a entrar em cio
@@ -95,7 +95,7 @@
 					Lista
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<% unless @production.empty? %>
 			<div class="col-sm-6 col-xs-12">
 				<div class="panel panel-success">
@@ -127,12 +127,12 @@
 							      		<% total += shipment.amount %>
 							            <td><%= shipment.property.name %></td>
 							            <td><%= shipment.date %></td>
-							            <td><%= shipment.amount %></td>
+							            <td class='text-right'><%= number_to_currency(shipment.amount, unit: "L", separator: ",", delimiter: ".", format: "%n %u") %></td>
 							      <% end %>
 							    </tbody>
 							      <tr>
 							        <td colspan="2"><%= Shipment.human_attribute_name(:total)%></td>
-							      	<td><%= total %></td>
+							      	<td class='text-right'><%= number_to_currency(total, unit: "L", separator: ",", delimiter: ".", format: "%n %u") %></td>
 							      </tr>
 							</table>
 						</div>
@@ -167,19 +167,13 @@
 							    </thead>
 
 							    <tbody>
-							      <% total = 0 %>
 							      <%= content_tag_for(:tr, @financials) do |financial| %>
-							      		<% total += financial.value %>
 							            <td><%= financial.datetransaction %></td>
 							            <td><%= financial.operation %></td>
 							            <td><%= financial.description %></td>
-							            <td><%= number_to_currency(financial.value, unit: "R$", separator: ",", delimiter: ".") %></td>
+							            <td class='text-right'><%= number_to_currency(financial.value, unit: "R$", separator: ",", delimiter: ".") %></td>
 							      <% end %>
 							    </tbody>
-							      <tr>
-							        <td colspan="3"><%= Financial.human_attribute_name(:total)%></td>
-							      	<td><%= total %></td>
-							      </tr>
 							</table>
 						</div>
 					</div>

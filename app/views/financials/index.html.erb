@@ -45,7 +45,7 @@
               <%= financial.stock.name unless financial.stock.nil? %>
               <%= financial.treatment.name unless financial.treatment.nil? %>
               <%= financial.schedule.name unless financial.schedule.nil? %>
-              <% unless financial.shipments.nil? %>
+              <% unless financial.shipments.empty? %>
               Quantidade de litros: <%= number_to_currency(financial.shipments.sum(:amount), unit: "L", separator: ",", delimiter: ".", format: "%n %u") %>
                 (
                 <% financial.shipments.each do |s| %>

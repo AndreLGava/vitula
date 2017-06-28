@@ -23,11 +23,11 @@
     </li>
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:amount)%></strong>
-      <%= @stock.amount %>
+      <%= number_to_currency(@stock.amount, unit: "T", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:density)%></strong>
-      <%= @stock.density %>
+      <%= number_to_currency(@stock.density, unit: "Kg/M³", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Stock.human_attribute_name(:datestock)%></strong>

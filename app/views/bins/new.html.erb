@@ -3,7 +3,7 @@
     <span class="fa fa-chevron-left"></span>
     <%= I18n.t('crud.back') %>
   <% end %>
-  <h3><%= I18n.t('crud.creating') %> bin</h3>
+  <h3><%= I18n.t('crud.creating') %> <%= Bin.human_attribute_name(:bin)%></h3>
 </div>
 
 <%= render 'form' %>

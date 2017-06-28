@@ -16,7 +16,7 @@
     <ul class="list-group">
       <li class="list-group-item">
         <strong><%= Diet.human_attribute_name(:amount)%></strong>
-        <%= @diet.amount %>
+        <%= number_to_currency(@diet.amount, unit: "L/Dia", separator: ",", delimiter: ".", format: "%n %u") %>
       </li>
       <li class="list-group-item">
         <strong><%= Diet.human_attribute_name(:datestart)%></strong>

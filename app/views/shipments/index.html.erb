@@ -30,7 +30,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @shipments) do |shipment| %>
-            <td><%= shipment.amount %></td>
+            <td><%= number_to_currency(shipment.amount, unit: "L", separator: ",", delimiter: ".", format: "%n %u") %></td>
             <td><%= shipment.date %></td>
             <td><%= shipment.property.name %></td>
             <td>

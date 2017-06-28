@@ -13,7 +13,7 @@
   <ul class="list-group">
     <li class="list-group-item">
       <strong><%= Shipment.human_attribute_name(:amount)%></strong>
-      <%= @shipment.amount %>
+      <%= number_to_currency(@shipment.amount, unit: "L", separator: ",", delimiter: ".", format: "%n %u") %>
     </li>
     <li class="list-group-item">
       <strong><%= Shipment.human_attribute_name(:date)%></strong>
