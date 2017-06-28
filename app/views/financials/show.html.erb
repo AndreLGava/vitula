@@ -59,5 +59,25 @@
         <%= @financial.schedule.name %>
       </li>
     <% end %>
+    <% unless @financial.shipments.nil? %>
+      <li class="list-group-item">
+        <strong>Quantidade de litros:</strong>
+        <%= number_to_currency(@financial.shipments.sum(:amount), unit: "L", separator: ",", delimiter: ".", format: "%n %u") %>
+      </li>
+
+      <li class="list-group-item">
+      <strong>
+        Relação com entregas de leite
+      </strong>
+        <% @financial.shipments.each do |s| %>
+         <%= link_to "#{s.id} (#{number_to_currency(s.amount, unit: "L", separator: ",", delimiter: ".", format: "%n %u")})", s %>
+        <% end %>
+      </li>
+      <li class="list-group-item">
+      <% valor_litro = @financial.value/ @financial.shipments.sum(:amount)%>
+      <strong>Valor pago pelo litro de leite:</strong>
+        <%= number_to_currency(valor_litro, unit: "R$", separator: ",", delimiter: ".") %>
+      </li>
+    <% end %>
   </ul>
 </div>

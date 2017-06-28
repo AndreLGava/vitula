@@ -16,54 +16,11 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<%= label_tag(:valor_litro, "Valor pago pelo litro de leite neste intervalo de tempo", class: "required control-label") %>
+				<%= label_tag(:value, "Valor pago pelo leite neste intervalo de tempo", class: "required control-label") %>
 				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :valor_litro, class: "form-control money") %>
+					<%= text_field_tag(:financial, :value, class: "form-control money") %>
 				</div>
 			</div>
-			<div class="form-group">
-				<%= label_tag(:b_ccs, "Bonificação CCS ", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_ccs, class: "form-control money") %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= label_tag(:b_bacteria, "Bonificação bactérias", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_bacteria, class: "form-control money") %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= label_tag(:b_gordura, "Bonificação gordura", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_gordura, class: "form-control money") %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= label_tag(:b_tanque, "Bonificação tanque exp", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_tanque, class: "form-control money") %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= label_tag(:b_canalizacao, "Bonificação por canalização", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_canalizacao, class: "form-control money") %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= label_tag(:b_frete, "Bonificação frete", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_frete, class: "form-control money") %>
-				</div>
-			</div>
-			<div class="form-group">
-				<%= label_tag(:b_compra, "Bonificação de compra", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :b_compra, class: "form-control money") %>
-				</div>
-			</div>
-
 		</div>
 		<div class="form-actions">
 			<%= submit_tag "Definir venda de leite", class: "btn btn-primary" %>

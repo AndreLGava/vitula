@@ -86,23 +86,11 @@ class FinancialsController < ApplicationController
   def financial_shipment
     @date_start = params[:date_start]
     @date_end = params[:date_end]
-
-    @valor_litro = params[:valor_litro].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_bacteria = params[:b_bacteria].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_ccs = params[:b_ccs].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_gordura = params[:b_gordura].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_tanque = params[:b_tanque].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_canalizacao = params[:b_canalizacao].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_frete = params[:b_frete].gsub(/[.]/, '').gsub(/[,]/, '.')
-    @b_compra = params[:b_compra].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @value = params[:financial].gsub(/[.]/, '').gsub(/[,]/, '.')
     @shipments = Shipment.shipment(current_user, @date_start, @date_end)
 
     unless @shipments.empty?
-      value = @shipments.count(:amount)
-
-      binding.pry
-      total_value = (@valor_litro * value) + (@b_bacteria * value) + (@b_ccs * value) + (@b_gordura * value) + (@b_tanque * value) + (@b_canalizacao * value) + (@b_frete * value) + (@b_compra * value) + (@shipments * value) 
-      @financial = Financial.create(value: total_value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id,  valor_litro: @valor_litro, b_bacteria: @b_bacteria, b_ccs: @b_ccs, b_gordura: @b_gordura, b_tanque: @b_tanque, b_canalizacao: @b_canalizacao, b_frete: @b_frete, b_compra: @b_compra, shipments: @shipments)
+      @financial = Financial.create(value: @value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id)
       
       @shipments.each do |s|
         s.update(financial_id: @financial.id)
