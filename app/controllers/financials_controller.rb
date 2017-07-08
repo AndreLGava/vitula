@@ -86,11 +86,28 @@ class FinancialsController < ApplicationController
   def financial_shipment
     @date_start = params[:date_start]
     @date_end = params[:date_end]
-    @value = params[:financial].gsub(/[.]/, '').gsub(/[,]/, '.')
+
+    @valor_litro = params[:valor_litro].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:valor_litro].nil?
+    @b_bacteria = params[:b_bacteria].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_bacteria].nil?
+    @b_ccs = params[:b_ccs].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_ccs].nil?
+    @b_gordura = params[:b_gordura].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_gordura].nil?
+    @b_tanque = params[:b_tanque].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_tanque].nil?
+    @b_canalizacao = params[:b_canalizacao].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_canalizacao].nil?
+    @b_frete = params[:b_frete].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_frete].nil?
+    @b_compra = params[:b_compra].gsub(/[.]/,'').gsub(/[,]/, '.') unless params[:b_compra].nil?
+    @value = params[:financial].gsub(/[.]/, '').gsub(/[,]/, '.') unless params[:financial].nil?
     @shipments = Shipment.shipment(current_user, @date_start, @date_end)
 
     unless @shipments.empty?
-      @financial = Financial.create(value: @value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id)
+      @financial = Financial.create(value: @value, datetransaction: Time.now.to_date, operation: 1, description: "Venda de leite de #{@date_start} até #{@date_end}. ", user_id: current_user.id, 
+        valor_litro: @valor_litro,
+b_bacteria: @b_bacteria,
+b_ccs: @b_ccs,
+b_gordura: @b_gordura,
+b_tanque: @b_tanque,
+b_canalizacao: @b_canalizacao,
+b_frete: @b_frete,
+b_compra: @b_compra)
       
       @shipments.each do |s|
         s.update(financial_id: @financial.id)
