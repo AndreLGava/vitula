@@ -2,30 +2,57 @@
 	<%= form_tag(financial_close_path) do %>
 		<div class="form-inputs">
 			<div class="form-group">
-				<%= label_tag(:date_start, "Data de inicio", class: "required control-label") %>
+				<%= label_tag(:date_start, "Data de inicio para fechamento de caixa", class: "required control-label") %>
 				<div class="input-group">
-					<%= text_field_tag(:date_start, Time.now.to_date.beginning_of_month, class: "datepicker form-control") %>
+					<%= text_field_tag(:date_start, nil , class: "datepicker form-control") %>
 					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 				</div>
 			</div>
 			<div class="form-group">
-				<%= label_tag(:date_end, "Data fim", class: "required control-label") %>
+				<%= label_tag(:date_end, "Data fim para fechamento de caixa", class: "required control-label") %>
 				<div class="input-group">
-					<%= text_field_tag(:date_end, Time.now.to_date, class: "form-control datepicker ") %>
+					<%= text_field_tag(:date_end, nil , class: "form-control datepicker ") %>
 					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 				</div>
 			</div>
 			<div class="form-group">
-				<%= label_tag(:value, "Valor pago pelo leite neste intervalo de tempo", class: "required control-label") %>
-				<div class="input-group "><span class="input-group-addon"><i> R$ </i></span>
-					<%= text_field_tag(:financial, :value, class: "form-control money") %>
+				<div class="input-group">
+					<a href="#" class="btn btn-primary" id="pesquisar"> Encontrar Movimentações</a>
 				</div>
 			</div>
 		</div>
-		<div class="form-actions">
-			<%= submit_tag "Definir venda de leite", class: "btn btn-primary" %>
+		<div id="list_financials">
+			
+		</div>
+		<div class="form-actions hidden">
+			<%= submit_tag "Efetuar fechamento de caixa", class: "btn btn-primary" %>
 		</div>
 		<br>
 	<% end %>
 </div>
 <br>
+<script>
+
+	$( document ).ready(function() {
+		$("#pesquisar").click(function(){
+			if(!$('#date_start').val()){
+	          $('#date_start').parent().addClass('has-error');
+	          $('#date_start').attr("placeholder", "Digite uma data");
+	    	}
+	    	if(!$('#date_end').val()){
+	          $('#date_end').parent().addClass('has-error');
+	          $('#date_end').attr("placeholder", "Digite uma data");
+	    	}
+	    	if($('#date_start').val() && $('#date_end').val()){
+	    		$('.hidden').removeClass('hidden');
+				$.ajax({
+					type: "POST",
+					url: "/search_financial",
+					data: {date_start: $('#date_start').val().toString(), date_end: $('#date_end').val().toString() },
+					dataType: "script",
+					callback: null
+				});
+	    	}
+		});
+	});
+</script>

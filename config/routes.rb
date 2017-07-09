@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   post 'financial_shipment' , to: 'financials#financial_shipment'  , as: :financial_shipment
   get 'close_financial'    , to: 'financials#close_financial'     , as: :close_financial
   post 'financial_close'    , to: 'financials#financial_close'     , as: :financial_close
+  post 'search_financial'    , to: 'financials#search_financial'     , as: :search_financial
 
   #PDF
   get "pdf", to: "relatorios#pdf", as: :pdf

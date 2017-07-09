@@ -15,7 +15,7 @@
 
   <h3><%= Financial.human_attribute_name(:financials)%></h3>
 </div>
-
+<h4>Valor em caixa: <small><%= number_to_currency(@close_last_time, unit: "R$", separator: ",", delimiter: ".") %></small></h4>
 <div class="table-responsive">
   <table class="table table-striped table-hover table-condensed">
     <thead>

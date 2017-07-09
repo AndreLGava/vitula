@@ -5,6 +5,7 @@ class FinancialsController < ApplicationController
   # GET /financials
   # GET /financials.json
   def index
+    @close_last_time = Close.where(user_id: @current_user.id).empty? ? 0 : Close.where(user_id: @current_user.id).pluck(:totalvalue).last
     if params[:operation]
       @financials = Financial.where(user_id: current_user.id, operation: params[:operation]).order(id: :desc).page params[:page]
     else
@@ -100,12 +101,46 @@ class FinancialsController < ApplicationController
   end
 
   def close_financial
-    @credito = Financial.where(user_id: current_user.id, operation: 1, close_id: nil).order(id: :desc)
-    @debito = Financial.where(user_id: current_user.id, operation: 0, close_id: nil).order(id: :desc)
-    #soma
-    #credito.sum(:value)
-    binding.pry
 
+  end
+
+  def financial_close
+
+    @close_last_time = Close.where(user_id: @current_user.id).empty? ? 0 : Close.where(user_id: @current_user.id).pluck(:totalvalue).last
+    @date_start = params[:date_start]
+    @date_end = params[:date_end]
+    @financials = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil)
+    @credito = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil, operation: 1).sum(:value)
+    @debito = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil, operation: 0).sum(:value)
+    @total = @close_last_time + @credito - @debito
+
+    if @credito != 0 or @debito != 0 
+      @close = Close.create(
+          dateclosing: @date_end,
+           totalvalue: @total,
+           user_id: @current_user.id
+      )
+
+      @financials.each do |f|
+        f.update(close_id: @close.id)
+      end
+      mensagem = "Fechamento de caixa efetuado com sucesso. Valor em caixa #{@total}"
+    else
+      mensagem = "Não foram encontradas movimentações abertas no periodo de #{@date_start} até #{@date_end}. Por favor verifique os filtros"
+    end
+
+    redirect_to financials_path, notice: mensagem
+  
+  end
+  def search_financial
+    @date_start = params[:date_start]
+    @date_end = params[:date_end]
+
+    @financials = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil ).order(datetransaction: :DESC)
+
+    respond_to do |format|
+      format.js { render 'search_financial', financials: @financials }
+    end
   end
 
   private
