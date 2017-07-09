@@ -1,6 +1,7 @@
 class DietsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_diet, only: [:show, :edit, :update, :destroy]
+  before_action :set_stock, only: [:create, :edit, :update, :new]
 
   # GET /diets/1
   # GET /diets/1.json
@@ -59,11 +60,17 @@ class DietsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_diet
       @diet = Diet.find(params[:id])
+      acesso(@diet.animal.user_id, root_path)
     end
 
     def set_data
       @animal = Animal.find_by_id(@diet.animal_id)
       @diets = @animal.diets.order(id: :desc).page params[:page]
+    end
+
+    def set_stock
+      @bins = @current_user.bins
+      @stocks = Stock.where(bin_id: @bins.ids, dateend: nil)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -3,11 +3,11 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :amount,as: :normal, before: "L" %>
+      <%= f.input :amount,as: :normal, before: "Kg" %>
       <%= f.input :datestart, as: :date_time_picker %>
       <%= f.input :dateend, as: :date_time_picker %>
       <%= f.association :animal, as: :hidden %>
-      <%= f.association :stock %>
+      <%= f.association :stock, :collection => @stocks, label_method: "#{:name}", :value_method => :id, include_blank: false %>
     </div>
 
     <div class="form-actions">

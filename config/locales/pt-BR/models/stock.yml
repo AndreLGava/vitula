@@ -28,4 +28,7 @@ pt-BR:
         fournisseur: Fornecedor
         density: Densidade (Kg/M³)
         densitypasteur: Densidade (Kg/M²)
+        spent: Consumido em M³
+        spent_kg: Consumido em Kg
+        estimativa: Acaba em
 

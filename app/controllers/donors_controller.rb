@@ -3,7 +3,7 @@ class DonorsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update]
 
   def index
-    @donors = Animal.where(donor: true)
+    @donors = Animal.where(donor: true, user_id: @current_user.id, discard: nil)
   end
 
   def show
@@ -19,6 +19,7 @@ class DonorsController < ApplicationController
    private
     def set_animal
       @donor = Animal.find(params[:id])
+      acesso(@donor.user_id, donors_path)
     end
 
     def animal_params

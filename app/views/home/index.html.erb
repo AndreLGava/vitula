@@ -10,6 +10,48 @@
 				</div>
 			</div>
 		</div> -->
+		<% unless @stocks.empty? %>
+			<div class="col-sm-6 col-xs-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<%= Stock.human_attribute_name(:stocks)%>
+							  <%= link_to stocks_path, title: Stock.human_attribute_name(:stocks) , class: 'btn btn-info btn-outline btn-margin btn-xs pull-right' do %>
+							    <span class="fa fa-link"></span>
+							  <% end %> 
+							  
+							 <%= link_to new_stock_path, title: I18n.t('stocks.new.new') , class: 'btn btn-success btn-outline btn-margin btn-xs pull-right' do %>
+							    <span class="fa fa-plus"></span>
+							  <% end %>
+							  <div class="clearfix"></div>
+					</div>
+					<div class="panel-body">
+					<div class="table-responsive">
+					  <table class="table table-striped table-hover table-condensed">
+					    <thead>
+					      <tr>
+					            <th><%= Stock.human_attribute_name(:feed)%></th>
+					            <th><%= Stock.human_attribute_name(:estimativa)%></th>
+					      </tr>
+					    </thead>
+
+					    <tbody>
+					      <%= content_tag_for(:tr, @stocks) do |stock| %>
+					            <td><%= stock.feed.name %></td>
+					            <td>
+									<div class="progress">
+									  <div class="progress-bar progress-bar-striped progress-bar-warning <%= stock.dateend.nil? ? 'active'.html_safe : '' %>" role="progressbar" aria-valuenow="<%= stock.estimativa %>" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%">
+									    <%= stock.estimativa %> dias para acabar
+									  </div>
+									</div>
+								</td>
+					      <% end %>
+					    </tbody>
+					  </table>
+					</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
 		<% unless @stop.empty? %>
 			<div class="col-sm-6 col-xs-12">
 				<div class="panel panel-info">

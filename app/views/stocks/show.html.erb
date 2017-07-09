@@ -45,6 +45,24 @@
       <strong><%= Stock.human_attribute_name(:fournisseur)%></strong>
       <%= @stock.fournisseur %>
     </li>
+    <% if @stock.dateend.nil? %>
+      <li class="list-group-item">
+        <strong><%= Stock.human_attribute_name(:spent)%></strong>
+        <%= @stock.spent.round(2) %>
+      </li>
+    <% end %>
+    <% if @stock.dateend.nil? %>
+      <li class="list-group-item">
+        <strong><%= Stock.human_attribute_name(:spent_kg)%></strong>
+        <%= number_to_currency(@stock.spent_kg[0] , unit: @stock.spent_kg[1], separator: ",", delimiter: ".", format: "%n %u") %>
+      </li>
+    <% end %>
+    <% if @stock.dateend.nil? %>
+      <li class="list-group-item">
+        <strong><%= Stock.human_attribute_name(:estimativa)%></strong>
+        <%= @stock.estimativa %> dias
+      </li>
+    <% end %>
   </ul>
 </div>
 <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">

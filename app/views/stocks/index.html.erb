@@ -19,6 +19,9 @@
             <th><%= Stock.human_attribute_name(:datestart)%></th>
             <th><%= Stock.human_attribute_name(:dateend)%></th>
             <th><%= Stock.human_attribute_name(:fournisseur)%></th>
+            <th><%= Stock.human_attribute_name(:spent)%></th>
+            <th><%= Stock.human_attribute_name(:spent_kg)%></th>
+            <th><%= Stock.human_attribute_name(:estimativa)%></th>
             <th></th>
         <th></th>
         <th></th>
@@ -35,6 +38,9 @@
             <td><%= stock.datestart %></td>
             <td><%= stock.dateend %></td>
             <td><%= stock.fournisseur %></td>
+            <td><%= stock.spent.round(2)  if stock.dateend.nil? %></td>
+            <td><%= number_to_currency(stock.spent_kg[0] , unit: stock.spent_kg[1], separator: ",", delimiter: ".", format: "%n %u")  if stock.dateend.nil? %></td>
+            <td><%= stock.estimativa  if stock.dateend.nil? %></td>
             <td>
           <%= link_to stock, class: 'btn btn-sm btn-primary' do %>
             <i class="fa fa-eye"></i> <%= I18n.t('crud.show') %>

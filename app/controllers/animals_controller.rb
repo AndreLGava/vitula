@@ -105,6 +105,7 @@ class AnimalsController < ApplicationController
     def set_animal
       @animal = Animal.find(params[:id])
       @financials = @animal.financials
+      acesso(@animal.user_id, animals_path)
     end
 
     def set_reproduction

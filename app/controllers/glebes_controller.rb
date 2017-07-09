@@ -71,6 +71,7 @@ class GlebesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_glebe
       @glebe = Glebe.find(params[:id])
+      acesso(@glebe.property.user_id, root_path)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

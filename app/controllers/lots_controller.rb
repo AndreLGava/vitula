@@ -48,6 +48,7 @@ class LotsController < ApplicationController
   private
     def set_lot
       @lot = Lot.find(params[:id])
+      acesso(@lot.property.user_id, financial_path)
     end
 
     def lot_params

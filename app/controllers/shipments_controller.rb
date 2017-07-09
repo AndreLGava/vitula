@@ -66,6 +66,7 @@ class ShipmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shipment
       @shipment = Shipment.find(params[:id])
+      acesso(@shipment.property.user_id, shipments_path)
     end
 
     def set_property

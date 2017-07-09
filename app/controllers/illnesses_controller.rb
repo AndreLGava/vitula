@@ -72,6 +72,7 @@ class IllnessesController < ApplicationController
     end
     def set_illness
       @illness = Illness.find(params[:id])
+      acesso(@illness.animal.user_id, root_path)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

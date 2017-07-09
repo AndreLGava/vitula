@@ -67,11 +67,12 @@ class StocksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_stock
       @stock = Stock.find(params[:id])
+      acesso(@stock.bin.property.user_id, stocks_path)
       @financials = @stock.financials
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:bin_id, :feed_id, :glebe_id, :amount, :datestock, :datestart, :dateend, :fournisseur)
+      params.require(:stock).permit(:bin_id, :feed_id, :glebe_id, :amount, :datestock, :datestart, :dateend, :fournisseur, :density)
     end
 end

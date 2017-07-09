@@ -29,6 +29,7 @@ class NotificationsController < ApplicationController
 
     def set_notification
       @notification = Notification.find(params[:id])
+      acesso(@notification.user_id, root_path)
     end
 
     def notification_params

@@ -66,6 +66,7 @@ class PasteursController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_stock
       @stock = Stock.find(params[:id])
+      acesso(@stock.glebe.property.user_id, financial_path)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

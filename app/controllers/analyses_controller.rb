@@ -63,6 +63,7 @@ class AnalysesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_analysis
       @analysis = Analysis.find(params[:id])
+      acesso(@analysis.property.user_id, analyses_path)
     end
 
     def set_property

@@ -69,6 +69,7 @@ class ReproductionsController < ApplicationController
 
     def set_reproduction
       @reproduction = Reproduction.find(params[:id])
+      acesso(@reproduction.animal.user_id, root_path)
       @financials = @reproduction.financials
     end
 

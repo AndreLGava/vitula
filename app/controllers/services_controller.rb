@@ -67,6 +67,7 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])
+      acesso(@service.user_id, services_path)
       @financials = @service.financials
     end
 

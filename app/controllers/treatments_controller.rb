@@ -73,6 +73,7 @@ class TreatmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_treatment
       @treatment = Treatment.find(params[:id])
+      acesso(@treatment.illness.animal.user_id, root_path)
       @financials = @treatment.financials
     end
 

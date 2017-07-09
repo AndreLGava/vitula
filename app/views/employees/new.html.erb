@@ -3,7 +3,7 @@
     <span class="fa fa-chevron-left"></span>
     <%= I18n.t('crud.back') %>
   <% end %>
-  <h3><%= I18n.t('crud.creating') %> employee</h3>
+  <h3><%= I18n.t('crud.creating') %> <%= Employee.human_attribute_name(:employee)%></h3>
 </div>
 
 <%= render 'form' %>

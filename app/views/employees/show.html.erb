@@ -7,7 +7,7 @@
     <span class="fa fa-pencil"></span>
     <%= I18n.t('crud.edit') %>
   <% end %>
-  <h3><%= I18n.t('crud.show') %> employee</h3>
+  <h3><%= I18n.t('crud.show') %> <%= Employee.human_attribute_name(:employee)%></h3>
 </div>
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <ul class="list-group">
