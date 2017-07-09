@@ -66,9 +66,13 @@
         <% if @animal.female %>
           <%= link_to I18n.t('animals.show.production'), animal_production_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
         <% end %>
-        <%= link_to I18n.t('animals.show.illness'), animal_illness_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
+        <% if @current_user.has_disease? %>
+          <%= link_to I18n.t('animals.show.illness'), animal_illness_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
+        <% end %>
         <%= link_to I18n.t('animals.show.reproduction'), animal_reproduction_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
-        <%= link_to I18n.t('animals.show.diet'), animal_diet_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
+        <% if @current_user.has_stock? %>
+          <%= link_to I18n.t('animals.show.diet'), animal_diet_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
+        <% end %>
         <%= link_to I18n.t('animals.show.development'), animal_development_path(id: @animal.id), class: 'btn btn-default', remote: true  %>
       </div>
 <!--       <div class="btn-group pull-right" role="group">

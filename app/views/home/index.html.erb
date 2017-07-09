@@ -1,3 +1,23 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Bem Vindo <%= @current_user.name %>
+			</div>
+			<div class="panel-body">
+				O sistema Vitula foi projetado para que você possa gerenciar sua propriedade, começe criando uma propriedade, em seguida o sistema irá liberar acesso aos outros módulos, não esqueça de adicionar doenças, medicamentos e armazenamento de alimentos, estes são cadastros fundamentais para liberar acesso completo a todos os módulos.
+				<br> Os módulos disponíveis são:
+				<br> Gerenciamento do ciclo de vida dos Animais, possibilita acesso ao animal, histórico familiar, ideade, foto, desenvolvimento do animal, etc.
+				<br> Reprodução, problemas de reprodução, cio, parto, interrupção de lactação, etc.
+				<br> Produção individual, produção geral geral, Vendas de leite
+				<br> Alimentação, controle de dietas, consumo, locais de armazenagem, alimentos armazenados.
+				<br> Sanidade, doenças, medicamentos, tratamentos, análises de leite
+				<br> Financeiro com fechamento de caixa, vinculo entre outros módulos, gastos e receita como débito e crédito, 
+				<br> Administrativo como serviços, empregados, glebas etc.
+			</div>
+		</div>
+	</div>
+</div>
 <% if current_user.has_property? %>
 	<div class="row">
 <!-- 		<div class="col-sm-6 col-xs-12">

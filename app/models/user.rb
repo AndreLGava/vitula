@@ -16,12 +16,28 @@ class User < ActiveRecord::Base
   has_many :services, through: :properties
   has_many :animals, dependent: :destroy
   has_many :bins, through: :properties
+  has_many :stocks, through: :bins
   has_many :glebes, through: :properties
 
   def has_property?
     self.properties.empty? ? false : true
   end
 
+  def has_bin?
+    self.bins.empty? ? false : true
+  end
+
+  def has_animals?
+    self.animals.empty? ? false : true
+  end
+
+  def has_disease?
+    Disease.all.empty? ? false : true
+  end
+
+  def has_stock?
+    self.stocks.empty? ? false : true
+  end
 
   def user_params
 		params.require(:user).permit(:name, :avatar, :phone, :born, :cpf, :rg, :address, :city, :language)
