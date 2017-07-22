@@ -85,8 +85,8 @@ class FinancialsController < ApplicationController
   end
 
   def financial_shipment
-    @date_start = params[:date_start]
-    @date_end = params[:date_end]
+    @date_start = params[:date_start].to_date
+    @date_end = params[:date_end].to_date
     @value = params[:financial].gsub(/[.]/, '').gsub(/[,]/, '.')
     @shipments = Shipment.shipment(current_user, @date_start, @date_end)
 
@@ -107,8 +107,8 @@ class FinancialsController < ApplicationController
   def financial_close
 
     @close_last_time = Close.where(user_id: @current_user.id).empty? ? 0 : Close.where(user_id: @current_user.id).pluck(:totalvalue).last
-    @date_start = params[:date_start]
-    @date_end = params[:date_end]
+    @date_start = params[:date_start].to_date
+    @date_end = params[:date_end].to_date
     @financials = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil)
     @credito = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil, operation: 1).sum(:value)
     @debito = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil, operation: 0).sum(:value)
