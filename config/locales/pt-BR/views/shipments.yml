@@ -2,6 +2,7 @@ pt-BR:
   shipments:
     index:
       shipments: Carregamentos
+      shipment: Carregamento
     new:
       new: Novo Carregamento
     edit:

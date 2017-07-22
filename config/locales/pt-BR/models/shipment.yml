@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       shipment: Carregamento de leite
+      shipment: Carregamento de leite
     attributes:
       shipment:
         shipment: Carregamento de leite

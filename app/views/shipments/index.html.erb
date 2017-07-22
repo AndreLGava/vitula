@@ -1,8 +1,12 @@
 <% breadcrumb :shipments %>
 <div class="page-header">
-  <%= link_to new_shipment_path, class: 'btn btn-primary pull-right' do %>
+  <%= link_to new_shipment_path, class: 'btn btn-primary pull-right btn-margin' do %>
     <span class="fa fa-plus"></span>
     <%= I18n.t('shipments.new.new') %>
+  <% end %>
+  <%= link_to shipment_financial_path, remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }, class: 'btn btn-primary pull-right btn-margin' do %>
+    <span class="fa fa-tint"></span>
+    <%= Financial.human_attribute_name(:shipment)%>
   <% end %>
   
   <h3><%= Shipment.human_attribute_name(:shipments)%></h3>
@@ -15,6 +19,7 @@
 
     </div>
 </div>
+<h4>Litros carregados no mês: <small><%= number_to_currency(@total_litros, unit: "L", separator: ",", delimiter: ".") %></small></h4>
 <div class="table-responsive">
   <table class="table table-striped table-hover table-condensed">
     <thead>

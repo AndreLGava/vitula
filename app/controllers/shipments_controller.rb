@@ -6,6 +6,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments
   # GET /shipments.json
   def index
+    @total_litros = Shipment.where(date: Time.now.to_date.beginning_of_month..Time.now.to_date.end_of_month).sum(:amount)
     @shipments = Shipment.them(current_user, params[:page])
   end
 
