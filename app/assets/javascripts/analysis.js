@@ -1,6 +1,6 @@
 var Analysis = {
   setup: function (data) {
-    console.log(data.data.collect);
+    console.log(data);
       $('.chart').highcharts({
                 chart: {
                         type: 'spline'

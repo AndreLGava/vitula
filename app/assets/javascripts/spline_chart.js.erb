@@ -1,57 +1,59 @@
 var SplineGraph = {
   setup: function (data) {
-    console.log(data.data.height);
+    console.log(data);
       $('.chart').highcharts({
-    			chart: {
-    					type: 'spline'
-    			},
-    			title: {
-    					text: data.title
-    			},
-    			subtitle: {
-    					text: data.subtitle
-    			},
-    			xAxis: {
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                        text: data.title
+                },
+                subtitle: {
+                        text: data.subtitle
+                },
+                xAxis: {
                         categories: data.data.created,
-    					type: 'datetime',
-    					labels: {
-    							overflow: 'justify'
-    					}
-    			},
-    			yAxis: {
-    					title: {
-    							text: data.yAxis
-    					},
-    					minorGridLineWidth: 0,
-    					gridLineWidth: 0,
-    					alternateGridColor: null    					
-    			},
-    			plotOptions: {
-    					spline: {
-    							lineWidth: 4,
-    							states: {
-    									hover: {
-    											lineWidth: 5
-    									}
-    							},
-    							marker: {
-    									enabled: false
-    							}
-    					}
-    			},
-    			series: [{
-    					name: 'Altura',
-    					data: data.data.height
+                        type: 'date',
+                        labels: {
+                                overflow: 'justify'
+                        }
+                },
+                yAxis: {
+                        title: {
+                                text: data.yAxis
+                        },
+                        minorGridLineWidth: 0,
+                        gridLineWidth: 0,
+                        alternateGridColor: null                        
+                },
+                plotOptions: {
+                        spline: {
+                                lineWidth: 4,
+                                states: {
+                                        hover: {
+                                                lineWidth: 5
+                                        }
+                                },
+                                marker: {
+                                        enabled: true
+                                }
+                        }
+                },
+                series: [{
+                        name: 'Altura',
+                        type: 'line',
+                        data: data.data.height
 
-    			}, {
-    					name: 'Peso',
-    					data: data.data.weight
-    			}],
-    			navigation: {
-    					menuItemStyle: {
-    							fontSize: '10px'
-    					}
-    			}
-    	});
+                }, {
+                        name: 'Peso',
+                        type: 'line',
+                        data: data.data.weight
+                }],
+                navigation: {
+                        menuItemStyle: {
+                                fontSize: '10px'
+                        }
+                }
+        });
     }
 };

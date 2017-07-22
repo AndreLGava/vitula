@@ -95,9 +95,9 @@ class Animal < ActiveRecord::Base
 
   def animal_development
     development = {}
-    development['created']                 = self.developments.select(:created_at).map(&:created_at).map(&:to_date).map(&:to_s).uniq.reverse
-    development['height']                  = self.developments.select(:height).map(&:height).uniq.reverse
-    development['weight']                  = self.developments.select(:weight).map(&:weight).uniq.reverse
+    development['created']                 = self.developments.select(:created_at).map(&:created_at).map(&:to_date).map(&:to_s).reverse
+    development['height']                  = self.developments.select(:height).map(&:height).map(&:to_f).reverse
+    development['weight']                  = self.developments.select(:weight).map(&:weight).map(&:to_f).reverse
     return development
   end
 
