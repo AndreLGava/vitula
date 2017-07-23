@@ -133,8 +133,8 @@ class FinancialsController < ApplicationController
   
   end
   def search_financial
-    @date_start = params[:date_start]
-    @date_end = params[:date_end]
+    @date_start = params[:date_start].to_date
+    @date_end = params[:date_end].to_date
 
     @financials = Financial.where(datetransaction: @date_start..@date_end, user_id: @current_user.id, close_id: nil ).order(datetransaction: :DESC)
 
