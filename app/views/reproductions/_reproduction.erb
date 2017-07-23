@@ -23,18 +23,30 @@
 			  	<% else %>
 		      		<td><%= Reproduction.human_attribute_name(:mother)%></td>
 				  <% end %>
-		      <td width="20%"></td>
+		      <td width="20%"><%= Reproduction.human_attribute_name(:development)%></td>
         <td></td>
         <td></td>
 			</tr>
 			<% @reproductions.each do |r| %>
 				<tr>
 					<td><%= r.heat %></td>
-					<td><%= r.insemination %></td>
+					<% if r.insemination.nil? %>
+						<td style="color: gray;"><%= r.e_insemination %></td>
+					<% else %>
+						<td><%= r.insemination %></td>
+					<% end %>
 					<td><%= r.regress %></td>
 					<td><%= r.abortion %></td>
-					<td><%= r.stop_breastfeeding %></td>
-					<td><%= r.parturition %></td>
+					<% if r.stop_breastfeeding.nil? %>
+						<td style="color: gray;"><%= r.e_stop_breastfeeding %></td>
+					<% else %>
+						<td><%= r.stop_breastfeeding %></td>
+					<% end %>
+					<% if r.parturition.nil? %>
+						<td style="color: gray;"><%= r.e_parturition %></td>
+					<% else %>
+						<td><%= r.parturition %></td>
+					<% end %>
 					<% if  @animal.female %>
 						<td><%= r.father.name unless r.father.nil? %></td>
 					<% else %>

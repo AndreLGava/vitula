@@ -7,7 +7,8 @@ class NormalInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    super.merge({class: "form-control #{options[:before]}", readonly: false})
+    value = options[:before] == '%' ? 'percentual' : options[:before]
+    super.merge({class: "form-control #{value}", readonly: false})
   end
 
   def span

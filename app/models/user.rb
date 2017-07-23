@@ -45,9 +45,11 @@ class User < ActiveRecord::Base
 
 
   def set_data_shipment
+    @today = Time.now.to_date
+    @end_of_year = @today-1.year
     shipment = {}
-    shipment['date']                       = self.shipments.order(date: :ASC).map(&:date).map(&:to_date).map(&:to_s)
-    shipment['amount']                     = self.shipments.order(date: :ASC).map(&:amount).map(&:to_f)
+    shipment['date']                       = self.shipments.where(date: @end_of_year..@today).order(date: :ASC).map(&:date).map(&:to_date).map(&:to_s)
+    shipment['amount']                     = self.shipments.where(date: @end_of_year..@today).order(date: :ASC).map(&:amount).map(&:to_f)
     return shipment
   end
 
@@ -63,16 +65,18 @@ class User < ActiveRecord::Base
   end
 
   def set_data_analyses
+    @today = Time.now.to_date
+    @end_of_year = @today-1.year
     analysis = {}
-    analysis['collect']                    = self.analyses.map(&:collect).map(&:to_s)
-    analysis['fat']                        = self.analyses.map(&:fat).map(&:to_f)
-    analysis['protein']                    = self.analyses.map(&:protein).map(&:to_f)
-    analysis['lactose']                    = self.analyses.map(&:lactose).map(&:to_f)
-    analysis['totalsolids']                = self.analyses.map(&:totalsolids).map(&:to_f)
-    analysis['defattedextract']            = self.analyses.map(&:defattedextract).map(&:to_f)
-    analysis['css']                        = self.analyses.map(&:css).map(&:to_f)
-    analysis['scorecss']                   = self.analyses.map(&:scorecss).map(&:to_f)
-    analysis['ufc']                        = self.analyses.map(&:ufc).map(&:to_f)
+    analysis['collect']                    = self.analyses.where(collect: @end_of_year..@today).map(&:collect).map(&:to_s)
+    analysis['fat']                        = self.analyses.where(collect: @end_of_year..@today).map(&:fat).map(&:to_f)
+    analysis['protein']                    = self.analyses.where(collect: @end_of_year..@today).map(&:protein).map(&:to_f)
+    analysis['lactose']                    = self.analyses.where(collect: @end_of_year..@today).map(&:lactose).map(&:to_f)
+    analysis['totalsolids']                = self.analyses.where(collect: @end_of_year..@today).map(&:totalsolids).map(&:to_f)
+    analysis['defattedextract']            = self.analyses.where(collect: @end_of_year..@today).map(&:defattedextract).map(&:to_f)
+    analysis['css']                        = self.analyses.where(collect: @end_of_year..@today).map(&:css).map(&:to_f)
+    analysis['scorecss']                   = self.analyses.where(collect: @end_of_year..@today).map(&:scorecss).map(&:to_f)
+    analysis['ufc']                        = self.analyses.where(collect: @end_of_year..@today).map(&:ufc).map(&:to_f)
     return analysis
   end
 

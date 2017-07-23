@@ -26,6 +26,22 @@ class Reproduction < ActiveRecord::Base
   @@stop_breastfeeding = 214.days #days after insemination 60 days before partturition
   @@parturition = 274.days #days +- 7 days [267 , 282] after last insemination
 
+  def e_insemination
+    return "Estimado: #{self.heat + 1.day}"
+  end
+
+  def e_stop_breastfeeding
+    if self.parturition.nil? and self.regress.nil? and self.abortion.nil?
+      return "Estimado: #{self.insemination + 214.days}" unless self.insemination.nil?
+    end
+  end
+
+  def e_parturition
+    if self.regress.nil? and self.abortion.nil?
+      return "Estimado: #{self.insemination + 274.days}" unless self.insemination.nil?
+    end
+  end
+
   def name
     return "Reprodução #{self.heat} - #{self.insemination} - #{self.mother.code}.#{self.mother.name} - #{self.father.code}.#{self.father.name}"    
   end

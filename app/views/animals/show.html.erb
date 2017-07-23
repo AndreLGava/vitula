@@ -2,7 +2,11 @@
 <div class="row">
   <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item"><%= image_tag @animal.photo.url(:medium), class: "img-rounded img-responsive" %></li>
+      <li class="list-group-item">
+          <center> 
+            <%= image_tag @animal.photo.url(:medium), class: "img-rounded img-responsive" %>
+          </center>
+        </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:code)%></strong>
         <%= @animal.code %>
