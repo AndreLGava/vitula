@@ -28,7 +28,10 @@ class AnimalsController < ApplicationController
   end
 
   def new
-    @reproduction = Reproduction.all
+    @today = Time.now.to_date
+    @last_months = @today - 18.months
+    @reproduction = Reproduction.where(mother_id: current_user.animals, parturition: @last_months..@today).order(created_at: :DESC)
+
     if params[:reproduction].nil?
       @animal = Animal.new
     else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708233838) do
+ActiveRecord::Schema.define(version: 20170726013937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170708233838) do
     t.string   "description"
     t.date     "discard"
     t.string   "reason_discard"
-    t.boolean  "female"
+    t.boolean  "female",             default: true
     t.integer  "breed"
     t.integer  "lot_id"
     t.integer  "user_id"

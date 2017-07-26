@@ -11,7 +11,7 @@
     <%# f.association :lot %>
     <%= f.association :property, collection: Property.where(user_id: current_user.id) , allow_blank: false %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-    <%= f.association :reproduction, :label_method => lambda { |reproduction| "Parto: #{reproduction.parturition} - Mãe: #{reproduction.mother.code} #{reproduction.mother.name} - Pai: #{reproduction.father.code} #{reproduction.father.name}" } , :value_method => :id %>
+    <%= f.association :reproduction, collection: @reproduction,  label_method: lambda { |reproduction| "Parto: #{reproduction.parturition} - Mãe: #{reproduction.mother.code} #{reproduction.mother.name} - Pai: #{reproduction.father.code} #{reproduction.father.name}" } , :value_method => :id %>
     <%= f.input :discard, as: :date_picker, :include_blank => true  %>
     <%= f.input :reason_discard %>
   </div>

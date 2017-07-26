@@ -1,11 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      financial: Movimentação
-      financials: Movimentações
+      financial: Movimentação financeira
+      financials: Movimentações financeiras
     attributes:
       financial:
-        financial: Movimentação
+        financial: Movimentação financeira
         value: Valor
         datetransaction: Data da operação
         operation: Operação
