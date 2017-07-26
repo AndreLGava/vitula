@@ -3,7 +3,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :amount,as: :normal, before: "Kg" %>
+      <%= f.input :amount,as: :normal, before: "Kg",:input_html => {value: number_with_precision(f.object.amount, precision: 2) } %>
       <%= f.input :datestart, as: :date_time_picker %>
       <%= f.input :dateend, as: :date_time_picker %>
       <%= f.association :animal, as: :hidden %>

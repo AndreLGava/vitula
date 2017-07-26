@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%= f.association :bin, collection: Bin.where(property_id: current_user.properties.ids) %>
     <%= f.association :feed %>
-    <%= f.input :amount, as: :normal, before: "T", placeholder: "Valor em toneladas" %>
-    <%= f.input :density, as: :normal, before: "Kg", placeholder: "Kg por M³" %>
+    <%= f.input :amount, as: :normal, before: "T", placeholder: "Valor em toneladas" ,:input_html => {value: number_with_precision(f.object.amount, precision: 2) }%>
+    <%= f.input :density, as: :normal, before: "Kg", placeholder: "Kg por M³",:input_html => {value: number_with_precision(f.object.density, precision: 2) } %>
     <%= f.input :datestock, as: :date_time_picker  %>
     <%= f.input :datestart, as: :date_time_picker %>
     <%= f.input :dateend, as: :date_time_picker %>

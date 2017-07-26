@@ -5,14 +5,14 @@
     <%= f.association :property, :collection => @property, :label_method => :name, :value_method => :id, include_blank: false %>
     <%= f.input :codeanalysis %>
     <%= f.input :collect, as: :date_picker %>
-    <%= f.input :fat, as: :normal, before: "%" %>
-    <%= f.input :protein, as: :normal, before: "%" %>
-    <%= f.input :lactose, as: :normal, before: "%"  %>
-    <%= f.input :totalsolids, as: :normal, before: "%"  %>
-    <%= f.input :defattedextract, as: :normal, before: "%"  %>
-    <%= f.input :css, as: :normal, before: "cm³"%>
-    <%= f.input :scorecss, as: :normal, before: "cm³" %>
-    <%= f.input :ufc, as: :normal, before: "cm³" %>
+    <%= f.input :fat, as: :normal, before: "%",:input_html => {value: number_with_precision(f.object.fat, precision: 2) } %>
+    <%= f.input :protein, as: :normal, before: "%",:input_html => {value: number_with_precision(f.object.protein, precision: 2) } %>
+    <%= f.input :lactose, as: :normal, before: "%" ,:input_html => {value: number_with_precision(f.object.lactose, precision: 2) } %>
+    <%= f.input :totalsolids, as: :normal, before: "%" ,:input_html => {value: number_with_precision(f.object.totalsolids, precision: 2) } %>
+    <%= f.input :defattedextract, as: :normal, before: "%" ,:input_html => {value: number_with_precision(f.object.defattedextract, precision: 2) } %>
+    <%= f.input :css, as: :normal, before: "cm³",:input_html => {value: number_with_precision(f.object.css, precision: 2) }%>
+    <%= f.input :scorecss, as: :normal, before: "cm³",:input_html => {value: number_with_precision(f.object.scorecss, precision: 2) } %>
+    <%= f.input :ufc, as: :normal, before: "cm³",:input_html => {value: number_with_precision(f.object.ufc, precision: 2) } %>
   </div>
 
   <div class="form-actions">

@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :amount, as: :normal, before: "L" %>
+    <%= f.input :amount, as: :normal, before: "L",:input_html => {value: number_with_precision(f.object.amount, precision: 2) } %>
     <%= f.input :date, as: :date_picker, before: "#{Time.now.to_date}"%>
     <%= f.association :property, :collection => @property, :label_method => :name, :value_method => :id, include_blank: false %>
   </div>

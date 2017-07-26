@@ -5,7 +5,7 @@
     <div class="form-inputs">
       <%= f.input :name %>
       <%= f.input :purpose, collection: Glebe.purposes.keys, as: :select, allow_blank: true %>
-      <%= f.input :area, as: :normal, before: "Ha", input_html: {value: number_with_precision(f.object.area, precision: 1) } %>
+      <%= f.input :area, as: :normal, before: "Ha", input_html: {value: number_with_precision(f.object.area, precision: 2) } %>
       <%= f.input :inactive, as: :toogle %>
       <%= f.association :property, as: :hidden %>
     </div>

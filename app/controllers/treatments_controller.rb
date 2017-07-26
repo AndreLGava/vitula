@@ -32,6 +32,7 @@ class TreatmentsController < ApplicationController
   # POST /treatments.json
   def create
     @treatment = Treatment.new(treatment_params)
+    @treatment.dosage = treatment_params[:dosage].gsub(/[.]/, '').gsub(/[,]/, '.')
     set_data
     respond_to do |format|
       if @treatment.save
@@ -46,8 +47,10 @@ class TreatmentsController < ApplicationController
   # PATCH/PUT /treatments/1.json
   def update
     set_data
+    @treatment_params = treatment_params
+    @treatment_params[:dosage] = treatment_params[:dosage].gsub(/[.]/, '').gsub(/[,]/, '.')
     respond_to do |format|
-      if @treatment.update(treatment_params)
+      if @treatment.update(@treatment_params)
         format.js { render 'illnesses/treatment', illness: @illness, treatments: @treatments}
       else
         format.js { render 'edit' }

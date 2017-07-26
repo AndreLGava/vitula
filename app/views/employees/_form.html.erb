@@ -14,7 +14,7 @@
       <%= f.input :schooling, collection: Employee.schoolings.keys, as: :select, allow_blank: true %>
       <%= f.input :inss %>
       <%= f.input :pis %>
-      <%= f.input :salary, as: :rs %>
+      <%= f.input :salary, as: :rs,:input_html => {value: number_with_precision(f.object.salary, precision: 2) } %>
       <%= f.input :profession %>
       <%= f.input :payment, collection: Employee.payments.keys, as: :select, allow_blank: true %>
       <%= f.association :property, as: :hidden %>

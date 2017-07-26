@@ -6,12 +6,12 @@ ready = ->
   $('.Kg').mask '0.000,00', reverse: true
   $('.cm').mask '0.000,00', reverse: true
   $('.T').mask '0.000,00', reverse: true
-  $('.percentual').mask '0,000.00', reverse: true
+  $('.percentual').mask '#0.00', reverse: true
   $('.G').mask '0.000,00', reverse: true
   $('.Ton').mask '0.000.000,00', reverse: true
   $('.L').mask '0.000.000,00', reverse: true
   $('.ml').mask '0.000,00', reverse: true
-  $('.cm³').mask '0,000.00', reverse: true
+  $('.cm³').mask '#0.00', reverse: true
   $('.M³').mask '0.000,00', reverse: true
   $('.M').mask '000,00', reverse: true
   $('.mm').mask '000,00', reverse: true

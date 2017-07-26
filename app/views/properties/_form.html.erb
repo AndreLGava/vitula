@@ -6,7 +6,7 @@
     <%= f.input :description %>
     <%= f.input :long %>
     <%= f.input :lat %>
-    <%= f.input :area, as: :normal, before: "Ha" %>
+    <%= f.input :area, as: :normal, before: "Ha", :input_html => {value: number_with_precision(f.object.area, precision: 2) } %>
     <%= f.input :altitude, as: :normal, before: "M"%>
     <%= f.input :precipitation, as: :normal, before: "mm" %>
     <%= f.input :enrolement_of_sanity %>
