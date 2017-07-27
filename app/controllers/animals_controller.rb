@@ -2,6 +2,7 @@ class AnimalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_animal, only: [:show, :edit, :update, :destroy, :animal_development, :animal_production, :animal_reproduction, :animal_illness, :animal_diet]
   before_action :set_reproduction, only: [:show, :edit, :new, :create, :update, :destroy]
+  before_action :find_reproductions, only: [:edit, :new]
 
   def index
     redirect_to properties_path unless current_user.has_property?
@@ -28,10 +29,6 @@ class AnimalsController < ApplicationController
   end
 
   def new
-    @today = Time.now.to_date
-    @last_months = @today - 18.months
-    @reproduction = Reproduction.where(mother_id: current_user.animals, parturition: @last_months..@today).order(created_at: :DESC)
-
     if params[:reproduction].nil?
       @animal = Animal.new
     else
@@ -105,6 +102,13 @@ class AnimalsController < ApplicationController
   end
 
   private
+
+    def find_reproductions
+        @today = Time.now.to_date
+        @last_months = @today - 18.months
+        @reproduction = Reproduction.where(mother_id: current_user.animals, parturition: @last_months..@today).order(created_at: :DESC)
+    end
+
     def set_animal
       @animal = Animal.find(params[:id])
       @financials = @animal.financials
