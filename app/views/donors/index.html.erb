@@ -27,6 +27,9 @@
           <td><%= animal.name %></td>
           <td><%= animal.description %></td>
           <td><%= animal.breed %></td>
+          <td><%= link_to donor_path(animal), class: "btn btn-sm btn-primary" do %>
+            <i class="fa fa-pencil"></i> <%= I18n.t('crud.show') %>
+          <% end %>
           <td><%= link_to edit_donor_path(animal), class: "btn btn-sm btn-default" do %>
             <i class="fa fa-pencil"></i> <%= I18n.t('crud.edit') %>
           <% end %>
