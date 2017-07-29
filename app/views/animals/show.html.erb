@@ -49,7 +49,10 @@
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:father)%></strong>
-        <%= link_to @animal.reproduction.father.name, @animal.reproduction.father unless @animal.reproduction.nil? %>
+        <% unless @animal.reproduction.nil? %>
+          <%= link_to @animal.reproduction.father.name, @animal.reproduction.father unless @animal.reproduction.father.donor? %>
+          <%= link_to @animal.reproduction.father.name, donor_path(@animal.reproduction.father) if @animal.reproduction.father.donor? %>
+        <% end %>
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:discard)%></strong>

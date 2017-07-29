@@ -1,0 +1,50 @@
+<% breadcrumb :donor, @donor %>
+<div class="row">
+  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item">
+          <center> 
+            <%= image_tag @donor.photo.url(:medium), class: "img-rounded img-responsive" %>
+          </center>
+        </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:code)%></strong>
+        <%= @donor.code %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:name)%></strong>
+        <%= @donor.name %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:description)%></strong>
+        <%= @donor.description %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:breed)%></strong>
+        <%= @donor.breed %>
+      </li>
+      <li class="list-group-item">
+        <strong><%= Animal.human_attribute_name(:discard)%></strong>
+        <%= @donor.discard %>
+      </li>
+      <li class="list-group-item">
+        <%= link_to I18n.t('crud.edit'), edit_donor_path(@donor), class: "btn btn-default btn-sm" %>
+        <%= link_to I18n.t('crud.back'), :back, class: "btn btn-default btn-sm" %>
+      </li>
+    </ul>
+  </div>
+    <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to I18n.t('animals.show.reproduction'), animal_reproduction_path(id: @donor.id), class: 'btn btn-default', remote: true  %>
+
+
+      </div>
+<!--       <div class="btn-group pull-right" role="group">
+          <%= link_to "", excel_path(:xlsx), target: "blank", class: "fa fa-file-excel-o fa-2x btn btn-success btn-sm btn-outline" %>
+          <%= link_to "", pdf_path(:pdf), target: "blank", class: "fa fa-file-pdf-o fa-2x btn btn-danger btn-sm btn-outline" %>
+      </div> -->
+    </div>
+    <div id="animal_show">
+
+    </div>
+</div>

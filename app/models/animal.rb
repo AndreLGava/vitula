@@ -48,6 +48,10 @@ class Animal < ActiveRecord::Base
     end
   end
 
+  def donor?
+    return self.donor == true ? true : false 
+  end
+
   def reproductions
     Reproduction.where('mother_id = ? or father_id = ?', id, id)
   end

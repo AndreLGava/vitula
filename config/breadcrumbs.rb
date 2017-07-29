@@ -15,6 +15,11 @@ crumb :donors do
   link Animal.human_attribute_name(:donors), donors_path
 end
 
+crumb :donor do |donor|
+  link donor.name, donor
+  parent :donors
+end
+
 crumb :properties do
   link Property.human_attribute_name(:properties), properties_path
 end
