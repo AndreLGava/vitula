@@ -7,6 +7,7 @@ class Financial < ActiveRecord::Base
   belongs_to :stock
   belongs_to :treatment
   belongs_to :schedule
+  belongs_to :close
   
   has_many :shipments
 
@@ -14,6 +15,7 @@ class Financial < ActiveRecord::Base
 
   validates :description, presence: true
   validates :value, presence: true
+  validates :operation, presence: true
 
   def name
   	"#{self.description}"

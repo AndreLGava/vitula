@@ -29,6 +29,8 @@ class ProductionsController < ApplicationController
   def create
     @production = Production.new(production_params)
 
+    @production.amount = production_params[:amount].gsub(/[.]/, '').gsub(/[,]/, '.')
+
     @animal = Animal.find_by_id(@production.animal_id)
 
     @productions = @animal.productions.order(id: :desc).page params[:page]
@@ -47,8 +49,13 @@ class ProductionsController < ApplicationController
   # PATCH/PUT /productions/1
   # PATCH/PUT /productions/1.json
   def update
+
+    @production_params = production_params
+
+    @production_params.amount = production_params[:amount].gsub(/[.]/, '').gsub(/[,]/, '.')
+
     respond_to do |format|
-      if @production.update(production_params)
+      if @production.update(@production_params)
         format.html { redirect_to @production, notice: I18n.t('crud.saved') }
       else
         format.html { render :edit }

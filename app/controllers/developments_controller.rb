@@ -16,7 +16,11 @@ class DevelopmentsController < ApplicationController
     @animal = Animal.find_by_id(@development.animal_id)
 
     @developments = @animal.developments.order(id: :desc).page params[:page]
-    
+
+    @development.height = development_params[:height].gsub(/[.]/, '').gsub(/[,]/, '.')
+
+    @development.weight = development_params[:weight].gsub(/[.]/, '').gsub(/[,]/, '.')
+
     respond_to do |format|
       if @development.save
         format.js { render 'development', animal: @animal, developments: @developments}
@@ -29,8 +33,12 @@ class DevelopmentsController < ApplicationController
   end
 
   def update
+    @development_params = development_params
+    @development_params[:height] = development_params[:height].gsub(/[.]/, '').gsub(/[,]/, '.')
+    @development_params[:weight] = development_params[:weight].gsub(/[.]/, '').gsub(/[,]/, '.')
+
     respond_to do |format|
-      if @development.update(development_params)
+      if @development.update(@development_params)
         format.html { redirect_to @development, notice: I18n.t('crud.saved') }
       else
         format.html { render :edit }

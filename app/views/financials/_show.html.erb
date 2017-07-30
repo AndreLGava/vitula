@@ -1,4 +1,10 @@
 <div class="col-xs-12">
+  <%= link_to financials_path(financial: @financial), remote: true, class: 'btn btn-default' do %>
+    <span class="fa fa-chevron-left"></span>
+    <%= I18n.t('crud.back') %>
+  <% end %>
+</div>
+<div class="col-xs-12">
   <ul class="list-group">
     <li class="list-group-item">
       <strong><%= Financial.human_attribute_name(:value)%></strong>

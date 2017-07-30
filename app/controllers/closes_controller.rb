@@ -1,6 +1,10 @@
 class ClosesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @closes = Close.where(user_id: current_user.id).order(dateclosing: :DESC).page params[:page]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_close

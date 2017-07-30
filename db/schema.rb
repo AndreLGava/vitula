@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726013937) do
+ActiveRecord::Schema.define(version: 20170729205057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(version: 20170726013937) do
     t.decimal  "b_canalizacao",   precision: 10, scale: 2
     t.decimal  "b_frete",         precision: 10, scale: 2
     t.decimal  "b_compra",        precision: 10, scale: 2
+    t.string   "related"
   end
 
   add_index "financials", ["animal_id"], name: "index_financials_on_animal_id", using: :btree

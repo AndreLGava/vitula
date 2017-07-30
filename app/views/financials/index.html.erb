@@ -4,6 +4,10 @@
     <span class="fa fa-plus"></span>
     <%= I18n.t('crud.new') %>
   <% end %>
+  <%= link_to closes_path, remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }, class: 'btn btn-primary pull-right btn-margin' do %>
+    <span class="fa fa-money"></span>
+    <%= Financial.human_attribute_name(:close_index)%>
+  <% end %>
   <%= link_to shipment_financial_path, remote: true, data: { 'toggle' => 'modal', 'target' => '#modal' }, class: 'btn btn-primary pull-right btn-margin' do %>
     <span class="fa fa-tint"></span>
     <%= Financial.human_attribute_name(:shipment)%>

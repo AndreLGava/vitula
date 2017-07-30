@@ -10,7 +10,7 @@ class Shipment < ActiveRecord::Base
 	belongs_to :property
 	belongs_to :financial
 
-	scope :them,   -> (user, params) { where(property_id: user.properties.ids).order(date: :desc).page params }
+	scope :them,   -> (user, params) { where(property_id: user.properties.ids).order(date: :DESC).page params }
 	scope :total,   -> (user, params) { where(property_id: user.properties.ids, date: Time.now.beginning_of_month..Time.now.end_of_month).order(id: :desc).page params }
 	scope :shipment,   -> (user, datestart, dateend) { where(property_id: user.properties.ids, date: datestart..dateend, financial_id: nil).order(id: :desc)}
 	scope :total_general,   -> (user, date) { where(property_id: user.properties.ids, date: date.beginning_of_month..date.end_of_month)}

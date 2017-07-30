@@ -26,7 +26,7 @@ class FinancialsController < ApplicationController
   def new_financial_ajax
     @model_name = params[:model]
     @model = @model_name.singularize.classify.constantize.find(params[:id])
-    @financial = @model.financials.new
+    @financial = @model.financials.new(related: @model_name)
   end
 
   # GET /financials/1/edit
@@ -38,6 +38,9 @@ class FinancialsController < ApplicationController
   def create
     
     @financial = Financial.new(financial_params)
+
+    @link = "#{@financial.related}_path"
+
     @financial.value = financial_params[:value].gsub(/[.]/, '').gsub(/[,]/, '.')
 
     @financial.user_id = @current_user.id
@@ -152,7 +155,7 @@ class FinancialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def financial_params
-      params.require(:financial).permit(:valor_litro, :b_ccs, :b_bacteria, :b_gordura, :b_tanque, :b_canalizacao, :b_frete, :b_compra, :datestart, :dateend, :value, :datetransaction, :operation, :description, :animal_id, :service_id, :employee_id, :reproduction_id, :stock_id, :treatment_id, :shipment_id, :schedule_id, :service_id, :user_id)
+      params.require(:financial).permit(:related, :valor_litro, :b_ccs, :b_bacteria, :b_gordura, :b_tanque, :b_canalizacao, :b_frete, :b_compra, :datestart, :dateend, :value, :datetransaction, :operation, :description, :animal_id, :service_id, :employee_id, :reproduction_id, :stock_id, :treatment_id, :shipment_id, :schedule_id, :service_id, :user_id)
     end
 
 end

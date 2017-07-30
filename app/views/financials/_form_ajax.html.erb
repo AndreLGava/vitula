@@ -5,6 +5,7 @@
     <%= f.input :datetransaction, as: :date_picker, before: Time.now.to_date %>
     <%= f.input :operation, collection: Financial.operations.keys, as: :select, allow_blank: false %>
     <%= f.input :description %>
+    <%= f.input :related, as: :hidden %>
     <%= f.association :animal, as: :hidden %>
     <%= f.association :service, as: :hidden %>
     <%= f.association :employee, as: :hidden %>
