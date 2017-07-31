@@ -5,20 +5,41 @@
     <thead>
       <tr>
         <th><%= Production.human_attribute_name(:animal)%></th>
+        <th><%= Production.human_attribute_name(:average_day_month)%></th>
         <th><%= Production.human_attribute_name(:average_month)%></th>
+        <th><%= Production.human_attribute_name(:average_day_year)%></th>
         <th><%= Production.human_attribute_name(:average_year)%></th>
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
+    <% total_month = 0 %>
+    <% total_year = 0 %>
     <% @animals.each do |production| %>
+    <% total_month += production.total_average_month(Time.now) %>
+    <% total_year += production.total_average_year(Time.now) %>
       <tr>
         <td><%= "#{production.code} - #{production.name}" %></td>
-        <td><%= number_to_currency(production.average_month(Time.now) , unit: "L/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
-        <td><%= number_to_currency(production.average_year_total(Time.now) , unit: "L/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
+        <td><%= number_to_currency(production.average_month(Time.now) , unit: "L/dia/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
+        <td><%= number_to_currency(production.total_average_month(Time.now) , unit: "L/dia/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
+        <td><%= number_to_currency(production.average_year_total(Time.now) , unit: "L/dia/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
+        <td><%= number_to_currency(production.total_average_year(Time.now) , unit: "L/dia/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
       </tr>
     <% end %>
+    <tr class="info">
+      <td>
+        Totais
+      </td>
+      <td></td>
+      <td>
+        <%= total_month %>
+      </td>
+      <td></td>
+      <td>
+        <%= total_year %>
+      </td>
+    </tr>
     </tbody>
   </table>
 </div>

@@ -86,6 +86,17 @@ class Animal < ActiveRecord::Base
     return categories.reverse
   end
 
+
+  def total_average_year(date)
+    all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_year, date.end_of_year)
+    return all_of_them.empty? ? 0 : (all_of_them.average(:amount) * (date.beginning_of_year - date.end_of_year).to_i).round(2)
+  end
+
+  def total_average_month(date)
+    all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_month, date.end_of_month)
+    return all_of_them.empty? ? 0 : (all_of_them.average(:amount) * (date.beginning_of_month - date.end_of_month).to_i).round(2)
+  end
+
   def production_chart
     variable = {}
     variable['title']                      = I18n.t('productions.chart.title')
