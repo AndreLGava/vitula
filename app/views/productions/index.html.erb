@@ -20,11 +20,11 @@
     <% total_month += production.total_average_month(Time.now) %>
     <% total_year += production.total_average_year(Time.now) %>
       <tr>
-        <td><%= "#{production.code} - #{production.name}" %></td>
+        <td><%= link_to "#{production.code} - #{production.name}", production, target: :blank %></td>
         <td><%= number_to_currency(production.average_month(Time.now) , unit: "L/dia/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
-        <td><%= number_to_currency(production.total_average_month(Time.now) , unit: "L/dia/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
+        <td><%= number_to_currency(production.total_average_month(Time.now) , unit: "L/mês", separator: ",", delimiter: ".", format: "%n %u")%></td>
         <td><%= number_to_currency(production.average_year_total(Time.now) , unit: "L/dia/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
-        <td><%= number_to_currency(production.total_average_year(Time.now) , unit: "L/dia/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
+        <td><%= number_to_currency(production.total_average_year(Time.now) , unit: "L/ano", separator: ",", delimiter: ".", format: "%n %u") %></td>
       </tr>
     <% end %>
     <tr class="info">
@@ -33,11 +33,11 @@
       </td>
       <td></td>
       <td>
-        <%= total_month %>
+        <%= number_to_currency(total_month , unit: "L", separator: ",", delimiter: ".", format: "%n %u") %>
       </td>
       <td></td>
       <td>
-        <%= total_year %>
+        <%= number_to_currency(total_year , unit: "L", separator: ",", delimiter: ".", format: "%n %u") %>
       </td>
     </tr>
     </tbody>

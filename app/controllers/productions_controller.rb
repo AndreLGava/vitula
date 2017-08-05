@@ -66,12 +66,14 @@ class ProductionsController < ApplicationController
   # DELETE /productions/1
   # DELETE /productions/1.json
   def destroy
+    @animal = Animal.find_by_id(@production.animal_id)
+    @productions = @animal.productions.order(id: :desc).page params[:page]
     @production.destroy
     respond_to do |format|
-      format.html { redirect_to productions_url, notice: I18n.t('crud.destroyed') }
+      format.js { render 'production', animal: @animal, productions: @productions}
     end
   end
-
+  
   private
 
     def set_animal

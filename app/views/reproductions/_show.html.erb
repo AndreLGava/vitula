@@ -40,6 +40,13 @@
         <strong><%= Reproduction.human_attribute_name(:father )%></strong>
         <%= @reproduction.father.name unless @reproduction.father.nil?%>
       </p>
+
+      <% @reproduction.animals.each do |child| %>
+        <p>
+          <strong><%= Reproduction.human_attribute_name(:child )%></strong>
+          <%= link_to child.name, child %>
+        </p>
+      <% end %>
     </div>
   </div>
   <div class="panel panel-default">

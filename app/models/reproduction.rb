@@ -114,12 +114,10 @@ class Reproduction < ActiveRecord::Base
     end
   end
 
-  def age
-	  unless parturition.nil?
-		  now = Time.now.to_datetime
+  def age(discard = nil)
+		  now = discard.nil? ? Time.now.to_datetime : discard.to_date
 		  parturit = self.parturition.to_datetime
 		  distance_of_time_in_words(now, parturit, true)
-		end
 	end
 
   def born

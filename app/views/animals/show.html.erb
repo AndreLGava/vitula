@@ -41,7 +41,7 @@
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:age)%></strong>
-        <%= @animal.reproduction.age unless @animal.reproduction.nil? %>
+        <%= @animal.reproduction.age(@animal.discard) unless @animal.reproduction.nil? %>
       </li>
       <li class="list-group-item">
         <strong><%= Animal.human_attribute_name(:mother)%></strong>

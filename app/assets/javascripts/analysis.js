@@ -33,9 +33,6 @@ var Analysis = {
                                         hover: {
                                                 lineWidth: 5
                                         }
-                                },
-                                marker: {
-                                        enabled: false
                                 }
                         }
                 },

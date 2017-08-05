@@ -7,6 +7,8 @@
     <thead>
       <tr>
             <th>Data de fechamento</th>
+            <th>Data ínicio</th>
+            <th>Data fim</th>
             <th>Valor disponível</th>
             <th>Movimentações Relacionadas</th>
       </tr>
@@ -16,6 +18,8 @@
       <% @closes.each do |c| %>
           <tr>
             <td><%= c.dateclosing.to_date %></td>
+            <td><%= c.financials.order(datetransaction: :ASC).first.datetransaction %></td>
+            <td><%= c.financials.order(datetransaction: :DESC).first.datetransaction %></td>
             <td><%= number_to_currency(c.totalvalue, unit: "R$", separator: ",", delimiter: ".") %></td>
             <td>
                 <% c.financials.each do |s| %>

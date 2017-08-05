@@ -88,13 +88,15 @@ class Animal < ActiveRecord::Base
 
 
   def total_average_year(date)
+    date = date.to_date
     all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_year, date.end_of_year)
-    return all_of_them.empty? ? 0 : (all_of_them.average(:amount) * (date.beginning_of_year - date.end_of_year).to_i).round(2)
+    return all_of_them.empty? ? 0 : ((all_of_them.average(:amount)/12) * ( date.end_of_year - date.beginning_of_year + 1).to_i).round(2)
   end
 
   def total_average_month(date)
+    date = date.to_date
     all_of_them = self.productions.where('measurement >= ? and measurement <= ?', date.beginning_of_month, date.end_of_month)
-    return all_of_them.empty? ? 0 : (all_of_them.average(:amount) * (date.beginning_of_month - date.end_of_month).to_i).round(2)
+    return all_of_them.empty? ? 0 : (all_of_them.average(:amount) * ( date.end_of_month - date.beginning_of_month + 1).to_i).round(2)
   end
 
   def production_chart

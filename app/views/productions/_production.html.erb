@@ -17,12 +17,18 @@
 				<td><%= Production.human_attribute_name(:amount)%></td>
 				<td><%= Production.human_attribute_name(:measurement)%></td>
 				<td><%= Production.human_attribute_name(:observation)%></td>
+				<td></td>
 			</tr>
 			<% @productions.each do |p| %>
 				<tr>
 					<td><%= number_to_currency(p.amount, unit: "L", separator: ",", delimiter: ".", format: "%n %u") %></td>
 					<td><%= p.measurement %></td>
 					<td><%= p.observation %></td>
+					<td>
+						<%= link_to p, method: :delete, data: { confirm: I18n.t('crud.destroy_confirmation') }, remote: true, class: 'btn btn-xs btn-outline btn-danger' do %>    
+				            <i class="fa fa-trash"></i>
+				          <% end %> 
+					</td>
 				</tr>
 		    <% end %>
 		</table>
