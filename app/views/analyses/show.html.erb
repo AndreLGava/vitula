@@ -7,6 +7,10 @@
     <span class="fa fa-pencil"></span>
     <%= I18n.t('crud.edit') %>
   <% end %>
+    <%= link_to new_analysis_path, class: 'btn btn-primary' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('analyses.new.new') %>
+  <% end %>
   <h3><%= I18n.t('crud.show') %> <%= Analysis.human_attribute_name(:analysis) %></h3>
 </div>
 <div class="col-xs-12">

@@ -3,6 +3,10 @@
     <span class="fa fa-chevron-left"></span>
     <%= I18n.t('crud.back') %>
   <% end %>
+  <%= link_to new_disease_path, class: 'btn btn-primary' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('diseases.new.new') %>
+  <% end %>
   <%# link_to edit_disease_path(@disease), class: 'btn btn-primary' do %>
     <!-- <span class="fa fa-pencil"></span> -->
     <%# I18n.t('crud.edit') %>

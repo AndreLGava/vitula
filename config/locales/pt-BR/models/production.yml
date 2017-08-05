@@ -1,11 +1,11 @@
 pt-BR:
   activerecord:
     models:
-      production: Produções
+      production: Produções diárias
     attributes:
       production:
-        production: Produção
-        productions: Produções
+        production: Produção diária
+        productions: Produções diárias
         amount: Quantidade de leite produzido
         measurement: Data e hora da medição
         observation: Observação

@@ -206,7 +206,7 @@ crumb :batch do |batch|
 end
 
 crumb :services do 
-  link 'services', services_path
+  link Service.human_attribute_name(:services), services_path
 end
 
 crumb :feeds do

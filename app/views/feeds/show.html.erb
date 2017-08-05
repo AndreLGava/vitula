@@ -3,6 +3,10 @@
     <span class="fa fa-chevron-left"></span>
     <%= I18n.t('crud.back') %>
   <% end %>
+  <%= link_to new_feed_path, class: 'btn btn-primary ' do %>
+    <span class="fa fa-plus"></span>
+    <%= I18n.t('crud.new') %>
+  <% end %>
   <%# link_to edit_feed_path(@feed), class: 'btn btn-primary' do %>
     <!-- <span class="fa fa-pencil"></span> -->
     <%# I18n.t('crud.edit') %>
