@@ -33,22 +33,48 @@ class FinancialsController < ApplicationController
   def edit
   end
 
+  def back
+    
+    @params = params
+
+    @model_name = @params[:related]
+
+    @model = @model_name.singularize.classify.constantize.find(@params[:registro])
+    
+    #@registro = @params["#{params[:related].singularize}_id".to_sym]
+    
+    @financials = @model.financials
+
+    params[:controller] = @params[:related]
+    params[:id] = @params[:registro]
+    
+    respond_to do |format|
+      #render partial: 'financials/financials', locals: {id: @service.id, financials: @financials} 
+ 
+      format.js   { render 'financials', id: @model.id, financials: @financials, params: params}
+    end
+  end
+
   # POST /financials
   # POST /financials.json
   def create
-    
     @financial = Financial.new(financial_params)
 
-    @link = "#{@financial.related}_path"
-
+    unless financial_params[:related].nil?
+      @registro = financial_params["#{financial_params[:related].singularize}_id".to_sym]
+    end
+    
     @financial.value = financial_params[:value].gsub(/[.]/, '').gsub(/[,]/, '.')
 
     @financial.user_id = @current_user.id
+
+    @related = @financial.related
+
     respond_to do |format|
       if @financial.save
         format.html { redirect_to @financial, notice: I18n.t('crud.saved') }
         format.json { render :show, status: :created, location: @financial }
-        format.js   { render 'financial_show', financials: @financial}
+        format.js   { render 'financial_show', financial: @financial, related: @related, registro: @registro}
       else
         format.html { render :new }
         format.json { render json: @financial.errors, status: :unprocessable_entity }

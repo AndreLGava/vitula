@@ -161,7 +161,7 @@ crumb :diet do |diet|
 end
 
 crumb :financials do 
-  link 'financials', financials_path
+  link Financial.human_attribute_name(:financials), financials_path
 end
 
 crumb :financial do |financial|

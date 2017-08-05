@@ -81,7 +81,7 @@ class Animal < ActiveRecord::Base
     on_time = 0..11
     on_time.each do |time|
       on_date = Time.now - time.months
-      categories[time] = on_date.strftime("%B/%Y")
+      categories[time] = on_date.strftime("%m/%Y")
     end
     return categories.reverse
   end

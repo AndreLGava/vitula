@@ -1,0 +1,3 @@
+<% binding.pry %>
+$("#financials").html("<%= escape_javascript(render :partial => 'financials/financials', related: params[:related], registro: params[:registro]) %>");
+
